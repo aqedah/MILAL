@@ -1,0 +1,8 @@
+source,columns
+r3b2:03_bundle_occurrences.csv,bundle_id | window_id | ref_start | ref_end | surface_text
+r3b2:08_singleton_review_items.csv,review_item_id | atom_index_1based | atom_node | ref_start | ref_end | surface_text
+r3b3:02_lineage_bundle_members.csv,lineage_id | bundle_id | parent_bundle_id | refinement_depth | exemplar_ref_start | exemplar_ref_end | exemplar_surface_text
+r3b3:05_lineage_singleton_refinement_events.csv,lineage_id | parent_bundle_id | parent_level | child_level | sequence_length | exemplar_start_index_1based | exemplar_ref_start | exemplar_ref_end | exemplar_surface_text | mapped_g6_singleton_review_item_id
+r3b3:06_g6_singleton_lineage_links.csv,review_item_id | atom_index_1based | atom_node | ref_start | ref_end | surface_text | lineage_id | parent_bundle_id_at_first_unique | link_status
+r3b3:07_sequence_extension_lineage_overlay.csv,relation | short_lineage_id | long_lineage_id | short_bundle_id | long_bundle_id | short_exemplar_ref_start | long_exemplar_ref_start
+r3b3:09_lineage_review_workspace.csv,review_container_class | review_container_id | lineage_id | orphan_singleton_review_item_id | bundle_count | max_refinement_depth

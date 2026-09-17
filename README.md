@@ -24,15 +24,19 @@ Copy the following real pipeline inputs into `inputs/` on your desktop before as
 - `job_r3b_2_results.zip`
 - `job_r3b_3_results.zip`
 
-The user's real BHSA/Text-Fabric 2021 corpus remains on Termux and is used for final empirical execution.
+BHSA/Text-Fabric 2021 is available on Windows at `C:\MILAL-data\bhsa\tf\2021`
+and in the user's Termux installation. The real Termux R3c.0.2 execution has been
+completed, inspected and accepted. The Windows run is for cross-platform
+reproduction and cross-validation against that accepted execution.
 
 ## R3c.0.2 implementation
 
 - Source: `src/milal_r3c_0_2_reviewability.py`
 - Job pilot configuration: `config/r3c_0_2_job_pilot.json`
 - Termux runner: `scripts/run_milal_r3c_0_2_termux.sh`
+- Windows runner: `scripts/run_milal_r3c_0_2_windows.ps1` (self-test, analysis, ZIP and log)
 - Instructions and output schema: [R3c.0.2 README](docs/README_MILAL_R3c_0_2.md)
 - Tests: `python -m unittest discover -s tests -v`
 
 The implementation preserves R3c.0.1 and the frozen R3b.3 navigation layer.
-Empirical acceptance remains pending real Termux/BHSA execution and packet review.
+Windows results should be compared against the accepted Termux/BHSA execution.

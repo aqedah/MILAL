@@ -10,6 +10,7 @@ import unittest
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
+BASELINE_FIXTURES = ROOT / "tests/fixtures/r3c_0_1"
 sys.path.insert(0, str(ROOT / "src"))
 import milal_r3c_0_2_reviewability as m
 
@@ -177,9 +178,7 @@ class PilotTests(unittest.TestCase):
             self.build()
 
     def test_required_columns_match_actual_baseline_inventory(self):
-        path = ROOT / "results/r3c_0_1/01_source_schema_inventory.csv"
-        if not path.exists():
-            self.skipTest("baseline schema inventory absent")
+        path = BASELINE_FIXTURES / "01_source_schema_inventory.csv"
         with path.open(encoding="utf-8-sig") as stream:
             inventory = {r["source"]: set(r["columns"].split(" | ")) for r in csv.DictReader(stream)}
         for key, (owner, filename) in m.SOURCE_FILES.items():
@@ -285,9 +284,7 @@ class PilotTests(unittest.TestCase):
                 self.assertEqual(m.sha256_file(out / row["file"]), row["sha256"])
 
     def test_optional_job_regression_from_checked_in_baseline(self):
-        path = ROOT / "results/r3c_0_1/08_boundary_control_pattern_matches.csv"
-        if not path.exists():
-            self.skipTest("baseline regression file absent")
+        path = BASELINE_FIXTURES / "08_boundary_control_pattern_matches.csv"
         with path.open(encoding="utf-8-sig") as f:
             rows = [r for r in csv.DictReader(f) if r["review_item_id"] == "S02135"]
         self.assertEqual({r["object_type"] for r in rows}, {"G6_SINGLETON_REVIEW_ITEM", "SINGLETON_REFINEMENT_EVENT"})
@@ -297,9 +294,7 @@ class PilotTests(unittest.TestCase):
     def test_job_config_control_through_new_pipeline(self):
         # Real baseline control identity/surface in a synthetic genealogy. This is
         # an identity/rendering regression, not a reconstruction of real ancestry.
-        path = ROOT / "results/r3c_0_1/08_boundary_control_pattern_matches.csv"
-        if not path.exists():
-            self.skipTest("baseline regression file absent")
+        path = BASELINE_FIXTURES / "08_boundary_control_pattern_matches.csv"
         with path.open(encoding="utf-8-sig") as stream:
             baseline = next(r for r in csv.DictReader(stream) if r["review_item_id"] == "S02135")
         config = json.loads((ROOT / "config/r3c_0_2_job_pilot.json").read_text(encoding="utf-8"))

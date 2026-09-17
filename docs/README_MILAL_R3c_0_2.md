@@ -1,8 +1,10 @@
 # MILAL R3c.0.2 — Human Review Case Pilot
 
 This version creates 30 review cases over the frozen R3b.3 navigation layer.
-R3c.0.1 source, runner and real outputs remain unchanged. Local synthetic success
-is **not empirical acceptance**: inspect the real Termux/BHSA 2021 result next.
+R3c.0.1 source, runner and real outputs remain unchanged. The real Termux/BHSA
+2021 R3c.0.2 run has been completed, inspected and accepted. Windows execution
+now serves cross-platform reproduction and cross-validation against that run;
+local synthetic tests do not establish cross-platform empirical agreement.
 
 ## Run on Termux
 
@@ -50,6 +52,53 @@ configuration. Optional `--expected-review-containers 1066` asserts the current
 Job regression count; it is not a semantic requirement. Exit 0 means computed
 checks passed, not that a researcher has accepted the evidence. Exit 2 means
 validation failed; inspect `00_FATAL_ERROR.txt`, gates and metadata.
+
+## Run on Windows
+
+The Windows wrapper uses the same unchanged Python core and produces the same
+logical files listed below. It requires Windows PowerShell 5.1 or PowerShell 7
+and Python with Text-Fabric installed. The confirmed virtual environment is
+`C:\MILAL\.venv`; activation is unnecessary because the wrapper invokes its Python
+directly. The default is derived from the runner's repository directory, so it
+also works in another clone location. Run from any working directory:
+
+```powershell
+& C:\MILAL\scripts\run_milal_r3c_0_2_windows.ps1 `
+  -R3b2Zip 'C:\MILAL\inputs\job_r3b_2_results.zip' `
+  -R3b3Zip 'C:\MILAL\inputs\job_r3b_3_results.zip' `
+  -TfDir 'C:\MILAL-data\bhsa\tf\2021' `
+  -OutputDir 'C:\MILAL\results\r3c_0_2_windows_01'
+```
+
+All four paths are required; quote paths containing spaces. Optional parameters:
+
+| Parameter | Default |
+|---|---|
+| `-PythonExe` | `<repository>\.venv\Scripts\python.exe`; override with an explicit executable path |
+| `-ResultZip` | `<OutputDir>_results.zip` |
+| `-RunLog` | `<OutputDir>_windows_run.log` |
+| `-PilotConfig` | Repository `config/r3c_0_2_job_pilot.json` |
+| `-Seed` | `20260917`, overriding configuration seed as on Termux |
+
+Choose fresh output, ZIP and log paths. The ZIP and log must be outside the
+output directory and distinct from each other. Relative paths resolve from the
+calling directory; source and default configuration resolve from the runner.
+The wrapper checks both input files, configuration, Python, and BHSA `otype.tf`
+and `oslots.tf`, then runs `--self-test` before analysis. A failed self-test stops
+the run. These two TF checks establish file presence only; Python validates the
+remaining feature/data requirements during analysis.
+
+The UTF-8 log captures arguments, stdout, stderr and exit statuses. The ZIP retains
+the output directory as its top-level folder, matching Termux packaging. Failed
+analysis output is also archived when available. Self-test and analysis nonzero
+exit codes are preserved; a ZIP failure returns nonzero when analysis succeeded.
+If both analysis and packaging fail, the analysis code takes precedence. Wrapper
+validation errors return 2. Inspect `$LASTEXITCODE` after invoking the script.
+Preflight failures are logged once a fresh log is established; unsafe/existing
+destination paths are rejected before any log is created.
+
+Windows support does not change selection, genealogy, review fields or extension
+handling. Compare the Windows results against the already accepted Termux execution.
 
 ## Selection and identity
 
@@ -139,5 +188,6 @@ python src/milal_r3c_0_2_reviewability.py --self-test \
 The self-test uses a 25-container synthetic corpus, ZIP loading, branching,
 explicit folding, event-only outcomes, an orphan, span/structure context,
 boundary panels, deterministic sampling and deliberately broken invariants.
-Unit tests add schema/conflict failures and an optional checked-in Job identity
-regression. They do not replace real TF feature loading or empirical review.
+Unit tests add schema/conflict failures and mandatory historical Job identity
+and source-schema regressions using minimal CSV extracts in
+`tests/fixtures/r3c_0_1/`. They do not replace real TF feature loading or empirical review.
