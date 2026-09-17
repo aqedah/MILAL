@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Large / local inputs
+inputs/*
+!inputs/README.md
+
+# Generated results
+results/
+
+# Archives and runtime logs
+*.zip
+*_run.log
+
+# Text-Fabric / BHSA local data
+text-fabric-data/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Windows
+Thumbs.db
+Desktop.ini

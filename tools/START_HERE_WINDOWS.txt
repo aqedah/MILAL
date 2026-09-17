@@ -1,0 +1,21 @@
+MILAL -> Codex desktop transition
+
+1. Extract MILAL_Codex_Starter.zip to a normal Windows folder, e.g.
+   C:\Users\<you>\Documents\MILAL
+
+2. Optional but recommended: initialize Git.
+   Open PowerShell in the MILAL folder and run:
+
+   powershell -ExecutionPolicy Bypass -File .\tools\init_git.ps1
+
+3. Open Codex Desktop.
+
+4. Choose Open Folder / Open Project and select the extracted MILAL folder.
+
+5. Open `docs/CODEX_FIRST_TASK.md` and paste its prompt into Codex.
+
+6. Do NOT ask Codex to implement immediately. First let it inspect and report its understanding.
+
+7. After its report, compare it with `docs/R3C_0_2_SPEC.md`. If aligned, instruct it to implement R3c.0.2 and run tests.
+
+8. Before real Termux execution, copy/update the generated runner/package back to Android Downloads.
