@@ -1,6 +1,38 @@
 # MILAL Development Handoff
 
-## Current stage — R3c.1, 2026-09-18
+## Current stage — R3c.2, 2026-09-18
+
+The researcher reports the real Windows/BHSA 2021 R3c.1 result passed all 24
+gates: 8,908 units (2,219 repeated bundles, 6,689 singleton outcomes), 30 pilot
+cases, 1,657 selected evidence rows and 798/798 resolved contexts. S02135 and all
+six boundary panels survived; extension stayed overlay-only / EXEMPLAR_ONLY.
+The whole packet had 32,038 lines. HIGH cases 001–006 had respectively
+366/327/307/181/180/174 occurrences and 5,784/4,978/4,989/3,033/3,027/3,090 lines.
+These observations establish a presentation problem, not a reason to split units.
+
+R3c.2 is implemented in `src/milal_r3c_2_compact_review.py` as a presentation layer
+over the frozen R3c.1 result ZIP. It verifies source hashes/version/gates/cases,
+reuses the exact 30 cases, groups display by context and structural relation keys,
+and retains every target/boundary/relation/overlay record. Context detail JSON is
+unchanged. No BHSA reload, resampling or new analytical identity is introduced.
+See [R3c.2 specification](R3C_2_SPEC.md) and [instructions](README_MILAL_R3c_2.md).
+
+The real R3c.1 result ZIP is not bundled in this B-computer clone; its structure
+was inspected through the frozen writer/specification. The empirical observations
+above are researcher-supplied. This task validates only synthetic derived output;
+it does not process the real R3c.1 ZIP. The next pending step is a separately
+authorized R3c.2 run over that frozen ZIP and human inspection of the compact
+packet. R3b.3, R3c.0.2, R3c.1 analytical cores and historical outputs stay frozen.
+R4 remains out of scope.
+
+Development validation: syntax and synthetic self-test passed; all 101 regression
+tests passed with no skips (PowerShell 5.1 and 7), after canonicalizing the test
+temporary path to avoid existing short-path spelling comparisons. All 23 R3c.2
+gates passed and have negative tests. The inspected synthetic compact packet
+contains 30 cases, 2,466 lines and 276,551 UTF-8 bytes. See tests/README.md for
+the reproducible command and synthetic record counts.
+
+## Historical R3c.1 stage, 2026-09-18
 
 The researcher reports completed, inspected Termux and Windows R3c.0.2 runs on
 the same real Job/BHSA 2021 data. Cross-platform analytical invariants matched:
@@ -30,9 +62,9 @@ Implementation: `src/milal_r3c_1_review_units.py`; configuration:
 and [R3c.1 instructions](README_MILAL_R3c_1.md). The frozen R3c.0.2 core is imported
 for validated pure helpers and span-aware context, not rewritten.
 
-Development acceptance is synthetic: syntax, full regression suite, all computed
-gates and packet inspection. R3c.1 real Windows/BHSA execution requires a separate
-request and subsequent human review. No real R3c.1 run or R4 work has been done.
+Development acceptance was synthetic: syntax, full regression suite, all computed
+gates and packet inspection. The researcher subsequently reported the real R3c.1
+Windows run summarized above. No R4 work has been done.
 Historical R3c.0.2 outputs must not be retroactively changed.
 
 The sections below preserve the R3c.0.2 development rationale and earlier
@@ -240,5 +272,6 @@ This must be a corpus-specific regression assertion, not part of MILAL's general
 - The result ZIP is then examined for methodological correctness before moving to R4.
 
 Do not move to R4 merely because unit/self-tests pass. R3c.0.2 cross-validation
-is complete; R3c.1 still requires a separately authorized real Windows run and
-inspection of its individual-unit review packet.
+is complete and the researcher reports a successful real R3c.1 Windows run.
+R3c.2 still requires separately authorized processing of the frozen R3c.1 result
+ZIP and inspection of its lossless compact packet.

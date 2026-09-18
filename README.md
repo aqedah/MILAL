@@ -7,7 +7,7 @@ This folder is a Codex-ready development handoff for the current MILAL pipeline.
 ## Open this folder in Codex
 
 Read `AGENTS.md` first. The current user-approved stage is described in
-`docs/R3C_1_SPEC.md`; `docs/HANDOFF.md` records the completed R3c.0.2 validation.
+`docs/R3C_2_SPEC.md`; `docs/HANDOFF.md` records the reported empirical progression.
 
 The first prompt to use is in `docs/CODEX_FIRST_TASK.md`.
 
@@ -53,5 +53,17 @@ The real Termux/Windows cross-validation is complete. Historical outputs remain 
 One existing repeated bundle or canonical singleton outcome is one human review
 unit. All target occurrences are preserved; structural relations are context.
 Containers and lineages remain navigation metadata. The pilot has 30 cases,
-six in each of five groups. R3c.1 real BHSA execution and human acceptance remain
-pending; development validation does not authorize a real run or R4.
+six in each of five groups. The researcher reports a real Windows/BHSA R3c.1 run
+passing 24 gates. Its frozen result is the input to the next presentation stage.
+
+## R3c.2 implementation
+
+- Source: `src/milal_r3c_2_compact_review.py`
+- Windows runner: `scripts/run_milal_r3c_2_windows.ps1`
+- [Specification](docs/R3C_2_SPEC.md) and [usage/output documentation](docs/README_MILAL_R3c_2.md)
+- Synthetic self-test: `python src/milal_r3c_2_compact_review.py --self-test`
+
+Lossless compact presentation reuses the exact R3c.1 cases and target evidence.
+It groups context/relation display, preserves full detail indexes, and does not
+load BHSA or change analytical units. Development acceptance is synthetic only;
+processing the real source ZIP and R4 are not part of this task.

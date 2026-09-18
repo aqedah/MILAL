@@ -40,5 +40,41 @@ python src/milal_r3c_1_review_units.py --self-test --output-dir results/r3c_1_sy
 ```
 
 The retained packet is synthetic, with 30 cases, 82 repeated units and 27 singleton
-units. No real BHSA loading is part of these tests. R3c.1 empirical acceptance
-requires a separately requested Windows run and human review; R4 is out of scope.
+units. No real BHSA loading is part of these tests. The researcher subsequently
+reported a real R3c.1 run passing 24 gates; R4 remains out of scope.
+
+## R3c.2
+
+`test_r3c_2.py` consumes a synthetic frozen R3c.1 result ZIP generated through
+the unchanged R3c.1 writer. It verifies manifest preflight, exact case/evidence
+preservation, full context JSON, relation display folding with raw multiplicity,
+boundary/overlay preservation, S02135, packet traces/metrics, no-overwrite and
+non-case source-row ordering independence. Every one of the 23 gates has a
+negative mutation subtest; no test skips a gate merely because it always passes.
+
+`test_r3c_2_windows_runner.py` exercises the actual wrapper on PowerShell 5.1/7
+where available: default local venv, explicit Python, self-test ordering, no BHSA
+arguments, UTF-8 logs, preserved statuses and exclusive output/archive creation.
+The older test files remain unchanged.
+
+Run `python -m unittest discover -s tests -v`, then
+`python src/milal_r3c_2_compact_review.py --self-test`. Add `--output-dir` with a
+fresh path to retain the compact packet and its source ZIP for manual inspection.
+Do not run the real R3c.1 ZIP as part of this development validation.
+
+Validation on the B computer (2026-09-18): all 101 tests passed, with no skips,
+including both PowerShell 5.1 and 7. The 23 new test methods include negative
+subtests for every R3c.2 gate. The initial full run had 20 older runner subtest
+failures caused by Windows short (`~1`) versus expanded temporary path spelling.
+No historical tests or runners were changed. Canonicalizing the test process's
+temporary directory resolved those comparisons:
+
+```powershell
+python -c "import pathlib,tempfile,unittest; tempfile.tempdir=str(pathlib.Path(tempfile.gettempdir()).resolve()); suite=unittest.defaultTestLoader.discover('tests'); result=unittest.TextTestRunner(verbosity=1).run(suite); raise SystemExit(not result.wasSuccessful())"
+```
+
+Syntax validation and R3c.2 self-test passed. The inspected synthetic packet has
+30 cases, 93 target evidence rows, 407 boundary rows, 8 context records,
+383 raw / 324 compact relation rows and 73 overlay rows. All 23 gates pass;
+the whole packet is 2,466 lines / 276,551 UTF-8 bytes. These are synthetic
+fixture measurements, not empirical Job results or review-time estimates.
