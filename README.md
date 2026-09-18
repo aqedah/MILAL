@@ -6,7 +6,8 @@ This folder is a Codex-ready development handoff for the current MILAL pipeline.
 
 ## Open this folder in Codex
 
-Read `AGENTS.md` first. Codex should then follow the active specification in `docs/R3C_0_2_SPEC.md`.
+Read `AGENTS.md` first. The current user-approved stage is described in
+`docs/R3C_1_SPEC.md`; `docs/HANDOFF.md` records the completed R3c.0.2 validation.
 
 The first prompt to use is in `docs/CODEX_FIRST_TASK.md`.
 
@@ -25,9 +26,9 @@ Copy the following real pipeline inputs into `inputs/` on your desktop before as
 - `job_r3b_3_results.zip`
 
 BHSA/Text-Fabric 2021 is available on Windows at `C:\MILAL-data\bhsa\tf\2021`
-and in the user's Termux installation. The real Termux R3c.0.2 execution has been
-completed, inspected and accepted. The Windows run is for cross-platform
-reproduction and cross-validation against that accepted execution.
+and in the user's Termux installation. Real R3c.0.2 executions on both Termux and
+Windows have been completed and inspected; analytical invariants matched.
+Windows is now primary for the next empirical stage.
 
 ## R3c.0.2 implementation
 
@@ -39,4 +40,18 @@ reproduction and cross-validation against that accepted execution.
 - Tests: `python -m unittest discover -s tests -v`
 
 The implementation preserves R3c.0.1 and the frozen R3b.3 navigation layer.
-Windows results should be compared against the accepted Termux/BHSA execution.
+The real Termux/Windows cross-validation is complete. Historical outputs remain unchanged.
+
+## R3c.1 implementation
+
+- Source: `src/milal_r3c_1_review_units.py`
+- Job configuration: `config/r3c_1_job_pilot.json`
+- Windows runner: `scripts/run_milal_r3c_1_windows.ps1`
+- [Specification](docs/R3C_1_SPEC.md) and [usage/output documentation](docs/README_MILAL_R3c_1.md)
+- Synthetic self-test: `python src/milal_r3c_1_review_units.py --self-test`
+
+One existing repeated bundle or canonical singleton outcome is one human review
+unit. All target occurrences are preserved; structural relations are context.
+Containers and lineages remain navigation metadata. The pilot has 30 cases,
+six in each of five groups. R3c.1 real BHSA execution and human acceptance remain
+pending; development validation does not authorize a real run or R4.

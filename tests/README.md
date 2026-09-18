@@ -20,5 +20,25 @@ in [fixtures/r3c_0_1](fixtures/r3c_0_1/README.md): S02135's original parent/line
 and two representations, its independent review/rendering through a synthetic
 genealogy, and required source-schema columns. Missing fixtures fail the tests;
 the full `results/r3c_0_1/` directory is unnecessary.
-The real R3c.0.2 Termux/BHSA run has been completed, inspected and accepted.
-These tests do not replace Windows cross-validation against that execution.
+The real R3c.0.2 Termux/Windows runs have been completed, inspected and matched
+on analytical invariants. Those historical outputs remain unchanged.
+
+## R3c.1
+
+`test_r3c_1.py` preserves the older suite and checks object-level population,
+lexicographic sampling, occurrence completeness, direct relations without
+descendant target expansion, exact singleton identities, historical S02135,
+boundary panels, span context and output provenance/manifests. Every one of the
+24 computed gates has a deliberate negative mutation checked by the suite.
+`test_r3c_1_windows_runner.py` tests the actual new wrapper with a recording
+Python fixture under Windows PowerShell 5.1 and PowerShell 7 where available.
+
+```powershell
+python -m unittest discover -s tests -v
+python src/milal_r3c_1_review_units.py --self-test
+python src/milal_r3c_1_review_units.py --self-test --output-dir results/r3c_1_synthetic
+```
+
+The retained packet is synthetic, with 30 cases, 82 repeated units and 27 singleton
+units. No real BHSA loading is part of these tests. R3c.1 empirical acceptance
+requires a separately requested Windows run and human review; R4 is out of scope.

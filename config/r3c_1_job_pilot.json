@@ -1,0 +1,11 @@
+{
+  "book": "Job",
+  "seed": 20260917,
+  "boundary_refs": ["31:40", "32:1", "32:2", "37:24", "38:1", "42:7"],
+  "singleton_control": {
+    "review_item_id": "S02135",
+    "ref_start": "31:40",
+    "ref_end": "31:40",
+    "surface_letters": "תמו דברי איוב"
+  }
+}

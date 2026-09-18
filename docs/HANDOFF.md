@@ -1,6 +1,44 @@
 # MILAL Development Handoff
 
-## R3c.0.2 implementation update — 2026-09-17
+## Current stage — R3c.1, 2026-09-18
+
+The researcher reports completed, inspected Termux and Windows R3c.0.2 runs on
+the same real Job/BHSA 2021 data. Cross-platform analytical invariants matched:
+
+- 30 review cases; 17/17 gates PASS.
+- 1,066 unique navigation containers.
+- 6,689 singleton outcomes: 2,672 MAPPED, 4,016 EVENT_ONLY, 1 G6_ONLY.
+- S02135 retained as an independent singleton outcome.
+- All six boundary controls resolved; span-aware BHSA context functioning.
+- Sequence extension remained overlay-only and EXEMPLAR_ONLY.
+
+These are empirical Job observations, not hard-coded corpus requirements.
+The finding is that R3b.3 containers remain valid navigation objects, but
+high-complexity containers are too large for human review units: CASE001 had
+17,612 lines and CASE002 had 18,222 lines in the real packet.
+
+R3c.1 therefore targets individual existing repeated bundles and canonical
+singleton outcomes. Containers/lineages stay navigation metadata; boundary
+panels stay controls. No new rhetorical, discourse, semantic or fork object
+is introduced. All selected bundle occurrences remain available, with parent,
+ancestor and direct child relations separated from target evidence. No recursive
+descendant-target expansion or evidence truncation is permitted.
+
+Implementation: `src/milal_r3c_1_review_units.py`; configuration:
+`config/r3c_1_job_pilot.json`; primary runner:
+`scripts/run_milal_r3c_1_windows.ps1`. See [the active specification](R3C_1_SPEC.md)
+and [R3c.1 instructions](README_MILAL_R3c_1.md). The frozen R3c.0.2 core is imported
+for validated pure helpers and span-aware context, not rewritten.
+
+Development acceptance is synthetic: syntax, full regression suite, all computed
+gates and packet inspection. R3c.1 real Windows/BHSA execution requires a separate
+request and subsequent human review. No real R3c.1 run or R4 work has been done.
+Historical R3c.0.2 outputs must not be retroactively changed.
+
+The sections below preserve the R3c.0.2 development rationale and earlier
+R3c.0.1 observations; their pilot design describes the prior stage.
+
+## Historical R3c.0.2 implementation update — 2026-09-17
 
 The new implementation is in `src/milal_r3c_0_2_reviewability.py`; R3c.0.1 is
 preserved. Job controls are in `config/r3c_0_2_job_pilot.json`. The new Termux
@@ -9,8 +47,8 @@ See `docs/README_MILAL_R3c_0_2.md` for outputs and validation commands.
 
 Real R3b.2/R3b.3 input ZIPs and BHSA are not bundled in this development workspace.
 Synthetic validation and the checked-in R3c.0.1 control regression are development
-checks only. Empirical acceptance still requires the real Termux/BHSA 2021 result
-ZIP and human-facing packet inspection. Do not advance to R4 on synthetic results.
+checks only. The real Termux/Windows validation was subsequently completed as
+recorded above. Do not advance to R4 on synthetic results.
 
 ## 1. Program
 
@@ -194,11 +232,13 @@ If desired, allow an optional CLI regression argument such as:
 
 This must be a corpus-specific regression assertion, not part of MILAL's general logic.
 
-## 10. Development workflow
+## 10. Current development workflow
 
 - This repository is the coding workspace.
 - Codex implements and tests code here.
-- Termux performs the final real BHSA execution.
+- Windows is now the primary real BHSA execution environment.
 - The result ZIP is then examined for methodological correctness before moving to R4.
 
-Do not move to R4 merely because unit/self-tests pass. R3c.0.2 must first be run against the real Job/BHSA data and the human-facing output must be inspected.
+Do not move to R4 merely because unit/self-tests pass. R3c.0.2 cross-validation
+is complete; R3c.1 still requires a separately authorized real Windows run and
+inspection of its individual-unit review packet.
