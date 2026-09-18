@@ -4,7 +4,7 @@ MILAL stands for **Marker-Informed Linguistic Analysis of Layers**.
 
 This repository implements a bottom-up, surface-marker-based analysis of the Hebrew Bible. The project must preserve the distinction between detected textual structure, navigation structure, human review, and later interpretation.
 
-The repository is used on multiple Windows computers through the same GitHub repository. GitHub is the authoritative source for code and documentation. Local Codex conversation history is not authoritative project state.
+The repository is used on multiple Windows computers through the same GitHub repository. The Git repository is authoritative project state. The verified remote is the shared synchronization point; local commits and uncommitted changes must be inspected and preserved. Local Codex conversation history is not authoritative project state.
 
 ---
 
@@ -20,6 +20,8 @@ Use the following hierarchy when determining the current project state:
 
 Never assume that local Codex chat history is current.
 
+`docs/HANDOFF.md` is the sole authoritative entry point for determining the current development stage and active specification.
+
 Do not reconstruct project state from memory when the repository and `HANDOFF.md` provide a more recent state.
 
 ---
@@ -32,22 +34,24 @@ When the user says:
 
 or otherwise asks to continue MILAL development on a different computer, perform the following before modifying files.
 
-1. Confirm that the workspace is the MILAL repository.
-2. Run `git status`.
-3. Confirm the current branch.
-4. If the branch is `main` and the working tree is clean, run:
+1. Read local `AGENTS.md` before synchronization.
+2. Verify the repository root, `origin` URL, current branch, and configured upstream.
+3. Run `git status` and inspect local commits and uncommitted changes.
+4. If the working tree is clean and the branch is `main` tracking `origin/main`, run:
 
-   `git pull --ff-only`
+   `git pull --ff-only origin main`
 
 5. Confirm:
    - current branch
    - latest commit
    - whether local `main` matches `origin/main`
-6. Read `AGENTS.md`.
-7. Read `docs/HANDOFF.md`.
-8. Read the specification for the current development stage.
+6. Reread `AGENTS.md` after synchronization in case it changed.
+7. Read or reread `docs/HANDOFF.md` after synchronization in case it changed.
+8. Read the active specification named by HANDOFF.
 9. Report the current MILAL stage and the next pending task.
 10. Only then begin implementation.
+
+On another branch or detached HEAD, do not switch automatically. Report the state. If synchronization is skipped, make clear that an unfetched `origin/main` is only the locally recorded remote state.
 
 If the working tree is not clean:
 
@@ -55,12 +59,7 @@ If the working tree is not clean:
 - do not discard local changes;
 - inspect and report the changes first.
 
-If `git pull --ff-only` fails:
-
-- do not merge automatically;
-- do not rebase automatically;
-- do not force pull;
-- report the divergence and stop Git synchronization until it is resolved.
+If `git pull --ff-only origin main` fails, report the actual failure. Distinguish divergence from authentication, network, remote, and upstream-configuration failures. Do not automatically merge, rebase, reset, or force. Stop Git synchronization until the failure is resolved.
 
 Never use `git push --force`.
 
@@ -97,13 +96,15 @@ When the user says:
 
 or explicitly instructs Codex to finalize and synchronize the work:
 
-1. perform the validation above;
-2. update `docs/HANDOFF.md` if the project stage or pending task materially changed;
-3. stage only intended repository files;
+1. update `docs/HANDOFF.md` if the project stage, state, or pending task materially changed;
+2. validate the final intended changes, including HANDOFF updates, using the requirements above;
+3. stage only intended repository files and inspect the staged diff;
 4. verify that local inputs, BHSA data, result ZIPs, logs, caches, temporary files, and other ignored artifacts are not being committed;
-5. commit with a concise descriptive message;
-6. push normally to `origin`;
-7. confirm the resulting commit hash and clean working tree.
+5. commit only intended files with a concise descriptive message;
+6. push the intended branch to the verified `origin` without force;
+7. if push is rejected, stop and report the cause;
+8. confirm the resulting commit and remote branch state;
+9. report any unrelated remaining changes without staging or discarding them.
 
 ---
 
@@ -135,7 +136,7 @@ Avoid simultaneous uncommitted development on multiple computers.
 
 MILAL is a bottom-up structural analysis.
 
-Do not introduce semantic, rhetorical, discourse-functional, theological, or interpretive labels into a stage unless that stage explicitly authorizes them.
+Do not introduce interpretive labels without authorization for a later interpretive stage. The R3 prohibition in section 7 remains unconditional within R3.
 
 Surface evidence must remain distinguishable from later interpretation.
 
@@ -152,6 +153,12 @@ Preserve provenance.
 Preserve source identifiers.
 
 Preserve source relationships.
+
+Prefer deterministic behavior. Random sampling must use a fixed seed recorded in run metadata and relevant outputs.
+
+Never guess a missing required source column. Fail with an explicit schema error when a required invariant cannot be established.
+
+Keep BHSA/Text-Fabric assumptions explicit and inspectable. Update applicable specifications, README instructions, and runners whenever CLI arguments or output schemas change.
 
 ---
 
@@ -176,9 +183,15 @@ If a genuine bug is discovered in a frozen layer:
 
 R3 detects, organizes, and presents structural evidence.
 
-R3 must not automatically assign rhetorical function.
+R3 must not automatically assign rhetorical, discourse, theological, semantic, or functional labels. Later interpretation belongs in a separately authorized stage.
 
-Navigation objects and human-review objects are not necessarily identical.
+R3b.3 remains frozen as the navigation layer. R3c derives human-review objects or views without redefining that layer. A navigation object is not automatically a human-review unit.
+
+Every singleton outcome must remain independently reviewable, including outcomes genealogically attached to a parent lineage.
+
+Boundary verses may participate in multiple patterns simultaneously. Never replace a complete boundary panel with one representative pattern.
+
+Do not hard-code Job-specific corpus counts into MILAL semantics. Job-specific expected counts may appear only as optional regression assertions. Corpus-specific controls belong in configuration.
 
 Sequence-extension relations are a separate overlay and must not contaminate the core genealogy.
 
@@ -197,6 +210,8 @@ The Job control `S02135` (`תמו דברי איוב`, Job 31:40) must remain ind
 ## 8. Human-review discipline
 
 Human-review fields must not be automatically completed by the code.
+
+Keep one canonical `REVIEW_FIELDS` definition and derive or import all human-review schemas from it; do not duplicate its literal definition across implementation code.
 
 Unless a specification explicitly changes the rule, use the canonical review fields:
 
@@ -231,7 +246,7 @@ When compacting or reorganizing human-facing evidence:
 - preserve extension overlay rows;
 - keep compact summaries traceable to raw data.
 
-Human-facing packets may collapse repeated presentation, but machine-readable evidence must remain lossless unless a later specification explicitly states otherwise.
+Human-facing packets may collapse repeated presentation, but machine-readable evidence must remain lossless and every summary must remain traceable to source records. A later specification must not silently relax this invariant.
 
 ---
 
@@ -278,16 +293,20 @@ Minimal regression fixtures may be committed when they preserve documented histo
 
 Do not report implementation success merely because code runs.
 
-For a new analytical stage:
+These validation requirements apply to analytical stages and evidence-presentation stages.
+
+For a new stage:
 
 1. run syntax validation;
 2. run stage-specific unit tests;
 3. run previous regression tests;
 4. run the stage self-test;
 5. verify computed gates;
-6. include negative tests showing that important gates can fail;
+6. include a negative test or mutation for every gate demonstrating failure when its invariant is violated;
 7. inspect the human-facing synthetic output;
 8. perform real-data execution only after synthetic validation passes.
+
+Synthetic validation does not itself authorize real-data execution; follow the user-authorized execution scope recorded in `docs/HANDOFF.md`.
 
 Do not weaken an old regression test merely to make new code pass.
 
@@ -304,11 +323,9 @@ Prefer zero skipped regression tests when stable minimal fixtures can reasonably
 
 ## 13. Gates
 
-Analytical gates must be computed from actual data.
+Every gate must compute an invariant from actual data. No gate may pass unconditionally.
 
-Do not implement meaningful gates as literal `True`.
-
-For important invariants, include a negative test or mutation demonstrating that the gate fails when its condition is violated.
+Every gate must have a negative test or mutation demonstrating failure when its invariant is violated.
 
 A successful process exit means the programmed invariants passed. It does not by itself constitute scholarly or human acceptance of the resulting evidence.
 

@@ -1,3 +1,9 @@
+# Historical distribution manifest for the initial R3c.0.2 handoff.
+# This is not an inventory of the current tracked Git repository.
+# Listed results and ZIPs are historical/local artifacts, not shared Git files.
+# See docs/HANDOFF.md for the current stage and active specification.
+# Use git ls-files for the current tracked repository inventory.
+
 .gitignore
 AGENTS.md
 README.md

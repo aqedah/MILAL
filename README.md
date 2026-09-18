@@ -6,12 +6,15 @@ This folder is a Codex-ready development handoff for the current MILAL pipeline.
 
 ## Open this folder in Codex
 
-Read `AGENTS.md` first. The current user-approved stage is described in
-`docs/R3C_2_SPEC.md`; `docs/HANDOFF.md` records the reported empirical progression.
+For a new development session, read:
 
-The first prompt to use is in `docs/CODEX_FIRST_TASK.md`.
+1. `AGENTS.md` for operating instructions.
+2. `docs/HANDOFF.md`, the sole authoritative entry point for the current development stage.
+3. The active specification named by HANDOFF.
 
-## Current baseline
+`docs/CODEX_FIRST_TASK.md` preserves historical bootstrap instructions; it is not the current starting point.
+
+## Historical R3c.0.1 baseline
 
 - Source: `src/milal_r3c_0_1_reviewability.py`
 - Termux runner: `scripts/run_milal_r3c_0_1_termux.sh`

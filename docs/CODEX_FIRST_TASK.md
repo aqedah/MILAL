@@ -1,4 +1,6 @@
-# First Codex Task
+# Historical First Codex Task
+
+> Historical bootstrap instructions for the initial R3c.0.2 implementation. Not the current development entry point. See [HANDOFF.md](HANDOFF.md) for the current stage and active specification.
 
 Paste the prompt below into Codex after opening the repository folder.
 

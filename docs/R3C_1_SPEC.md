@@ -1,6 +1,7 @@
 # MILAL R3c.1 — Human Review Unit Decomposition
 
-Active specification, 2026-09-18. This stage follows the accepted real
+Frozen historical specification for R3c.1, 2026-09-18. See [HANDOFF.md](HANDOFF.md)
+for the current stage and active specification. This stage follows the accepted real
 R3c.0.2 Termux/Windows cross-validation; it does not redefine either frozen layer.
 
 ## Method and population
