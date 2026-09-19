@@ -1,6 +1,43 @@
 # MILAL Development Handoff
 
-## Current stage — R3c.3 development, 2026-09-18
+## Current task — PROV1 provenance sidecar, 2026-09-20
+
+Active specification: [PROV1_SPEC.md](PROV1_SPEC.md); usage:
+[README_MILAL_PROV1.md](README_MILAL_PROV1.md).
+This non-analytical sidecar is neither R3c.4 nor R4. The Signature Feature
+Provenance Audit closed as B — EXACTLY_RECONSTRUCTABLE: all 14 historical controls
+and all 20,839 atom hashes exactly matched. No R2.2 rerun is required.
+
+The verified generator establishes cumulative named atom components, canonical
+UTF-8 JSON/SHA256, and the distinct level/length/ordered-atom-hash window preimage.
+R2.2 persists reconstructable components; complete component propagation stops
+at R3.1 and is absent from later signature-only sources. Frozen source outputs
+and R3c analytical cores must not change.
+
+The researcher authorized PROV1 implementation and synthetic validation only.
+Real PROV1 execution, commit/push, corrective analytical stages, R3c.4 and R4
+remain unauthorized. Next pending task: review the implementation/synthetic
+validation, then separately authorize a real sidecar run and human inspection.
+
+Implementation validation passed on 2026-09-20: 171 complete regression tests,
+zero failures/skips, including both installed PowerShell versions. After final
+Markdown mode/identity presentation refinements, all 43 PROV1 tests were rerun
+and passed. Python/PowerShell syntax checks passed. Synthetic self-test passed
+all 22 gates, each with a negative test; manifest verified after writing.
+Synthetic counts: 112 atom-level records, 57 families, 51 refinement rows,
+2 G6 singletons, 233 identity-link rows, 234 exact hash comparisons. The inspected
+catalog has 402 lines / 27,772 UTF-8 bytes; five-case packet 207 lines / 18,339 bytes.
+CASE001/007/013/019/025 and S02135 are rendered with explicit synthetic labeling.
+Final local output: `results/prov1_synthetic_20260920_final/`. No full real PROV1
+dataset has been run; no analytical identity/hash or frozen core was modified.
+
+2026-09-20: the researcher accepted synthetic validation and authorized freezing
+and pushing PROV1, then running the accepted real historical inputs. Record the
+execution result in the timestamped local outputs/log; do not assume success
+from this authorization. The next task is separate human inspection of the real
+five-case packet. No further PROV version, R3c.4, R4 or automatic review is authorized.
+
+## Previous stage — R3c.3 development, 2026-09-18
 
 Active specification: [R3C_3_SPEC.md](R3C_3_SPEC.md). Usage:
 [README_MILAL_R3c_3.md](README_MILAL_R3c_3.md).

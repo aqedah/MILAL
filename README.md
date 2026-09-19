@@ -15,6 +15,9 @@ For a new development session, read:
 `docs/CODEX_FIRST_TASK.md` preserves historical bootstrap instructions; it is not the current starting point.
 
 R3c.3 source enrichment usage is documented in [its guide](docs/README_MILAL_R3c_3.md).
+PROV1 reconstructs historical signature provenance without changing analytical
+identities; see [its specification](docs/PROV1_SPEC.md) and
+[usage guide](docs/README_MILAL_PROV1.md).
 HANDOFF remains authoritative for current-stage selection.
 
 ## Historical R3c.0.1 baseline

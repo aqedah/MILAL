@@ -1,5 +1,26 @@
 # Tests
 
+## PROV1
+
+`test_prov1.py` adds 43 tests: independent golden hashes, cumulative reconstruction,
+normalization and ordering, target-hash independence, first uniqueness, source and
+occurrence preservation, explicit controls, archive-loader roundtrip, output
+integrity, and negative coverage of every one of the 22 gates.
+`test_prov1_windows_runner.py` adds two process tests, exercised under installed
+PowerShell 5.1/7, for self-test-first ordering, exact arguments, failure statuses
+and protection against overwriting an output directory. No real PROV1 run occurs
+in these tests. Synthetic inputs have independent fixture hashes and fewer atoms.
+
+Run `python -B src/milal_prov1_signature_provenance.py --self-test` after the complete
+suite. Add `--output-dir` with a new directory to retain the twelve synthetic
+outputs and inspect both Markdown packets. Frozen analytical tests are unchanged.
+
+2026-09-20 validation: complete suite 171 passed, zero failures/skips. The final
+Markdown presentation refinements were rechecked with all 43 PROV1 tests.
+Synthetic self-test: 22/22 gates PASS and 234/234 reconstructed hashes MATCH;
+112 atom-level rows, 57 families, 51 refinements, two singletons. Both generated
+Markdown documents and the on-disk manifest were inspected. No real PROV1 run.
+
 Run `python -m unittest discover -s tests -v` from the repository root.
 `test_r3c_0_2.py` exercises synthetic success/failure contracts without BHSA,
 including negative tests for all four extension-separation invariants.
