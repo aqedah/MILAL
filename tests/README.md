@@ -78,3 +78,23 @@ Syntax validation and R3c.2 self-test passed. The inspected synthetic packet has
 383 raw / 324 compact relation rows and 73 overlay rows. All 23 gates pass;
 the whole packet is 2,466 lines / 276,551 UTF-8 bytes. These are synthetic
 fixture measurements, not empirical Job results or review-time estimates.
+
+## R3c.3
+
+`test_r3c_3.py` adds 19 tests, including negative mutations for all 26 gates.
+It covers archive/hash-chain rejection, filename-independent schema discovery,
+ambiguity and missing schemas, exact row locators, opaque-signature limitations,
+explicit deltas, five case controls, S02135, boundary multiplicity, unchanged
+forms, distributions, output manifests and no-overwrite behavior.
+`test_r3c_3_windows_runner.py` adds six process tests, exercised under both
+PowerShell 5.1 and 7, including default/explicit Python, four input arguments,
+UTF-8 logging, failure codes, missing inputs and protected output destinations.
+
+Development validation on 2026-09-18: all 126 tests passed, no skips; Python syntax
+validation and R3c.3 self-test passed, all 26 gates PASS. The directly inspected
+synthetic packet has 30 cases, 4,248 lines and 256,623 UTF-8 bytes. CASE001/007/
+013/019/025 contain structural enrichment or explicit unavailability, with full
+original evidence referenced. Real R3b source schema/CRC/hash inspection was
+performed; no real R3c.3 enrichment dataset was executed. Frozen cores and prior
+tests remain unchanged. Use the canonical-temporary-path full-suite command in
+the R3c.3 usage guide on Windows.

@@ -14,6 +14,9 @@ For a new development session, read:
 
 `docs/CODEX_FIRST_TASK.md` preserves historical bootstrap instructions; it is not the current starting point.
 
+R3c.3 source enrichment usage is documented in [its guide](docs/README_MILAL_R3c_3.md).
+HANDOFF remains authoritative for current-stage selection.
+
 ## Historical R3c.0.1 baseline
 
 - Source: `src/milal_r3c_0_1_reviewability.py`

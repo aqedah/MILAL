@@ -1,6 +1,39 @@
 # MILAL Development Handoff
 
-## Current stage — R3c.2, 2026-09-18
+## Current stage — R3c.3 development, 2026-09-18
+
+Active specification: [R3C_3_SPEC.md](R3C_3_SPEC.md). Usage:
+[README_MILAL_R3c_3.md](README_MILAL_R3c_3.md).
+
+The researcher reports an assisted real R3c.2 review: CASE007 reviewable, CASE019
+locally reviewable, CASE013 partly reviewable, CASE025 sufficient for boundary
+multiplicity but not macro attachment, CASE001 insufficient. The next problem
+is structural definition/refinement context, not batching or object identity.
+
+Transferred R3b.2/3 ZIPs passed historical SHA256 and CRC checks. Inspected schemas
+provide family/level/genealogy records, context profile JSON and opaque signature
+hashes. They do not expose family signature preimages or exact feature changes
+causing uniqueness; these remain NOT_AVAILABLE_FROM_SOURCE.
+
+R3c.3 enriches frozen R3c.2 cases and requires its hash-matched R3c.1 ZIP for source
+inventory/singleton provenance plus the two exact R3b ZIPs. All previous analytical
+cores stay unchanged. This task authorizes synthetic execution only. Next pending
+empirical work is a separately authorized real R3c.3 run and renewed five-case human
+review, with missing signature payloads explicit.
+
+2026-09-19: the researcher authorized committing/pushing this implementation and
+running the real R3c.3 Windows dataset after verifying the exact input chain.
+Human review remains separate; no R3c.4 or R4 is authorized. The execution result
+must be checked in the local timestamped output and run log, not assumed here.
+
+Development validation passed: syntax, all 126 regression tests (no skips;
+PowerShell 5.1 and 7), all 26 computed gates with negative tests, and synthetic
+self-test. The inspected synthetic packet has 30 cases, 4,248 lines and 256,623
+UTF-8 bytes. All five acceptance case IDs have enriched sections; unavailable
+membership preimages/feature deltas remain explicit. This is not empirical
+acceptance of the real five targets.
+
+## Historical R3c.2 stage, 2026-09-18
 
 The researcher reports the real Windows/BHSA 2021 R3c.1 result passed all 24
 gates: 8,908 units (2,219 repeated bundles, 6,689 singleton outcomes), 30 pilot
