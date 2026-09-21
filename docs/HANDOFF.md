@@ -1,6 +1,61 @@
 # MILAL Development Handoff
 
-## Current task — MR1 provenance/reproduction, 2026-09-21
+## Current task — R4.0 whole-book candidate inventory, 2026-09-21
+
+Active specification: [R4_0_SPEC.md](R4_0_SPEC.md); usage:
+[README_MILAL_R4_0.md](README_MILAL_R4_0.md). The researcher accepted MR1 as R4
+marker provenance and explicitly authorized R4.0 implementation, tests, synthetic
+validation, real execution, deterministic rerun, focus inspection and commit/push
+after validation. Starting HEAD: `5cfb91847bc967858c75cf850050036b4e4c5bc6`.
+
+R4.0 is inventory/scaffold only; there is no final hierarchy or parentage yet.
+Frozen R1.1/v6.42.12 remain historically unavailable; legacy hierarchy is not
+reused. The initial source preflight stopped before implementation because the
+accepted R3c.3/PROV1/HR1 ZIPs were absent on A. The researcher restored all three;
+exact supplied SHA256, CRC and manifests now pass. Actual PROV1/HR1 local names
+have download suffixes (1)/(2), recorded in the R4 config, with identical accepted
+bytes. No substitute source was used.
+
+Validation completed: syntax PASS; full regression **336 PASS, zero skips**
+(273 previous + 63 R4 tests), with final R4 tests rerun after focus-field
+presentation changes. Synthetic and both real runs passed **34/34 gates**;
+every gate has a negative mutation, including manifest corruption. PowerShell
+5.1 synthetic and PowerShell 7 real runners exited 0.
+
+Whole-book native scope: 2938 clauses / 2977 atoms / 39 multi-atom clauses,
+through Job 42:17. Marker inventory: **63** = CSF 56 + closures 2 + positive
+Wayhi 5. All 170 Way0 records retained; 165 negatives did not trigger candidates.
+All 12,722 formal bundle occurrences and 15,292 explicit family-occurrence links
+remain. Candidate anchors **2976**, candidate/source-locator links **39414**,
+adjacent-anchor relations **2975**, overlapping transition-zone overlays **2975**.
+These dense counts arise from preserving every formal repeated-window endpoint;
+they do **not** mean 2976 macro boundaries. The only native atom with no trigger
+is 587997 (Job 5:27), retained without a candidate in the full coverage inventory.
+
+All 30 human records remain verbatim (CLEAR 21 / PARTIAL 5 / INSUFFICIENT 4),
+including all 3540 extension overlay rows and 1018 HR1 source locators. Six
+boundary cases retain all 117 panel participants and their full verse atom scopes;
+no invented atom-level human judgment. CASE007–012 dependency and CASE028/029
+continuity/addressee cautions remain. All 16 controls and the full 27–42 focus
+report were inspected. At 42:16 there is no MR1 marker but 21 formal occurrences;
+control status does not fabricate a marker. No final hierarchy/parentage,
+scores/rankings or new rhetorical/theological labels were produced. Frozen
+R1–R3/PROV1/HR1/MR1 analytical cores and inputs remain unchanged.
+
+Two fresh real processes produced **21/21 identical members and identical ZIPs**:
+
+- Results: `results/r4_0_real_20260921_a/`
+- ZIP: `results/r4_0_real_20260921_a_results.zip`
+- Log: `results/r4_0_real_20260921_a_run.log`
+- Rerun: `results/r4_0_real_20260921_b/`
+- ZIP SHA256: `c313d102e65854c4d40ff9efac716f78a2388750e1c983b200655984ad7ded47`
+
+See [R4_0_VALIDATION_REPORT.md](R4_0_VALIDATION_REPORT.md) for source hashes,
+complete control audit and focus findings. Next task: researcher review of this
+unpruned candidate inventory and positional zone convention. Hierarchy questions
+remain unresolved; no later hierarchy-building stage is authorized automatically.
+
+## Previous task — MR1 provenance/reproduction, 2026-09-21
 
 Active specification: [MR1_SPEC.md](MR1_SPEC.md); execution instructions:
 [README_MILAL_MR1.md](README_MILAL_MR1.md). The researcher explicitly authorized

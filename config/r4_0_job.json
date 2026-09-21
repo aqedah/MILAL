@@ -1,0 +1,67 @@
+{
+  "version": "R4.0",
+  "sources": {
+    "mr1": {
+      "path": "results/mr1_real_final_20260921_a_results.zip",
+      "sha256": "9f287dca2a7689e04f37b4a9dbcfe53dd714dcc8dc9d1a702f46f476f6537ec0"
+    },
+    "r3c3": {
+      "path": "results/r3c_3_windows_20260919_091111_results.zip",
+      "sha256": "5f8239a692a516fd9722d94fb919321d399fad93c3583dd828ac1c1883576981"
+    },
+    "prov1": {
+      "path": "results/prov1_windows_20260920_081304_results(1).zip",
+      "sha256": "38c6703721e2f9cca590ab96d64d7a2860a3d075e059cabeb2abe9eb6708c482"
+    },
+    "hr1": {
+      "path": "results/hr1_human_review_linkage_20260921_114012_results(2).zip",
+      "sha256": "7566dcd6191da1b7e4d29b11af4a44c37511dcf0fefa24449a0489ee97c64191"
+    },
+    "human": {
+      "path": "docs/HUMAN_REVIEW_PILOT_ADJUDICATION.csv",
+      "sha256": "4fb8c15a9ae530e778122f97c3ffcdcc78ded89f534535e4c7afe5cb2272abe3"
+    }
+  },
+  "bhsa_version": "2021",
+  "tf_version": "13.1.0",
+  "expected": {
+    "clauses": 2938,
+    "atoms": 2977,
+    "multi_atom_clauses": 39,
+    "csf": 56,
+    "closure": 2,
+    "way0": 170,
+    "positive": 5,
+    "negative": 165,
+    "human": 30
+  },
+  "scope": [
+    "Job 1:1",
+    "Job 42:17"
+  ],
+  "controls": [
+    "1:1",
+    "1:6",
+    "1:13",
+    "2:1",
+    "2:11",
+    "3:1",
+    "27:1",
+    "29:1",
+    "31:40",
+    "32:1",
+    "32:2",
+    "37:24",
+    "38:1",
+    "40:1",
+    "42:7",
+    "42:16"
+  ],
+  "focus_start": [
+    27,
+    1
+  ],
+  "zone_span_atoms": 8,
+  "mr1_acceptance_role": "R4_MARKER_PROVENANCE_ONLY",
+  "human_commit": "a1e2b99b6fb70a56ccd4ba7230998bae69031dc0"
+}
