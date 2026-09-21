@@ -1,6 +1,25 @@
 # MILAL Development Handoff
 
-## Current task — PROV1 provenance sidecar, 2026-09-20
+## Current task — Human-authored pilot adjudication record, 2026-09-21
+
+The researcher supplied completed CASE001–CASE030 human adjudications. Their
+source-of-truth record is [HUMAN_REVIEW_PILOT_ADJUDICATION.md](HUMAN_REVIEW_PILOT_ADJUDICATION.md)
+with an equivalent [CSV](HUMAN_REVIEW_PILOT_ADJUDICATION.csv). These are human
+researcher statements, not R3c/PROV1 outputs or automatically assigned labels.
+The supplied form assessments total CLEAR 21 / PARTIAL 5 / INSUFFICIENT 4;
+sufficient_context YES 26 / PARTIAL 4 / NO 0. All 30 cases are REVIEWED; review
+time was not measured and remains blank. Original case statements are retained
+in reviewer_notes without automatically assigning them to other judgment fields.
+
+The CASE007–012 sequence-extension caution and CASE028/029 discourse-continuity
+cautions remain part of the human record. No writeback to R3c/PROV1 results,
+input/result modification, pipeline execution, new automatic scoring, R3c.4 or
+R4 is authorized by this recording task. Any later integration with local result
+artifacts requires a separate instruction; these Git-tracked human records can
+be shared without synchronizing inputs/results. Starting PROV1 commit:
+`8c87fc33f612326eca0ee2ed0b8781451297c85b`.
+
+## Previous task — PROV1 provenance sidecar, 2026-09-20
 
 Active specification: [PROV1_SPEC.md](PROV1_SPEC.md); usage:
 [README_MILAL_PROV1.md](README_MILAL_PROV1.md).
