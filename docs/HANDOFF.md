@@ -1,6 +1,56 @@
 # MILAL Development Handoff
 
-## Current task — R4.0 whole-book candidate inventory, 2026-09-21
+## Current task — R4.1 boundary-oriented evidence profiles, 2026-09-21
+
+Active specification: [R4_1_SPEC.md](R4_1_SPEC.md); runner instructions:
+[README_MILAL_R4_1.md](README_MILAL_R4_1.md). Starting HEAD:
+`fc81663ccddf1fdc343e60d5ee70152850d02103`.
+
+The researcher technically **accepted R4.0 as an exhaustive scaffold**, then
+authorized R4.1 implementation, tests, synthetic/real execution, independent
+deterministic rerun, inspection and commit/push after validation. R4.0 saturation
+is preserved as a finding: 2977 atoms, 2976 candidates, **2900 formal-only**,
+2975 transition-zone overlays. It is not retroactively considered an R4.0 failure.
+
+R4.1 separates **boundary-oriented source anchors** from **formal contextual
+evidence**. Formal occurrence no longer creates an anchor. There are **69**
+separate anchors: CSF 56, explicit closures 2, positive Wayhi 5, exact HR1 verse
+scopes 6. Co-located identities remain separate, with 5 exact overlap links.
+Formal inventory retains all 12722 occurrences; 1140 anchor/occurrence span rows
+carry 3002 overlapping positional labels. Two edges per anchor give 138 edges,
+represented by 414 exhaustive classification rows (1755636 occurrence assignments,
+including remote before/after context). **2400 incident edge assignments** isolate
+immediate endings/beginnings and crossings. All **693** exact same-family pairs
+are preserved without similarity scores or hierarchy implications.
+
+Validation: syntax PASS; full regression **383 PASS, zero skips** (336 previous
+and 47 R4.1); all stage tests rerun after final report formatting. Synthetic and
+both real runs **32/32 gates PASS**, with a negative test for every gate.
+All **22 member files and complete ZIP bytes are identical** between fresh runs.
+Independent serialized-output audit verified every edge assignment and complete
+69-anchor / 693-comparison packet coverage, CRC, disk bytes and manifest.
+
+Critical profiles preserve 31:40 closure, 32:1 closure, 32:2 HR1 scope and 32:6
+Elihu CSF separately. CASE028 does not infer direct Elihu→YHWH continuity;
+38:1 retains Job as explicit addressee. Ordered CSF inventory 38:1–42:1 includes
+**38:11 SIMPLE_AMR** as well as requested 38:1/40:1/40:3/40:6/42:1 frames.
+42:7 has distinct Wayhi, SIMPLE_AMR and CASE030 scope. **42:16 has zero anchors**
+despite 21 formal occurrences. All 30 human records, 3540 extension rows,
+1018 human locators and 170 Way0 audit records remain unchanged.
+
+- Results: `results/r4_1_real_20260921_a/`
+- ZIP: `results/r4_1_real_20260921_a_results.zip`
+- Log: `results/r4_1_real_20260921_a_run.log`
+- Independent rerun: `results/r4_1_real_20260921_b/`
+- ZIP SHA256: `92d01bd0deccd6c77c288cd69e7d1eaebeea289f64378f59b667e4aaa91af966`
+
+See [R4_1_VALIDATION_REPORT.md](R4_1_VALIDATION_REPORT.md) for counts, sources,
+comparison findings and limitations. **Hierarchy remains unassigned.** No score,
+ranking, convenience pruning, new discourse/theological label or legacy hierarchy
+reuse. Frozen layers including R4.0 are unchanged. Next task: researcher review
+of source-event profiles and positional evidence; no hierarchy stage is authorized.
+
+## Previous task — R4.0 whole-book candidate inventory, 2026-09-21
 
 Active specification: [R4_0_SPEC.md](R4_0_SPEC.md); usage:
 [README_MILAL_R4_0.md](README_MILAL_R4_0.md). The researcher accepted MR1 as R4
