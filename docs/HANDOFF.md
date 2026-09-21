@@ -1,6 +1,62 @@
 # MILAL Development Handoff
 
-## Current task — Human-authored pilot adjudication record, 2026-09-21
+## Current task — HR1 linkage validated, technical pilot closure ready, 2026-09-21
+
+Active specification: [HR1_SPEC.md](HR1_SPEC.md); usage:
+[README_MILAL_HR1.md](README_MILAL_HR1.md). HR1 is a non-analytical linkage
+sidecar joining the committed human adjudications to frozen R3c.3 and PROV1.
+The researcher authorized implementation, complete validation, real execution,
+and commit/push after success. Starting/source adjudication commit:
+`a1e2b99b6fb70a56ccd4ba7230998bae69031dc0` (main tracking origin/main).
+
+Final validation: Python syntax PASS; complete regression 202 PASS, zero
+failures/skips (31 HR1 tests plus 171 prior tests); synthetic self-test 22/22
+gates PASS, each with a negative test. The synthetic packet was inspected.
+An initial real attempt was intentionally interrupted before output publication
+to cache immutable member SHA256 values once per derivation. There was no
+reported source/gate failure. All 11 synthetic output files remained byte-identical
+after this performance change; full regression and self-test were rerun before
+the final real execution.
+
+Accepted real execution completed with exit code 0 and 22/22 gates PASS:
+
+- Directory: `results/hr1_human_review_linkage_20260921_114012/`
+- ZIP: `results/hr1_human_review_linkage_20260921_114012_results.zip`
+- Run log: `results/hr1_human_review_linkage_20260921_114012_run.log`
+- ZIP SHA256: `7566dcd6191da1b7e4d29b11af4a44c37511dcf0fefa24449a0489ee97c64191`
+
+There are 30 adjudication links, 141 case-target links, 288 R3c.3 evidence
+locators, 730 PROV1 provenance locators, 3,540 preserved extension overlay rows,
+six boundary panels (117 participant links) and six categorical summary rows.
+Unresolved links: 0; ambiguous links: 0. Boundary participant counts for CASE025–030
+are respectively 23, 16, 13, 17, 21, 27. CASE019 retains G6:S02135, atom 589751,
+lineage RL00218 and explicit parent-family provenance F001969. Missing identity
+domains are marked NOT_AVAILABLE_FROM_SOURCE, not guessed.
+
+The result ZIP CRC, manifest, written file bytes and original source hashes were
+rechecked after execution. Sources (repository-local paths on B computer):
+
+| Source | SHA256 |
+| --- | --- |
+| `results/r3c_3_windows_20260919_091111_results.zip` | `5f8239a692a516fd9722d94fb919321d399fad93c3583dd828ac1c1883576981` |
+| `results/prov1_windows_20260920_081304_results.zip` | `38c6703721e2f9cca590ab96d64d7a2860a3d075e059cabeb2abe9eb6708c482` |
+| `docs/HUMAN_REVIEW_PILOT_ADJUDICATION.csv` | `4fb8c15a9ae530e778122f97c3ffcdcc78ded89f534535e4c7afe5cb2272abe3` |
+
+Human fields remain verbatim: CLEAR 21 / PARTIAL 5 / INSUFFICIENT 4; context
+YES 26 / PARTIAL 4 / NO 0; all 30 REVIEWED and all review times blank. CASE007–012
+remain one human-recognized extended sequence with explicit overlay dependency,
+not six independent evidences. CASE028/029 retain Elihu's ending, YHWH's beginning,
+no automatic direct Elihu→YHWH continuity, and Job as explicit addressee.
+
+The inspected acceptance report supports technical readiness to close this
+30-case human-review pilot, qualitatively from the recorded distinctions and
+limitations, without a score or population-wide claim. All frozen analytical
+cores/outputs and human source records remain unchanged. No R2.2 rerun is needed.
+Next pending task: researcher decision on formal methodological closure using
+the HR1 report and source-linked human record. No R3c.4, R4, corrective pipeline,
+new automatic judgments or further methodological stage is authorized.
+
+## Previous task — Human-authored pilot adjudication record, 2026-09-21
 
 The researcher supplied completed CASE001–CASE030 human adjudications. Their
 source-of-truth record is [HUMAN_REVIEW_PILOT_ADJUDICATION.md](HUMAN_REVIEW_PILOT_ADJUDICATION.md)

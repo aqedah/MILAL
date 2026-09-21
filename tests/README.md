@@ -119,3 +119,19 @@ original evidence referenced. Real R3b source schema/CRC/hash inspection was
 performed; no real R3c.3 enrichment dataset was executed. Frozen cores and prior
 tests remain unchanged. Use the canonical-temporary-path full-suite command in
 the R3c.3 usage guide on Windows.
+
+## HR1
+
+`test_hr1_adjudication_linkage.py` adds 31 tests. Every one of the 22 HR1 gates
+has a negative mutation (source integrity/commit defects abort at preflight).
+Tests also cover missing/duplicate explicit links, source-anchor disagreement,
+verbatim human-field roundtrips, independent event-only singleton review,
+boundary multiplicity, extension connectivity, deterministic synthetic output,
+fresh output enforcement and ZIP/log verification. Real result ZIPs are not
+required by the regression suite. No frozen stage or previous test was changed.
+
+2026-09-21: complete regression suite 202 PASS, zero failures/skips, including
+both installed PowerShell versions; Python syntax PASS; HR1 synthetic self-test
+22/22 gates PASS. Synthetic packet inspected: 30 case rows, 90 evidence locators,
+136 provenance locators, five overlay rows, six boundary panels, six summary rows.
+See `docs/HR1_SPEC.md` and `docs/README_MILAL_HR1.md` for schema and execution.
