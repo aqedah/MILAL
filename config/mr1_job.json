@@ -1,0 +1,618 @@
+{
+  "source_script_name": "job_tf_structure_pipeline_v5_2_5.py",
+  "source_script_sha256": "26854a0adcdeabf61199d0786974c1a0dc153dbfe6de86781ac14b98caea6ac1",
+  "source_config_name": "job_tf_config_v5_2_5.json",
+  "source_config_sha256": "a3152566b88747b50edb0e3d567a93ce7dbb1c71f2364bb4fccf5f163d2e1a02",
+  "methods": [
+    {
+      "identity": "HEB_LETTERS",
+      "start_line": 59,
+      "end_line": 59,
+      "ast_sha256": "8f0f6b2cf8328fde0f35515dc1e2a31fb5f57333b33f33e1a8c03083041a52bc"
+    },
+    {
+      "identity": "FINAL_TO_MEDIAL",
+      "start_line": 60,
+      "end_line": 60,
+      "ast_sha256": "de7350cb9ac83262f36722ca5d235800d424078f6be87296e3bbae92d4beb6e9"
+    },
+    {
+      "identity": "norm_hebrew",
+      "start_line": 63,
+      "end_line": 68,
+      "ast_sha256": "3505b2966064660fee35b915fbb103d8498d6673a059ede8febb9255dce6eee6"
+    },
+    {
+      "identity": "csv_join",
+      "start_line": 71,
+      "end_line": 72,
+      "ast_sha256": "e72a612d28447181ca3a3d31ea2d65a99baedf963ba6da0334b829bfe3393922"
+    },
+    {
+      "identity": "ordered_unique",
+      "start_line": 75,
+      "end_line": 81,
+      "ast_sha256": "b3efffed0a8942d1e848d72e138d8199c943e63deaefc4dead343cf7a49b236a"
+    },
+    {
+      "identity": "BHSA.f",
+      "start_line": 527,
+      "end_line": 533,
+      "ast_sha256": "599866c0a5d08f4c21585f433bf6ed3dcc65687d4f551c41db8bd3560d345d21"
+    },
+    {
+      "identity": "BHSA.down",
+      "start_line": 542,
+      "end_line": 546,
+      "ast_sha256": "0148038c4a9aa1c0cff8fb23b23a302732d8f77b7fd60062f17a4e1adcd2d08e"
+    },
+    {
+      "identity": "BHSA.up",
+      "start_line": 548,
+      "end_line": 552,
+      "ast_sha256": "448005bf63123e8df04d601bdc736a2efa192b6c786758c9306dd00d1e895757"
+    },
+    {
+      "identity": "BHSA.otype",
+      "start_line": 554,
+      "end_line": 555,
+      "ast_sha256": "0fc29945b6f343f642114a23e6c6a8e55f987d7e252268e99b0567f91af26b86"
+    },
+    {
+      "identity": "BHSA.words",
+      "start_line": 557,
+      "end_line": 558,
+      "ast_sha256": "abfd85bd934e73f93d5c1414d6bc9c7fe4a3723120197381c5d05f3cfe2f2094"
+    },
+    {
+      "identity": "BHSA.phrases",
+      "start_line": 560,
+      "end_line": 561,
+      "ast_sha256": "b421992c0bb1e4779fdf4b81fedb6211a8e48eac6ad7e58c6d6248a63cd4c215"
+    },
+    {
+      "identity": "BHSA.clause_atoms",
+      "start_line": 563,
+      "end_line": 564,
+      "ast_sha256": "75ea3b867cf312c28da371e19f77f8d3b07fdf2f1ab2b44ecca4ffd4d71a9728"
+    },
+    {
+      "identity": "BHSA.verse_node",
+      "start_line": 575,
+      "end_line": 579,
+      "ast_sha256": "9497b56dc259d9ae3b37d734b553c2e1e90a26b1d2a58d41b5c559173cb4a0a1"
+    },
+    {
+      "identity": "BHSA.section",
+      "start_line": 581,
+      "end_line": 585,
+      "ast_sha256": "16953384d6d3d0c14869a1349b4cad914f23e3d7cfbfa959557d7a8981066709"
+    },
+    {
+      "identity": "BHSA.ref",
+      "start_line": 587,
+      "end_line": 595,
+      "ast_sha256": "faebc656c6e396ff432ba5b7acd519d4854feabd49f8044f4dc35ca296f3715c"
+    },
+    {
+      "identity": "BHSA.cv",
+      "start_line": 597,
+      "end_line": 601,
+      "ast_sha256": "68a4ec42d5bd0f5d4e0b5fbe8c8efe9c151c94a411cd14d5bd97392aaaf710c3"
+    },
+    {
+      "identity": "BHSA.lex",
+      "start_line": 606,
+      "end_line": 611,
+      "ast_sha256": "46f93c54bda8346a154e0ecafa316d3a85376afc9b80fd6c2c3494dffe778597"
+    },
+    {
+      "identity": "BHSA.surface",
+      "start_line": 613,
+      "end_line": 614,
+      "ast_sha256": "45ad0ddfd4b7220a28b30fe582e5dd1ca5c38eb7ff15d30246059429b0f7220f"
+    },
+    {
+      "identity": "BHSA.text",
+      "start_line": 616,
+      "end_line": 617,
+      "ast_sha256": "6a410fd53daa15cf6838886ecebb7acb7eafebe5ac0e5d46d6c447f3b883ac8b"
+    },
+    {
+      "identity": "BHSA.pos",
+      "start_line": 619,
+      "end_line": 620,
+      "ast_sha256": "c9d078f5a0da8d5d4b233220c8cbdb3813f1bdbae5f9303861274e5077ea5eba"
+    },
+    {
+      "identity": "BHSA.lexemes",
+      "start_line": 622,
+      "end_line": 623,
+      "ast_sha256": "86a009ba67118f7b64632a79827746115970a44a53a6920ec86d96d7f05ddec1"
+    },
+    {
+      "identity": "BHSA.content_lexemes",
+      "start_line": 625,
+      "end_line": 626,
+      "ast_sha256": "30623c4b44462f580c21fb85959286ecd81c53b89e01d24deb370a9cdf2233d1"
+    },
+    {
+      "identity": "BHSA.proper_names",
+      "start_line": 628,
+      "end_line": 629,
+      "ast_sha256": "7addb30dc8f66325e116034c28fb6286c9de8c56568fdd2e057f2a1e9e9201b7"
+    },
+    {
+      "identity": "BHSA.phrase_functions",
+      "start_line": 631,
+      "end_line": 632,
+      "ast_sha256": "bac4a5157861d0855b022af76d5b1dd318cee35aecb11e21403c3950080ddd3d"
+    },
+    {
+      "identity": "BHSA.phrase_of_word",
+      "start_line": 637,
+      "end_line": 639,
+      "ast_sha256": "53f45e9b1bf75cc53b2c80bacbe09cf5b6f5c82f3212c9335fdaaae852b456c8"
+    },
+    {
+      "identity": "BHSA.phrase_function_of_word",
+      "start_line": 641,
+      "end_line": 643,
+      "ast_sha256": "4126e5cbd3804819a79ccae7a53494f4f1577f461a181e5fb34ad1cd1f36a372"
+    },
+    {
+      "identity": "BHSA.subject_names",
+      "start_line": 645,
+      "end_line": 650,
+      "ast_sha256": "f98c4e5536cba412f49e12ac2aa1aab73ffea3cbe83f697c6b2b489ccedc3618"
+    },
+    {
+      "identity": "BHSA.subject_phrase",
+      "start_line": 656,
+      "end_line": 660,
+      "ast_sha256": "fc8446160cb06c9b12fcf80c005c0df96a0872f7b5a2d2080acc44b671bcebc9"
+    },
+    {
+      "identity": "BHSA.subject_label",
+      "start_line": 662,
+      "end_line": 684,
+      "ast_sha256": "736f35346ec7675c587fde466602fc558869a057d439836bd1de575124b65f77"
+    },
+    {
+      "identity": "BHSA.proper_name_type",
+      "start_line": 686,
+      "end_line": 687,
+      "ast_sha256": "f1e92830441f4e5c4c2e804d3cab9561bdf3d6561c83fb463290305af380c05e"
+    },
+    {
+      "identity": "BHSA.vocative_names",
+      "start_line": 689,
+      "end_line": 694,
+      "ast_sha256": "52be509fb51650eaf076e3d8030633899ac031cc0ac32ba9976b68642c2f878b"
+    },
+    {
+      "identity": "BHSA.png",
+      "start_line": 719,
+      "end_line": 726,
+      "ast_sha256": "564a74fda9634eca3657065e6cf18dd6070926472ae6e72f52a352f418cfb85d"
+    },
+    {
+      "identity": "BHSA.finite_verbs",
+      "start_line": 728,
+      "end_line": 736,
+      "ast_sha256": "086c74c0c2903c9bedc0146f6f2bb6c1248623083f5186c5b27ce21f3d047def"
+    },
+    {
+      "identity": "BHSA.actor_png_profile",
+      "start_line": 738,
+      "end_line": 751,
+      "ast_sha256": "fbc62021d4b2ec23649b097d5d685f2c0187c3c37949ae7c165ae0954cee3e05"
+    },
+    {
+      "identity": "BHSA.verb_forms",
+      "start_line": 753,
+      "end_line": 754,
+      "ast_sha256": "67fd6aa180c2106782394cb26ad2a918bc058ffdc6a49c0466e026dacc37572f"
+    },
+    {
+      "identity": "BHSA.has_phrase_function",
+      "start_line": 756,
+      "end_line": 757,
+      "ast_sha256": "2d01ed2280f892efbd03d7be58a49b78426fffe021a15e5ef529def9ce25de16"
+    },
+    {
+      "identity": "BHSA.time_phrases",
+      "start_line": 759,
+      "end_line": 760,
+      "ast_sha256": "80946fb14998bcf2917affe0052a0289712dcd74f277d43a2c26434c34c38e11"
+    },
+    {
+      "identity": "BHSA.locative_phrases",
+      "start_line": 762,
+      "end_line": 763,
+      "ast_sha256": "3a3ea42eab5be94a695a460d2d9640875610ad2ef08a2a12396f033daefbd8b9"
+    },
+    {
+      "identity": "BHSA.has_imperative",
+      "start_line": 765,
+      "end_line": 768,
+      "ast_sha256": "9ae67fb2449a42aaff947949d8a04aa849f388f9d24cc11327cd081706e3a918"
+    },
+    {
+      "identity": "BHSA.has_question",
+      "start_line": 770,
+      "end_line": 776,
+      "ast_sha256": "37003c4ae8ad0ba7d1b00bb4ed451b3cba04463471b75f40acf3b4fed3301075"
+    },
+    {
+      "identity": "BHSA.has_vocative",
+      "start_line": 778,
+      "end_line": 779,
+      "ast_sha256": "a332df2408f51b516373f53983acb7d3d40e5e6b05fab4a46d11edb490b3df40"
+    },
+    {
+      "identity": "BHSA.is_msyn",
+      "start_line": 781,
+      "end_line": 782,
+      "ast_sha256": "479dc045aefbcf01a1568e5e67450569f9ae3f6b401b8b8bf46fb400d471d692"
+    },
+    {
+      "identity": "BHSA.domain",
+      "start_line": 784,
+      "end_line": 785,
+      "ast_sha256": "8e2496331ec2157f3ccae3a72d13dc737e717b17102ffd10fec39ce4d62aea09"
+    },
+    {
+      "identity": "BHSA.is_way0",
+      "start_line": 787,
+      "end_line": 788,
+      "ast_sha256": "7d5035abce5c606e0e9aa078c58cc0ebc2306de84b5105c2a4401e276b936ce2"
+    },
+    {
+      "identity": "BHSA.is_wayx",
+      "start_line": 790,
+      "end_line": 791,
+      "ast_sha256": "3003c36ebd7972ae33799b7d2cc04c6769624f22372c67be3f56d603e9570d48"
+    },
+    {
+      "identity": "BHSA.verse_distance",
+      "start_line": 793,
+      "end_line": 797,
+      "ast_sha256": "d96c46e67446d951d9b4d1449e95b64aed84f8af90ef04cc5df2cabf65aa9702"
+    },
+    {
+      "identity": "Analyzer.__init__",
+      "start_line": 1091,
+      "end_line": 1122,
+      "ast_sha256": "d0eb5625e96687fa999d2c96d6862d4b75e688f8e65dc93cbb89282de2af5d0f"
+    },
+    {
+      "identity": "Analyzer.contains_ordered",
+      "start_line": 1126,
+      "end_line": 1136,
+      "ast_sha256": "492ad1237b7f25a63e616c0ef87fd3c32e0f5f98066dcb2b6496e6ba24e5db6a"
+    },
+    {
+      "identity": "Analyzer.clause_index",
+      "start_line": 1138,
+      "end_line": 1139,
+      "ast_sha256": "6e0a6e989174e3d31e52da9c0313f298e6231606f5c05b18f306650db7367e35"
+    },
+    {
+      "identity": "Analyzer.is_narrator_clause",
+      "start_line": 1141,
+      "end_line": 1142,
+      "ast_sha256": "ffd2f92ab073df270f807120bdf6622c61c281493cef49c44f70e9fd37bc2c36"
+    },
+    {
+      "identity": "Analyzer.is_discourse_marker",
+      "start_line": 1144,
+      "end_line": 1145,
+      "ast_sha256": "e78012875f1a8c8325c37726a69bf24a512eeba58ff78a73966a419700d4da0f"
+    },
+    {
+      "identity": "Analyzer.temporal_construction",
+      "start_line": 1147,
+      "end_line": 1163,
+      "ast_sha256": "d704f34dc0c41196894f32dbfed9e18d30d44862d6adf9189c523b34f932d37a"
+    },
+    {
+      "identity": "Analyzer.place_marker",
+      "start_line": 1165,
+      "end_line": 1169,
+      "ast_sha256": "4ea433a3f147a3abb2472b2c7eeea0120ed3ac3caccbc135fcd8e5fa8436c8e8"
+    },
+    {
+      "identity": "Analyzer._anchor_type",
+      "start_line": 1173,
+      "end_line": 1184,
+      "ast_sha256": "28baaa972897ab9b32c012141c471945ce8abfb9d2141ef41fe0ccab44cda420"
+    },
+    {
+      "identity": "Analyzer._formula_expansion",
+      "start_line": 1186,
+      "end_line": 1407,
+      "ast_sha256": "473135e370ffe45bf7c96253e1faa0901cc13ffb7073aca5976c4eb026899bf1"
+    },
+    {
+      "identity": "Analyzer._new_anonymous_speaker",
+      "start_line": 1409,
+      "end_line": 1412,
+      "ast_sha256": "f3f2124bf6ba647b1e73fe03d0d1b67587438850d41c6d645d8424fd155a3016"
+    },
+    {
+      "identity": "Analyzer._subject_demonstrative_label",
+      "start_line": 1414,
+      "end_line": 1422,
+      "ast_sha256": "c08759acff8f861c58f1600b40389f2217fab4d7fe3b44eaddf3211cf3028c82"
+    },
+    {
+      "identity": "Analyzer._recent_matching_named_entity",
+      "start_line": 1424,
+      "end_line": 1461,
+      "ast_sha256": "879967302e2d4748b80490f2bc9fe320be591cfd3d4d61051528698588351309"
+    },
+    {
+      "identity": "Analyzer._implicit_speaker_from_context",
+      "start_line": 1463,
+      "end_line": 1514,
+      "ast_sha256": "560d1b5befc78844837eee2759b3afd103721ce1a26aea0c64dc033314ee2041"
+    },
+    {
+      "identity": "Analyzer._speech_reset_evidence",
+      "start_line": 1516,
+      "end_line": 1537,
+      "ast_sha256": "8f49cabd55d9062101eaddc1fd66e5ee0eb51ca3cc0875e7945c11ef2bb4bb60"
+    },
+    {
+      "identity": "Analyzer._reported_speech_candidate",
+      "start_line": 1539,
+      "end_line": 1562,
+      "ast_sha256": "4d562a36d4548fee5bc8ea1b83519227a7e7115b6170bf0732f842681d644038"
+    },
+    {
+      "identity": "Analyzer._preposed_report_complementizer",
+      "start_line": 1564,
+      "end_line": 1584,
+      "ast_sha256": "bcbff6021738d70cc4675c2f82596cc901952f4ba13380159dcefbdc5549551e"
+    },
+    {
+      "identity": "Analyzer._detect_csf_turns",
+      "start_line": 1586,
+      "end_line": 1846,
+      "ast_sha256": "53f330d6228185418020797cfe55df9bf7751bf47b9d922203df960f13fe21b5"
+    },
+    {
+      "identity": "Analyzer._annotate_turn_sequence",
+      "start_line": 1848,
+      "end_line": 1895,
+      "ast_sha256": "68bfa267f9098fcf81758c1a7358905ca8836ce9a78701e9dc795e4f293c1b62"
+    },
+    {
+      "identity": "Analyzer._propagate_speaker",
+      "start_line": 1897,
+      "end_line": 1906,
+      "ast_sha256": "7ebcf62862d1ac71f88ce41238fda8b3086a84fd21254950834aaf6281180dcb"
+    },
+    {
+      "identity": "Analyzer._propagate_turn_id",
+      "start_line": 1908,
+      "end_line": 1917,
+      "ast_sha256": "3bdb2887bcadef7576f02038957af61db93936df47130fd68bc585fb74ab3ffd"
+    },
+    {
+      "identity": "Analyzer.csf_rows",
+      "start_line": 1919,
+      "end_line": 1983,
+      "ast_sha256": "78bc61e1bf71beef9955cf68fa58546c7f3c5faf27ede886834f26329374050b"
+    },
+    {
+      "identity": "Analyzer._detect_closure_spans",
+      "start_line": 1987,
+      "end_line": 2021,
+      "ast_sha256": "148cdbdf67ef6762068f07440d9f00ff657e55570543eef1072f794c523741ee"
+    },
+    {
+      "identity": "Analyzer.recent_closures",
+      "start_line": 2023,
+      "end_line": 2033,
+      "ast_sha256": "58950c9a06971472e520beb86d00464782792f6e83e4e027a96cd0e1f7619c1e"
+    },
+    {
+      "identity": "Analyzer.wayhi_profile",
+      "start_line": 2035,
+      "end_line": 2069,
+      "ast_sha256": "18ab735e8f3533709c7fb0c5241b5c4e5c773e7f2fb63b52bea538a2c8163d75"
+    },
+    {
+      "identity": "Analyzer.wayhi_rows",
+      "start_line": 2071,
+      "end_line": 2090,
+      "ast_sha256": "9a468a15197af974951caa1ebb5c22b3f377800ed03a85b0156b8df2913ad466"
+    },
+    {
+      "identity": "Analyzer._is_numeric_subject_modifier",
+      "start_line": 9795,
+      "end_line": 9840,
+      "ast_sha256": "03e49e636c30e8b5b985e7be140d50cb647b36dee441c5c7cf39b6ef12616837"
+    },
+    {
+      "identity": "Analyzer._subject_name_is_identification",
+      "start_line": 9842,
+      "end_line": 9887,
+      "ast_sha256": "6d1eed01a3ca7c7374f5c07a61aa566ddd40610241d91983066192afd6c9783c"
+    },
+    {
+      "identity": "Analyzer._macro_subject_profile",
+      "start_line": 9889,
+      "end_line": 10023,
+      "ast_sha256": "470fe631a40f4c07e540f96d7eac8548de89f428c21e4568d5e0132f2f1222a0"
+    },
+    {
+      "identity": "Analyzer._references_in_clause",
+      "start_line": 10066,
+      "end_line": 10169,
+      "ast_sha256": "4418b6b722a876f80495a14da7e5bf5e8a352f049bae3dff0beee227af424174"
+    },
+    {
+      "identity": "Analyzer._build_participant_tables",
+      "start_line": 10171,
+      "end_line": 10225,
+      "ast_sha256": "649386b3a966a4c660178021994846b711c71630a3c1d78a36c46650464a219f"
+    },
+    {
+      "identity": "Analyzer.surface_clause_rows",
+      "start_line": 11135,
+      "end_line": 11182,
+      "ast_sha256": "8d21e22e068376ca19cdc432e13548db1522a96e9a69bdf2dd386d421bfcd36e"
+    }
+  ],
+  "rule_config": {
+    "closure_lookahead_clauses": 2,
+    "closure_patterns": [
+      [
+        "תמם",
+        "דבר"
+      ],
+      [
+        "שבת",
+        "ענה"
+      ],
+      [
+        "כלה",
+        "דבר"
+      ],
+      [
+        "חדל",
+        "דבר"
+      ],
+      [
+        "חדל",
+        "אמר"
+      ]
+    ],
+    "content_pos": [
+      "verb",
+      "subs",
+      "nmpr",
+      "adjv"
+    ],
+    "csf_implicit_speaker_lookback_clauses": 2,
+    "discourse_markers": [
+      "ועתה",
+      "אך",
+      "אולם",
+      "לכן",
+      "הן",
+      "הנה"
+    ],
+    "implicit_speaker_entity_lookback_clauses": 12,
+    "macro_closure_lookback_verses": 6,
+    "macro_cluster_back_clauses": 4,
+    "participant_return_lookahead_clauses": 4,
+    "reported_speech_complementizers": [
+      "כי",
+      "אשר"
+    ],
+    "speaker_regime_following_turns": 2,
+    "speaker_regime_min_span_clauses": 8,
+    "speaker_regime_windows": [
+      4,
+      6,
+      8
+    ],
+    "speech_anchor_patterns": {
+      "ANSWER": [
+        "ענה"
+      ],
+      "ADD_SPEECH": [
+        "יסף"
+      ],
+      "TAKE_MASHAL": [
+        "נשא",
+        "משל"
+      ],
+      "OPEN_MOUTH": [
+        "פתח",
+        "פה"
+      ]
+    },
+    "speech_formula_lookahead_clauses": 3,
+    "subordinator_lexemes": [
+      "אשר",
+      "כי",
+      "אם",
+      "כאשר",
+      "למען",
+      "פן",
+      "עד",
+      "טרם",
+      "בטרם",
+      "אחרי",
+      "אחר"
+    ],
+    "temporal_allowed_pos": [
+      "prep",
+      "advb",
+      "conj"
+    ],
+    "temporal_construction_lexemes": [
+      "אחר",
+      "אחרי",
+      "טרם",
+      "בטרם"
+    ],
+    "wayhi_frame_lookahead_clauses": 3
+  },
+  "book": "Job",
+  "bhsa_version": "2021",
+  "tf_version": "13.1.0",
+  "scope": [
+    "Job 1:1",
+    "Job 42:17"
+  ],
+  "clause_count": 2938,
+  "clause_atom_count": 2977,
+  "historical_counts": {
+    "surface": 2938,
+    "csf": 56,
+    "closure": 2,
+    "way0": 170
+  },
+  "wayhi_positive_count": 5,
+  "wayhi_negative_count": 165,
+  "wayhi_positive_refs": [
+    "Job 1:5",
+    "Job 1:6",
+    "Job 1:13",
+    "Job 2:1",
+    "Job 42:7"
+  ],
+  "controls": [
+    "Job 1:1",
+    "Job 1:6",
+    "Job 1:13",
+    "Job 2:1",
+    "Job 2:11",
+    "Job 3:1",
+    "Job 27:1",
+    "Job 29:1",
+    "Job 31:40",
+    "Job 32:1",
+    "Job 32:2",
+    "Job 37:24",
+    "Job 38:1",
+    "Job 40:1",
+    "Job 42:7",
+    "Job 42:16"
+  ],
+  "fingerprint_semantics": "CURRENT_LOCAL_COMPARISON_FINGERPRINT_NOT_HISTORICAL_ACCEPTANCE",
+  "baseline_hashes": {
+    "90_run_metadata.json": "b14adb9fe20f6adf26fdb851f3db5e4da64c0df3629958bf4c0971ad04df781e",
+    "91_config_audit.csv": "c8b82d04d33395801f6bd30e9a8a31e1da45f1658747213ef801c8173533bc0b",
+    "00_job_surface_clauses.csv": "951933a166d343546d249676319672ce54319562f2ba64f25fd1a6da944b37d8",
+    "01_job_csf_speech_turns.csv": "7d5844f5ed58b1ccbe5d56388005b0919f1dc8dcc17e5e714287791bb595dbf1",
+    "02_job_explicit_closures.csv": "0f8e90ac8f10239c735557dc52c5477006b4548b038ab8ecb9ac9927fc91584c",
+    "03_job_way0_wayhi.csv": "ee7d939e7293813a3ad0b810330ef3b4702d6967162b4a8306da89894d7970a7"
+  }
+}

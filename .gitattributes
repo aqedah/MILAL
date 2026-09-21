@@ -18,3 +18,6 @@
 *.jpg  binary
 *.jpeg binary
 *.pdf  binary
+
+# MR1 byte-reproduction fixtures retain their intentional UTF-8 BOM / CRLF.
+tests/fixtures/mr1/*.csv text eol=crlf

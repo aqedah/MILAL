@@ -1,6 +1,54 @@
 # MILAL Development Handoff
 
-## Current task — HR1 linkage validated, technical pilot closure ready, 2026-09-21
+## Current task — MR1 provenance/reproduction, 2026-09-21
+
+Active specification: [MR1_SPEC.md](MR1_SPEC.md); execution instructions:
+[README_MILAL_MR1.md](README_MILAL_MR1.md). The researcher explicitly authorized
+implementation, synthetic tests, real BHSA 2021 reproduction, deterministic rerun,
+historical four-CSV comparison, field/control audit and commit/push after success.
+Starting commit: `fa7d4477470306513a2002c26982368e6954de2d` on main/origin/main.
+
+MR1 is provenance/reproduction only. R4.0 remains blocked pending MR1 review.
+Frozen R1.1/v6.42.12 packages remain unavailable; v5.2.5 is a historical
+comparison source, not an authoritative replacement registry/hierarchy.
+The corrected expected populations are Way0 audit 170, Wayhi-positive 5 and
+negative 165. Temporal auxiliary evidence uses nonempty/non-NA vt, not an added
+finite-only restriction.
+
+Validation complete: syntax PASS; full regression **273/273 PASS**, zero skips
+(202 previous + 71 MR1 tests); synthetic self-test **33/33 gates PASS**, with a
+negative test/mutation for every gate. PowerShell 5.1 synthetic runner and
+PowerShell 7 real runner completed successfully. Frozen analytical cores were
+not modified.
+
+Real BHSA 2021 / TF 13.1.0 execution: **33/33 gates PASS**, exit 0. All **3166**
+historical rows have exact explicit-key/coordinate and all-field equality:
+surface 2938, CSF 56, closure 2, Way0 audit 170. Historical-only/current-only/
+field-different rows: **0/0/0**. All four historical-schema exports are
+byte-identical to their local comparison CSVs. Wayhi-positive 5 at 1:5, 1:6,
+1:13, 2:1, 42:7; negative 165. CSF has historical ordinal IDs/coordinates, not
+historical clause IDs; MR1 does not guess them.
+
+Native membership: 2938 clauses, 2977 atoms, 39 multi-atom clauses. Complete
+event/clause links: 3201 rows (3240 event/clause/atom memberships). All control
+locations inspected, including 175 clauses in 1:1–3:1. Job 31:40 clause 499623
+still maps independently to atom 589751 (frozen S02135 control).
+
+Two fresh processes produced **17/17 byte-identical members and identical ZIPs**:
+
+- Results: `results/mr1_real_final_20260921_a/`
+- ZIP: `results/mr1_real_final_20260921_a_results.zip`
+- Log: `results/mr1_real_final_20260921_a_run.log`
+- Rerun: `results/mr1_real_final_20260921_b/`
+- ZIP SHA256: `9f287dca2a7689e04f37b4a9dbcfe53dd714dcc8dc9d1a702f46f476f6537ec0`
+
+See [MR1_VALIDATION_REPORT.md](MR1_VALIDATION_REPORT.md) for exact source paths,
+hashes, field comparison and control findings. Current source dataset bytes are
+fingerprinted; historical raw BHSA byte identity remains UNKNOWN_NOT_VERIFIED.
+Next pending task: researcher review of MR1 provenance/reproduction and CSF use.
+Technical success is not methodological acceptance; **R4.0 is still on hold**.
+
+## Previous task — HR1 linkage validated, technical pilot closure ready, 2026-09-21
 
 Active specification: [HR1_SPEC.md](HR1_SPEC.md); usage:
 [README_MILAL_HR1.md](README_MILAL_HR1.md). HR1 is a non-analytical linkage
