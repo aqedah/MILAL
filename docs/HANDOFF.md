@@ -1,6 +1,64 @@
 # MILAL Development Handoff
 
-## Current task — R4.1 boundary-oriented evidence profiles, 2026-09-21
+## Current task — R4.2 participant transition/enclosure audit, 2026-09-21
+
+Active specification: [R4_2_SPEC.md](R4_2_SPEC.md); usage:
+[README_MILAL_R4_2.md](README_MILAL_R4_2.md). Starting HEAD:
+`16e13b525a467e63181eb1a434e0c152d96d309a`. The researcher supplied R4.1 human
+judgments, authorized R4.2 through commit/push after validation, and explicitly
+resolved the initial messenger identity stop: preserve **one overt מלאך event
+and three anonymous זה + בא entries**; do not promote historical inferred speaker
+IDs into referential identities. Event existence and participant identity are
+separate claims. New human judgments are versioned in
+[R4_2_HUMAN_JUDGMENTS.json](R4_2_HUMAN_JUDGMENTS.json), not extraction rules.
+
+**Participant change is scene evidence, not automatic hierarchy.** Wife, friends,
+Elihu and messenger controls use the same whole-book surface rules. Audit scope:
+2938 clauses / 2977 atoms / 8286 phrase inclusion-or-exclusion rows. There are
+**452 source-phrase event candidates**, not 452 confirmed scene transitions or
+distinct entities: 449 overt source mentions and three anonymous entries.
+Referential first appearance remains UNRESOLVED; exact name-form word facts are
+separate. Proper-name/grammatical-group/speech-argument candidates can include
+reported content or inanimate expressions; their scene status is human-reviewed.
+
+Primary type counts: new-participant candidate 39; group candidate 232;
+speaker-expression change 49; addressee-expression change 34; other explicit
+set-change candidate 98. Complete matching tags remain. Enclosure rows **469**:
+inside supplied frame 70, between closure/opening 362, after closure 28, before
+opening 9. Formal event/clause-span links **3362**; full formal inventory 12722.
+Three human-supplied candidate frames are overlays, not macro units or parents.
+
+Controls: all four entries lie inside supplied 1:6–1:22 and 1:13–1:22 frames.
+Wife 2:9 lies inside supplied 2:1–2:10. Friends 2:11 lie after human ending 2:10
+and before human 3:1 transition / MR1 3:2 CSF. Elihu 32:2 is after MR1 32:1
+closure and before MR1 32:6 CSF; 31:40 and 32:2–5 source context remain separate.
+**1:22/2:10 parallel-ending control**: corresponding evaluation clauses are xQtX
+with חטא qal/perfect/3ms; 2:10 adds בשפתיו. Shared formal families F000020/G0
+and F001232/G1. Both remain **MR1_EXPLICIT_CLOSURE=false**. Human ending status
+is separate, and all 69 formal recurrences of the shared families are retained.
+**3:1 marker-layer gap** is explicit: אחרי כן / פתח איוב את פיהו surface evidence,
+no MR1 marker; 3:2 CSF remains separate. MR1 rules are unchanged.
+
+Final syntax PASS; full regression **436 PASS, zero skips** (383 prior + 53 R4.2).
+Every gate has a negative test. Final synthetic and both real runs **31/31 PASS**.
+Independent rerun reproduces **27/27 files and the complete ZIP byte-for-byte**.
+Every event has expanded source context in the review packet. Source, manifest,
+eligibility, identity and enclosure audits passed. See
+[R4_2_VALIDATION_REPORT.md](R4_2_VALIDATION_REPORT.md) for details and limitations.
+
+- Results: `results/r4_2_real_final_20260921_a/`
+- ZIP: `results/r4_2_real_final_20260921_a_results.zip`
+- Log: `results/r4_2_real_final_20260921_a_run.log`
+- Rerun: `results/r4_2_real_final_20260921_b/`
+- ZIP SHA256: `7b6c91fb862bf1755c097a9edc31783933388279b54f88796531b0a2419be8d3`
+
+All previous analytical cores and accepted artifacts remain unchanged. No legacy
+hierarchy, automated parentage, scores/ranks or new interpretive labels. Existing
+human hierarchy judgments remain attributed; new conclusion/hierarchy fields are
+blank. **Hierarchy is still human-adjudicated.** Next task: researcher review of
+surface participant candidates and surrounding evidence; no automatic next stage.
+
+## Previous task — R4.1 boundary-oriented evidence profiles, 2026-09-21
 
 Active specification: [R4_1_SPEC.md](R4_1_SPEC.md); runner instructions:
 [README_MILAL_R4_1.md](README_MILAL_R4_1.md). Starting HEAD:

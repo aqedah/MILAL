@@ -1,0 +1,20 @@
+{
+  "source": "Researcher R4.2 task instruction and explicit anonymous-entry clarification, 2026-09-21",
+  "role": "HUMAN_JUDGMENT_ONLY_NOT_EXTRACTION_RULE",
+  "judgments": [
+    {"id":"R42H01","refs":["1:5"],"statement":"1:5 = 1:1–5 내부 전환"},
+    {"id":"R42H02","refs":["1:6","2:1"],"statement":"1:6 ↔ 2:1 = 동일 계층의 병행 시험 단위 시작"},
+    {"id":"R42H03","refs":["1:13"],"statement":"1:13 = 1:6 단위 내부의 하위 장면 시작"},
+    {"id":"R42H04","refs":["3:1","3:2"],"statement":"3:1 = 3:2보다 상위의 발화/대화부 시작점"},
+    {"id":"R42H05","refs":["27:1","29:1"],"statement":"27:1 ↔ 29:1 = 동일 계층의 병행 발화 단위"},
+    {"id":"R42H06","refs":["32:6","34:1","35:1","36:1"],"statement":"32:6 ↔ 34:1 ↔ 35:1 ↔ 36:1 = 엘리후 네 연설의 동일 계층 병행 시작"},
+    {"id":"R42H07","refs":["38:1","40:6"],"statement":"38:1 ↔ 40:6 = 여호와 두 연설의 동일 계층 병행 시작"},
+    {"id":"R42H08","refs":["40:1"],"statement":"40:1 = 38:1 연설 내부의 하위 발화"},
+    {"id":"R42H09","refs":["40:3","42:1"],"statement":"40:3 ↔ 42:1 = 동일 계층의 두 욥 응답"},
+    {"id":"R42H10","refs":["42:7"],"statement":"42:7 = 새로운 단락 시작"},
+    {"id":"R42H11","refs":["42:16"],"statement":"42:16 = 새로운 구조 단위로 나누지 않음. 명시적 언어학적 표지가 없으므로 42:7 이후의 연속으로 봄."},
+    {"id":"R42H12","refs":["1:22","2:10"],"statement":"1:22와 2:10은 두 시험 단위의 대응되는 담화 종결부이므로, 1:13 이후의 네 사자와 2:9의 아내를 각각 1:6–22 / 2:1–10 안에서 처리할 수 있다."},
+    {"id":"R42H13","refs":["1:14","1:16","1:17","1:18"],"statement":"Job 1:14–18은 네 전달자가 연속해서 들어오는 장면 sequence이다."},
+    {"id":"R42H14","refs":["31:40","32:1","32:2","32:3","32:4","32:5","32:6"],"statement":"31:40 = Job speech closure; 32:1 = friends' answering closure; 32:2–5 = Elihu narrative introduction; 32:6 = Elihu actual speech onset"}
+  ]
+}
