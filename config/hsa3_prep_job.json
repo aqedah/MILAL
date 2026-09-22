@@ -1,0 +1,243 @@
+{
+  "version": "HSA3-PREP",
+  "baseline_commit": "b7834a76dceae046e4b83821445353793318a056",
+  "archive": {
+    "path": "results/r4_3_whole_book_scaffold_20260922_a_results.zip",
+    "sha256": "d8fc0227c6bd35517b0dea1d53b205517ad8a8308b5954486215a00955cba4f7"
+  },
+  "frozen_files": {
+    "config/hsa1_job.json": "b97e91ee976db06be68cfa20640abb7a13e1cd2cd4acc9e4a24f72067ffa2c74",
+    "config/hsa2_final_job.json": "913d54977fb15032c54f63655468070f8751d67039e86c7d15efc01ee5182a64",
+    "config/hsa2_job.json": "6d517cc23a9303fa771cf165d25d8619a2f687214dd68d28c19d5adbbf84838a",
+    "config/mr1_job.json": "ae0322a7de3760b051cfd975422db4f587fbcf7e4961154249c1ff356b08f560",
+    "config/r3c_0_2_job_pilot.json": "6e37c47c29d67bf57bf261e85923710dc02062eed6ccd217dec4cffaf38465a5",
+    "config/r3c_1_job_pilot.json": "6e37c47c29d67bf57bf261e85923710dc02062eed6ccd217dec4cffaf38465a5",
+    "config/r4_0_job.json": "a9a2bda284072211ecdb18f007a4f0cce21f612f4ea9141e08c9b9a8a30bef83",
+    "config/r4_1_job.json": "a22b7add4b303f0a9a5c44508fb0e0c980f71e72a9ca9368b08ad50e227f0e3b",
+    "config/r4_2_job.json": "680d127b5a8d0ba8758400d6ffcc92b9dcc0675ebdb9328a33e178ff1f0297b0",
+    "docs/HSA1_SPEC.md": "b5c4b1c2d75b04832760921639fe25fa0da82ba2ba99810badd668f8b047643e",
+    "docs/HSA1_VALIDATION_REPORT.md": "b36e8b2ec8ee776aad2584247b1882ed6bd3ba6bdf48ae50b573de17e456c06a",
+    "docs/HSA2_FINAL_SPEC.md": "3f479587f4e2ee5bd6a1914eaaf27c7f9fff44a0d65b16bedb59344052674656",
+    "docs/HSA2_FINAL_VALIDATION_REPORT.md": "6d04d102593411d3af2f0f4ed478e9f4083e5e18b4f228dd569a490506b3c544",
+    "docs/HSA2_SPEC.md": "565b8ab62efcbf3c06bdc82827a85a8410c1cbd8448828649524b24dbe340bee",
+    "docs/HSA2_VALIDATION_REPORT.md": "956e6e01538c7d3e147b5897f92d3432752bfdf213865211a720ee63ee73e9e5",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION.csv": "56e39b1470229ce29df77ecdf875b36072979ba668a8766c7c87fdfab45693c0",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION.md": "bba752ef6f1ac17f2d82085ae82127d94c2040b2703d7f039c99750f907c3479",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION_HSA2.csv": "067f93954ff276133af39d2513783d1abeb000f782d283d71d99e26a3bf56a06",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION_HSA2.md": "5a611c648d433c224c41609da57cabe8ff79379b3f506c353beb55c9091625dd",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION_HSA2_FINAL.csv": "42980cd155818354a9248b530f7a572d3583633bb4b42458d60048c2efe63d35",
+    "docs/HUMAN_STRUCTURAL_ADJUDICATION_HSA2_FINAL.md": "b83ff6207cd76f3a44d26fc458280e456aba4a4391c22c7190a9ee9cff35fe28",
+    "docs/README_MILAL_HSA1.md": "92811220fba02fd0840b877c1c01440d95e02cf1d1eac8dd877e7ba4d7221669",
+    "docs/README_MILAL_HSA2.md": "39186b16bb92dca7d34393ff65fac1b3609bc2fa47fc80fdd0a6708a84cc0005",
+    "docs/README_MILAL_HSA2_FINAL.md": "4655687fb6be4e8ef1056d058d2731a74cd269e9a5c6b66c3d791f10fe65b7ba",
+    "src/milal_hr1_adjudication_linkage.py": "29aa4dd004dc64eac2e091d83c600d1a9a001858524eb4165b4031bc8efaa0ca",
+    "src/milal_hr1_synthetic.py": "6400f35cc09f6ed5fb4c320f8a5122d9df73f17bb072bf503fd048c3434d1f01",
+    "src/milal_hsa1_registry.py": "c8dcabf5eb580d8221079744d7ac8f5f677b63ab9c74221d5e640d1e3e23066a",
+    "src/milal_hsa1_synthetic.py": "89bd63c2dafe0b43a3a2805258e737f717c2bd3c1295c078d34bfd6875779755",
+    "src/milal_hsa2_closure_audit.py": "1b4f878def04f7a59cbec20300f639e6ef104d841a69b257412fd789d630cee0",
+    "src/milal_hsa2_final.py": "4f266042e667a17a1ebd6aeabb2da05a01fb19611e2d714d31f4e4bcc5ef073e",
+    "src/milal_hsa2_synthetic.py": "90ae6697598f6a6bc22435e938e62c88dbc72f296d845e7322fe8c4de0dcdbc2",
+    "src/milal_mr1_historical_rules.py": "c954ded1a62e5cda1325632c5b3636cd704918fb2fd1fe0ac8a62f731da9668c",
+    "src/milal_mr1_surface_marker_provenance.py": "4d124169b29f8374e8e520d70400bbceb22f5939cecb864f7879d58a6ee20749",
+    "src/milal_mr1_synthetic.py": "124997319ba04566e8779df6db3fe1a6f507d201d6c43195a899029efbb2d5dd",
+    "src/milal_prov1_signature_provenance.py": "f65bd4798423ca375e4c76015069631ea2a85565a7949a38f403a1056c86148a",
+    "src/milal_prov1_synthetic.py": "651123a448674cb770516229ff5cf9b5662254448e58a412a723156120d3de45",
+    "src/milal_r3c_0_1_reviewability.py": "4e76b8f0d8f23074afaae976e6171ed58e78df90d92d971ee81481fa6f4b60c5",
+    "src/milal_r3c_0_2_reviewability.py": "f01413e76a7a036c6a0da7108dfa2788f923e1b52c4970b8a941f56b97d724e9",
+    "src/milal_r3c_1_review_units.py": "0b8174035ea592e8768b67bd29121a75477a473426bc0b335ee14a796bff6612",
+    "src/milal_r3c_2_compact_review.py": "96e36d33dbd5e75b1bfb750a6d757f7f6c4a7b6a7eea39846a6e74dcb37fba05",
+    "src/milal_r3c_3_signature_context.py": "4cf7debd43f3119a2063918bc84b820ca985ea8e2a9f53256032a5fa051d2517",
+    "src/milal_r4_0_macro_boundary_inventory.py": "a6ab28338dc9036c8628e9773cb4a3555db6676a58dee3bc38d9a7f7eb04ff21",
+    "src/milal_r4_0_sources.py": "91fa6a963b70018b91c30a06dc709076de158b177e964404b3b54c04c8661e45",
+    "src/milal_r4_0_synthetic.py": "a4c7454a6838767f72b9ba7b078d5f44c078da0e653fd8ffbbcab20f41181f43",
+    "src/milal_r4_1_boundary_profiles.py": "aa29c8bc24d93e6c1501c2cbf04588658789281a48015b437d19ff55817478a7",
+    "src/milal_r4_1_synthetic.py": "0385f2a302414ddef84f3e1c81b1bd8f61dfd7e0411dcf701660e35f8334225e",
+    "src/milal_r4_2_participant_audit.py": "1bf64259ea148fac52fad68b14b704fbba1c31b249291723afdd60575ca18114",
+    "src/milal_r4_2_synthetic.py": "c0b0bc2e45055fd79f0229f5655f51cfa6e2954cefdb6f996a4407b7927aa296",
+    "tests/README.md": "fd9478d617fbce892e8c2128da92c8bd7e9ccd6363ea929cba98af1a8fadf721",
+    "tests/fixtures/mr1/README.md": "90650d341885b404da72615e007a7bf1aee0b7f9fb497d6bee46a44e7897a0d9",
+    "tests/fixtures/mr1/closure.csv": "9907589f33f1c7c75cf47e9e318a6b0ce1aac4765555c5f5d882dd902e8bf93a",
+    "tests/fixtures/mr1/csf.csv": "910af31b492b9261995383259ab638e39f8eada37bb800ff6629ddaba4885281",
+    "tests/fixtures/mr1/surface.csv": "47b1edb8580e6a891923eeeed5e343457836ef486950fc4ed4f25deb61f88183",
+    "tests/fixtures/mr1/way0.csv": "17c9c549f08db088bc109c93ab7d04091fd2173fbd27661b51c0fccc4c5f2632",
+    "tests/fixtures/r3c_0_1/01_source_schema_inventory.csv": "82ad8cd6476b00208643089aab7ed3995474c8fdd6b6eb6ecb39ed46fbcda018",
+    "tests/fixtures/r3c_0_1/08_boundary_control_pattern_matches.csv": "db98c748cf9f8cbb92d5bd7bb00ba72ba387eb456e717d0fb2124de07ace2365",
+    "tests/fixtures/r3c_0_1/README.md": "6e62a889b184058509d1dd4bb02e50aee1e4fc0b3cdb751a4aba5e3ca572aaca",
+    "tests/test_hr1_adjudication_linkage.py": "8dc006593d3b72d56108b5692c0211004acb5233523f6d43b4f355e75ee14877",
+    "tests/test_hsa1_registry.py": "d64cb1234b42793d9a98421856c7daeaaad944bcc14a7ae1a12466f5f17d976e",
+    "tests/test_hsa2_closure_audit.py": "f51ed77a3c51ee0687a701206bc755b7ae6b34b6ce456b32a9888d58751fc3ff",
+    "tests/test_hsa2_final.py": "f77286f0ff94885375bc18429391cf64f3ba7f7e7e3dc06ec8cdb698e1c62140",
+    "tests/test_milal_mr1.py": "91bcc4a0c0f8a50b5d003c0e1a4a3459bf4da18f0152f4203b6682b62bec5c8c",
+    "tests/test_prov1.py": "524d10656d2dc46289bcd18e1eb0e78132a315d2af0323e74127a32cfbb2b11f",
+    "tests/test_prov1_windows_runner.py": "9e16fb386fc61feb564c2f58423b6e1cf8edc9affd0a25dc3bc0c4ee55eb90e8",
+    "tests/test_r3c_0_2.py": "50cf0d615ca9650a05f6e69956f40bbc77e9eb14aff88f06926c5033d6c7da94",
+    "tests/test_r3c_1.py": "ffabf656029a3468a13719ce602b802ec42996bb3185723a80fc74b78f10cea9",
+    "tests/test_r3c_1_windows_runner.py": "ee30f6e27c245f42612a8da846c91260e3ab4e48a255acbcef86504f5799c895",
+    "tests/test_r3c_2.py": "5f73058298750aaac3753e1269a2f8cb706ec7b172591ad85ca56a1ab9db2722",
+    "tests/test_r3c_2_windows_runner.py": "4c327c30cba32e04b1c48db631eec786c1509c89fdd10c4ad1677d3f23d9792a",
+    "tests/test_r3c_3.py": "4677f93e0f1a588dd7229d4aaadd64bf70d3e64701f65b37ed9f24c38ace7244",
+    "tests/test_r3c_3_windows_runner.py": "89e7cca67e997e9722d3d06023a8a69649a17a0844304f2ecb52f85e83085b39",
+    "tests/test_r4_0_macro_boundary_inventory.py": "935075ef1d21bf4a20fb548963bfca29df07b6549b631a783ea29a39a82e7e21",
+    "tests/test_r4_1_boundary_profiles.py": "cec6ab595b979393273f38879d9b4fc508c49d8f58ed03fc3cb70bcf6a97f33d",
+    "tests/test_r4_2_participant_audit.py": "4dd0d95e835f1d7d9c271e7d3bc96c1cd2c7d76e755864678956a70467384868",
+    "tests/test_windows_runner.py": "41878c6aa39c2cb28d7c5a91474a54b7f78ab6d668981d7062771c5feb704db2",
+    "config/r4_3_job.json": "47b60d1f5a3ba1979ca8724446eee350b5fcb63f19b91b181e2ff61acd8bea53",
+    "src/milal_r4_3_hierarchy_scaffold.py": "83d39314aef66d9b64aeaacd5032b5a70f7b815c40ac5932737725446d0daaac",
+    "tests/test_r4_3_hierarchy_scaffold.py": "85e2c68d373f6a5eab6a65ff1a5d3d1febacd94958e9b37d9075a10534155670",
+    "docs/R4_3_SPEC.md": "e73a9b65a7cd3c63ae650a96effc63d7d43826d0f8ec8f4615133654338a9c27",
+    "docs/R4_3_VALIDATION_REPORT.md": "75ee6803a07b6917762647c8f71e0202ebe4daf40078f6e5d20acdaca33f132f",
+    "docs/README_MILAL_R4_3.md": "dd4647e246bbdc72c619bb4871ed997d9943cea9d8293180cbe5339cfa43f975",
+    "scripts/run_milal_r4_3_windows.ps1": "4f104dbbd67d26520e6f8374540564887cee2806b31f70e24d94abcf9565dc5a"
+  },
+  "review_scope_origin": "Researcher HSA3-PREP request sections 4–10; seeds are presentation scopes, never structural attachments",
+  "role_pairs": [
+    [
+      "H:HSA2-C1-S1",
+      "H:HSA2-CYCLE-1"
+    ],
+    [
+      "H:HSA2-C2-S1",
+      "H:HSA2-CYCLE-2"
+    ],
+    [
+      "H:HSA2-C3-S1",
+      "H:HSA2-CYCLE-3"
+    ]
+  ],
+  "seams": [
+    {
+      "case_id": "SEAM_A",
+      "title": "Opening narrative / testing structure",
+      "seed_nodes": [
+        "H:HSA002",
+        "H:HSA003",
+        "H:HSA008",
+        "H:HSA009",
+        "H:HSA011",
+        "H:HSA012",
+        "H:HSA013",
+        "H:HSA014",
+        "HUMAN_SCOPE_1_1_5",
+        "HUMAN_SCOPE_2_1_10"
+      ],
+      "question": "How do the already related testing scenes, their enclosing scopes, 2:11 and independent 3:1 attach globally? Preserve the explicit 1:13 child and local continuations; do not place 2:11 inside the reviewed 2:1–10 scope."
+    },
+    {
+      "case_id": "SEAM_B",
+      "title": "Job initial speech / entry into dialogue",
+      "seed_nodes": [
+        "H:HSA013",
+        "H:HSA014",
+        "H:HSA2-C1-S1",
+        "H:HSA2-CYCLE-1",
+        "CYCLE_1",
+        "DIALOGUE_CYCLE_SEQUENCE"
+      ],
+      "question": "What higher structural relation connects independent 3:1 (above 3:2) with the cycle sequence? Do not put 3:1 in CYCLE_1."
+    },
+    {
+      "case_id": "SEAM_C",
+      "title": "Three dialogue cycles / post-dialogue Job",
+      "seed_nodes": [
+        "CYCLE_1",
+        "CYCLE_2",
+        "CYCLE_3",
+        "DIALOGUE_CYCLE_SEQUENCE",
+        "POST_DIALOGUE_JOB",
+        "H:HSA2-C3-S4",
+        "H:HSA015",
+        "H:HSA016",
+        "H:HSA017"
+      ],
+      "question": "What is the global attachment of DIALOGUE_CYCLE_SEQUENCE and POST_DIALOGUE_JOB? Preserve 6/6/4, final cycle-3 onset 26:1, 27:1/29:1 peers and the three final closure judgments."
+    },
+    {
+      "case_id": "SEAM_D",
+      "title": "Post-dialogue ending / transition / Elihu",
+      "seed_nodes": [
+        "POST_DIALOGUE_JOB",
+        "ELIHU_SPEECH_SEQUENCE",
+        "H:HSA017",
+        "H:HSA018",
+        "H:HSA019",
+        "H:HSA020",
+        "H:HSA024"
+      ],
+      "question": "What exact attachment/enclosure represents 32:1, the narrative introduction 32:2–5 and its introduced Elihu sequence? The introduction is not a peer speech. Preserve the reviewed introductory/subordinate organization; only its exact node-parent representation remains open. No new closure target for 37:24."
+    },
+    {
+      "case_id": "SEAM_E",
+      "title": "Elihu ending / YHWH onset",
+      "seed_nodes": [
+        "H:HSA023",
+        "H:HSA024",
+        "H:HSA025"
+      ],
+      "question": "What, if any, higher structural attachment relates the Elihu ending and YHWH onset? Adjacency at 37:24 / 38:1 supplies no parentage or response antecedent."
+    },
+    {
+      "case_id": "SEAM_F",
+      "title": "YHWH–Job response complex",
+      "seed_nodes": [
+        "H:HSA025",
+        "H:HSA026",
+        "H:HSA027",
+        "H:HSA028",
+        "H:HSA029"
+      ],
+      "question": "How are the two YHWH/Job speech-response sequences organized at a higher level? Preserve the two respective peer pairs and 40:1 CHILD_OF 38:1; speaker alternation supplies no parent."
+    },
+    {
+      "case_id": "SEAM_G",
+      "title": "Speech complex / final narrative",
+      "seed_nodes": [
+        "H:HSA028",
+        "H:HSA029",
+        "H:HSA030",
+        "H:HSA031"
+      ],
+      "question": "What macro attachment connects the final speech-response complex with the final narrative at 42:7? Preserve 42:16 continuation and do not promote 42:10 or 42:12."
+    }
+  ],
+  "primary_scope_seeds": {
+    "H:HSA002": "SEAM_A",
+    "H:HSA008": "SEAM_A",
+    "H:HSA009": "SEAM_A",
+    "H:HSA011": "SEAM_A",
+    "H:HSA012": "SEAM_A",
+    "HUMAN_SCOPE_1_1_5": "SEAM_A",
+    "HUMAN_SCOPE_2_1_10": "SEAM_A",
+    "H:HSA013": "SEAM_B",
+    "DIALOGUE_CYCLE_SEQUENCE": "SEAM_C",
+    "POST_DIALOGUE_JOB": "SEAM_C",
+    "H:HSA018": "SEAM_D",
+    "H:HSA019": "SEAM_D",
+    "H:HSA024": "SEAM_D",
+    "ELIHU_SPEECH_SEQUENCE": "SEAM_D",
+    "H:HSA025": "SEAM_F",
+    "H:HSA027": "SEAM_F",
+    "H:HSA028": "SEAM_F",
+    "H:HSA029": "SEAM_F",
+    "H:HSA030": "SEAM_G"
+  },
+  "summary_seeds": [
+    "HUMAN_SCOPE_1_1_5",
+    "HUMAN_SCOPE_2_1_10",
+    "H:HSA013",
+    "DIALOGUE_CYCLE_SEQUENCE",
+    "POST_DIALOGUE_JOB",
+    "H:HSA019",
+    "ELIHU_SPEECH_SEQUENCE",
+    "H:HSA025",
+    "H:HSA027",
+    "H:HSA028",
+    "H:HSA029",
+    "H:HSA030"
+  ],
+  "regression": {
+    "nodes": 61,
+    "relations": 205,
+    "unresolved": 57,
+    "human_records": 59
+  }
+}

@@ -1,6 +1,69 @@
 # MILAL Development Handoff
 
-## Current task — R4.3 human-grounded whole-book partial scaffold, 2026-09-22
+## Current task — HSA3-PREP global structural seam review preparation, 2026-09-22
+
+Active specification: [HSA3_PREP_SPEC.md](HSA3_PREP_SPEC.md); execution:
+[README_MILAL_HSA3_PREP.md](README_MILAL_HSA3_PREP.md); results:
+[HSA3_PREP_VALIDATION_REPORT.md](HSA3_PREP_VALIDATION_REPORT.md).
+Starting HEAD: `b7834a76dceae046e4b83821445353793318a056`.
+The researcher authorized review-only triage, synthetic/accepted-real audit,
+deterministic rerun and commit/push. **HSA1/HSA2/HSA2-F and R4.3 are frozen.**
+
+**R4.3 still contains 57 unresolved direct-parent rows. HSA3-PREP adjudicates none.**
+All 57 rows are crosswalked by source row/hash and structural review dependency;
+all 59 historical human judgments, 61 nodes, 205 relations and 3 settled parent
+edges are unchanged. The entire accepted 50-file R4.3 package is preserved.
+
+Exclusive review-only triage: 14 TRUE_GLOBAL_SEAM participants; 6 same-locus role
+rows; 19 known-group/container rows; 10 local-relation-constrained rows; 8 group
+parentage rows; 0 technical cases. Same-locus roles at **4:1, 15:1 and 22:1** retain
+both human records and exact shared evidence. No reference-only identity inference.
+There are 22 textual group members in total; three speech-onset role records are
+counted in the role category instead. 3:2 is resolved context, not another unresolved row.
+
+**Seven distinct open-attachment review cases A–G**, plus **H summary**, now organize
+the work. This is review-scope compression, not proof that exactly seven atomic
+human judgments suffice. Existing local/group constraints are preserved; cases
+overlap. Primary case assignments are presentation bookkeeping, never new parents:
+
+| Case | Question | Primary unresolved rows | Participating rows |
+| --- | --- | ---: | ---: |
+| A | Opening narrative/testing scopes, 2:11 and 3:1 | 13 | 14 |
+| B | Independent Job 3:1/3:2 and dialogue-cycle entry | 1 | 25 |
+| C | Three cycles and POST_DIALOGUE_JOB | 29 | 29 |
+| D | 31:40 / 32:1 / Elihu introduction and sequence | 8 | 13 |
+| E | Elihu ending / YHWH onset interface | 0 | 3 |
+| F | Higher organization of YHWH–Job response sequences | 4 | 4 |
+| G | Final speech-response complex / 42:7 final narrative | 2 | 4 |
+| H | Whole-book summary of A–G, not an additional independent case | — | — |
+
+All previously accepted functions remain fixed, including cycles 6/6/4 and no
+Zophar III; 27:1/29:1 peers and HSA2-F closure distinctions; Elihu introduction
+not being a peer speech; four Elihu peers; YHWH/Job respective peer pairs;
+40:1 child of 38:1; 42:7 onset and 42:16 continuation. No 42:10/42:12 promotion,
+new MR1 rule, nearest-opening, adjacency/response parentage or candidate ranking.
+
+Final syntax/parser PASS; full regression **679 PASS, zero skips** (625 previous
+plus 54 new). Final synthetic and both independent real audits **35/35 gates PASS**,
+every gate negatively tested. **82 frozen raw hashes** unchanged; 11 accepted
+archives verified. Independent checker verified all **3,992 evidence links**,
+typed dependency paths, 57 original rows, baseline Git identities and **5 manifests**.
+**62/62 files and complete ZIP byte-identical**. Human packet manually inspected.
+No Termux empirical run claimed; exact instructions are provided.
+
+- Final: `results/hsa3_prep_global_seams_final2_20260922_a/`
+- Rerun: `results/hsa3_prep_global_seams_final2_20260922_b/`
+- Packet: `04_global_seam_review_packet.md` within the final directory.
+- ZIP: `results/hsa3_prep_global_seams_final2_20260922_a_results.zip`
+- Log: `results/hsa3_prep_global_seams_final2_20260922_a_run.log`
+- SHA256: `06e41a935d1ccb18eed1b1773d4ca04a493a097533e36cf2875f741fa116cc77`
+
+**Next: researcher human adjudication of A–G using H as the summary.** Local/group
+member decisions are deferred for coordinated review, not silently declared
+resolved or permanently unnecessary. UNRESOLVED / INSUFFICIENT_EVIDENCE remain
+valid outcomes. **R4.4 hierarchy recompilation must wait until that review is complete.**
+
+## Previous task — R4.3 human-grounded whole-book partial scaffold, 2026-09-22
 
 Active specification: [R4_3_SPEC.md](R4_3_SPEC.md); usage:
 [README_MILAL_R4_3.md](README_MILAL_R4_3.md). Starting HEAD:
