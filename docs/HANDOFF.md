@@ -1,6 +1,59 @@
 # MILAL Development Handoff
 
-## Current task — HSA2-F final Job 31:40 closure adjudication, 2026-09-22
+## Current task — R4.3 human-grounded whole-book partial scaffold, 2026-09-22
+
+Active specification: [R4_3_SPEC.md](R4_3_SPEC.md); usage:
+[README_MILAL_R4_3.md](README_MILAL_R4_3.md). Starting HEAD:
+`f41095917d1deaa718df553f4919e41969601ce7`. The researcher authorized integration
+of accepted human decisions into the first partial whole-book scaffold, with
+synthetic/accepted-real validation, deterministic rerun and commit/push.
+
+**HSA1, HSA2 and HSA2-F remain frozen. All 59 original human records are represented**
+(31 + 25 + 3), including historical UNRESOLVED fields. No new human judgment was
+invented. The derived view has **61 nodes** (including one technical JOB_BOOK root),
+**205 typed edges**, **8 non-textual groups** (6 human + 2 relation-derived), and
+**355 node/edge provenance links**. All accepted historical context remains lossless.
+
+**This is not complete global parentage.** Only **3 explicit hierarchical parent
+edges** are resolved: 1:13 CHILD_OF 1:6, 3:1 HIERARCHICALLY_ABOVE 3:2, and 40:1
+CHILD_OF 38:1. There are **57 explicit unresolved direct-parent cases**. Known group
+membership and continuation remain separate claims, not secretly completed parents.
+JOB_BOOK links are TECHNICAL_ROOT_LINK, never human parentage. Group indentation in
+the Markdown means membership only; resolved hierarchy is displayed separately.
+
+Preserved: dialogue cycles **6 / 6 / 4**, no Zophar III or placeholder; cycle-onset
+peers at 4:1/15:1/22:1; independent initial 3:1; internal 11:4; final cycle-3 onset 26:1.
+27:1/29:1 remain same-level, 28:1 remains non-boundary continuation. **31:40 local
+closure to 29:1 and higher-order termination of POST_DIALOGUE_JOB remain distinct**;
+direct closure to 27:1 is rejected. Its unresolved parent does not reopen its closure target.
+
+Elihu's 32:6/34:1/35:1/36:1 remain same-level group members. 32:2–5 introduces that
+sequence descriptively, not as a peer speech or forced parent; 32:1 remains transition.
+37:24 remains ending context without a new direct closure target. **38:1/40:6 remain
+same-level; 40:1 remains child of 38:1; 40:3/42:1 remain same-level** Job responses.
+**42:7 begins the final paragraph/narrative transition; 42:16 continues within it**.
+42:10/42:12 were not promoted. 1:22/2:10 remain non-MR1 human parallel endings.
+**Response and adjacency were never converted into parentage.** No new marker rule.
+
+Syntax PASS; full regression **625 PASS, zero skips** (566 prior + 59 R4.3).
+Windows synthetic and both accepted-real audits **41/41 gates PASS**, each negatively
+tested. Independent runs reproduce **50/50 files and the complete ZIP**. All **75
+frozen file hashes**, 10 accepted input ZIPs, exact provenance, unresolved completeness,
+graph connectivity, outer and nested manifests passed. Markdown manually inspected.
+See [R4_3_VALIDATION_REPORT.md](R4_3_VALIDATION_REPORT.md) for counts and every seam.
+
+- Final: `results/r4_3_whole_book_scaffold_20260922_a/`
+- Rerun: `results/r4_3_whole_book_scaffold_20260922_b/`
+- ZIP: `results/r4_3_whole_book_scaffold_20260922_a_results.zip`
+- Log: `results/r4_3_whole_book_scaffold_20260922_a_run.log`
+- SHA256: `d8fc0227c6bd35517b0dea1d53b205517ad8a8308b5954486215a00955cba4f7`
+
+**Next task: human review of unresolved global seams**, now exhaustively listed in
+03_unresolved_parentage.csv and the report's UNRESOLVED GLOBAL SEAMS section. These
+include all eight groups and the 49 remaining textual-locus direct-parent questions.
+No automatic completion or next analytical stage is authorized by technical success.
+
+## Previous task — HSA2-F final Job 31:40 closure adjudication, 2026-09-22
 
 Active specification: [HSA2_FINAL_SPEC.md](HSA2_FINAL_SPEC.md); usage:
 [README_MILAL_HSA2_FINAL.md](README_MILAL_HSA2_FINAL.md). Starting HEAD:
