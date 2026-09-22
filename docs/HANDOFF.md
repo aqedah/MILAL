@@ -1,6 +1,51 @@
 # MILAL Development Handoff
 
-## Current task — HSA1 human structural adjudication registry, 2026-09-22
+## Current task — HSA2 dialogue-cycle adjudication and closure-target audit, 2026-09-22
+
+Active specification: [HSA2_SPEC.md](HSA2_SPEC.md); usage:
+[README_MILAL_HSA2.md](README_MILAL_HSA2.md). Starting HEAD:
+`28892b3f0ecab3d42749ab50d8a65bc4aa9e09c5`. The researcher authorized appending
+new human judgments, a focused accepted-source audit, validation and commit/push.
+
+**HSA1 is frozen.** The separate HSA2
+[Markdown](HUMAN_STRUCTURAL_ADJUDICATION_HSA2.md) and
+[CSV](HUMAN_STRUCTURAL_ADJUDICATION_HSA2.csv) append **25 human records through
+Job 31**; they do not replace HSA1. **Job 3–26 dialogue cycles are human-reviewed**:
+6 / 6 / 4 speeches, with an incomplete third cycle and no generated Zophar III.
+Speech and cycle-onset judgments at 4:1/15:1/22:1 have separate IDs; MR1 remains
+ANSWER+AMR. There are **83 directed, directly supplied human relation pairs**.
+
+**27:1 / 29:1 are same-level peers; 28:1 is no boundary; 31:40 is an accepted
+speech ending. Its direct closure target remains UNRESOLVED.** The separate
+higher-order terminal effect also remains UNRESOLVED. Three candidate review rows
+allow a local closure and enclosing termination to coexist, without selecting
+either or adding a settled closure edge. No nearest-opening or span-length rule.
+
+The audit preserves **1968 source/context links** (1030 judgment links and 938
+audit-context links), **700 signatures for 100 atoms**, **377 formal edge rows**,
+23 marker/control scopes and 10 negative controls. The two three-atom opening
+formulas match in all 21 corresponding G0–G6 hashes. The 31:40 marker has
+תמם / דבר / איוב and no משל; this does not decide a direct target. Source identity
+and recurrence alone do not establish a preference between 27:1 and 29:1.
+
+Syntax and full regression **529 PASS, zero skips** (482 prior + 47 HSA2).
+Final synthetic and both accepted-real audits **31/31 gates PASS**, each gate
+with a negative test. Independent processes reproduce **17/17 files and the
+complete ZIP byte-for-byte**. Native order is verified from PROV1 atom indexes,
+including discontinuous clause membership; no frozen analytical core was changed.
+Focused report manually inspected. See [HSA2_VALIDATION_REPORT.md](HSA2_VALIDATION_REPORT.md).
+
+- Final: `results/hsa2_dialogue_structure_final_20260922_a/`
+- Rerun: `results/hsa2_dialogue_structure_final_20260922_b/`
+- ZIP: `results/hsa2_dialogue_structure_final_20260922_a_results.zip`
+- Log: `results/hsa2_dialogue_structure_final_20260922_a_run.log`
+- SHA256: `669018ceacacef21db426028854ea1f88879a446d4d4ca113d24bec6ef8f2994`
+
+Next task: researcher review of **31:40 direct closure target and the independent
+enclosing terminal effect**. Whole-book **R4.3 parentage remains blocked on this
+closure-target review**. No whole-book hierarchy was generated.
+
+## Previous task — HSA1 human structural adjudication registry, 2026-09-22
 
 Active specification: [HSA1_SPEC.md](HSA1_SPEC.md); usage:
 [README_MILAL_HSA1.md](README_MILAL_HSA1.md). Starting HEAD:
