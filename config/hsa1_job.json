@@ -1,0 +1,407 @@
+{
+  "archives": {
+    "hr1": {
+      "gates": "09_gates.csv",
+      "path": "results/hr1_human_review_linkage_20260921_114012_results(2).zip",
+      "sha256": "7566dcd6191da1b7e4d29b11af4a44c37511dcf0fefa24449a0489ee97c64191",
+      "simple_manifest": false
+    },
+    "mr1": {
+      "gates": "09_gates.csv",
+      "path": "results/mr1_real_final_20260921_a_results.zip",
+      "sha256": "9f287dca2a7689e04f37b4a9dbcfe53dd714dcc8dc9d1a702f46f476f6537ec0",
+      "simple_manifest": true
+    },
+    "prov1": {
+      "gates": "09_gates.csv",
+      "path": "results/prov1_windows_20260920_081304_results(1).zip",
+      "sha256": "38c6703721e2f9cca590ab96d64d7a2860a3d075e059cabeb2abe9eb6708c482",
+      "simple_manifest": false
+    },
+    "r3c3": {
+      "gates": "10_gates.csv",
+      "path": "results/r3c_3_windows_20260919_091111_results.zip",
+      "sha256": "5f8239a692a516fd9722d94fb919321d399fad93c3583dd828ac1c1883576981",
+      "simple_manifest": false
+    },
+    "r4_0": {
+      "gates": "11_gates.csv",
+      "path": "results/r4_0_real_20260921_a_results.zip",
+      "sha256": "c313d102e65854c4d40ff9efac716f78a2388750e1c983b200655984ad7ded47",
+      "simple_manifest": true
+    },
+    "r4_1": {
+      "gates": "11_gates.csv",
+      "path": "results/r4_1_real_20260921_a_results.zip",
+      "sha256": "92d01bd0deccd6c77c288cd69e7d1eaebeea289f64378f59b667e4aaa91af966",
+      "simple_manifest": true
+    },
+    "r4_2": {
+      "gates": "11_gates.csv",
+      "path": "results/r4_2_real_final_20260921_a_results.zip",
+      "sha256": "7b6c91fb862bf1755c097a9edc31783933388279b54f88796531b0a2419be8d3",
+      "simple_manifest": true
+    }
+  },
+  "authority": "RESEARCHER_SUPPLIED_HUMAN_JUDGMENTS",
+  "expected_references": [
+    "1:5",
+    "1:6",
+    "1:13",
+    "1:14",
+    "1:16",
+    "1:17",
+    "1:18",
+    "1:22",
+    "2:1",
+    "2:9",
+    "2:10",
+    "2:11",
+    "3:1",
+    "3:2",
+    "27:1",
+    "29:1",
+    "31:40",
+    "32:1",
+    "32:2",
+    "32:6",
+    "34:1",
+    "35:1",
+    "36:1",
+    "37:24",
+    "38:1",
+    "40:1",
+    "40:3",
+    "40:6",
+    "42:1",
+    "42:7",
+    "42:16"
+  ],
+  "explicit_entry_event_id": "P:853270",
+  "human_reference_scopes": {
+    "1:13": [
+      "1:13"
+    ],
+    "1:14": [
+      "1:14"
+    ],
+    "1:16": [
+      "1:16"
+    ],
+    "1:17": [
+      "1:17"
+    ],
+    "1:18": [
+      "1:18"
+    ],
+    "1:22": [
+      "1:22"
+    ],
+    "1:5": [
+      "1:5"
+    ],
+    "1:6": [
+      "1:6"
+    ],
+    "27:1": [
+      "27:1"
+    ],
+    "29:1": [
+      "29:1"
+    ],
+    "2:1": [
+      "2:1"
+    ],
+    "2:10": [
+      "2:10"
+    ],
+    "2:11": [
+      "2:11"
+    ],
+    "2:9": [
+      "2:9"
+    ],
+    "31:40": [
+      "31:40"
+    ],
+    "32:1": [
+      "32:1"
+    ],
+    "32:2": [
+      "32:2",
+      "32:3",
+      "32:4",
+      "32:5"
+    ],
+    "32:6": [
+      "32:6"
+    ],
+    "34:1": [
+      "34:1"
+    ],
+    "35:1": [
+      "35:1"
+    ],
+    "36:1": [
+      "36:1"
+    ],
+    "37:24": [
+      "37:24"
+    ],
+    "38:1": [
+      "38:1"
+    ],
+    "3:1": [
+      "3:1"
+    ],
+    "3:2": [
+      "3:2"
+    ],
+    "40:1": [
+      "40:1"
+    ],
+    "40:3": [
+      "40:3"
+    ],
+    "40:6": [
+      "40:6"
+    ],
+    "42:1": [
+      "42:1"
+    ],
+    "42:16": [
+      "42:16"
+    ],
+    "42:7": [
+      "42:7"
+    ]
+  },
+  "human_relation_assertions": {
+    "1:13": [
+      "SCENE_ONSET",
+      "CHILD_OF",
+      [
+        "1:6"
+      ]
+    ],
+    "1:14": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "1:13"
+      ]
+    ],
+    "1:16": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "1:13"
+      ]
+    ],
+    "1:17": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "1:13"
+      ]
+    ],
+    "1:18": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "1:13"
+      ]
+    ],
+    "1:22": [
+      "PARALLEL_ENDING",
+      "PARALLEL_TO",
+      [
+        "2:10"
+      ]
+    ],
+    "1:5": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "1:1–1:5"
+      ]
+    ],
+    "1:6": [
+      "SCENE_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "2:1"
+      ]
+    ],
+    "27:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "29:1"
+      ]
+    ],
+    "29:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "27:1"
+      ]
+    ],
+    "2:1": [
+      "SCENE_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "1:6"
+      ]
+    ],
+    "2:10": [
+      "PARALLEL_ENDING",
+      "PARALLEL_TO",
+      [
+        "1:22"
+      ]
+    ],
+    "2:11": [
+      "PARAGRAPH_ONSET",
+      "UNRESOLVED",
+      []
+    ],
+    "2:9": [
+      "INTERNAL_TRANSITION",
+      "CONTINUES_WITHIN",
+      [
+        "2:1–2:10"
+      ]
+    ],
+    "31:40": [
+      "SPEECH_UNIT_END",
+      "UNRESOLVED",
+      []
+    ],
+    "32:1": [
+      "TRANSITION_COMPONENT",
+      "UNRESOLVED",
+      []
+    ],
+    "32:2": [
+      "NARRATIVE_INTRODUCTION",
+      "UNRESOLVED",
+      []
+    ],
+    "32:6": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "34:1",
+        "35:1",
+        "36:1"
+      ]
+    ],
+    "34:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "32:6",
+        "35:1",
+        "36:1"
+      ]
+    ],
+    "35:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "32:6",
+        "34:1",
+        "36:1"
+      ]
+    ],
+    "36:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "32:6",
+        "34:1",
+        "35:1"
+      ]
+    ],
+    "37:24": [
+      "SPEECH_UNIT_END",
+      "UNRESOLVED",
+      []
+    ],
+    "38:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "40:6"
+      ]
+    ],
+    "3:1": [
+      "PARAGRAPH_ONSET",
+      "HIERARCHICALLY_ABOVE",
+      [
+        "3:2"
+      ]
+    ],
+    "3:2": [
+      "SPEECH_UNIT_ONSET",
+      "CONTINUES_WITHIN",
+      [
+        "3:1"
+      ]
+    ],
+    "40:1": [
+      "INTERNAL_SPEECH_ONSET",
+      "CHILD_OF",
+      [
+        "38:1"
+      ]
+    ],
+    "40:3": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "42:1"
+      ]
+    ],
+    "40:6": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "38:1"
+      ]
+    ],
+    "42:1": [
+      "SPEECH_UNIT_ONSET",
+      "SAME_LEVEL_SIBLING",
+      [
+        "40:3"
+      ]
+    ],
+    "42:16": [
+      "NO_BOUNDARY",
+      "CONTINUES_WITHIN",
+      [
+        "42:7"
+      ]
+    ],
+    "42:7": [
+      "PARAGRAPH_ONSET",
+      "UNRESOLVED",
+      []
+    ]
+  },
+  "principles": [
+    "Linguistic markers have priority over semantic/content shifts.",
+    "Participant change is scene-transition evidence but not automatic macro hierarchy.",
+    "Hierarchy level depends on surrounding opening/ending/enclosure evidence.",
+    "The same linguistic formula may support the same structural function.",
+    "The same marker family does not automatically imply the same hierarchy level.",
+    "Absence of an explicit marker can prevent a semantic shift from becoming a structural boundary.",
+    "Parallel endings may be human-recognized formal evidence without being promoted into MR1 explicit closure rules.",
+    "Computational evidence and human structural adjudication remain separate.",
+    "Boundary and discourse continuity are distinct.",
+    "Not macro-level does not mean subordinate."
+  ],
+  "version": "HSA1"
+}

@@ -1,6 +1,48 @@
 # MILAL Development Handoff
 
-## Current task — R4.2 participant transition/enclosure audit, 2026-09-21
+## Current task — HSA1 human structural adjudication registry, 2026-09-22
+
+Active specification: [HSA1_SPEC.md](HSA1_SPEC.md); usage:
+[README_MILAL_HSA1.md](README_MILAL_HSA1.md). Starting HEAD:
+`77ca713b9520ce085135dc845f60d920095756cb`. The researcher authorized recording
+the supplied judgments, linkage validation, deterministic audit and commit/push.
+
+**HSA1 is the human-authored structural source of truth**, not a new analytical
+stage or an automatic hierarchy generator. The equivalent
+[Markdown](HUMAN_STRUCTURAL_ADJUDICATION.md) and
+[CSV](HUMAN_STRUCTURAL_ADJUDICATION.csv) contain **31 REVIEWED judgments** and
+**33 direct, directed relation pairs**. Reciprocal pairs count twice; no transitive
+or inverse completion is inferred. **2:11 is accepted as a new paragraph onset**;
+2:9 remains internal to 2:1–10. 27:1/29:1 and all four Elihu speech onsets remain
+same-level siblings. Not macro-level does not mean subordinate.
+
+All 31 judgments have exact native/context source links; zero lack machine links.
+The audit expands **1122 source links** without reducing formal or case context,
+and retains **19 negative controls**. Human judgment is not a computational result.
+3:1 remains outside MR1; 1:22/2:10 remain non-MR1 human parallel endings. Anonymous
+entry identities/first appearance remain UNRESOLVED. 42:7 keeps Wayhi, SIMPLE_AMR
+and CASE030 distinct; 42:16 remains human NO_BOUNDARY. No new primary atom is guessed.
+
+Syntax passed. Full regression **482 PASS, zero skips** (436 prior + 46 HSA1).
+Final synthetic self-test and both accepted-artifact audits **30/30 gates PASS**;
+each gate has a negative test. Independent processes reproduce **10/10 files and
+the complete ZIP byte-for-byte**. This reads hash-pinned accepted BHSA 2021 evidence
+snapshots; it is not a new BHSA extraction or cross-platform validation.
+See [HSA1_VALIDATION_REPORT.md](HSA1_VALIDATION_REPORT.md).
+
+- Final results: `results/hsa1_structural_adjudication_lf_final_20260922_a/`
+- ZIP: `results/hsa1_structural_adjudication_lf_final_20260922_a_results.zip`
+- Log: `results/hsa1_structural_adjudication_lf_final_20260922_a_run.log`
+- Rerun: `results/hsa1_structural_adjudication_lf_final_20260922_b/`
+- ZIP SHA256: `9ed87863ccc4388cf608d72675ba69354846c2376e3d764c96f5a79c2599a885`
+
+All frozen analytical cores and accepted artifacts remain unchanged. **Hierarchy
+remains incomplete for Job 3–26.** The next task is human review of the Job 3–26
+speech-unit structure using the same linguistic-marker criteria. The supplied
+3:1/3:2 judgment does not complete that review. **R4.3 whole-book parentage remains
+blocked pending dialogue-unit review.** No unreviewed hierarchy was inferred.
+
+## Previous task — R4.2 participant transition/enclosure audit, 2026-09-21
 
 Active specification: [R4_2_SPEC.md](R4_2_SPEC.md); usage:
 [README_MILAL_R4_2.md](README_MILAL_R4_2.md). Starting HEAD:
