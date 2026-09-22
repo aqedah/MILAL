@@ -1,6 +1,55 @@
 # MILAL Development Handoff
 
-## Current task — HSA2 dialogue-cycle adjudication and closure-target audit, 2026-09-22
+## Current task — HSA2-F final Job 31:40 closure adjudication, 2026-09-22
+
+Active specification: [HSA2_FINAL_SPEC.md](HSA2_FINAL_SPEC.md); usage:
+[README_MILAL_HSA2_FINAL.md](README_MILAL_HSA2_FINAL.md). Starting HEAD:
+`21225566974ca4b18d38679c790a2b5c37066cd3`. The researcher supplied final closure
+decisions and authorized append-only implementation, validation and commit/push.
+
+**HSA1 and HSA2 are frozen**, including their source/context evidence and original
+UNRESOLVED closure fields. The separate [final Markdown](HUMAN_STRUCTURAL_ADJUDICATION_HSA2_FINAL.md)
+and [CSV](HUMAN_STRUCTURAL_ADJUDICATION_HSA2_FINAL.csv) append **three REVIEWED human
+decisions**. Original HSA2 was an evidence audit; it did not automatically select 29:1.
+
+**31:40 remains SPEECH_UNIT_END. Its direct/local target is now human-adjudicated
+as 29:1 (DIRECT_LOCAL_CLOSURE).** Direct closure to 27:1 is rejected via
+NO_DIRECT_RELATION in the DIRECT_CLOSURE_TARGET dimension (= NO_DIRECT_CLOSURE).
+Separately, 31:40 has **HIGHER_ORDER_TERMINAL_EFFECT on the 27:1–31:40 post-dialogue
+Job speech group**, recorded as TERMINATES_ENCLOSING_GROUP. This rejection does not
+deny the independent group relation. **27:1/29:1 remain SAME_LEVEL_SIBLING** speech
+onsets, not parent/child; **28:1 remains NO_BOUNDARY / CONTINUES_WITHIN 27:1**.
+
+The researcher used previously adjudicated hierarchy to identify the locally active
+29:1 speech. **No nearest-opening heuristic or new automatic closure rule** was
+introduced. All 6/6/4 cycle judgments, no Zophar III, 3:1, 4:1/15:1/22:1 cycle
+onsets, 26:1 and historical MR1 labels remain unchanged.
+
+HSA1 31 + HSA2 25 + final 3 = **59 human decision records**. HSA2's **83 directed
+pairs remain unchanged**, with three final typed assertions added separately (86
+across the two tables, including one rejection). **1968 source/context links remain
+unchanged**, plus 15 new human-decision provenance links. All **17 original HSA2
+members** are preserved byte-for-byte under `hsa2/` inside the new package.
+
+Syntax PASS; full regression **566 PASS, zero skips** (529 prior + 37 HSA2-F).
+Synthetic and both accepted-real audits **26/26 gates PASS**, every gate negatively
+tested. Independent processes reproduce **25/25 files and the complete ZIP**.
+Outer/nested manifests and all **67 pinned frozen repository files** pass; eight
+accepted ZIPs verified. Real compact report manually inspected. No frozen analytical
+core was modified. See [HSA2_FINAL_VALIDATION_REPORT.md](HSA2_FINAL_VALIDATION_REPORT.md).
+
+- Final: `results/hsa2_f_final2_20260922_a/`
+- Rerun: `results/hsa2_f_final2_20260922_b/`
+- ZIP: `results/hsa2_f_final2_20260922_a_results.zip`
+- Log: `results/hsa2_f_final2_20260922_a_run.log`
+- SHA256: `64cf4c0eae884f8c7d407d3880e0d867a70bdd56d79bd2bb557ee2b119103bcc`
+
+**R4.3 is now unblocked following successful HSA2-F validation.** Whole-book
+hierarchy/parentage has **not** been generated. R4.3 remains the next separately
+scoped methodological stage, not an output or automatic continuation of HSA2-F.
+Earlier HANDOFF sections below preserve the historical unresolved state and blockers.
+
+## Previous task — HSA2 dialogue-cycle adjudication and closure-target audit, 2026-09-22
 
 Active specification: [HSA2_SPEC.md](HSA2_SPEC.md); usage:
 [README_MILAL_HSA2.md](README_MILAL_HSA2.md). Starting HEAD:
