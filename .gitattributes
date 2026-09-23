@@ -21,3 +21,6 @@
 
 # MR1 byte-reproduction fixtures retain their intentional UTF-8 BOM / CRLF.
 tests/fixtures/mr1/*.csv text eol=crlf
+
+# Preserve the exact researcher-supplied ANA.0.3 request bytes and SHA256.
+docs/HSA3_ANA_0_3_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

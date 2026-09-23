@@ -1,0 +1,387 @@
+HSA3-ANA.0.3 — Human Adjudication Freeze
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  3aa956887dc1cc40563167f57af26553e38404e0
+- HSA3-ANA.0.2 완료
+- R4.4 시작 금지
+- HSA3 global seams A–G의 parentage 판정도 아직 시작하지 않는다.
+
+이번 단계에서는 연구자가 직접 내린 ANA-Q2–Q5 판단만 canonical human-adjudication record로 저장한다.
+
+==================================================
+1. Researcher decisions
+==================================================
+
+Q2 = ACCEPTED
+
+relation:
+31:40 → 32:1
+POST_CLOSURE_TRANSITION
+
+relation_dimension:
+TRANSITION_OVERLAY
+
+researcher rationale:
+
+“31:40은 욥의 마지막 발화를 명시적으로 종결하며,
+이어지는 32:1은 세 친구가 욥에게 대답하던 관계가 종료되었음을 서술한다.
+따라서 32:1은 31:40에 통사적으로 종속되는 단위가 아니라,
+31:40에서 종결된 욥의 발화와 선행 논쟁을 후방적으로 정리하는
+POST_CLOSURE_TRANSITION으로 기능한다.”
+
+explicitly NOT:
+- CHILD_OF
+- SAME_LEVEL_SIBLING
+- DIRECT_CLOSURE_TARGET
+
+preserve:
+31:40 → 29:1 DIRECT_LOCAL_CLOSURE
+31:40 → 27:1 NO_DIRECT_RELATION
+31:40 → POST_DIALOGUE_JOB TERMINATES_ENCLOSING_GROUP
+
+--------------------------------------------------
+
+Q3 = UNRESOLVED / DEFERRED
+
+candidate:
+31:35 → 38:1
+LONG_DISTANCE_RESPONSE
+
+DO NOT promote this candidate to accepted human relation.
+
+researcher rationale:
+
+“31:35의 שדי יענני와 38:1의 ויען יהוה את־איוב 사이에는
+ענה 어근과 divine responder–Job 관계의 형식적 대응이 존재한다.
+그러나 본문은 38:1의 하나님의 등장을 31:35의 요구에 대한 직접적 성취로 명시하지 않으며,
+그렇게 해석해야 할 담화적·본문적 필연성도 충분히 입증되지 않았다.
+따라서 LONG_DISTANCE_RESPONSE는 유의미한 candidate로 보존하되
+현재 단계에서는 UNRESOLVED로 남긴다.”
+
+status:
+UNRESOLVED
+
+decision_type:
+HUMAN_DEFERRED
+
+automatic_resolution:
+false
+
+important:
+- do NOT record ACCEPTED
+- do NOT record HUMAN_SUPPLIED_RELATION
+- do NOT infer that YHWH appears because Job requested an answer in 31:35
+- do NOT call 38:1 fulfillment of 31:35
+- preserve lexical/participant correspondence only as candidate evidence
+- preserve 3:2 as negative control
+- preserve closure_context=31:40 only as contextual metadata, not causal link
+
+--------------------------------------------------
+
+Q4 = ACCEPTED
+
+relation:
+32:1 ↔ 38:1
+CONTRASTIVE_ANA_FRAME
+
+relation_dimension:
+OVERLAY_RESPONSIO
+
+researcher rationale:
+
+“32:1의 מענות את־איוב와 38:1의 ויען יהוה את־איוב는
+동일한 대상 욥에 대한 ענה를 각각 응답의 중단과 응답의 개시라는
+반대 극성으로 제시한다.
+32:3–5의 מענה와 32–33장의 응답 언어 집중은 이 대응을 강화한다.
+따라서 두 절은 계층적 병행 관계가 아니라
+CONTRASTIVE_ANA_FRAME이라는 장거리 담화 overlay를 형성한다.”
+
+explicitly NOT:
+- CHILD_OF
+- SAME_LEVEL_SIBLING
+- parentage
+- inclusio unless separately adjudicated
+- proof that 38:1 fulfills 31:35
+
+--------------------------------------------------
+
+Q5 = ACCEPTED
+
+retain historical candidate:
+ELIHU_WITHIN_ANA_RESPONSE_INTERVAL
+
+add refined human relation:
+ELIHU_RESPONSE_ROLE_INTERVENTION
+
+relation_dimension:
+RHETORICAL_FUNCTION_OVERLAY / RESPONSE_RELATION
+
+scope:
+32:2–37:24
+
+researcher rationale:
+
+“엘리후는 단순히 32:1과 38:1 사이에 위치하지 않는다.
+32:3–5와 32:12–16에서 세 친구의 응답 실패가 반복적으로 제시되고,
+32:17, 20과 33:12 등에서 엘리후는 자신이 응답하겠다고 명시한다.
+따라서 엘리후의 개입은 친구들의 응답 실패 이후
+스스로 응답 역할을 취하는 ELIHU_RESPONSE_ROLE_INTERVENTION으로 판정한다.
+그러나 이는 엘리후가 하나님을 대신하거나
+38:1의 하나님의 직접 응답과 동일한 기능을 수행한다는 뜻은 아니다.”
+
+retain distinction:
+32:2–5 = NARRATIVE_INTRODUCTION
+32:6–37:24 = ELIHU_SPEECH_SEQUENCE
+
+explicitly NOT:
+- ELIHU SUBSTITUTE_FOR_YHWH
+- ELIHU RESPONSE_TO GOD
+- ELIHU FOURTH_FRIEND
+- 32:6 CHILD_OF 32:1
+
+==================================================
+2. Expected adjudication counts
+==================================================
+
+이번 단계에서:
+
+accepted new human judgments = 3
+deferred/unresolved human decisions = 1
+
+Q2 accepted
+Q3 unresolved/deferred
+Q4 accepted
+Q5 accepted
+
+new textual hierarchy relations = 0
+
+new overlay/transition/rhetorical accepted relations = 3
+
+historical candidate count remains 4.
+
+Do not delete ANA-C2.
+ANA-C2 remains a live unresolved candidate.
+
+==================================================
+3. Criteria registry application
+==================================================
+
+Q2:
+use only canonical existing registry codes.
+Likely evidence:
+- explicit closure
+- distributional pattern
+- participant alignment
+- adjacency alone insufficient
+
+Q3:
+record evidence supporting candidacy:
+- lexical recurrence
+- participant/addressee alignment
+- explicit response request
+- negative control
+
+but also record insufficiency:
+- lexical recurrence alone insufficient
+- no explicit causal/fulfillment marker
+- no textual statement linking YHWH’s appearance to 31:35
+- no necessity to interpret 38:1 as fulfillment
+
+Q3 must remain unresolved even though positive evidence exists.
+
+Q4:
+- lexical recurrence
+- lexical family
+- addressee alignment
+- polarity contrast
+- distributional cluster
+- lexeme alone insufficient
+
+Q5:
+- distributional pattern
+- repeated response-failure language
+- self-declared answering role
+- participant alignment
+- FORMAL_CSF alone insufficient
+- 3:2 negative control preserved
+
+Do not invent registry codes unless required.
+If an insufficiency code is missing, record it as methodological note rather than mutating the frozen registry automatically.
+
+==================================================
+4. Provenance
+==================================================
+
+Each Q2–Q5 decision must include:
+
+- review_question_id
+- original_candidate_id
+- researcher_supplied = true
+- decision
+- status
+- relation_type
+- relation_dimension
+- source_ref
+- target_ref
+- scope_ref
+- evidence_ids
+- criteria_codes
+- negative_controls
+- rationale
+- limitations
+- source artifact hashes
+
+Q3 must explicitly show:
+
+candidate_status_before = UNADJUDICATED
+human_decision = DEFERRED
+candidate_status_after = UNRESOLVED
+accepted_relation_created = false
+
+==================================================
+5. Frozen data
+==================================================
+
+Do not modify:
+- HSA1
+- HSA2
+- HSA2-F
+- R4.3
+- HSA3-PREP
+- ANA.0.1 historical artifacts
+- ANA.0.2 historical artifacts
+
+Preserve:
+- frozen human judgments 59
+- unresolved HSA3-PREP rows 57
+- HSA3 A–G researcher parentage fields blank
+- 31:40 three HSA2-F relations
+- 3:2 negative control
+- 37:24 adjacency insufficiency
+
+==================================================
+6. HSA3 dependency update
+==================================================
+
+SEAM_D may receive evidence dependency from:
+- Q2 ACCEPTED
+- Q4 ACCEPTED
+- Q5 ACCEPTED
+
+SEAM_E may receive evidence dependency from:
+- Q4 ACCEPTED
+- Q5 ACCEPTED
+- Q3 UNRESOLVED candidate evidence
+
+Q3 must not resolve SEAM_E.
+
+These are evidence dependencies only.
+Do not adjudicate A–G parentage.
+
+==================================================
+7. Output
+==================================================
+
+Generate at minimum:
+
+01_ana_human_adjudications.csv
+02_ana_human_relation_provenance.csv
+03_ana_criteria_application.csv
+04_ana_negative_control_application.csv
+05_ana_candidate_to_judgment_crosswalk.csv
+06_hsa3_dependency_update.csv
+07_frozen_judgment_integrity.csv
+08_ana_0_3_adjudication_report.md
+09_next_hsa3_seam_review_packet.md
+10_gates.csv
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+8. Required gates/tests
+==================================================
+
+Verify:
+
+- Q2 = ACCEPTED
+- Q3 = UNRESOLVED/DEFERRED
+- Q4 = ACCEPTED
+- Q5 = ACCEPTED
+
+- accepted new human judgments = 3
+- deferred human decisions = 1
+- new textual hierarchy relation count = 0
+- accepted overlay relation count = 3
+- candidate count remains 4
+
+- ANA-C2 preserved
+- ANA-C2 not promoted to accepted relation
+- no “38:1 fulfills 31:35” assertion
+- no “YHWH appears because of 31:35” assertion
+
+- Q3 positive evidence preserved
+- Q3 insufficiency rationale preserved
+
+- frozen 59 unchanged
+- unresolved 57 unchanged
+- HSA3 A–G unchanged
+- HSA2-F closure relations unchanged
+- no R4.4
+
+- full regression PASS, skip 0
+- manifest PASS
+- deterministic rerun byte-identical
+
+==================================================
+9. Commit / push
+==================================================
+
+Only after all tests pass:
+
+git status
+git diff
+git diff --check
+
+Suggested commit message:
+
+Freeze ana human adjudications with Q3 unresolved
+
+Push to origin/main.
+
+Verify:
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+10. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. commit message
+3. push status
+4. changed files
+5. Q2 result
+6. Q3 result and explicit reason for deferral
+7. Q4 result
+8. Q5 result
+9. accepted human judgment count
+10. deferred decision count
+11. overlay relation count
+12. textual hierarchy relation count
+13. frozen 59 integrity
+14. unresolved 57 integrity
+15. HSA3 A–G integrity
+16. HSA2-F integrity
+17. tests
+18. gates
+19. deterministic rerun
+20. ZIP name/SHA256
+21. next HSA3 seam review packet summary
+
+Do not begin HSA3 A–G adjudication.
+Do not begin R4.4.

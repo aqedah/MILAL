@@ -1,0 +1,187 @@
+{
+  "version": "HSA3-ANA.0.3",
+  "authority": "RESEARCHER_SUPPLIED_DECISIONS_TRANSCRIBED_NOT_INFERRED",
+  "source_path": "docs/HSA3_ANA_0_3_RESEARCHER_SOURCE.txt",
+  "source_sha256": "820f002b7b821b057cff743bfc9cab0e7182fc45f0c072cbe366440ad2b302b7",
+  "decisions": [
+    {
+      "review_question_id": "ANA-Q2",
+      "original_candidate_id": "ANA-C1",
+      "researcher_supplied": true,
+      "decision": "ACCEPTED",
+      "status": "ACCEPTED",
+      "decision_type": "HUMAN_SUPPLIED_RELATION",
+      "relation_type": "POST_CLOSURE_TRANSITION",
+      "relation_dimension": "TRANSITION_OVERLAY",
+      "source_ref": "31:40",
+      "target_ref": "32:1",
+      "scope_ref": "",
+      "direction": "SOURCE_TO_TARGET",
+      "criteria_codes": [
+        "E-EXPLICIT-CLOSURE",
+        "E-DISTRIBUTIONAL-PATTERN",
+        "E-PARTICIPANT-ALIGNMENT",
+        "N-ADJACENCY-ONLY"
+      ],
+      "negative_controls": [
+        "3_2_FORMAL_NOT_RESPONSE",
+        "37_24_ADJACENCY_INSUFFICIENT"
+      ],
+      "rationale": "31:40은 욥의 마지막 발화를 명시적으로 종결하며,\n이어지는 32:1은 세 친구가 욥에게 대답하던 관계가 종료되었음을 서술한다.\n따라서 32:1은 31:40에 통사적으로 종속되는 단위가 아니라,\n31:40에서 종결된 욥의 발화와 선행 논쟁을 후방적으로 정리하는\nPOST_CLOSURE_TRANSITION으로 기능한다.",
+      "limitations": [
+        "CHILD_OF",
+        "SAME_LEVEL_SIBLING",
+        "DIRECT_CLOSURE_TARGET"
+      ],
+      "methodological_notes": [
+        "Adjacency alone does not establish a relation. Existing HSA2-F closure targets remain unchanged."
+      ],
+      "candidate_status_before": "UNADJUDICATED",
+      "human_decision": "ACCEPTED",
+      "candidate_status_after": "ACCEPTED",
+      "accepted_relation_created": true,
+      "automatic_resolution": false,
+      "closure_context": "31:40",
+      "closure_context_use": "CONTEXTUAL_METADATA_ONLY_NOT_CAUSAL_LINK",
+      "causal_link_asserted": false,
+      "fulfillment_asserted": false
+    },
+    {
+      "review_question_id": "ANA-Q3",
+      "original_candidate_id": "ANA-C2",
+      "researcher_supplied": true,
+      "decision": "DEFERRED",
+      "status": "UNRESOLVED",
+      "decision_type": "HUMAN_DEFERRED",
+      "relation_type": "LONG_DISTANCE_RESPONSE",
+      "relation_dimension": "RESPONSE_RELATION",
+      "source_ref": "31:35",
+      "target_ref": "38:1",
+      "scope_ref": "",
+      "direction": "SOURCE_TO_TARGET",
+      "criteria_codes": [
+        "E-LEXICAL-RECURRENCE",
+        "E-PARTICIPANT-ALIGNMENT",
+        "E-ADDRESSEE-ALIGNMENT",
+        "E-NEGATIVE-CONTROL",
+        "N-LEXEME-ONLY"
+      ],
+      "negative_controls": [
+        "3_2_FORMAL_NOT_RESPONSE",
+        "37_24_ADJACENCY_INSUFFICIENT"
+      ],
+      "rationale": "31:35의 שדי יענני와 38:1의 ויען יהוה את־איוב 사이에는\nענה 어근과 divine responder–Job 관계의 형식적 대응이 존재한다.\n그러나 본문은 38:1의 하나님의 등장을 31:35의 요구에 대한 직접적 성취로 명시하지 않으며,\n그렇게 해석해야 할 담화적·본문적 필연성도 충분히 입증되지 않았다.\n따라서 LONG_DISTANCE_RESPONSE는 유의미한 candidate로 보존하되\n현재 단계에서는 UNRESOLVED로 남긴다.",
+      "limitations": [
+        "FULFILLMENT_OF_31_35",
+        "YHWH_APPEARS_BECAUSE_OF_31_35",
+        "HUMAN_SUPPLIED_RELATION"
+      ],
+      "methodological_notes": [
+        "Explicit response request supports candidacy; no dedicated registry code is invented.",
+        "No explicit causal/fulfillment marker.",
+        "No textual statement links YHWH appearance to 31:35.",
+        "No demonstrated interpretive necessity to read 38:1 as fulfillment.",
+        "Lexical and divine responder–Job correspondence remains candidate evidence only."
+      ],
+      "candidate_status_before": "UNADJUDICATED",
+      "human_decision": "DEFERRED",
+      "candidate_status_after": "UNRESOLVED",
+      "accepted_relation_created": false,
+      "automatic_resolution": false,
+      "closure_context": "31:40",
+      "closure_context_use": "CONTEXTUAL_METADATA_ONLY_NOT_CAUSAL_LINK",
+      "causal_link_asserted": false,
+      "fulfillment_asserted": false
+    },
+    {
+      "review_question_id": "ANA-Q4",
+      "original_candidate_id": "ANA-C3",
+      "researcher_supplied": true,
+      "decision": "ACCEPTED",
+      "status": "ACCEPTED",
+      "decision_type": "HUMAN_SUPPLIED_RELATION",
+      "relation_type": "CONTRASTIVE_ANA_FRAME",
+      "relation_dimension": "OVERLAY_RESPONSIO",
+      "source_ref": "32:1",
+      "target_ref": "38:1",
+      "scope_ref": "",
+      "direction": "BIDIRECTIONAL",
+      "criteria_codes": [
+        "E-LEXICAL-RECURRENCE",
+        "E-LEXICAL-FAMILY",
+        "E-ADDRESSEE-ALIGNMENT",
+        "E-POLARITY-CONTRAST",
+        "E-DISTRIBUTIONAL-PATTERN",
+        "N-LEXEME-ONLY"
+      ],
+      "negative_controls": [
+        "3_2_FORMAL_NOT_RESPONSE",
+        "37_24_ADJACENCY_INSUFFICIENT"
+      ],
+      "rationale": "32:1의 מענות את־איוב와 38:1의 ויען יהוה את־איוב는\n동일한 대상 욥에 대한 ענה를 각각 응답의 중단과 응답의 개시라는\n반대 극성으로 제시한다.\n32:3–5의 מענה와 32–33장의 응답 언어 집중은 이 대응을 강화한다.\n따라서 두 절은 계층적 병행 관계가 아니라\nCONTRASTIVE_ANA_FRAME이라는 장거리 담화 overlay를 형성한다.",
+      "limitations": [
+        "CHILD_OF",
+        "SAME_LEVEL_SIBLING",
+        "PARENTAGE",
+        "INCLUSIO",
+        "PROOF_OF_Q3_FULFILLMENT"
+      ],
+      "methodological_notes": [
+        "Contrasting cessation and onset with the same addressee supports the supplied overlay judgment, not hierarchy or Q3 fulfillment."
+      ],
+      "candidate_status_before": "UNADJUDICATED",
+      "human_decision": "ACCEPTED",
+      "candidate_status_after": "ACCEPTED",
+      "accepted_relation_created": true,
+      "automatic_resolution": false,
+      "closure_context": "31:40",
+      "closure_context_use": "CONTEXTUAL_METADATA_ONLY_NOT_CAUSAL_LINK",
+      "causal_link_asserted": false,
+      "fulfillment_asserted": false
+    },
+    {
+      "review_question_id": "ANA-Q5",
+      "original_candidate_id": "ANA-C4",
+      "researcher_supplied": true,
+      "decision": "ACCEPTED",
+      "status": "ACCEPTED",
+      "decision_type": "HUMAN_SUPPLIED_RELATION",
+      "relation_type": "ELIHU_RESPONSE_ROLE_INTERVENTION",
+      "relation_dimension": "RHETORICAL_FUNCTION_OVERLAY / RESPONSE_RELATION",
+      "source_ref": "",
+      "target_ref": "",
+      "scope_ref": "32:2–37:24",
+      "direction": "SCOPED_ROLE",
+      "criteria_codes": [
+        "E-DISTRIBUTIONAL-PATTERN",
+        "E-PARTICIPANT-ALIGNMENT",
+        "E-NEGATIVE-CONTROL"
+      ],
+      "negative_controls": [
+        "3_2_FORMAL_NOT_RESPONSE",
+        "37_24_ADJACENCY_INSUFFICIENT"
+      ],
+      "rationale": "엘리후는 단순히 32:1과 38:1 사이에 위치하지 않는다.\n32:3–5와 32:12–16에서 세 친구의 응답 실패가 반복적으로 제시되고,\n32:17, 20과 33:12 등에서 엘리후는 자신이 응답하겠다고 명시한다.\n따라서 엘리후의 개입은 친구들의 응답 실패 이후\n스스로 응답 역할을 취하는 ELIHU_RESPONSE_ROLE_INTERVENTION으로 판정한다.\n그러나 이는 엘리후가 하나님을 대신하거나\n38:1의 하나님의 직접 응답과 동일한 기능을 수행한다는 뜻은 아니다.",
+      "limitations": [
+        "SUBSTITUTE_FOR_YHWH",
+        "RESPONSE_TO_GOD",
+        "FOURTH_FRIEND",
+        "32:6_CHILD_OF_32:1"
+      ],
+      "methodological_notes": [
+        "Repeated response-failure language and self-declared answering role: methodological notes, no new registry codes.",
+        "FORMAL_CSF alone is insufficient; retain the 3:2 negative control.",
+        "32:2–5 NARRATIVE_INTRODUCTION remains distinct from 32:6–37:24 ELIHU_SPEECH_SEQUENCE."
+      ],
+      "candidate_status_before": "UNADJUDICATED",
+      "human_decision": "ACCEPTED",
+      "candidate_status_after": "ACCEPTED",
+      "accepted_relation_created": true,
+      "automatic_resolution": false,
+      "closure_context": "31:40",
+      "closure_context_use": "CONTEXTUAL_METADATA_ONLY_NOT_CAUSAL_LINK",
+      "causal_link_asserted": false,
+      "fulfillment_asserted": false
+    }
+  ]
+}

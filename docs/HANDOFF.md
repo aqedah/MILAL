@@ -1,6 +1,53 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-ANA.0.2 evidence addendum and criteria draft complete, 2026-09-23
+## Current task — HSA3-ANA.0.3 human adjudication freeze, 2026-09-23
+
+Active specification: [HSA3_ANA_0_3_SPEC.md](HSA3_ANA_0_3_SPEC.md); execution:
+[README_MILAL_HSA3_ANA_0_3.md](README_MILAL_HSA3_ANA_0_3.md); authority:
+[researcher request](HSA3_ANA_0_3_RESEARCHER_SOURCE.txt) and
+[canonical decisions](../config/hsa3_ana_0_3_human_decisions.json).
+Starting HEAD: `3aa956887dc1cc40563167f57af26553e38404e0`.
+The researcher authorized this human-record freeze, validation and commit/push.
+
+Q2 ACCEPTED: POST_CLOSURE_TRANSITION, 31:40 → 32:1, TRANSITION_OVERLAY.
+Q3 UNRESOLVED / HUMAN_DEFERRED: LONG_DISTANCE_RESPONSE remains a live ANA-C2
+candidate. Lexical/participant correspondence supports candidacy, but an explicit
+causal/fulfillment marker and interpretive necessity are not established.
+No accepted Q3 relation is created; 31:40 is contextual metadata only.
+Q4 ACCEPTED: CONTRASTIVE_ANA_FRAME, 32:1 ↔ 38:1, OVERLAY_RESPONSIO.
+Q5 ACCEPTED: ELIHU_RESPONSE_ROLE_INTERVENTION, scope 32:2–37:24;
+RHETORICAL_FUNCTION_OVERLAY / RESPONSE_RELATION. The original positional
+candidate name remains in history, and narrative introduction 32:2–5 stays
+distinct from speech sequence 32:6–37:24.
+
+**Three accepted human judgments, one deferred decision, three accepted overlays,
+zero new textual hierarchy relations. All four historical candidates remain.**
+The 59 frozen human judgments and 57 unresolved rows are unchanged. Historical
+A–G and Q1–Q5 review worksheets remain unmodified; the current Q2–Q5 decisions
+are separately recorded. All three HSA2-F closure relations and the 3:2/37:24
+negative controls remain. The 24-code criteria draft is unchanged; concepts
+without dedicated codes are recorded as methodological notes.
+
+SEAM_D: Q2/Q4/Q5 accepted evidence dependencies. SEAM_E: Q4/Q5 accepted evidence
+and Q3 unresolved-candidate evidence. None resolves parentage. The next packet
+presents all seven original cases with these dependencies and blank review fields.
+**HSA3 A–G parentage adjudication has not begun. R4.4 has not begun.**
+No prior analytical core or historical output was rewritten; no fresh BHSA
+extraction is performed. The exact ANA.0.2 ZIP is consumed and preserved.
+
+Validation: [report](HSA3_ANA_0_3_VALIDATION_REPORT.md); **59 new / 866 total
+tests PASS, skip 0; 30/30 synthetic and actual gates PASS**, all negative-tested.
+Final independent-process ZIPs and all 112 members are byte-identical. All 97
+ANA.0.2 members, 107 frozen source hashes, 8 manifests and 149 exact row links
+were independently verified. Results, ZIPs and logs remain ignored.
+
+Final artifact: `results/hsa3_ana_0_3_human_freeze_final_20260923_a_results.zip`.
+SHA256 `460b8f82764ea3c382c97ac6d382855a8a264272e7f152e60d133179f29c9ee1`.
+
+Next: separately authorized researcher HSA3 seam review using the prepared packet;
+Q3 stays unresolved unless separately reconsidered with explicit evidence.
+
+## Previous task — HSA3-ANA.0.2 evidence addendum and criteria draft complete, 2026-09-23
 
 Active specification: [HSA3_ANA_0_2_SPEC.md](HSA3_ANA_0_2_SPEC.md); execution:
 [README_MILAL_HSA3_ANA_0_2.md](README_MILAL_HSA3_ANA_0_2.md); validation:
