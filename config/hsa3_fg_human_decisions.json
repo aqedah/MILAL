@@ -1,0 +1,192 @@
+{
+  "version": "HSA3-F/G",
+  "source_path": "docs/HSA3_FG_RESEARCHER_SOURCE.txt",
+  "source_sha256": "e39fc1256344ab829759a95b073faa7e734b80ac5d3518e349f09312114c3c9d",
+  "authority": "RESEARCHER_SUPPLIED",
+  "decisions": [
+    {
+      "seam_id": "SEAM_F",
+      "decision": "ACCEPTED",
+      "status": "FROZEN",
+      "rationale": "Two response complexes are composition peers supported by independent formal and distributional correspondences; no textual parentage."
+    },
+    {
+      "seam_id": "SEAM_G",
+      "decision": "ACCEPTED",
+      "status": "FROZEN",
+      "rationale": "42:7 resumes narrative after the response sequence; 42:10/12/16 remain internal without new macro boundaries."
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "YHWH_JOB_RESPONSE_COMPLEX_1",
+      "seam_id": "SEAM_F",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "38:1",
+      "span_end": "40:5",
+      "members": [
+        "H:HSA025",
+        "H:HSA026",
+        "H:HSA027"
+      ],
+      "anchor_references": [
+        "38:1",
+        "38:3",
+        "40:1",
+        "40:3"
+      ]
+    },
+    {
+      "group_id": "YHWH_JOB_RESPONSE_COMPLEX_2",
+      "seam_id": "SEAM_F",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "40:6",
+      "span_end": "42:6",
+      "members": [
+        "H:HSA028",
+        "H:HSA029"
+      ],
+      "anchor_references": [
+        "40:6",
+        "40:7",
+        "42:1",
+        "42:6"
+      ]
+    },
+    {
+      "group_id": "YHWH_JOB_RESPONSE_SEQUENCE",
+      "seam_id": "SEAM_F",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "38:1",
+      "span_end": "42:6",
+      "members": [
+        "YHWH_JOB_RESPONSE_COMPLEX_1",
+        "YHWH_JOB_RESPONSE_COMPLEX_2"
+      ],
+      "anchor_references": []
+    },
+    {
+      "group_id": "FINAL_NARRATIVE_COMPLEX",
+      "seam_id": "SEAM_G",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "42:7",
+      "span_end": "42:17",
+      "members": [
+        "H:HSA030"
+      ],
+      "anchor_references": [
+        "42:7",
+        "42:10",
+        "42:12",
+        "42:16"
+      ]
+    }
+  ],
+  "positive_relations": [
+    {
+      "seam_id": "SEAM_F",
+      "source_node": "YHWH_JOB_RESPONSE_COMPLEX_1",
+      "target_node": "YHWH_JOB_RESPONSE_COMPLEX_2",
+      "relation_type": "SAME_LEVEL_COMPOSITION_PEERS",
+      "dimension": "COMPOSITION_PEER",
+      "symmetric": true
+    },
+    {
+      "seam_id": "SEAM_G",
+      "source_node": "YHWH_JOB_RESPONSE_SEQUENCE",
+      "target_node": "FINAL_NARRATIVE_COMPLEX",
+      "relation_type": "POST_SPEECH_NARRATIVE_TRANSITION",
+      "dimension": "COMPOSITION_TRANSITION",
+      "symmetric": false
+    }
+  ],
+  "annotations": [
+    {
+      "node_id": "H:HSA027",
+      "span_start": "40:3",
+      "span_end": "40:5",
+      "kind": "HUMAN_RESPONSE_UNIT_SPAN",
+      "new_node": false
+    },
+    {
+      "node_id": "H:HSA029",
+      "span_start": "42:1",
+      "span_end": "42:6",
+      "kind": "HUMAN_RESPONSE_UNIT_SPAN",
+      "new_node": false
+    }
+  ],
+  "criteria": {
+    "SEAM_F": [
+      "E-EXPLICIT-ONSET",
+      "E-FORMULA-CORRESPONDENCE",
+      "E-FUNCTIONAL-EQUIVALENCE",
+      "E-PARTICIPANT-ALIGNMENT",
+      "E-ADDRESSEE-ALIGNMENT",
+      "E-DISTRIBUTIONAL-PATTERN",
+      "N-SPEAKER-ONLY",
+      "N-ADJACENCY-ONLY",
+      "N-CHAPTER-BOUNDARY-ONLY",
+      "N-SEMANTIC-SIMILARITY-ONLY",
+      "N-LEXEME-ONLY",
+      "N-FORMULA-LENGTH-ONLY"
+    ],
+    "SEAM_G": [
+      "E-EXPLICIT-ONSET",
+      "E-TIME-FRAME",
+      "E-GRAMMATICAL-DEPENDENCY",
+      "E-NEGATIVE-CONTROL",
+      "E-DISTRIBUTIONAL-PATTERN",
+      "N-ADJACENCY-ONLY",
+      "N-CHAPTER-BOUNDARY-ONLY",
+      "N-THEME-ONLY"
+    ]
+  },
+  "negative_rules": [
+    {
+      "reference": "42:6",
+      "target_node": "H:HSA030",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE",
+      "direction": "BOTH_EXCLUDED_PARENT_DIRECTIONS"
+    },
+    {
+      "reference": "42:6",
+      "target_node": "H:HSA030",
+      "relation_type": "NO_DIRECT_RESPONSE_ANTECEDENT",
+      "dimension": "RESPONSE_RELATION",
+      "direction": "SOURCE_TO_TARGET"
+    },
+    {
+      "reference": "42:6",
+      "target_node": "H:HSA030",
+      "relation_type": "NO_DIRECT_RELATION",
+      "dimension": "CONTINUATION",
+      "excluded_relation": "CONTINUES_WITHIN",
+      "direction": "SOURCE_TO_TARGET"
+    },
+    {
+      "reference": "42:10",
+      "target_node": "FINAL_NARRATIVE_COMPLEX",
+      "relation_type": "NO_BOUNDARY_PROMOTION",
+      "dimension": "BOUNDARY_EXISTENCE",
+      "excluded_claims": [
+        "PARAGRAPH_ONSET",
+        "MACRO_BOUNDARY",
+        "SAME_LEVEL_SIBLING",
+        "TEXTUAL_PARENT"
+      ]
+    },
+    {
+      "reference": "42:12",
+      "target_node": "FINAL_NARRATIVE_COMPLEX",
+      "relation_type": "NO_BOUNDARY_PROMOTION",
+      "dimension": "BOUNDARY_EXISTENCE",
+      "excluded_claims": [
+        "PARAGRAPH_ONSET",
+        "MACRO_BOUNDARY",
+        "TEXTUAL_PARENT"
+      ]
+    }
+  ]
+}

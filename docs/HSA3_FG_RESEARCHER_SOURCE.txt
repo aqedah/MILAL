@@ -1,0 +1,889 @@
+현재 MILAL 저장소에서 다음 단계를 수행하세요.
+
+작업명:
+HSA3-F/G — Final Global Seam Human Adjudication
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  d720d805f771cb18912728dd6982177c57459ef6
+- SEAM_A/B/C = FROZEN
+- SEAM_D/E = FROZEN
+- SEAM_F/G = UNREVIEWED
+- HSA3-FG-PREP 완료
+- ANA-Q2/Q4/Q5 ACCEPTED
+- ANA-Q3 UNRESOLVED / HUMAN_DEFERRED
+- R4.4 시작 금지
+
+이번 단계에서는 연구자가 명시적으로 승인한
+SEAM_F와 SEAM_G의 human adjudication만 기록한다.
+
+새 lexical audit, 새 marker discovery, 새 parentage inference를 하지 않는다.
+
+==================================================
+1. SEAM_F researcher decision
+==================================================
+
+SEAM_F = ACCEPTED / FROZEN
+
+연구자 판단:
+
+Job 38:1–40:5와 40:6–42:6은
+두 개의 동급 YHWH–Job response complex를 형성한다.
+
+각 complex는 textual parentage가 아니라
+NON_TEXTUAL_COMPOSITION 구조이다.
+
+--------------------------------------------------
+F1. First response complex
+--------------------------------------------------
+
+Create or confirm:
+
+YHWH_JOB_RESPONSE_COMPLEX_1
+
+span:
+38:1–40:5
+
+composition members / anchors:
+
+- 38:1
+  major YHWH speech onset
+
+- 38:3
+  אזר נא כגבר חלציך
+  repeated challenge formula evidence
+
+- 40:1
+  INTERNAL_SPEECH_ONSET
+  CHILD_OF 38:1
+  existing accepted textual relation
+
+- 40:3
+  Job response onset
+
+- 40:3–5
+  Job response unit
+
+Important:
+Do NOT make the composition group itself a textual parent.
+
+--------------------------------------------------
+F2. Second response complex
+--------------------------------------------------
+
+Create or confirm:
+
+YHWH_JOB_RESPONSE_COMPLEX_2
+
+span:
+40:6–42:6
+
+composition members / anchors:
+
+- 40:6
+  major YHWH speech onset
+
+- 40:7
+  אזר נא כגבר חלציך
+  repeated challenge formula evidence
+
+- 42:1
+  Job response onset
+
+- 42:1–6
+  Job response unit
+
+Again:
+NON_TEXTUAL_COMPOSITION only.
+
+--------------------------------------------------
+F3. Same-level composition relation
+--------------------------------------------------
+
+Researcher judgment:
+
+YHWH_JOB_RESPONSE_COMPLEX_1
+and
+YHWH_JOB_RESPONSE_COMPLEX_2
+
+are:
+
+SAME_LEVEL_COMPOSITION_PEERS
+
+or the closest existing canonical composition relation type.
+
+Do not use textual:
+
+SAME_LEVEL_SIBLING
+
+unless the repository explicitly distinguishes textual sibling edges
+from composition-level peer relations and already provides a canonical
+composition-peer relation.
+
+Prefer existing schema.
+
+Do not duplicate semantic-equivalent relations.
+
+--------------------------------------------------
+F4. Higher composition group
+--------------------------------------------------
+
+Create or confirm:
+
+YHWH_JOB_RESPONSE_SEQUENCE
+
+span:
+38:1–42:6
+
+ordered members:
+
+1. YHWH_JOB_RESPONSE_COMPLEX_1
+   38:1–40:5
+
+2. YHWH_JOB_RESPONSE_COMPLEX_2
+   40:6–42:6
+
+This is:
+
+NON_TEXTUAL_COMPOSITION_GROUP
+
+It must NOT be used as:
+
+- textual parent
+- CHILD_OF target
+- HIERARCHICALLY_ABOVE node
+- BHSA mother surrogate
+
+--------------------------------------------------
+F5. Preserve existing textual relations
+--------------------------------------------------
+
+Preserve unchanged:
+
+38:1 ↔ 40:6
+SAME_LEVEL_SIBLING
+
+40:3 ↔ 42:1
+SAME_LEVEL_SIBLING
+
+40:1 → 38:1
+CHILD_OF
+
+These existing relations support the composition analysis
+but are not rewritten.
+
+--------------------------------------------------
+F6. Evidence basis
+--------------------------------------------------
+
+Apply existing adjudication criteria registry.
+
+Evidence includes:
+
+- established 38:1 / 40:6 major-onset peer relation
+- established 40:3 / 42:1 Job-response peer relation
+- repeated storm formula
+- repeated אזר נא כגבר חלציך at 38:3 / 40:7
+- recurring YHWH → Job → Job-response configuration
+- distributional parallelism
+
+Insufficient alone:
+
+- same speaker
+- adjacency
+- repeated formula alone
+- chapter division
+- semantic similarity alone
+
+==================================================
+2. SEAM_G researcher decision
+==================================================
+
+SEAM_G = ACCEPTED / FROZEN
+
+Researcher judgment:
+
+42:7 begins the final narrative after completion of the
+YHWH_JOB_RESPONSE_SEQUENCE 38:1–42:6.
+
+The relation is a composition-level narrative transition,
+not direct textual parentage between 42:6 and 42:7.
+
+--------------------------------------------------
+G1. Final narrative complex
+--------------------------------------------------
+
+Create or confirm:
+
+FINAL_NARRATIVE_COMPLEX
+
+span:
+42:7–42:17
+
+anchor:
+42:7
+
+existing function:
+PARAGRAPH_ONSET
+
+42:7 is the onset of the final narrative complex.
+
+The group is:
+
+NON_TEXTUAL_COMPOSITION_GROUP
+
+Do NOT use it as textual parentage.
+
+--------------------------------------------------
+G2. Transition relation
+--------------------------------------------------
+
+Create or confirm a composition-level relation:
+
+source:
+YHWH_JOB_RESPONSE_SEQUENCE
+38:1–42:6
+
+target:
+FINAL_NARRATIVE_COMPLEX
+42:7–17
+
+relation:
+POST_SPEECH_NARRATIVE_TRANSITION
+
+or the closest existing canonical sequential/composition relation.
+
+Meaning:
+
+After the YHWH–Job speech-response sequence ends,
+narrative discourse resumes at 42:7.
+
+Important:
+Do NOT encode:
+
+42:6 → 42:7 CHILD_OF
+42:6 → 42:7 RESPONSE_TO
+42:6 → 42:7 CONTINUES_WITHIN
+
+Do NOT make 42:7 a child of 42:6.
+
+--------------------------------------------------
+G3. 42:7 backward temporal framing
+--------------------------------------------------
+
+Preserve the observed surface evidence:
+
+42:7
+ויהי אחר דבר יהוה את הדברים האלה אל איוב ...
+
+The temporal frame refers backward to YHWH speaking to Job.
+
+However:
+
+do NOT reduce this to a direct 42:6 → 42:7 relation,
+because 42:6 is Job’s response.
+
+Therefore the transition is between the larger preceding
+YHWH–Job response sequence and the final narrative,
+not verse-to-verse direct parentage.
+
+--------------------------------------------------
+G4. 42:10
+--------------------------------------------------
+
+42:10 remains internal to FINAL_NARRATIVE_COMPLEX.
+
+Do NOT promote to:
+
+- PARAGRAPH_ONSET
+- MACRO_BOUNDARY
+- SAME_LEVEL_SIBLING
+- textual parent
+
+Preserve the FG-PREP evidence:
+
+ויהוה שב את שבות איוב
+בהתפללו בעד רעהו
+
+The event/state transition is observable,
+but no new major boundary is adjudicated here.
+
+If an internal narrative phase label is useful,
+it may be stored only as descriptive evidence,
+not as a new structural boundary.
+
+--------------------------------------------------
+G5. 42:12
+--------------------------------------------------
+
+42:12 remains internal to FINAL_NARRATIVE_COMPLEX.
+
+Do NOT promote to:
+
+- PARAGRAPH_ONSET
+- MACRO_BOUNDARY
+- textual parent
+
+Preserve the observed WXQt / subject-fronted structure
+and relation to 42:10 as evidence only.
+
+--------------------------------------------------
+G6. 42:16
+--------------------------------------------------
+
+Preserve existing human judgment exactly:
+
+42:16
+NO_BOUNDARY
+CONTINUES_WITHIN 42:7
+
+Do not overturn it.
+
+Preserve the FG-PREP negative-control evidence:
+
+ויחי איוב אחרי זאת ...
+
+Important distinctions:
+
+- ויחי = חיה
+- not ויהי = היה
+- אחרי זאת is a Time phrase after predicate/subject in the WayX clause
+- it is not equivalent in syntax/function to
+  3:1 אחרי כן
+  or
+  42:7 ויהי אחר דבר יהוה ...
+
+The life-summary shift is observable content evidence,
+but does not create a new major structural boundary.
+
+==================================================
+3. Do not adjudicate the 2:11–42:9 participant frame
+==================================================
+
+This remains outside the current step.
+
+Do NOT create:
+
+2:11–42:9 PARTICIPANT_FRAME
+2:11 → 42:9 closure relation
+2:11–42:9 textual macro unit
+
+The final narrative complex 42:7–17 and a possible
+2:11–42:9 participant/adjudication overlay may overlap
+at different analytical layers.
+
+Do not resolve that question here.
+
+==================================================
+4. ANA-Q3 remains unresolved
+==================================================
+
+Preserve:
+
+31:35 → 38:1
+LONG_DISTANCE_RESPONSE candidate
+
+status:
+UNRESOLVED / HUMAN_DEFERRED
+
+SEAM_F does not resolve it.
+
+Do not assert:
+
+- 38:1 fulfills 31:35
+- YHWH appears because of 31:35
+- the YHWH_JOB_RESPONSE_SEQUENCE is causally triggered by 31:35
+
+==================================================
+5. HSA3 all-seam freeze
+==================================================
+
+After this step:
+
+SEAM_A = FROZEN
+SEAM_B = FROZEN
+SEAM_C = FROZEN
+SEAM_D = FROZEN
+SEAM_E = FROZEN
+SEAM_F = FROZEN
+SEAM_G = FROZEN
+
+Important:
+FROZEN does NOT mean all unresolved direct textual parents are resolved.
+
+Existing unresolved direct-parent questions may remain unresolved.
+
+The freeze means:
+all approved global seam decisions have been recorded.
+
+==================================================
+6. HSA3-PREP unresolved crosswalk
+==================================================
+
+Do not rewrite historical HSA3-PREP unresolved rows.
+
+Create/update the adjudication-layer resolution crosswalk.
+
+For F/G-related unresolved rows, classify:
+
+RESOLVED_BY_SEAM_F
+RESOLVED_BY_SEAM_G
+REMAINS_UNRESOLVED
+NOT_APPLICABLE_TO_APPROVED_DECISION
+
+Important:
+If an unresolved row asks for exact textual parentage
+and the new decision only supplies composition/grouping,
+it must remain unresolved.
+
+Do not artificially reduce unresolved count.
+
+==================================================
+7. Relation-layer separation
+==================================================
+
+The final report must distinguish:
+
+TEXTUAL HIERARCHY
+- CHILD_OF
+- CONTINUES_WITHIN
+- HIERARCHICALLY_ABOVE
+
+TEXTUAL SAME-LEVEL RELATION
+- SAME_LEVEL_SIBLING
+
+COMPOSITION / GROUPING
+- YHWH_JOB_RESPONSE_COMPLEX_1
+- YHWH_JOB_RESPONSE_COMPLEX_2
+- YHWH_JOB_RESPONSE_SEQUENCE
+- FINAL_NARRATIVE_COMPLEX
+- composition peer relation
+
+TRANSITION
+- POST_SPEECH_NARRATIVE_TRANSITION
+
+OVERLAY / RESPONSIO
+- ANA-Q4 CONTRASTIVE_ANA_FRAME
+- ANA-Q5 ELIHU_RESPONSE_ROLE_INTERVENTION
+- ANA-Q3 unresolved candidate
+
+Do not collapse these layers.
+
+==================================================
+8. Existing schema first
+==================================================
+
+Before creating any new relation/group:
+
+1. inspect current canonical registries
+2. search semantic-equivalent relation/group
+3. reuse existing IDs where possible
+4. do not duplicate
+
+Action values should distinguish:
+
+CREATED
+CONFIRMED_EXISTING
+NEGATIVE_CONSTRAINT_CREATED
+UNRESOLVED_RETAINED
+NO_ACTION_DUPLICATE
+
+If a proposed label such as
+POST_SPEECH_NARRATIVE_TRANSITION
+does not exist but an equivalent canonical type does,
+use the existing canonical type and record the researcher wording
+as an alias/description.
+
+==================================================
+9. Expected new human decisions
+==================================================
+
+At minimum:
+
+SEAM_F researcher decision = 1
+SEAM_G researcher decision = 1
+
+Do not hard-code the number of newly created canonical relations,
+because some groups/relations may already exist.
+
+Report separately:
+
+- researcher seam decisions
+- new composition groups
+- confirmed existing groups
+- new positive composition relations
+- confirmed existing relations
+- new negative constraints
+- unresolved retained
+- duplicate skipped
+
+==================================================
+10. Required output
+==================================================
+
+Generate at minimum:
+
+01_hsa3_fg_final_adjudications.csv
+
+02_hsa3_fg_relation_actions.csv
+
+03_hsa3_fg_composition_groups.csv
+
+04_hsa3_fg_criteria_application.csv
+
+05_hsa3_fg_negative_constraints.csv
+
+06_hsa3_fg_unresolved_crosswalk.csv
+
+07_hsa3_all_seams_status.csv
+
+08_hsa3_fg_final_report.md
+
+09_hsa3_complete_review_summary.md
+
+10_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+11. 09_hsa3_complete_review_summary.md
+==================================================
+
+This file should summarize the now-frozen HSA3 global structure
+without inventing a single textual tree.
+
+At minimum show:
+
+OPENING_NARRATIVE_COMPLEX
+1:1–2:13
+(non-textual composition)
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+3:1–31:40
+(non-textual composition)
+
+32:1
+TRANSITION_COMPONENT
+
+32:2–37:24
+Elihu introduction + speech sequence
+
+YHWH_JOB_RESPONSE_SEQUENCE
+38:1–42:6
+(non-textual composition)
+  |- RESPONSE_COMPLEX_1 38:1–40:5
+  `- RESPONSE_COMPLEX_2 40:6–42:6
+
+FINAL_NARRATIVE_COMPLEX
+42:7–17
+(non-textual composition)
+
+Also show:
+
+- accepted textual relations
+- accepted negative constraints
+- accepted overlay relations
+- unresolved direct parentage
+- ANA-Q3 unresolved
+- 2:11–42:9 participant frame unadjudicated
+
+Do NOT render this as one fully resolved parent tree.
+
+==================================================
+12. Required tests
+==================================================
+
+At minimum verify:
+
+1.
+start commit exact:
+d720d805f771cb18912728dd6982177c57459ef6
+
+2.
+A/B/C remain FROZEN.
+
+3.
+D/E remain FROZEN.
+
+4.
+F/G prior state was UNREVIEWED.
+
+5.
+SEAM_F becomes FROZEN.
+
+6.
+SEAM_G becomes FROZEN.
+
+7.
+all A–G are FROZEN after run.
+
+8.
+YHWH_JOB_RESPONSE_COMPLEX_1 exists or is confirmed.
+
+9.
+Complex 1 span = 38:1–40:5.
+
+10.
+YHWH_JOB_RESPONSE_COMPLEX_2 exists or is confirmed.
+
+11.
+Complex 2 span = 40:6–42:6.
+
+12.
+Both complexes are non-textual composition groups.
+
+13.
+Composition peer relation exists/confirmed.
+
+14.
+YHWH_JOB_RESPONSE_SEQUENCE exists/confirmed.
+
+15.
+Sequence span = 38:1–42:6.
+
+16.
+Sequence ordered members are correct.
+
+17.
+38:1 ↔ 40:6 SAME_LEVEL_SIBLING preserved.
+
+18.
+40:3 ↔ 42:1 SAME_LEVEL_SIBLING preserved.
+
+19.
+40:1 CHILD_OF 38:1 preserved.
+
+20.
+No new textual parentage generated from response complexes.
+
+21.
+FINAL_NARRATIVE_COMPLEX exists/confirmed.
+
+22.
+Final narrative span = 42:7–17.
+
+23.
+42:7 remains PARAGRAPH_ONSET.
+
+24.
+POST_SPEECH_NARRATIVE_TRANSITION exists or equivalent confirmed.
+
+25.
+No 42:6 → 42:7 CHILD_OF.
+
+26.
+No 42:6 → 42:7 RESPONSE_TO.
+
+27.
+No 42:6 → 42:7 CONTINUES_WITHIN.
+
+28.
+42:10 not promoted.
+
+29.
+42:12 not promoted.
+
+30.
+42:16 remains NO_BOUNDARY.
+
+31.
+42:16 CONTINUES_WITHIN 42:7 preserved.
+
+32.
+ויחי at 42:16 remains lexeme חיה.
+
+33.
+ויהי / ויחי remain distinguished.
+
+34.
+ANA-Q3 remains UNRESOLVED / HUMAN_DEFERRED.
+
+35.
+ANA-Q4 preserved.
+
+36.
+ANA-Q5 preserved.
+
+37.
+No 2:11–42:9 frame adjudicated.
+
+38.
+No new R4.4 work.
+
+39.
+Historical HSA3-PREP unchanged.
+
+40.
+Historical HSA1/HSA2/HSA2-F/ANA artifacts unchanged.
+
+41.
+No duplicate semantic-equivalent relations.
+
+42.
+Unresolved direct-parent rows are not artificially resolved by composition groups.
+
+43.
+Full regression PASS, skip 0.
+
+44.
+Synthetic gates PASS.
+
+45.
+Real BHSA gates PASS.
+
+46.
+Manifest valid.
+
+47.
+Deterministic independent rerun byte-identical.
+
+==================================================
+13. Gates
+==================================================
+
+Include at minimum:
+
+- BASELINE_COMMIT_VERIFIED
+- FG_PREP_VERIFIED
+- SEAM_F_RESEARCHER_DECISION_RECORDED
+- SEAM_G_RESEARCHER_DECISION_RECORDED
+- ALL_A_G_SEAMS_FROZEN
+- RESPONSE_COMPLEX_1_PRESENT
+- RESPONSE_COMPLEX_2_PRESENT
+- RESPONSE_COMPLEX_PEERS_PRESENT
+- RESPONSE_SEQUENCE_PRESENT
+- RESPONSE_GROUPS_NON_TEXTUAL
+- EXISTING_YHWH_JOB_RELATIONS_PRESERVED
+- FINAL_NARRATIVE_COMPLEX_PRESENT
+- POST_SPEECH_NARRATIVE_TRANSITION_PRESENT
+- NO_42_6_42_7_PARENTAGE
+- NO_42_6_42_7_RESPONSE_EDGE
+- JOB_42_10_NOT_PROMOTED
+- JOB_42_12_NOT_PROMOTED
+- JOB_42_16_NO_BOUNDARY_PRESERVED
+- WAYHI_WAYHI_LIFE_VERB_DISTINCTION_PRESERVED
+- ANA_Q3_STILL_UNRESOLVED
+- ANA_Q4_Q5_PRESERVED
+- NO_2_11_42_9_FRAME_ADJUDICATION
+- UNRESOLVED_PARENTAGE_NOT_FAKE_RESOLVED
+- HISTORICAL_ARTIFACTS_UNCHANGED
+- NO_DUPLICATE_RELATIONS
+- NO_R4_4
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+
+==================================================
+14. Methodological statement
+==================================================
+
+The final report must explicitly state:
+
+1.
+Repeated configurations may support composition-level parallelism
+without creating textual parentage.
+
+2.
+38:1–40:5 and 40:6–42:6 are adjudicated as composition peers
+because multiple independent formal/distributional correspondences converge.
+
+3.
+42:7 marks resumption of narrative discourse after the YHWH–Job sequence,
+but the transition is between larger discourse complexes,
+not a direct 42:6→42:7 parent relation.
+
+4.
+42:10, 42:12, and 42:16 may mark semantic/event development
+without constituting independent macro boundaries.
+
+5.
+A frozen HSA3 does not imply a fully resolved tree.
+MILAL retains unresolved direct parentage where evidence does not warrant it.
+
+==================================================
+15. Commit / push
+==================================================
+
+Only after all tests/gates pass:
+
+git status
+git diff
+git diff --check
+
+Suggested commit message:
+
+Freeze final YHWH and narrative global seams
+
+Push to origin/main.
+
+Verify:
+
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+16. Final report
+==================================================
+
+Report:
+
+1. start commit
+2. end commit
+3. commit message
+4. push status
+5. changed files
+
+6. SEAM_F final decision
+7. SEAM_G final decision
+8. A–G final status
+
+9. Response Complex 1 result
+10. Response Complex 2 result
+11. peer relation result
+12. response sequence result
+
+13. final narrative complex result
+14. transition relation result
+15. 42:10 status
+16. 42:12 status
+17. 42:16 status
+
+18. new researcher seam decision count
+19. new composition group count
+20. confirmed-existing group count
+21. new positive relation count
+22. confirmed relation count
+23. new negative constraint count
+24. unresolved-retained count
+25. duplicate-skipped count
+
+26. unresolved crosswalk changes
+27. exact number remaining unresolved
+
+28. ANA-Q3 integrity
+29. ANA-Q4/Q5 integrity
+30. HSA2-F integrity
+31. historical artifact integrity
+32. confirmation that 2:11–42:9 remains unadjudicated
+33. confirmation R4.4 not started
+
+34. new tests
+35. full regression tests
+36. synthetic gates
+37. real gates
+38. deterministic rerun
+
+39. result ZIP name
+40. SHA256
+
+41. HSA3 complete review summary
+42. recommendation for the next stage
+
+중요:
+이번 단계가 끝나면 A–G는 모두 FROZEN이어야 한다.
+그러나 unresolved textual parentage를 억지로 해소하지 않는다.
+HSA3 결과를 하나의 완전한 textual tree로 강제하지 않는다.
+2:11–42:9 participant-frame 가설은 여전히 별도 문제로 남긴다.
+R4.4는 시작하지 않는다.

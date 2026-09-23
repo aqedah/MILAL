@@ -1,6 +1,46 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-FG-PREP evidence audit, 2026-09-23
+## Current task — HSA3-F/G final global seam adjudication, 2026-09-23
+
+Active specification: [HSA3_FG_SPEC.md](HSA3_FG_SPEC.md); execution:
+[README_MILAL_HSA3_FG.md](README_MILAL_HSA3_FG.md); authority:
+[exact researcher request](HSA3_FG_RESEARCHER_SOURCE.txt) and
+[human decisions](../config/hsa3_fg_human_decisions.json).
+Starting HEAD: `d720d805f771cb18912728dd6982177c57459ef6`.
+The researcher authorizes F/G adjudication, synthetic and real frozen-evidence
+validation, independent rerun, and commit/push after all tests/gates PASS.
+
+SEAM_F/G record supplied ACCEPTED / FROZEN decisions. All A–G are FROZEN in the
+new adjudication layer; this does not resolve every direct textual parent.
+Four non-textual composition groups record the two YHWH–Job response complexes
+(38:1–40:5, 40:6–42:6), their ordered response sequence (38:1–42:6), and the final
+narrative (42:7–17). Composition peers and post-speech narrative transition stay
+separate from textual parentage and textual siblings. Existing 40:1 CHILD_OF
+38:1, YHWH/Job peer pairs, and 42:16 NO_BOUNDARY / CONTINUES_WITHIN 42:7 remain.
+42:10/12 are internal evidence, not promoted boundaries. 38:3/40:7 are evidence
+anchors, not new nodes; Job response spans reuse H:HSA027/H:HSA029.
+
+All 57 historical direct-parent questions remain unresolved. The six F/G-related
+rows remain unresolved; the other 51 are outside the approved F/G decisions.
+ANA-Q2/Q4/Q5 remain ACCEPTED; Q3 stays UNRESOLVED/HUMAN_DEFERRED. HSA2-F and every
+earlier analytical core/artifact remain unchanged. The 2:11–42:9 participant-frame
+hypothesis remains unadjudicated. No new lexical extraction or R4.4 work.
+
+Validation complete: **62 new / 1,133 total tests PASS, skip 0**; synthetic,
+real and independent rerun **39/39 gates PASS**. Independent ZIP byte-identical.
+Computed real actions: 2 seam decisions, 4 groups, 10 positive composition
+relations, 7 confirmed relation rows, 14 clause-grounded negatives, 6 unresolved
+retained and 0 duplicates. All 143 repository pins and 183 input members preserved;
+202 output members, 13 manifests and 127 source row links independently verified.
+Real ZIP: `results/hsa3_fg_final_real_20260923_a_results.zip`, SHA256
+`64cf25abd09fca7355abbcb3740cc46ed26f61b71e5d895ee91383c758974798`.
+Summary: `results/hsa3_fg_final_real_20260923_a/09_hsa3_complete_review_summary.md`.
+See [HSA3_FG_VALIDATION_REPORT.md](HSA3_FG_VALIDATION_REPORT.md) for full validation.
+Next: researcher review of the complete layered HSA3 summary, then explicit
+scoping of remaining parentage / participant-frame questions. No automatic
+progression to R4.4 and no forced fully resolved textual tree.
+
+## Previous completed task — HSA3-FG-PREP evidence audit, 2026-09-23
 
 Active specification: [HSA3_FG_PREP_SPEC.md](HSA3_FG_PREP_SPEC.md); execution:
 [README_MILAL_HSA3_FG_PREP.md](README_MILAL_HSA3_FG_PREP.md); authority:
