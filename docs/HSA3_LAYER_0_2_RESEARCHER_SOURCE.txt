@@ -1,0 +1,504 @@
+현재 MILAL 저장소에서 다음 단계를 수행하세요.
+
+작업명:
+HSA3-LAYER.0.2 — Parentage Necessity Human Freeze
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  a8fbd794bfec3f05132f847a8ba51f9f0e63567b
+- HSA3-LAYER.0.1 완료
+- A–G = FROZEN
+- historical direct-parent unresolved rows = 57
+- all necessity proposals = UNREVIEWED
+- R4.4 = NOT STARTED
+- participant arc = NEXT_RESEARCH_SCOPE only
+
+이번 단계의 목적은
+HSA3-LAYER.0.1에서 생성된 57개 parentage-necessity proposal을
+연구자 판단으로 동결하는 것이다.
+
+새 textual parent를 생성하지 않는다.
+historical direct_parent 값을 수정하지 않는다.
+participant arc를 아직 분석하지 않는다.
+R4.4를 시작하지 않는다.
+
+==================================================
+1. Researcher decision — 전체 원칙
+==================================================
+
+연구자 판단:
+
+MILAL의 모든 node가 하나의 direct textual parent를 가져야 하는 것은 아니다.
+
+다음 relation dimensions는 서로 독립적이다.
+
+- TEXTUAL_HIERARCHY
+- TEXTUAL_SAME_LEVEL
+- COMPOSITION_GROUPING
+- TRANSITION
+- OVERLAY_RESPONSIO
+- NEGATIVE_CONSTRAINT
+- UNRESOLVED / DEFERRED
+
+따라서:
+
+NO DIRECT TEXTUAL PARENT
+≠
+STRUCTURAL INFORMATION MISSING
+
+또한:
+
+historical direct_parent = UNRESOLVED
+≠
+future direct-parent adjudication is necessarily required.
+
+==================================================
+2. P2 승인
+==================================================
+
+HSA3-LAYER.0.1의 다음 proposal을 모두 ACCEPT한다.
+
+P2_DIRECT_PARENT_NOT_REQUIRED_NON_TEXTUAL_GROUP
+count = 8
+
+Researcher decision:
+
+NON_TEXTUAL_COMPOSITION / GROUP nodes에
+direct textual parent를 요구하지 않는다.
+
+기존 group membership과 ordering을 보존한다.
+
+historical unresolved record는 수정하지 않는다.
+
+necessity_human_status:
+DIRECT_PARENT_NOT_REQUIRED
+
+==================================================
+3. P3 승인
+==================================================
+
+P3_DIRECT_PARENT_NOT_REQUIRED_ROLE_ALIAS
+count = 6
+
+Researcher decision:
+
+동일 textual locus의 canonical speech node와 role alias에
+각각 별도의 textual parent를 요구하지 않는다.
+
+role alias는 canonical textual node와 crosswalk로 충분하다.
+
+necessity_human_status:
+DIRECT_PARENT_NOT_REQUIRED
+
+canonical speech node 자체를 삭제하거나
+non-textual node로 변경하지 않는다.
+
+==================================================
+4. P4 승인
+==================================================
+
+P4_LOCAL_RELATION_SUFFICIENT
+count = 10
+
+Researcher decision:
+
+기존 accepted local relations가
+해당 node의 textual placement를 충분히 제약한다.
+
+예:
+- CHILD_OF
+- HIERARCHICALLY_ABOVE
+- CONTINUES_WITHIN
+- NO_BOUNDARY
+- typed closure relation
+
+추가 direct-parent edge를 요구하지 않는다.
+
+necessity_human_status:
+CURRENT_LAYERED_RELATIONS_SUFFICIENT
+
+기존 local relation의 type을 합치거나 변경하지 않는다.
+
+==================================================
+5. P5 승인
+==================================================
+
+P5_CONTAINER_MEMBERSHIP_SUFFICIENT
+count = 19
+
+Researcher decision:
+
+accepted composition membership,
+same-level relation,
+structural function이 함께 존재하는 경우
+개별 speech unit에 별도의 direct textual parent를 강제하지 않는다.
+
+특히:
+- dialogue-cycle speech units
+- Elihu speech units
+- post-dialogue Job units
+
+등에 nearest preceding onset을 parent로 만들지 않는다.
+
+necessity_human_status:
+CURRENT_LAYERED_RELATIONS_SUFFICIENT
+
+==================================================
+6. P6 승인
+==================================================
+
+P6_GLOBAL_LAYER_RELATION_SUFFICIENT
+count = 13
+
+Researcher decision:
+
+frozen HSA3 global seam judgment과
+composition / transition / negative constraints가
+해당 node의 structural status를 충분히 표현한다.
+
+추가 textual parent는 필수가 아니다.
+
+necessity_human_status:
+CURRENT_LAYERED_RELATIONS_SUFFICIENT
+
+==================================================
+7. P7 — Job 2:11 연구자 최종 판단
+==================================================
+
+Node:
+H:HSA012
+
+reference:
+Job 2:11
+
+historical:
+- structural_function = PARAGRAPH_ONSET
+- FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION
+- NOT_WITHIN_SECOND_TESTING_SCENE
+- member of OPENING_NARRATIVE_COMPLEX
+- exact direct parent historically UNRESOLVED
+
+HSA3-LAYER.0.1 proposal:
+P7_GENUINELY_UNRESOLVED_AFTER_LAYERED_REVIEW
+AUDIT_PROPOSAL / UNREVIEWED
+
+Researcher decision:
+
+Do NOT continue requiring an exact direct textual parent.
+
+Final necessity judgment:
+
+DIRECT_TEXTUAL_PARENT_NOT_REQUIRED
+
+Researcher rationale:
+
+“Job 2:11–13은 독립적인 FRIENDS_ARRIVAL /
+PARTICIPANT_INTRODUCTION textual unit으로 이미 판정되었고,
+둘째 시험 장면 2:1–10의 하위 단위가 아니라는 negative constraint도
+확정되어 있다. 또한 1:1–2:13의 OPENING_NARRATIVE_COMPLEX 안에서
+composition member로 위치가 충분히 표현된다.
+따라서 2:11을 1:1, 2:1, 3:1 또는 다른 textual node의
+CHILD_OF로 추가 지정할 필요가 없다.”
+
+Important distinction:
+
+Do NOT assert:
+NO_PARENT
+
+Do NOT assert:
+PARENT_IS_1_1
+PARENT_IS_2_1
+PARENT_IS_3_1
+
+Instead record:
+
+historical_direct_parent =
+UNRESOLVED
+
+parentage_necessity =
+DIRECT_TEXTUAL_PARENT_NOT_REQUIRED
+
+additional_parentage_review_required =
+false
+
+This is a human methodological judgment about representation necessity,
+not discovery of a new textual edge.
+
+==================================================
+8. 57 historical unresolved rows
+==================================================
+
+Historical source-of-truth must remain unchanged.
+
+All 57:
+direct_parent = UNRESOLVED
+
+must remain preserved in historical artifacts.
+
+Create a new human necessity layer.
+
+Expected:
+
+historical_unresolved_parent_rows = 57
+
+human_parentage_necessity_status:
+- DIRECT_PARENT_NOT_REQUIRED / LAYERED_RELATIONS_SUFFICIENT
+  for all 57 rows
+
+active_future_direct_parent_questions = 0
+
+Important:
+This does NOT mean:
+
+resolved_direct_parent_rows = 57
+
+Instead distinguish:
+
+DIRECT_PARENT_EDGE_RESOLVED = 0
+PARENTAGE_NECESSITY_REVIEW_COMPLETED = 57
+
+==================================================
+9. Preserve P2–P7 proposal provenance
+==================================================
+
+Do not rewrite HSA3-LAYER.0.1 audit proposals.
+
+For each row preserve:
+
+proposal_category
+proposal_status = historical UNREVIEWED
+
+and add separate human-review record:
+
+researcher_decision
+researcher_necessity_status
+additional_parentage_review_required
+rationale
+source_proposal_id
+source_artifact_sha256
+criteria/provenance
+
+Historical machine proposal and later human judgment
+must remain distinguishable.
+
+==================================================
+10. Expected methodological result
+==================================================
+
+The final report must state clearly:
+
+1.
+The original 57 R4.3 parent fields remain historically UNRESOLVED.
+
+2.
+After layered review, none of the 57 requires a further
+direct textual-parent adjudication for the current MILAL representation.
+
+3.
+This is not equivalent to assigning 57 parent edges.
+
+4.
+MILAL therefore terminates parentage review without constructing
+a complete one-parent tree.
+
+5.
+Job 2:11 remains a textual paragraph onset and participant-introduction unit,
+but no exact direct textual parent is required.
+
+==================================================
+11. Participant arc remains future scope
+==================================================
+
+Do NOT analyze or adjudicate yet:
+
+FRIENDS_ENTRY_RESOLUTION_PARTICIPANT_ARC
+
+Do not create:
+2:11–42:9 span
+frame
+textual macro unit
+closure relation
+
+Keep NEXT_RESEARCH_SCOPE unchanged.
+
+==================================================
+12. R4.4
+==================================================
+
+Do NOT implement R4.4.
+
+Update readiness only to state:
+
+PARENTAGE_NECESSITY_REVIEW_COMPLETE
+
+but:
+R4_4_CONTRACT_REVIEW_STILL_REQUIRED
+
+A future R4.4 contract must accept:
+
+- partial textual hierarchy
+- same-level textual relations
+- composition graph
+- transition graph
+- overlays
+- negative constraints
+- historical unresolved states
+- human “direct parent not required” necessity status
+
+No synthetic/default parent may be generated.
+
+==================================================
+13. Required outputs
+==================================================
+
+At minimum:
+
+01_parentage_necessity_human_decisions.csv
+
+02_parentage_necessity_proposal_to_decision_crosswalk.csv
+
+03_parentage_necessity_final_status.csv
+
+04_job_2_11_parentage_necessity_record.md
+
+05_hsa3_layered_completion_summary.md
+
+06_remaining_research_scope.md
+
+07_r4_4_readiness_update.md
+
+08_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+14. Expected counts
+==================================================
+
+Verify actual repository data first.
+
+Expected proposal counts:
+
+P2 = 8
+P3 = 6
+P4 = 10
+P5 = 19
+P6 = 13
+P7 = 1
+
+total = 57
+
+Expected human necessity reviews = 57
+
+Expected:
+new textual parent edge = 0
+new structural relation = 0
+new composition relation = 0
+
+active future direct-parent questions = 0
+
+historical unresolved direct-parent rows = 57
+
+Do not collapse those two counts.
+
+==================================================
+15. Required tests / gates
+==================================================
+
+At minimum:
+
+1. baseline commit exact
+2. all 57 historical rows preserved
+3. 57 proposal categories preserved
+4. P2 count 8
+5. P3 count 6
+6. P4 count 10
+7. P5 count 19
+8. P6 count 13
+9. P7 count 1
+10. H:HSA012 is Job 2:11
+11. H:HSA012 historical direct parent remains UNRESOLVED
+12. H:HSA012 human necessity = DIRECT_TEXTUAL_PARENT_NOT_REQUIRED
+13. no 2:11 CHILD_OF relation created
+14. no 2:11 parent assigned to 1:1
+15. no 2:11 parent assigned to 2:1
+16. no 2:11 parent assigned to 3:1
+17. all 57 human necessity reviews completed
+18. active future direct-parent questions = 0
+19. historical unresolved parent rows = 57
+20. resolved direct-parent edge count = 0
+21. no full-tree synthesis
+22. no default parent synthesis
+23. composition groups remain non-textual
+24. role aliases remain aliases
+25. local relations preserved
+26. container relations preserved
+27. global seam decisions preserved
+28. A–G all FROZEN
+29. ANA-Q3 still UNRESOLVED/HUMAN_DEFERRED
+30. participant arc still UNADJUDICATED
+31. no 42:10 promotion
+32. R4.4 implementation not started
+33. historical artifacts unchanged
+34. manifest valid
+35. full regression PASS, skip 0
+36. deterministic rerun byte-identical
+
+==================================================
+16. Commit / push
+==================================================
+
+After all tests/gates PASS:
+
+git status
+git diff
+git diff --check
+
+Suggested commit:
+
+Freeze parentage necessity decisions
+
+Push origin/main.
+
+Verify:
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+17. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. commit message
+3. push status
+
+4. original 57 unresolved count
+5. P2–P7 counts
+6. human necessity review count
+7. active future direct-parent question count
+8. new parent edge count
+
+9. Job 2:11 final necessity judgment
+10. confirmation historical UNRESOLVED preserved
+11. confirmation no parent assigned
+
+12. A–G integrity
+13. ANA integrity
+14. participant arc still unadjudicated
+15. R4.4 readiness status
+
+16. tests/gates
+17. deterministic rerun
+18. ZIP/SHA256
+
+19. next recommended research step
+
+중요:
+이번 단계는 “57 parentages resolved”가 아니다.
+“57 parentage-necessity questions reviewed”이다.
+새 parent를 만들지 않는다.

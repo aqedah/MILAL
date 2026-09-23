@@ -1,6 +1,56 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-LAYER.0.1 layered integration and necessity audit, 2026-09-23
+## Current task — HSA3-LAYER.0.2 parentage necessity human freeze, 2026-09-24
+
+Active specification: [HSA3_LAYER_0_2_SPEC.md](HSA3_LAYER_0_2_SPEC.md); execution:
+[README_MILAL_HSA3_LAYER_0_2.md](README_MILAL_HSA3_LAYER_0_2.md); authority:
+[exact researcher request](HSA3_LAYER_0_2_RESEARCHER_SOURCE.txt) and
+[human decisions](../config/hsa3_layer_0_2_human_decisions.json).
+Starting HEAD: `a8fbd794bfec3f05132f847a8ba51f9f0e63567b`.
+The researcher authorizes the supplied 57 human necessity decisions, synthetic
+and frozen-real validation, independent deterministic rerun and commit/push.
+
+Validation and human-necessity freeze complete. **57 parentage-necessity
+questions reviewed, not 57 parentages resolved.** All original R4.3 parent
+fields remain historically UNRESOLVED; original proposals remain UNREVIEWED.
+P2–P7 source counts are 8 / 6 / 10 / 19 / 13 / 1. New human statuses are
+DIRECT_PARENT_NOT_REQUIRED 14, CURRENT_LAYERED_RELATIONS_SUFFICIENT 42,
+DIRECT_TEXTUAL_PARENT_NOT_REQUIRED 1. All 57 human records are FROZEN;
+active_future_direct_parent_questions = 0; DIRECT_PARENT_EDGE_RESOLVED = 0.
+No new structural or composition relation, full-tree synthesis or default parent.
+
+H:HSA012 / Job 2:11 remains a textual PARAGRAPH_ONSET and accepted
+FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION (2:11–13), with the existing negative
+second-testing-scene constraint and OPENING_NARRATIVE_COMPLEX membership.
+The researcher's necessity judgment is DIRECT_TEXTUAL_PARENT_NOT_REQUIRED;
+historical parent remains UNRESOLVED. No NO_PARENT assertion or parent at
+1:1, 2:1, 3:1 or any other node. Historical later_human_review_required fields
+remain historical records, not the current active review queue.
+
+A–G stay FROZEN; ANA-Q2/Q4/Q5 stay accepted, Q3 UNRESOLVED/HUMAN_DEFERRED.
+All canonical layers, role aliases, canonical speech nodes and source evidence
+remain unchanged. FRIENDS_ENTRY_RESOLUTION_PARTICIPANT_ARC remains
+NEXT_RESEARCH_SCOPE / UNADJUDICATED, copied byte-for-byte; no 2:11–42:9 frame,
+macro unit, closure or 42:10 promotion. All previous analytical cores are frozen.
+
+R4.4 readiness: PARENTAGE_NECESSITY_REVIEW_COMPLETE, but
+R4_4_CONTRACT_REVIEW_STILL_REQUIRED. R4.4 implementation is NOT STARTED.
+Next recommended step: separately authorize and review the R4.4 input contract
+for partial typed graphs, historical unresolved states and human necessity
+statuses. Participant-arc research remains a separate future scope.
+
+Validation: **58 new / 1,257 total tests PASS, skip 0**; syntax and PowerShell
+runner parse PASS; synthetic, real and independent rerun **38/38 run gates PASS**.
+Two external release gates (full regression skip-zero; independent ZIP equality)
+PASS. Every run/release gate has negative coverage. Two real ZIPs byte-identical.
+All 225 upstream members and 160 repository pins preserved; 237 output members,
+15 valid manifests and 57 exact proposal-row provenance links independently checked.
+Real ZIP: `results/hsa3_layer_0_2_real_final_20260924_a_results.zip`, SHA256
+`0754eb4c3c22e17ff59627440f8ca5aeb92ee20ecb6a7cdc197240850bb31983`.
+Summary: `results/hsa3_layer_0_2_real_final_20260924_a/05_hsa3_layered_completion_summary.md`.
+Detailed receipts: [HSA3_LAYER_0_2_VALIDATION_REPORT.md](HSA3_LAYER_0_2_VALIDATION_REPORT.md).
+
+## Previous completed task — HSA3-LAYER.0.1 layered integration and necessity audit, 2026-09-23
 
 Active specification: [HSA3_LAYER_0_1_SPEC.md](HSA3_LAYER_0_1_SPEC.md); execution:
 [README_MILAL_HSA3_LAYER_0_1.md](README_MILAL_HSA3_LAYER_0_1.md); authority:

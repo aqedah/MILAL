@@ -1,0 +1,49 @@
+{
+  "version": "HSA3-LAYER.0.2",
+  "authority": "EXPLICIT_RESEARCHER_DECISION",
+  "source_request_sha256": "6ba990199ed4dd0d1e9d069b5fa73646c84db250522de2f1d5d6df8c6532a74e",
+  "category_decisions": {
+    "P2_DIRECT_PARENT_NOT_REQUIRED_NON_TEXTUAL_GROUP": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "DIRECT_PARENT_NOT_REQUIRED",
+      "additional_parentage_review_required": false,
+      "rationale": "Non-textual composition/group nodes do not require a direct textual parent; preserve membership and ordering.",
+      "source_request_section": "2"
+    },
+    "P3_DIRECT_PARENT_NOT_REQUIRED_ROLE_ALIAS": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "DIRECT_PARENT_NOT_REQUIRED",
+      "additional_parentage_review_required": false,
+      "rationale": "Canonical speech and role alias at the same explicit locus do not each require an independent textual parent; preserve both nodes and the crosswalk.",
+      "source_request_section": "3"
+    },
+    "P4_LOCAL_RELATION_SUFFICIENT": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "CURRENT_LAYERED_RELATIONS_SUFFICIENT",
+      "additional_parentage_review_required": false,
+      "rationale": "Accepted typed local relations sufficiently constrain textual placement; preserve each relation type.",
+      "source_request_section": "4"
+    },
+    "P5_CONTAINER_MEMBERSHIP_SUFFICIENT": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "CURRENT_LAYERED_RELATIONS_SUFFICIENT",
+      "additional_parentage_review_required": false,
+      "rationale": "Accepted composition membership, same-level relation and structural function suffice; do not synthesize nearest-preceding-onset parents.",
+      "source_request_section": "5"
+    },
+    "P6_GLOBAL_LAYER_RELATION_SUFFICIENT": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "CURRENT_LAYERED_RELATIONS_SUFFICIENT",
+      "additional_parentage_review_required": false,
+      "rationale": "Frozen global seam judgment and composition, transition and negative constraints sufficiently express structural status.",
+      "source_request_section": "6"
+    },
+    "P7_GENUINELY_UNRESOLVED_AFTER_LAYERED_REVIEW": {
+      "researcher_decision": "ACCEPT",
+      "researcher_necessity_status": "DIRECT_TEXTUAL_PARENT_NOT_REQUIRED",
+      "additional_parentage_review_required": false,
+      "rationale": "Job 2:11–13은 독립적인 FRIENDS_ARRIVAL /\r\nPARTICIPANT_INTRODUCTION textual unit으로 이미 판정되었고,\r\n둘째 시험 장면 2:1–10의 하위 단위가 아니라는 negative constraint도\r\n확정되어 있다. 또한 1:1–2:13의 OPENING_NARRATIVE_COMPLEX 안에서\r\ncomposition member로 위치가 충분히 표현된다.\r\n따라서 2:11을 1:1, 2:1, 3:1 또는 다른 textual node의\r\nCHILD_OF로 추가 지정할 필요가 없다.",
+      "source_request_section": "7"
+    }
+  }
+}
