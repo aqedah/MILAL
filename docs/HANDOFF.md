@@ -1,6 +1,57 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-ANA.0.3 human adjudication freeze, 2026-09-23
+## Current task — HSA3-D/E Elihu seam adjudication, 2026-09-23
+
+Active specification: [HSA3_DE_SPEC.md](HSA3_DE_SPEC.md); execution:
+[README_MILAL_HSA3_DE.md](README_MILAL_HSA3_DE.md); authority:
+[researcher request](HSA3_DE_RESEARCHER_SOURCE.txt) and
+[canonical decisions](../config/hsa3_de_human_decisions.json).
+Starting HEAD: `60b6a5a0cdb2e8e8dde55ae2210774f58c84eb24`.
+The researcher authorized D/E only, validation and commit/push after PASS.
+
+SEAM_D and SEAM_E are FROZEN in a separate human layer. The existing
+HSA019 → ELIHU_SPEECH_SEQUENCE NARRATIVE_INTRODUCTION relation is confirmed,
+not duplicated. The four Elihu onsets remain same-level peers/group members.
+32:1 retains TRANSITION_COMPONENT and is not made the parent of 32:2–5,
+the sequence or 32:6. One new group-terminal relation records
+37:24 → ELIHU_SPEECH_SEQUENCE TERMINATES_ENCLOSING_GROUP. No extra composition
+group is created; ELIHU_SPEECH_SEQUENCE remains NON_TEXTUAL_GROUP.
+
+Four explicit human negatives: 32:1 → introduction and sequence
+NO_DIRECT_PARENTAGE; 37:24 → 38:1 NO_DIRECT_PARENTAGE and
+NO_DIRECT_RESPONSE_ANTECEDENT. These are dimension-specific constraints,
+not a denial of all discourse relations. Q2/Q4/Q5 stay ACCEPTED; Q3 stays
+UNRESOLVED/HUMAN_DEFERRED with evidence dependency only.
+
+Computed accounting: 2 seam decisions; 1 new canonical positive relation;
+18 existing edge-row confirmations (including the 12 historical directed
+sibling records); 4 new negatives; 0 duplicate-skipped requests; 0 new textual
+parentage. The counts follow exact existing-schema audit, not fixed semantics.
+
+All 57 historical unresolved rows ask for a direct textual parent. No supplied
+D/E decision assigns one: resolved 0; D/E-relevant still unresolved 9;
+not applicable 48; all 57 direct-parent questions remain unresolved. The nine
+include 8 D-owned nodes and 38:1, still owned by unadjudicated F. All 49 primary
+A–C/F–G rows remain; these are overlapping accounting views, not additive totals.
+The historical artifact itself is unchanged.
+
+59 historical judgments, HSA2-F 31:40 relations, ANA.0.1/0.2/0.3, the criteria
+registry and all other analytical cores are unchanged. No lexical scan occurred.
+**SEAM_A/B/C/F/G remain unadjudicated. R4.4 is not started.**
+
+Validation: [report](HSA3_DE_VALIDATION_REPORT.md); **73 new / 939 total tests
+PASS, skip 0; 37/37 synthetic and actual gates PASS**, all negative-tested.
+Independent-process ZIPs and all 129 members are byte-identical. All 112 input
+members, 116 frozen source hashes, 9 manifests and 200 exact row links verified.
+
+Final artifact: `results/hsa3_de_elihu_seam_final_20260923_a_results.zip`.
+SHA256 `bff67a7d8b67b40134fe3a1114eb04f3d8c7a683f33442479fb36dfd1d1d3cab`.
+Results, ZIPs and logs remain ignored.
+
+Next: separately authorized researcher review of A/B/C/F/G using the remaining
+seam packet; retain D/E direct-parent residual questions and Q3's deferred state.
+
+## Previous task — HSA3-ANA.0.3 human adjudication freeze, 2026-09-23
 
 Active specification: [HSA3_ANA_0_3_SPEC.md](HSA3_ANA_0_3_SPEC.md); execution:
 [README_MILAL_HSA3_ANA_0_3.md](README_MILAL_HSA3_ANA_0_3.md); authority:

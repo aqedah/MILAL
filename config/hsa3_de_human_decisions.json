@@ -1,0 +1,189 @@
+{
+  "version": "HSA3-D/E",
+  "source_path": "docs/HSA3_DE_RESEARCHER_SOURCE.txt",
+  "source_sha256": "b321a0ff3a9185ed9d20957c8b681c979dfdecf7fb0ebee1b92bf677282348f2",
+  "decisions": [
+    {
+      "seam_id": "SEAM_D",
+      "decision_id": "HSA3-DE-D",
+      "status": "FROZEN",
+      "researcher_supplied": true,
+      "decision_type": "HUMAN_SUPPLIED_SEAM_ADJUDICATION",
+      "rationale": "3. SEAM_D researcher decision\n==================================================\n\nSEAM_D는 다음과 같이 판정한다.\n\n--------------------------------------------------\nD1. Job 32:1\n--------------------------------------------------\n\n32:1은 독립적인 TRANSITION_COMPONENT로 유지한다.\n\n기능:\n- 31:40에서 종결된 욥의 발화 및 앞선 논쟁을 후방적으로 정리\n- 세 친구가 욥에게 대답하던 관계의 종료 표시\n- Elihu introduction 앞의 transition\n\n하지만 32:1은:\n\n- 32:2–5의 textual parent가 아니다.\n- ELIHU_SPEECH_SEQUENCE의 textual parent가 아니다.\n- 32:6의 CHILD_OF target이 아니다.\n\n따라서 명시적으로 negative constraint를 기록한다.\n\n32:1 → 32:2–5\nNO_DIRECT_PARENTAGE\n\n32:1 → ELIHU_SPEECH_SEQUENCE\nNO_DIRECT_PARENTAGE\n\n필요하면 relation dimension은:\nTEXTUAL_PARENTAGE\n\n로 하되 negative relation임을 분명히 한다.\n\nQ2 POST_CLOSURE_TRANSITION은 별도 overlay로 보존한다.\n\n--------------------------------------------------\nD2. Job 32:2–5\n--------------------------------------------------\n\n32:2–5는 ELIHU_SPEECH_SEQUENCE 32:6–37:24를\n구조적으로 도입하는 NARRATIVE_INTRODUCTION으로 판정한다.\n\n중요:\n이는 clause-level CHILD_OF 관계를 의미하지 않는다.\n\n관계는 unit-level composition / introduction relation이다.\n\n권장 canonical relation:\n\nsource:\nNARRATIVE_INTRODUCTION 32:2–5\n\ntarget:\nELIHU_SPEECH_SEQUENCE 32:6–37:24\n\nrelation_type:\nINTRODUCES_AND_ENCLOSES\n\n또는 repository의 기존 canonical schema가 이미\nNARRATIVE_INTRODUCTION relation을 사용하고 있다면\n그 기존 relation type을 재사용한다.\n\n새 relation type을 불필요하게 만들지 않는다.\n\n의미:\n32:2–5는 Elihu라는 새 participant와 그의 speech intervention을 도입하고,\n그 뒤의 32:6–37:24 speech sequence와 하나의 composition complex를 이룬다.\n\n그러나:\n\n32:6 CHILD_OF 32:2\n와 같은 verse-to-verse textual parentage는 생성하지 않는다.\n\n기존 HSA3-PREP에 이미\nHSA019 → ELIHU_SPEECH_SEQUENCE\nNARRATIVE_INTRODUCTION\nrelation이 존재한다면,\n중복 relation을 새로 생성하지 말고\n이번 researcher adjudication이 그 기존 relation을 CONFIRMS/FREEZES하는 방식으로 기록한다.\n\n즉 반드시 repository를 먼저 확인하라.\n\n--------------------------------------------------\nD3. Elihu speech sequence\n--------------------------------------------------\n\n다음 기존 판단을 보존한다.\n\n32:6\n34:1\n35:1\n36:1\n\n= same-level speech-unit onsets\n\n이 네 onset을 서로 parent/child로 변경하지 않는다.\n\nELIHU_SPEECH_SEQUENCE:\n32:6–37:24\n\n기존 grouping relation을 유지한다.\n\n--------------------------------------------------\nD4. Job 37:24\n--------------------------------------------------\n\n37:24는 ELIHU_SPEECH_SEQUENCE의 terminal point로 판정한다.\n\n기존 SPEECH_UNIT_END judgment를 유지하고,\n필요한 경우 group-level relation을 명시적으로 freeze한다.\n\n권장 관계:\n\n37:24 → ELIHU_SPEECH_SEQUENCE\nTERMINATES_ENCLOSING_GROUP\n\n단, 이미 동일 의미의 accepted relation이 있다면\n중복 생성하지 말고 researcher-confirmed freeze만 기록한다.\n\n--------------------------------------------------\nD5. SEAM_D 전체 구조\n--------------------------------------------------\n\n최종적으로 SEAM_D는 다음 구조를 표현해야 한다.\n\nPOST_DIALOGUE_JOB\n27:1–31:40\n        |\n        | 31:40 terminal\n        v\n\n32:1\nTRANSITION_COMPONENT\n        |\n        | separate transition; not parent\n        v\n\n32:2–5\nNARRATIVE_INTRODUCTION\n        |\n        | introduces / compositionally encloses\n        v\n\nELIHU_SPEECH_SEQUENCE\n32:6–37:24\n    |- 32:6\n    |- 34:1\n    |- 35:1\n    `- 36:1 ... 37:24\n\n이 구조에서\n32:1과 32:2–37:24 사이의 관계는 sequence/transition relation이지\ntextual parentage가 아니다.\n\n==================================================",
+      "criteria_codes": [
+        "E-EXPLICIT-CLOSURE",
+        "E-EXPLICIT-ONSET",
+        "E-PARTICIPANT-ALIGNMENT",
+        "E-FUNCTIONAL-EQUIVALENCE",
+        "E-DISTRIBUTIONAL-PATTERN",
+        "E-ENCLOSING-SCOPE",
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY",
+        "N-NEAREST-OPENING",
+        "N-THEME-ONLY"
+      ],
+      "limitations": [
+        "TRANSITION_NOT_TEXTUAL_PARENT",
+        "INTRODUCTION_NOT_VERSE_CHILD_OF",
+        "SIBLINGS_NOT_PARENT_CHILD",
+        "NON_TEXTUAL_GROUP_NOT_TEXTUAL_PARENT"
+      ]
+    },
+    {
+      "seam_id": "SEAM_E",
+      "decision_id": "HSA3-DE-E",
+      "status": "FROZEN",
+      "researcher_supplied": true,
+      "decision_type": "HUMAN_SUPPLIED_SEAM_ADJUDICATION",
+      "rationale": "5. SEAM_E researcher decision\n==================================================\n\nSEAM_E는 다음과 같이 판정한다.\n\n37:24:\nELIHU_SPEECH_SEQUENCE 종료\n\n38:1:\n별도의 YHWH major speech complex 시작\n\n두 지점 사이에는 현재 자료상\ndirect textual parentage를 설정하지 않는다.\n\n따라서:\n\n37:24 → 38:1\nNO_DIRECT_PARENTAGE\n\n를 human negative constraint로 기록한다.\n\nrelation dimension:\nTEXTUAL_PARENTAGE\n\n--------------------------------------------------\nE2. response antecedent\n--------------------------------------------------\n\n37:24 → 38:1 사이에\ndirect response antecedent relation도 설정하지 않는다.\n\n따라서:\n\n37:24 → 38:1\nNO_DIRECT_RESPONSE_ANTECEDENT\n\nrelation dimension:\nRESPONSE_RELATION\n\n을 human negative constraint로 기록한다.\n\n근거:\n- adjacency alone insufficient\n- speaker succession alone insufficient\n- 37:24에는 38:1의 explicit response antecedent를 설정할 표지가 없음\n- ANA-Q3도 unresolved 상태임\n\n주의:\n이는 “엘리후와 하나님의 발화 사이에 아무 관계도 없다”는 뜻이 아니다.\n\n다음 overlay는 그대로 유지한다.\n\nANA-Q4:\n32:1 ↔ 38:1\nCONTRASTIVE_ANA_FRAME\n\nANA-Q5:\n32:2–37:24\nELIHU_RESPONSE_ROLE_INTERVENTION\n\n즉:\n\nNO DIRECT HIERARCHICAL EDGE\ndoes not mean\nNO RHETORICAL/DISCOURSE RELATION.\n\n이 distinction을 보고서에 명시한다.\n\n==================================================",
+      "criteria_codes": [
+        "E-EXPLICIT-CLOSURE",
+        "E-EXPLICIT-ONSET",
+        "E-NEGATIVE-CONTROL",
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY",
+        "N-SEMANTIC-SIMILARITY-ONLY",
+        "N-FORMULA-LENGTH-ONLY"
+      ],
+      "limitations": [
+        "NO_DIRECT_PARENTAGE_IS_NOT_NO_DISCOURSE_RELATION",
+        "Q3_REMAINS_UNRESOLVED",
+        "NO_CAUSAL_OR_FULFILLMENT_ASSERTION"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "D1-N1",
+      "seam_id": "SEAM_D",
+      "source_node": "H:HSA018",
+      "target_node": "H:HSA019",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE",
+      "polarity": "NEGATIVE",
+      "criteria_codes": [
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY",
+        "N-NEAREST-OPENING",
+        "N-THEME-ONLY"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    },
+    {
+      "request_id": "D1-N2",
+      "seam_id": "SEAM_D",
+      "source_node": "H:HSA018",
+      "target_node": "ELIHU_SPEECH_SEQUENCE",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE",
+      "polarity": "NEGATIVE",
+      "criteria_codes": [
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY",
+        "N-NEAREST-OPENING",
+        "N-THEME-ONLY"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    },
+    {
+      "request_id": "D2",
+      "seam_id": "SEAM_D",
+      "source_node": "H:HSA019",
+      "target_node": "ELIHU_SPEECH_SEQUENCE",
+      "relation_type": "NARRATIVE_INTRODUCTION",
+      "dimension": "COMPOSITION_GROUPING",
+      "polarity": "POSITIVE",
+      "criteria_codes": [
+        "E-PARTICIPANT-ALIGNMENT",
+        "E-ENCLOSING-SCOPE",
+        "N-NEAREST-OPENING"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    },
+    {
+      "request_id": "D4",
+      "seam_id": "SEAM_D",
+      "source_node": "H:HSA024",
+      "target_node": "ELIHU_SPEECH_SEQUENCE",
+      "relation_type": "TERMINATES_ENCLOSING_GROUP",
+      "dimension": "HIGHER_ORDER_TERMINAL_EFFECT",
+      "polarity": "POSITIVE",
+      "criteria_codes": [
+        "E-EXPLICIT-CLOSURE",
+        "E-ENCLOSING-SCOPE",
+        "N-NEAREST-OPENING"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    },
+    {
+      "request_id": "E1",
+      "seam_id": "SEAM_E",
+      "source_node": "H:HSA024",
+      "target_node": "H:HSA025",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE",
+      "polarity": "NEGATIVE",
+      "criteria_codes": [
+        "E-EXPLICIT-CLOSURE",
+        "E-EXPLICIT-ONSET",
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    },
+    {
+      "request_id": "E2",
+      "seam_id": "SEAM_E",
+      "source_node": "H:HSA024",
+      "target_node": "H:HSA025",
+      "relation_type": "NO_DIRECT_RESPONSE_ANTECEDENT",
+      "dimension": "RESPONSE_RELATION",
+      "polarity": "NEGATIVE",
+      "criteria_codes": [
+        "E-NEGATIVE-CONTROL",
+        "N-ADJACENCY-ONLY",
+        "N-SPEAKER-ONLY",
+        "N-SEMANTIC-SIMILARITY-ONLY"
+      ],
+      "authority": "RESEARCHER_SUPPLIED",
+      "textual_parentage_created": false
+    }
+  ],
+  "preserve": {
+    "onsets": [
+      "H:HSA020",
+      "H:HSA021",
+      "H:HSA022",
+      "H:HSA023"
+    ],
+    "group": "ELIHU_SPEECH_SEQUENCE",
+    "group_scope": "32:6–37:24",
+    "intro": "H:HSA019",
+    "transition": "H:HSA018",
+    "terminal": "H:HSA024",
+    "yhwh": "H:HSA025",
+    "forbidden_direct_pairs": [
+      [
+        "H:HSA020",
+        "H:HSA018"
+      ],
+      [
+        "H:HSA020",
+        "H:HSA019"
+      ],
+      [
+        "H:HSA024",
+        "H:HSA025"
+      ],
+      [
+        "H:HSA025",
+        "H:HSA024"
+      ]
+    ]
+  }
+}

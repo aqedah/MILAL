@@ -1,0 +1,838 @@
+현재 MILAL 저장소에서 다음 단계를 수행하세요.
+
+작업명:
+HSA3-D/E — Elihu Global Seam Human Adjudication
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  60b6a5a0cdb2e8e8dde55ae2210774f58c84eb24
+- HSA3-ANA.0.3 완료
+- ANA-Q2 ACCEPTED
+- ANA-Q3 UNRESOLVED / HUMAN_DEFERRED
+- ANA-Q4 ACCEPTED
+- ANA-Q5 ACCEPTED
+- R4.4는 아직 시작하지 않는다.
+
+이번 단계에서는 HSA3-PREP의 global seam 가운데
+SEAM_D와 SEAM_E만 researcher-supplied human adjudication으로 동결한다.
+
+SEAM_A–C와 SEAM_F–G는 수정하거나 판정하지 않는다.
+
+==================================================
+1. 이번 작업의 핵심 원칙
+==================================================
+
+이번 단계는 새 lexical analysis가 아니다.
+
+금지:
+- 새 BHSA lexical scan
+- 새 ענה analysis
+- HSA3-ANA.0.1/0.2/0.3 재판정
+- SEAM_A–C 판정
+- SEAM_F–G 판정
+- R4.4 시작
+- adjacency로 parentage 계산
+- speaker change로 parentage 계산
+- overlay relation을 textual parentage로 승격
+- synthetic group을 textual parent로 오인
+
+기존 evidence와 researcher decision만 canonical relation/constraint로 기록한다.
+
+==================================================
+2. 반드시 보존할 기존 상태
+==================================================
+
+다음은 재판정하지 않는다.
+
+31:40:
+- → 29:1 DIRECT_LOCAL_CLOSURE
+- → 27:1 NO_DIRECT_RELATION in DIRECT_CLOSURE_TARGET
+- → POST_DIALOGUE_JOB TERMINATES_ENCLOSING_GROUP
+
+32:1:
+- TRANSITION_COMPONENT
+- Q2 POST_CLOSURE_TRANSITION accepted
+- exact textual parent를 31:40으로 만들지 않음
+
+32:2–5:
+- NARRATIVE_INTRODUCTION
+
+32:6 / 34:1 / 35:1 / 36:1:
+- SAME_LEVEL_SIBLING
+- ELIHU_SPEECH_SEQUENCE members
+
+37:24:
+- ELIHU speech ending
+
+38:1:
+- major YHWH speech onset
+
+38:1 / 40:6:
+- SAME_LEVEL_SIBLING
+
+40:1:
+- CHILD_OF 38:1
+
+ANA:
+- Q2 ACCEPTED
+- Q3 UNRESOLVED
+- Q4 ACCEPTED
+- Q5 ACCEPTED
+
+특히 Q3는 이번 작업에서도 unresolved로 유지한다.
+
+==================================================
+3. SEAM_D researcher decision
+==================================================
+
+SEAM_D는 다음과 같이 판정한다.
+
+--------------------------------------------------
+D1. Job 32:1
+--------------------------------------------------
+
+32:1은 독립적인 TRANSITION_COMPONENT로 유지한다.
+
+기능:
+- 31:40에서 종결된 욥의 발화 및 앞선 논쟁을 후방적으로 정리
+- 세 친구가 욥에게 대답하던 관계의 종료 표시
+- Elihu introduction 앞의 transition
+
+하지만 32:1은:
+
+- 32:2–5의 textual parent가 아니다.
+- ELIHU_SPEECH_SEQUENCE의 textual parent가 아니다.
+- 32:6의 CHILD_OF target이 아니다.
+
+따라서 명시적으로 negative constraint를 기록한다.
+
+32:1 → 32:2–5
+NO_DIRECT_PARENTAGE
+
+32:1 → ELIHU_SPEECH_SEQUENCE
+NO_DIRECT_PARENTAGE
+
+필요하면 relation dimension은:
+TEXTUAL_PARENTAGE
+
+로 하되 negative relation임을 분명히 한다.
+
+Q2 POST_CLOSURE_TRANSITION은 별도 overlay로 보존한다.
+
+--------------------------------------------------
+D2. Job 32:2–5
+--------------------------------------------------
+
+32:2–5는 ELIHU_SPEECH_SEQUENCE 32:6–37:24를
+구조적으로 도입하는 NARRATIVE_INTRODUCTION으로 판정한다.
+
+중요:
+이는 clause-level CHILD_OF 관계를 의미하지 않는다.
+
+관계는 unit-level composition / introduction relation이다.
+
+권장 canonical relation:
+
+source:
+NARRATIVE_INTRODUCTION 32:2–5
+
+target:
+ELIHU_SPEECH_SEQUENCE 32:6–37:24
+
+relation_type:
+INTRODUCES_AND_ENCLOSES
+
+또는 repository의 기존 canonical schema가 이미
+NARRATIVE_INTRODUCTION relation을 사용하고 있다면
+그 기존 relation type을 재사용한다.
+
+새 relation type을 불필요하게 만들지 않는다.
+
+의미:
+32:2–5는 Elihu라는 새 participant와 그의 speech intervention을 도입하고,
+그 뒤의 32:6–37:24 speech sequence와 하나의 composition complex를 이룬다.
+
+그러나:
+
+32:6 CHILD_OF 32:2
+와 같은 verse-to-verse textual parentage는 생성하지 않는다.
+
+기존 HSA3-PREP에 이미
+HSA019 → ELIHU_SPEECH_SEQUENCE
+NARRATIVE_INTRODUCTION
+relation이 존재한다면,
+중복 relation을 새로 생성하지 말고
+이번 researcher adjudication이 그 기존 relation을 CONFIRMS/FREEZES하는 방식으로 기록한다.
+
+즉 반드시 repository를 먼저 확인하라.
+
+--------------------------------------------------
+D3. Elihu speech sequence
+--------------------------------------------------
+
+다음 기존 판단을 보존한다.
+
+32:6
+34:1
+35:1
+36:1
+
+= same-level speech-unit onsets
+
+이 네 onset을 서로 parent/child로 변경하지 않는다.
+
+ELIHU_SPEECH_SEQUENCE:
+32:6–37:24
+
+기존 grouping relation을 유지한다.
+
+--------------------------------------------------
+D4. Job 37:24
+--------------------------------------------------
+
+37:24는 ELIHU_SPEECH_SEQUENCE의 terminal point로 판정한다.
+
+기존 SPEECH_UNIT_END judgment를 유지하고,
+필요한 경우 group-level relation을 명시적으로 freeze한다.
+
+권장 관계:
+
+37:24 → ELIHU_SPEECH_SEQUENCE
+TERMINATES_ENCLOSING_GROUP
+
+단, 이미 동일 의미의 accepted relation이 있다면
+중복 생성하지 말고 researcher-confirmed freeze만 기록한다.
+
+--------------------------------------------------
+D5. SEAM_D 전체 구조
+--------------------------------------------------
+
+최종적으로 SEAM_D는 다음 구조를 표현해야 한다.
+
+POST_DIALOGUE_JOB
+27:1–31:40
+        |
+        | 31:40 terminal
+        v
+
+32:1
+TRANSITION_COMPONENT
+        |
+        | separate transition; not parent
+        v
+
+32:2–5
+NARRATIVE_INTRODUCTION
+        |
+        | introduces / compositionally encloses
+        v
+
+ELIHU_SPEECH_SEQUENCE
+32:6–37:24
+    |- 32:6
+    |- 34:1
+    |- 35:1
+    `- 36:1 ... 37:24
+
+이 구조에서
+32:1과 32:2–37:24 사이의 관계는 sequence/transition relation이지
+textual parentage가 아니다.
+
+==================================================
+4. optional composition node
+==================================================
+
+repository의 기존 macro/composition architecture가 필요로 할 경우에만
+다음 non-textual group을 만들 수 있다.
+
+ELIHU_INTERVENTION_COMPLEX
+span:
+32:2–37:24
+
+members:
+- NARRATIVE_INTRODUCTION 32:2–5
+- ELIHU_SPEECH_SEQUENCE 32:6–37:24
+
+중요:
+이 group은 NON_TEXTUAL_GROUP 또는 COMPOSITION_GROUP이다.
+
+절대로:
+TEXTUAL_PARENT
+CHILD_OF
+HIERARCHICALLY_ABOVE
+
+로 사용하지 않는다.
+
+이미 기존 ELIHU_SPEECH_SEQUENCE / participant-intervention group이
+동일 기능을 충분히 수행한다면
+새 group을 만들지 않는다.
+
+가장 보수적인 기존-schema 재사용을 우선한다.
+
+==================================================
+5. SEAM_E researcher decision
+==================================================
+
+SEAM_E는 다음과 같이 판정한다.
+
+37:24:
+ELIHU_SPEECH_SEQUENCE 종료
+
+38:1:
+별도의 YHWH major speech complex 시작
+
+두 지점 사이에는 현재 자료상
+direct textual parentage를 설정하지 않는다.
+
+따라서:
+
+37:24 → 38:1
+NO_DIRECT_PARENTAGE
+
+를 human negative constraint로 기록한다.
+
+relation dimension:
+TEXTUAL_PARENTAGE
+
+--------------------------------------------------
+E2. response antecedent
+--------------------------------------------------
+
+37:24 → 38:1 사이에
+direct response antecedent relation도 설정하지 않는다.
+
+따라서:
+
+37:24 → 38:1
+NO_DIRECT_RESPONSE_ANTECEDENT
+
+relation dimension:
+RESPONSE_RELATION
+
+을 human negative constraint로 기록한다.
+
+근거:
+- adjacency alone insufficient
+- speaker succession alone insufficient
+- 37:24에는 38:1의 explicit response antecedent를 설정할 표지가 없음
+- ANA-Q3도 unresolved 상태임
+
+주의:
+이는 “엘리후와 하나님의 발화 사이에 아무 관계도 없다”는 뜻이 아니다.
+
+다음 overlay는 그대로 유지한다.
+
+ANA-Q4:
+32:1 ↔ 38:1
+CONTRASTIVE_ANA_FRAME
+
+ANA-Q5:
+32:2–37:24
+ELIHU_RESPONSE_ROLE_INTERVENTION
+
+즉:
+
+NO DIRECT HIERARCHICAL EDGE
+does not mean
+NO RHETORICAL/DISCOURSE RELATION.
+
+이 distinction을 보고서에 명시한다.
+
+==================================================
+6. ANA-Q3의 처리
+==================================================
+
+ANA-Q3:
+
+31:35 → 38:1
+LONG_DISTANCE_RESPONSE
+
+는 계속:
+
+UNRESOLVED / HUMAN_DEFERRED
+
+이다.
+
+이번 SEAM_E 판정으로 Q3를 자동 해결하지 않는다.
+
+다음 문장을 절대 생성하지 않는다.
+
+- 38:1 fulfills 31:35
+- YHWH appears because Job requested an answer in 31:35
+- 37:24 causes or triggers 38:1
+- Elihu mediates causally between 31:35 and 38:1
+
+Q3의 lexical/participant evidence는 evidence dependency로만 보존한다.
+
+==================================================
+7. HSA adjudication criteria registry 적용
+==================================================
+
+SEAM_D와 E의 각 판정에
+HSA3-ANA.0.2 criteria registry의 canonical evidence code를 연결한다.
+
+실제 registry를 먼저 읽고 정확한 existing code만 사용한다.
+
+SEAM_D에 예상되는 evidence:
+
+- explicit closure / onset
+- functional distinction
+- participant introduction
+- independently established speech sequence
+- distributional pattern
+- enclosing scope where applicable
+
+그리고 다음 insufficient evidence를 명시:
+
+- adjacency alone
+- speaker change alone
+- nearest-opening heuristic
+- thematic continuity alone
+
+SEAM_E:
+
+positive basis for separate units:
+- explicit speech ending
+- explicit major speech onset
+- independently established unit functions
+
+negative constraint basis:
+- adjacency alone insufficient
+- response semantics not established
+- overlay relation does not imply parentage
+
+중요:
+formula length alone으로
+38:1을 상위라고 설명하지 않는다.
+
+38:1 / 40:6의 same-level major onset과
+40:1 internal onset은
+기존 accepted contextual/distributional judgment로 보존한다.
+
+==================================================
+8. 새로운 human judgment의 수는 schema를 확인한 뒤 정확히 계산
+==================================================
+
+이번 단계에서는 중복 judgment를 만들지 않는다.
+
+특히 다음은 이미 존재할 가능성이 높다.
+
+- 32:2–5 → ELIHU_SPEECH_SEQUENCE NARRATIVE_INTRODUCTION
+- 37:24 SPEECH_UNIT_END
+- Elihu onset sibling relations
+
+따라서 “몇 개를 새로 만든다”를 먼저 hard-code하지 않는다.
+
+대신:
+
+A. NEW researcher seam decisions
+B. newly created canonical relations
+C. confirmations of existing relations
+D. newly created negative constraints
+
+를 각각 별도로 count하라.
+
+최소 새 researcher seam decision:
+- SEAM_D
+- SEAM_E
+
+exact relation count는 repository의 중복 여부를 감사한 뒤 보고한다.
+
+절대로 같은 의미의 relation을 ID만 바꾸어 중복 생성하지 않는다.
+
+==================================================
+9. HSA3-PREP unresolved 처리
+==================================================
+
+SEAM_D/E와 직접 관련된 unresolved rows만
+이번 human judgment에 따라 해소 여부를 평가한다.
+
+중요:
+57개 unresolved 전체를 임의로 줄이지 않는다.
+
+각 unresolved row에:
+
+- RESOLVED_BY_SEAM_D
+- RESOLVED_BY_SEAM_E
+- REMAINS_UNRESOLVED
+- NOT_APPLICABLE_TO_THIS_SEAM_DECISION
+
+중 하나를 명시한다.
+
+그러나 existing historical HSA3-PREP artifact의
+57개 unresolved rows 자체는 수정하지 않는다.
+
+새 adjudication layer에서 resolution crosswalk를 만든다.
+
+SEAM_A–C / F–G unresolved는 그대로 유지한다.
+
+==================================================
+10. expected conceptual outcome
+==================================================
+
+이번 단계가 성공하면 HSA3의 Elihu 전환 구역은 다음처럼 표현되어야 한다.
+
+31:40
+JOB SPEECH END
+    |
+    | Q2 POST_CLOSURE_TRANSITION
+    v
+32:1
+TRANSITION_COMPONENT
+    |
+    | no textual parentage
+    v
+32:2–5
+NARRATIVE_INTRODUCTION
+    |
+    | unit-level introduction/composition
+    v
+32:6–37:24
+ELIHU_SPEECH_SEQUENCE
+    |
+    | terminates at 37:24
+    v
+37:24
+
+37:24      38:1
+   X-------->
+ NO_DIRECT_PARENTAGE
+
+37:24      38:1
+   X-------->
+ NO_DIRECT_RESPONSE_ANTECEDENT
+
+but non-hierarchical overlays remain:
+
+32:1 <================> 38:1
+CONTRASTIVE_ANA_FRAME
+
+32:2–37:24
+ELIHU_RESPONSE_ROLE_INTERVENTION
+
+==================================================
+11. 출력 파일
+==================================================
+
+repository naming convention에 맞게 조정 가능하나
+최소 다음을 생성하라.
+
+01_hsa3_de_seam_adjudications.csv
+
+02_hsa3_de_relation_actions.csv
+- CREATED
+- CONFIRMED_EXISTING
+- NEGATIVE_CONSTRAINT_CREATED
+- NO_ACTION_DUPLICATE
+등을 구별
+
+03_hsa3_de_criteria_application.csv
+
+04_hsa3_de_unresolved_crosswalk.csv
+
+05_hsa3_de_negative_constraints.csv
+
+06_hsa3_de_dependency_links.csv
+
+07_hsa3_de_frozen_integrity.csv
+
+08_hsa3_de_adjudication_report.md
+
+09_hsa3_remaining_seams_review_packet.md
+
+10_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+12. 09_hsa3_remaining_seams_review_packet.md
+==================================================
+
+D/E 판정 이후 남은 HSA3 seam만 정리한다.
+
+- SEAM_A
+- SEAM_B
+- SEAM_C
+- SEAM_F
+- SEAM_G
+
+D/E는 FROZEN으로 표시한다.
+
+각 remaining seam에:
+- exact question
+- unresolved nodes
+- current evidence
+- accepted positive constraints
+- accepted negative constraints
+- criteria dimensions
+- researcher response fields blank
+
+을 제공한다.
+
+아직 판정하지 않는다.
+
+==================================================
+13. 필수 테스트
+==================================================
+
+최소 다음을 검증한다.
+
+1.
+start commit = 60b6a5a0cdb2e8e8dde55ae2210774f58c84eb24
+
+2.
+ANA.0.3 artifact/frozen status verified.
+
+3.
+Q2 ACCEPTED unchanged.
+
+4.
+Q3 UNRESOLVED / HUMAN_DEFERRED unchanged.
+
+5.
+Q4 ACCEPTED unchanged.
+
+6.
+Q5 ACCEPTED unchanged.
+
+7.
+32:1 remains TRANSITION_COMPONENT.
+
+8.
+32:1 is not made textual parent of 32:2–5.
+
+9.
+32:1 is not made textual parent of ELIHU_SPEECH_SEQUENCE.
+
+10.
+32:2–5 remains NARRATIVE_INTRODUCTION.
+
+11.
+32:2–5 → ELIHU_SPEECH_SEQUENCE introduction/composition relation exists
+or is confirmed from existing canonical relation.
+
+12.
+No duplicate semantic-equivalent relation created.
+
+13.
+32:6 / 34:1 / 35:1 / 36:1 remain same-level siblings.
+
+14.
+37:24 remains Elihu speech ending.
+
+15.
+ELIHU_SPEECH_SEQUENCE terminates at 37:24.
+
+16.
+37:24 → 38:1 NO_DIRECT_PARENTAGE recorded.
+
+17.
+37:24 → 38:1 NO_DIRECT_RESPONSE_ANTECEDENT recorded.
+
+18.
+No CHILD_OF between 37:24 and 38:1.
+
+19.
+No CONTINUES_WITHIN between 37:24 and 38:1.
+
+20.
+No RESPONSE_TO between 37:24 and 38:1.
+
+21.
+Q4 CONTRASTIVE_ANA_FRAME preserved.
+
+22.
+Q5 ELIHU_RESPONSE_ROLE_INTERVENTION preserved.
+
+23.
+NO_DIRECT_PARENTAGE does not delete Q4/Q5 overlay.
+
+24.
+Q3 remains unresolved after SEAM_E.
+
+25.
+No 38:1 fulfillment-of-31:35 assertion.
+
+26.
+No adjacency-only parentage.
+
+27.
+No formula-length-only hierarchy decision.
+
+28.
+No new judgment for SEAM_A–C.
+
+29.
+No new judgment for SEAM_F–G.
+
+30.
+No R4.4.
+
+31.
+historical frozen judgments remain byte/provenance intact.
+
+32.
+HSA2-F 31:40 relations intact.
+
+33.
+HSA3-PREP historical artifact unchanged.
+
+34.
+unresolved resolution crosswalk modifies no historical input.
+
+35.
+full regression PASS, skip 0.
+
+36.
+manifest PASS.
+
+37.
+deterministic rerun byte-identical.
+
+==================================================
+14. gates
+==================================================
+
+최소 다음 gate를 포함한다.
+
+- BASELINE_COMMIT_VERIFIED
+- ANA_0_3_FROZEN_VERIFIED
+- SEAM_D_RESEARCHER_DECISION_RECORDED
+- SEAM_E_RESEARCHER_DECISION_RECORDED
+- JOB_32_1_REMAINS_TRANSITION
+- JOB_32_1_NOT_PARENT_OF_ELIHU
+- ELIHU_INTRO_RELATION_PRESENT
+- ELIHU_SPEECH_SIBLINGS_PRESERVED
+- ELIHU_SEQUENCE_TERMINAL_37_24
+- NO_DIRECT_PARENTAGE_37_24_38_1
+- NO_DIRECT_RESPONSE_ANTECEDENT_37_24_38_1
+- ANA_Q3_STILL_UNRESOLVED
+- ANA_Q4_PRESERVED
+- ANA_Q5_PRESERVED
+- NO_DUPLICATE_RELATIONS
+- NO_ADJACENCY_PARENTAGE
+- NO_FORMULA_LENGTH_RULE
+- OTHER_SEAMS_UNCHANGED
+- HSA2_F_INTEGRITY
+- HISTORICAL_ARTIFACTS_UNCHANGED
+- NO_R4_4
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+
+==================================================
+15. 문서화할 방법론적 포인트
+==================================================
+
+보고서에 반드시 다음을 설명한다.
+
+1.
+32:1의 transition 기능과
+32:2–37:24 Elihu intervention의 구조적 구성은 서로 다른 관계다.
+
+2.
+NARRATIVE_INTRODUCTION이 speech sequence를 도입한다고 해서
+verse 32:6이 verse 32:2의 CHILD_OF가 되는 것은 아니다.
+
+3.
+37:24와 38:1이 인접한다고 해서
+textual parentage나 response antecedent가 발생하지 않는다.
+
+4.
+반대로 direct hierarchy가 없다는 것이
+rhetorical/discourse relation의 부재를 뜻하지 않는다.
+
+5.
+따라서 MILAL은 이번 seam에서:
+TEXTUAL HIERARCHY
+COMPOSITION/GROUPING
+TRANSITION
+OVERLAY/RESPONSIO
+RESPONSE RELATION
+을 실제로 분리하여 적용한다.
+
+이 점은 HSA adjudication criteria registry의 실제 적용 사례로 문서화한다.
+
+==================================================
+16. commit / push
+==================================================
+
+모든 테스트와 gate가 PASS한 경우에만:
+
+git status
+git diff
+git diff --check
+
+commit.
+
+권장 commit message:
+
+Freeze Elihu global seam adjudications
+
+origin/main push.
+
+그 뒤:
+
+local HEAD == origin/main HEAD
+working tree clean
+
+확인.
+
+==================================================
+17. 최종 보고
+==================================================
+
+완료 후 다음을 보고하라.
+
+1. start commit
+2. end commit
+3. commit message
+4. push success
+5. changed files
+
+6. SEAM_D final decision
+7. SEAM_E final decision
+
+8. 새 researcher seam decision 수
+9. 새 canonical positive relation 수
+10. confirmed-existing relation 수
+11. 새 negative constraint 수
+12. duplicate-skipped relation 수
+
+13. 32:1 parentage result
+14. 32:2–5 / ELIHU_SPEECH_SEQUENCE relation result
+15. 37:24 terminal relation result
+16. 37:24→38:1 parentage result
+17. 37:24→38:1 response-antecedent result
+
+18. Q2/Q3/Q4/Q5 preservation
+19. Q3가 여전히 unresolved인지
+
+20. HSA3-PREP unresolved crosswalk:
+- D/E로 해소된 수
+- 여전히 unresolved인 수
+- A–C/F–G에 남은 수
+
+21. frozen historical judgment integrity
+22. HSA2-F integrity
+23. other seams unchanged
+24. R4.4 not started
+
+25. new tests
+26. full regression tests
+27. synthetic gates
+28. real gates
+29. deterministic rerun
+
+30. result ZIP name
+31. SHA256
+
+32. remaining SEAM_A–C / F–G review packet summary
+
+중요:
+SEAM_D와 SEAM_E 외에는 판정하지 않는다.
+relation이 기존에 이미 존재하면 중복 생성하지 않는다.
+negative relation과 absence of evidence를 구별한다.
+R4.4로 넘어가지 않는다.
