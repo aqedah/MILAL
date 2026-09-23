@@ -1,6 +1,62 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-ANA.0.1 source audit complete, 2026-09-23
+## Current task — HSA3-ANA.0.2 evidence addendum and criteria draft complete, 2026-09-23
+
+Active specification: [HSA3_ANA_0_2_SPEC.md](HSA3_ANA_0_2_SPEC.md); execution:
+[README_MILAL_HSA3_ANA_0_2.md](README_MILAL_HSA3_ANA_0_2.md); validation:
+[HSA3_ANA_0_2_VALIDATION_REPORT.md](HSA3_ANA_0_2_VALIDATION_REPORT.md); methodology:
+[HSA_ADJUDICATION_CRITERIA_REGISTRY.md](HSA_ADJUDICATION_CRITERIA_REGISTRY.md).
+Starting HEAD: `51d9c5e04b1d4ef148b401d48a69aa7d565e6d37`.
+The researcher authorized this addendum, criteria draft, synthetic/actual BHSA
+validation, deterministic rerun and commit/push after passing tests.
+
+**HSA3 A–G and ANA-Q2–Q5 remain unadjudicated. R4.4 is not started.**
+0.1 is a frozen artifact; its 78 files and four original candidates are preserved
+byte-for-byte. No real 0.1 regeneration occurred. The new source loader reuses
+the frozen BHSA helper and requires an identical native snapshot/feature hashes.
+
+Four distinct evidence layers remain separate. Verbal ענה: 62 frozen records
+(60 answer + 2 non-answer). Broad nominal spelling/root screen: 32 records,
+including **2 answer nouns at 32:3/5** and 30 excluded similar forms/root hits.
+The lex_utf8 spelling מענה also denotes two distinct hiding-place nouns at
+37:8/38:40; these are not answer-family members. Answer-noun root is unavailable,
+not inferred. Whole-book שוב verbs: **39** (38 CWB[ + 1 CWB=[); provisional
+senses: **7 reply, 16 return/restore, 4 other, 12 unresolved**.
+
+The 32:1–33:14 cluster has 14 rows: verbal 9, nominal 2, reply-neighbor 2,
+context-reframing candidate 1. 33:14 דבר is only POSSIBLE_RESPONSE_REFRAMING,
+not core family or a response lexicon. 32:13 stays context-only; 36:1 stays
+NO_ANA / ADD_SPEECH. Original 32:3/5 NO_ANA classifications are unchanged.
+
+ANA-C1–C4 remain UNADJUDICATED and automatic_resolution=false. C4 keeps its
+original type and gains only a separate UNADJUDICATED refinement label:
+ELIHU_RESPONSE_ROLE_INTERVENTION. POSITIONAL_ONLY and RESPONSE_ROLE_INTERVENTION
+remain unselected. New human judgments and structural relations are both **0**.
+59 frozen human judgments, 57 unresolved rows, A–G and the three HSA2-F closure
+relations remain intact; all prior analytical cores are unchanged.
+
+Criteria **draft**: seven relation dimensions, 24 evidence codes, 21 frozen
+judgment example crosswalks. No numerical weighting or global priority ranking.
+BHSA syntax is corroboration, never automatic MILAL parentage. Crosswalk mappings
+are illustrative, not new judgments or reconstructed unstated researcher reasoning.
+
+Validation: **70 new / 807 total tests**, skip 0; **30/30 synthetic and actual
+gates**, all with negative coverage. Final independent-process ZIP and all
+97 members are byte-identical. Verified 97 frozen file hashes, 70 BHSA feature
+hashes, 7 manifests, 155 row links, 4 candidate links and 2 seam-dependency links.
+
+Final local artifact:
+`results/hsa3_ana_0_2_response_family_final_20260923_a_results.zip`
+SHA256 `00c3c052f6133456d371b2736261e469b69ba5ad91891d0ccf44d6b59a90aa5d`.
+All result/data/log files remain ignored by Git.
+
+**Next: researcher ANA-Q2–Q5 review using the new evidence packet.**
+Q2 post-closure transition; Q3 long-distance response; Q4 contrastive frame;
+Q5 positional interval versus response-role intervention. Preserve UNRESOLVED /
+INSUFFICIENT_EVIDENCE when warranted. Q1 is the frozen 3:2 counterexample.
+Do not recompile hierarchy or begin R4.4 before separate authorization.
+
+## Previous task — HSA3-ANA.0.1 source audit complete, 2026-09-23
 
 Active specification: [HSA3_ANA_0_1_SPEC.md](HSA3_ANA_0_1_SPEC.md); execution:
 [README_MILAL_HSA3_ANA.md](README_MILAL_HSA3_ANA.md); results:
