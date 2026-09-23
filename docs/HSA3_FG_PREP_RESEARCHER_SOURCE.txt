@@ -1,0 +1,849 @@
+현재 MILAL 저장소에서 다음 준비 작업을 수행하세요.
+
+작업명:
+HSA3-FG-PREP — Narrator / Temporal / Response-Complex Audit
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  92f989e8da282f105781b57688174d57257bc9ca
+- SEAM_A/B/C = FROZEN
+- SEAM_D/E = FROZEN
+- SEAM_F/G = UNREVIEWED
+- ANA-Q2/Q4/Q5 ACCEPTED
+- ANA-Q3 UNRESOLVED / HUMAN_DEFERRED
+- R4.4 시작 금지
+
+이번 단계는 F/G human adjudication이 아니다.
+새 parentage를 생성하지 않는다.
+F/G 판정 전에 표층 증거를 감사하는 PREP 단계이다.
+
+==================================================
+1. 핵심 목적
+==================================================
+
+세 가지 가설/질문만 검증한다.
+
+A. NARRATOR / TEMPORAL FRAME
+
+욥기의 주요 전환점에서 서술자 문장과 시간 표현이
+실제로 어떤 clause/syntactic/discourse configuration을 가지는가?
+
+특히 다음의 차이를 검증한다.
+
+Job 3:1
+אחרי כן פתח איוב את פיהו ...
+
+Job 42:7
+ויהי אחר דבר יהוה את הדברים האלה אל איוב ...
+
+Job 42:16
+ויחי איוב אחרי זאת ...
+
+세 구절 모두 אחר 계열 표현을 포함하지만
+같은 boundary function을 갖는다고 가정하지 않는다.
+
+질문:
+- temporal expression의 위치는 어디인가?
+- clause-initial frame인가?
+- predicate 이후 adjunct인가?
+- ויהי가 있는가?
+- clause type은 무엇인가?
+- participant/frame change와 결합되는가?
+- 현재 accepted HSA function과 일치하는가?
+
+B. YHWH–JOB RESPONSE COMPLEX
+
+38:1–42:6이 다음 두 병행 sequence로 구성되는지
+표층 증거를 비교한다.
+
+Possible sequence 1:
+38:1 YHWH major onset
+40:1 internal YHWH onset
+40:3 Job response
+
+Possible sequence 2:
+40:6 YHWH major onset
+42:1 Job response
+
+그리고 다음 반복을 검증한다.
+
+38:3
+אזר נא כגבר חלציך ...
+
+40:7
+אזר נא כגבר חלציך ...
+
+이 반복이 두 major YHWH speech onsets의
+parallel composition을 지지하는 evidence인지 기술한다.
+
+단:
+38:3/40:7 repetition alone으로 parentage를 생성하지 않는다.
+
+C. FINAL NARRATIVE INTERNAL BOUNDARIES
+
+42:7–17 내부의 다음 locus를 비교한다.
+
+42:7
+42:9
+42:10
+42:12
+42:16
+
+특히:
+
+42:7
+ויהי אחר דבר יהוה ...
+
+42:10
+ויהוה שב את שבות איוב בהתפללו בעד רעהו ...
+
+42:12
+ויהוה ברך את אחרית איוב מראשיתו ...
+
+42:16
+ויחי איוב אחרי זאת ...
+
+현재 HSA:
+42:7 = PARAGRAPH_ONSET
+42:16 = NO_BOUNDARY / CONTINUES_WITHIN 42:7
+
+42:10 / 42:12는 independent major boundary로 승격하지 않는다.
+
+이번 audit에서는 이 기존 판단을 재판정하지 않는다.
+다만 왜 그런 차이가 가능한지를 표층 데이터로 검증한다.
+
+==================================================
+2. 중요한 방법론적 제한
+==================================================
+
+이번 작업은 다음 가설을 자동 규칙으로 만들지 않는다.
+
+FORBIDDEN:
+
+- narrator clause = macro boundary
+- temporal expression = boundary
+- ויהי = macro boundary
+- longer formula = higher layer
+- formula expansion = automatic hierarchy
+- same temporal lexeme = same structural function
+- same formal shift = same structural function
+- adjacency = parentage
+- speaker alternation = parentage
+
+특히 다음을 금지한다.
+
+“42:7의 공식이 길기 때문에 3:1이나 다른 marker보다 높은 층이다.”
+
+“42:16에 אחרי זאת가 있으므로 새 단락이다.”
+
+“38:3과 40:7이 같으므로 38:1과 40:6은 자동 parent/sibling이다.”
+
+대신 표층 evidence를 서로 독립된 필드로 출력한다.
+
+==================================================
+3. NARRATORIAL_FRAME_SPINE은 검증 overlay일 뿐이다
+==================================================
+
+다음 개념을 audit/reporting용으로만 사용한다.
+
+NARRATORIAL_FRAME_SPINE
+
+이는:
+- textual parent가 아님
+- composition group도 아직 아님
+- new structural relation도 아님
+
+목적:
+책의 주요 전환점에 나타나는 narrator/frame clauses를
+한 패널에서 비교하는 것.
+
+최소 locus:
+
+1:1
+1:5
+1:6
+1:13
+2:1
+2:11
+3:1
+31:40
+32:1
+32:2–5
+38:1
+40:6
+42:7
+42:10
+42:12
+42:16
+
+필요하면 직접 비교를 위해:
+3:2
+40:1
+40:3
+42:1
+도 포함한다.
+
+==================================================
+4. BHSA 실제 데이터 추출
+==================================================
+
+BHSA 2021에서 각 locus에 대해 최소 다음을 추출한다.
+
+- reference
+- clause node
+- clause_atom node(s)
+- exact Hebrew surface
+- clause type
+- domain
+- text type / txt if available
+- verbal lexeme
+- verbal tense/form
+- subject
+- object
+- participant set
+- phrase functions
+- temporal phrase node(s)
+- temporal expression surface
+- temporal phrase position
+- clause-initial 여부
+- conjunction / ויהי 여부
+- preceding clause type
+- following clause type
+- current HSA structural function
+- current accepted relations
+- source provenance IDs
+
+BHSA mother/tab/pargr/rela/code는 기존 원칙대로
+post-discovery corroboration으로만 사용한다.
+
+BHSA mother = MILAL parentage로 자동 변환 금지.
+
+==================================================
+5. temporal-expression whole-book control
+==================================================
+
+이번 단계에서 אחר / אחרי / אחרי כן / אחרי זאת만
+선택된 verse에 hard-code하여 결론내리지 않는다.
+
+Job 전체에서 temporal use의
+אחר / אחרי 계열 candidate를 좁게 scan하라.
+
+목적은 통계적 구조 생성이 아니라 negative control 확보이다.
+
+각 occurrence에:
+
+- reference
+- lexical form
+- phrase function
+- clause position
+- temporal/non-temporal sense
+- clause type
+- whether current HSA boundary exists
+- whether it occurs inside an established unit
+
+를 기록한다.
+
+중요:
+same אחר-family
+≠
+same boundary function
+
+을 실데이터로 확인한다.
+
+==================================================
+6. ויהי control
+==================================================
+
+기존 MR1/HSA의 ויהי loci를 재사용하여
+다음과 비교한다.
+
+1:5
+1:6
+1:13
+2:1
+42:7
+42:16
+
+42:16은 ויהי가 아니라 ויחי임을
+정확히 lexical/morphological level에서 구별한다.
+
+문자열 prefix similarity로 혼동하지 않는다.
+
+특히:
+
+ויהי
+vs
+ויחי
+
+를 정확히 분리한다.
+
+42:16의 ויחי는 חיה lexeme임을 확인한다.
+
+이 gate는 반드시 넣는다.
+
+==================================================
+7. 1:6 / 1:13 / 2:1 repeated configuration audit
+==================================================
+
+클로드가 제기한 관찰을 실제 데이터로 검증한다.
+
+1:6
+1:13
+2:1
+
+모두 superficially ויהי היום을 포함하는지 확인한다.
+
+그 뒤 단일 구절이 아니라
+후속 clause configuration을 비교한다.
+
+1:6과 2:1에서:
+
+- בני האלהים
+- להתיצב על יהוה
+- השטן participant
+- divine–satan dialogue onset
+
+등의 반복 배열이 실제로 대응하는지 기록한다.
+
+1:13에서는 동일 configuration이 재현되는지 확인한다.
+
+목적:
+왜 identical/similar opening phrase만으로
+same-level을 판정하지 않고
+multi-clause configuration이 중요한지
+methodological control을 만드는 것.
+
+기존:
+1:6 ↔ 2:1 SAME_LEVEL_SIBLING
+1:13 child of 1:6
+판정은 수정하지 않는다.
+
+==================================================
+8. 27:1과 36:1 formal-shift comparison
+==================================================
+
+클로드가 제기한 다음 관찰을 audit한다.
+
+Dialogue:
+4–26 speech onsets
+ויען X ויאמר
+
+27:1
+ויסף איוב שאת משלו ויאמר
+
+Elihu:
+32:6 / 34:1 / 35:1
+ויען / ויען ...
+
+36:1
+ויסף אליהוא ויאמר
+
+정확한 BHSA/MT surface와 formula family를 비교한다.
+
+질문:
+- 두 곳 모두 ANSWER-type formula에서 ADD-type formula로 전환되는가?
+- lexical/formal correspondence는 어느 정도인가?
+- 27:1에는 שאת משלו가 있지만 36:1에는 없는가?
+- surrounding discourse distribution은 어떻게 다른가?
+- current HSA structural function은 어떻게 다른가?
+
+결론은 미리 정하지 않는다.
+
+반드시 다음 distinction을 유지한다.
+
+SAME_FORMAL_SHIFT
+does not entail
+SAME_STRUCTURAL_FUNCTION.
+
+27:1:
+post-dialogue Job group onset
+
+36:1:
+fourth Elihu speech onset within existing Elihu sequence
+
+기존 human judgment를 수정하지 않는다.
+
+==================================================
+9. SEAM_F focused evidence panel
+==================================================
+
+다음 loci를 한 패널로 비교한다.
+
+38:1
+38:3
+40:1
+40:3
+40:6
+40:7
+42:1
+42:6
+
+각 locus에:
+- exact surface
+- speaker
+- addressee
+- CSF type
+- storm formula presence
+- repeated imperative/formula
+- response relation evidence
+- current HSA function
+- existing SAME_LEVEL / CHILD_OF relation
+를 표시한다.
+
+특히 다음 현재 판단을 보존한다.
+
+38:1 ↔ 40:6
+SAME_LEVEL_SIBLING
+
+40:3 ↔ 42:1
+SAME_LEVEL_SIBLING
+
+40:1
+CHILD_OF 38:1
+
+이번 audit은 다음 candidate composition을
+UNADJUDICATED 상태로만 제시할 수 있다.
+
+FG-F-C1:
+YHWH_JOB_RESPONSE_COMPLEX_1
+possible span 38:1–40:5
+
+FG-F-C2:
+YHWH_JOB_RESPONSE_COMPLEX_2
+possible span 40:6–42:6
+
+FG-F-C3:
+the two complexes are same-level composition peers
+
+하지만:
+automatic_resolution=false
+review_status=UNREVIEWED
+
+No textual parentage is created.
+
+==================================================
+10. SEAM_G focused evidence panel
+==================================================
+
+42:7
+42:9
+42:10
+42:12
+42:16
+
+각 지점의:
+
+- clause type
+- narrator status
+- subject
+- participant set
+- temporal expression
+- temporal expression position
+- ויהי / Way-type status
+- current boundary judgment
+- paragraph continuity
+- preceding/following configuration
+
+을 비교한다.
+
+특히 질문:
+
+G-A.
+42:7은 왜 PARAGRAPH_ONSET으로 기능하는가?
+
+G-B.
+42:10은 사건/참여자/상태 변화가 있지만
+새 major boundary를 요구하는 독립 표지가 있는가?
+
+G-C.
+42:12의 ויהוה ברך은 42:10과 어떤 parallel/continuation 관계인가?
+
+G-D.
+42:16의 אחרי זאת는
+3:1의 אחרי כן이나 42:7의 אחר דבר יהוה와
+통사적 위치와 기능이 같은가?
+
+G-E.
+42:16의 current NO_BOUNDARY judgment에
+반대 evidence가 실제로 존재하는가?
+있다면 보존하되 자동 승격하지 않는다.
+
+==================================================
+11. 42:16 negative-control requirement
+==================================================
+
+42:16은 중요한 negative control이다.
+
+기존 judgment:
+NO_BOUNDARY / CONTINUES_WITHIN 42:7
+
+그러나 이번 audit은 다음을 숨기지 않는다.
+
+- אחרי זאת temporal expression 존재
+- Job participant overt mention 여부
+- clause form
+- possible life-summary shift
+
+그리고 다음을 비교한다.
+
+3:1 אחרי כן ...
+42:7 ויהי אחר דבר ...
+42:16 ויחי איוב אחרי זאת ...
+
+출력에서 반드시:
+
+SIMILARITY
+DIFFERENCE
+STRUCTURAL_IMPLICATION
+CURRENT_JUDGMENT
+
+를 별도 필드로 둔다.
+
+현재 judgment를 유지할지 여부는
+이번 audit에서 판정하지 않는다.
+
+==================================================
+12. 42:10 / 42:12 promotion prohibition
+==================================================
+
+이번 단계에서:
+
+42:10 = candidate evidence only
+42:12 = candidate evidence only
+
+새:
+PARAGRAPH_ONSET
+MACRO_BOUNDARY
+CHILD_OF
+SAME_LEVEL_SIBLING
+
+을 생성하지 않는다.
+
+기존 HSA3-PREP의:
+“do not promote 42:10 or 42:12”
+를 그대로 보존한다.
+
+다만 그 결론을 방어할 수 있도록
+positive/negative evidence를 모두 출력한다.
+
+==================================================
+13. HSA criteria registry 연결
+==================================================
+
+각 비교에 기존 canonical evidence code를 연결한다.
+
+중요 dimension:
+
+BOUNDARY_EXISTENCE
+STRUCTURAL_FUNCTION
+SAME_LEVEL_RELATION
+PARENTAGE_CONTAINMENT
+OVERLAY_RESPONSIO
+RESPONSE_RELATION
+
+특히 insufficiency:
+
+N-ADJACENCY-ONLY
+N-CHAPTER-BOUNDARY-ONLY
+N-LEXEME-ONLY
+N-FORMULA-LENGTH-ONLY
+N-SPEAKER-ONLY
+N-THEME-ONLY
+
+실제 registry에 존재하는 정확한 canonical ID를 사용한다.
+없는 이름을 임의 생성하지 않는다.
+
+==================================================
+14. 이 단계에서 human judgment = 0
+==================================================
+
+new_human_judgment_count = 0
+
+new_textual_relation_count = 0
+
+new_accepted_overlay_relation_count = 0
+
+SEAM_F review_status = UNREVIEWED
+SEAM_G review_status = UNREVIEWED
+
+A–E frozen unchanged.
+
+R4.4 not started.
+
+==================================================
+15. 권장 출력
+==================================================
+
+최소:
+
+01_narratorial_frame_spine.csv
+
+02_temporal_expression_inventory.csv
+
+03_wayhi_wayyiqtol_frame_comparison.csv
+
+04_repeated_scene_configuration_1_6_1_13_2_1.csv
+
+05_answer_add_formula_shift_audit.csv
+
+06_seam_f_response_complex_evidence.csv
+
+07_seam_f_candidate_compositions.csv
+
+08_seam_g_final_narrative_evidence.csv
+
+09_job_42_7_16_temporal_comparison.csv
+
+10_negative_controls.csv
+
+11_hsa3_fg_prep_review_packet.md
+
+12_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+필요한 provenance/source-link 파일 추가 가능.
+
+==================================================
+16. 11_hsa3_fg_prep_review_packet.md
+==================================================
+
+최종 packet에는 human adjudication을 위한
+두 질문만 남긴다.
+
+SEAM_F:
+Do the established peer pairs support two same-level
+YHWH–Job response complexes:
+38:1–40:5 and 40:6–42:6?
+
+가능 outcome:
+- HUMAN_SUPPLIED_COMPOSITION_RELATION
+- UNRESOLVED
+- INSUFFICIENT_EVIDENCE
+
+SEAM_G:
+What relation connects the YHWH–Job speech complex
+ending at 42:6 with the final narrative beginning at 42:7?
+
+그리고 내부 boundary control:
+- 42:10
+- 42:12
+- 42:16
+
+을 함께 보여준다.
+
+단:
+Codex는 답하지 않는다.
+
+==================================================
+17. 필수 tests/gates
+==================================================
+
+최소 검증:
+
+1.
+baseline commit exact.
+
+2.
+A/B/C remain FROZEN.
+
+3.
+D/E remain FROZEN.
+
+4.
+F/G remain UNREVIEWED.
+
+5.
+No R4.4.
+
+6.
+No new human judgment.
+
+7.
+No new textual hierarchy relation.
+
+8.
+3:1 אחרי כן detected.
+
+9.
+42:7 אחר דבר יהוה detected.
+
+10.
+42:16 אחרי זאת detected.
+
+11.
+42:16 verb is חיה, not היה.
+
+12.
+ויהי and ויחי are not conflated.
+
+13.
+temporal-expression position differs where BHSA supports difference.
+
+14.
+same אחר-family does not auto-create same boundary.
+
+15.
+1:6 / 2:1 repeated multi-clause configuration captured.
+
+16.
+1:13 does not receive false same-level promotion.
+
+17.
+existing 1:6 / 2:1 same-level judgment preserved.
+
+18.
+27:1 formula captured.
+
+19.
+36:1 formula captured.
+
+20.
+27:1 and 36:1 formal similarity does not create same structural function.
+
+21.
+38:1 / 40:6 same-level relation preserved.
+
+22.
+40:3 / 42:1 same-level relation preserved.
+
+23.
+40:1 CHILD_OF 38:1 preserved.
+
+24.
+38:3 / 40:7 repeated expression captured.
+
+25.
+F candidate composition remains UNADJUDICATED.
+
+26.
+42:7 remains existing PARAGRAPH_ONSET.
+
+27.
+42:10 not promoted.
+
+28.
+42:12 not promoted.
+
+29.
+42:16 remains historical NO_BOUNDARY / CONTINUES_WITHIN.
+
+30.
+42:16 counter-evidence is reported rather than suppressed.
+
+31.
+formula length is never used as sole hierarchy basis.
+
+32.
+narrator clause is never used as sole hierarchy basis.
+
+33.
+temporal expression is never used as sole boundary basis.
+
+34.
+BHSA mother not converted to MILAL parentage.
+
+35.
+historical artifacts unchanged.
+
+36.
+full regression PASS, skip 0.
+
+37.
+real BHSA gates PASS.
+
+38.
+synthetic gates PASS.
+
+39.
+manifest valid.
+
+40.
+deterministic rerun byte-identical.
+
+==================================================
+18. 방법론 문서의 핵심 결론
+==================================================
+
+보고서에는 다음을 명시한다.
+
+“Narratorial Frame Spine”은
+욥기 거시구조를 자동 생성하는 규칙이 아니라
+이미 탐지·판정된 구조를 독립적으로 시험하는 evidence overlay이다.
+
+또한:
+
+same marker
+≠ same structural function
+
+same temporal lexeme
+≠ same boundary
+
+same formal shift
+≠ same structural transition
+
+narratorial clause
+≠ automatic higher-level clause
+
+를 명시한다.
+
+==================================================
+19. commit / push
+==================================================
+
+모든 테스트와 gate가 PASS한 경우에만 commit/push.
+
+Suggested commit message:
+
+Audit narrator frames and final response complexes
+
+origin/main push 후:
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+20. 최종 보고
+==================================================
+
+보고:
+
+1. start/end commit
+2. commit message
+3. push status
+4. changed files
+
+5. אחר-family whole-book occurrence count
+6. temporal-use classification count
+7. 3:1 / 42:7 / 42:16 exact comparison
+8. ויהי vs ויחי validation
+
+9. 1:6 / 1:13 / 2:1 repeated-configuration result
+10. 27:1 / 36:1 formula-shift comparison
+
+11. 38:1 / 40:6 parallel evidence
+12. 40:3 / 42:1 parallel evidence
+13. 38:3 / 40:7 repetition result
+14. F candidate composition count/status
+
+15. 42:7 evidence
+16. 42:10 evidence
+17. 42:12 evidence
+18. 42:16 evidence
+19. whether any evidence contradicts the current 42:16 NO_BOUNDARY judgment
+   — descriptive only, no adjudication
+
+20. new human judgment count = 0 확인
+21. new textual relation count = 0 확인
+22. A–E integrity
+23. F/G still UNREVIEWED
+24. R4.4 not started
+
+25. tests/gates
+26. deterministic rerun
+27. result ZIP
+28. SHA256
+
+29. final F/G human-review questions

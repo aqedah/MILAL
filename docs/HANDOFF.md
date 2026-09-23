@@ -1,6 +1,52 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-A/C opening–dialogue seam adjudication, 2026-09-23
+## Current task — HSA3-FG-PREP evidence audit, 2026-09-23
+
+Active specification: [HSA3_FG_PREP_SPEC.md](HSA3_FG_PREP_SPEC.md); execution:
+[README_MILAL_HSA3_FG_PREP.md](README_MILAL_HSA3_FG_PREP.md); authority:
+[exact researcher request](HSA3_FG_PREP_RESEARCHER_SOURCE.txt).
+Starting HEAD: `92f989e8da282f105781b57688174d57257bc9ca`.
+The researcher authorizes synthetic validation, direct BHSA 2021 evidence
+extraction, independent real rerun, and commit/push after tests and gates PASS.
+
+This PREP stage creates no human judgment, textual relation or accepted overlay.
+A–E remain FROZEN; F/G remain UNREVIEWED. ANA Q2/Q4/Q5 remain ACCEPTED;
+Q3 remains UNRESOLVED/HUMAN_DEFERRED. All earlier analytical cores are unchanged.
+R4.4 is not started. Narratorial Frame Spine is an audit/reporting overlay,
+neither a composition group nor a textual parent or new structural relation.
+
+The audit separates exact phrase position, clause/domain/txt, morphology,
+participant surface mentions, existing HSA functions/relations and corroboration.
+The whole-book narrow אחר inventory includes exact >XR/ and >XR=/ identities;
+אחרית and אחרון derivatives are outside that narrow selection. Time phrases and
+clause-initial Conj plus overt perfect verb support temporal readings; other
+ambiguous contexts remain UNRESOLVED_SENSE. No semantic classification is forced.
+3:1/42:7/42:16 comparison preserves Time / Conj / post-predicate Time differences,
+and the היה / חיה distinction. No marker creates a boundary automatically.
+
+Scene windows 1:6–12, 1:13–19 and 2:1–7 preserve complete clause configurations.
+The 27:1/36:1 ANSWER-to-ADD shift is compared without equating structural function.
+F retains existing YHWH and Job peer pairs plus 40:1 CHILD_OF 38:1. Three proposed
+response-complex records remain UNADJUDICATED, with automatic_resolution=false.
+G preserves 42:7/9/10/12/16 evidence, including 42:16 temporal/overt-subject and
+possible life-summary-shift countervailing observations. No 42:10/12 promotion
+or 42:16 reassessment. BHSA mother/tab/pargr/rela/code remain corroboration only.
+
+See [validation receipt](HSA3_FG_PREP_VALIDATION_REPORT.md) for final results.
+Validation complete: **65 new / 1,071 total tests PASS, skip 0**; synthetic and
+both real invocations **45/45 gates PASS**. Independent ZIP rerun byte-identical.
+BHSA 2021 / TF 13.1.0: 2,938 clauses, 10,912 words; narrow אחר inventory 20
+(15 after + 5 other homonym), classified 7 temporal-supported / 5 non-temporal
+homonym / 8 unresolved. No new judgment, textual relation or accepted overlay.
+All 134 repository pins and 163 upstream members are preserved; 183 result
+members, 12 manifests, 275 clause links and 67 unique frozen row links verified.
+Result: `results/hsa3_fg_prep_real_final_20260923_a_results.zip`, SHA256
+`14dd08fcffabf2d29b6574c05254ca403ba08b9fe01207269ccd6fb9ca3db1f6`.
+Packet: `results/hsa3_fg_prep_real_final_20260923_a/11_hsa3_fg_prep_review_packet.md`.
+Next: researcher answers the two final F/G questions using the PREP packet.
+All response fields remain blank except UNREVIEWED. No automatic progression.
+
+## Previous completed task — HSA3-A/C opening–dialogue seam adjudication, 2026-09-23
 
 Active specification: [HSA3_ABC_SPEC.md](HSA3_ABC_SPEC.md); execution:
 [README_MILAL_HSA3_ABC.md](README_MILAL_HSA3_ABC.md); authority:
