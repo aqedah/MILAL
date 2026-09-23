@@ -1,6 +1,52 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-F/G final global seam adjudication, 2026-09-23
+## Current task — HSA3-LAYER.0.1 layered integration and necessity audit, 2026-09-23
+
+Active specification: [HSA3_LAYER_0_1_SPEC.md](HSA3_LAYER_0_1_SPEC.md); execution:
+[README_MILAL_HSA3_LAYER_0_1.md](README_MILAL_HSA3_LAYER_0_1.md); authority:
+[exact researcher request](HSA3_LAYER_0_1_RESEARCHER_SOURCE.txt).
+Starting HEAD: `45a23a833d98c1e6aa7f37824d98ac6c85768fa4`.
+The researcher requests lossless canonical layer integration, UNREVIEWED
+parentage-necessity proposals, synthetic/real frozen-evidence validation,
+independent deterministic rerun and commit/push after all tests/gates PASS.
+
+This is not structural adjudication. A–G remain FROZEN; ANA-Q2/Q4/Q5 stay
+ACCEPTED, Q3 stays UNRESOLVED/HUMAN_DEFERRED. All 57 historical direct-parent
+questions remain UNRESOLVED. Parentage necessity is a machine AUDIT_PROPOSAL,
+not a human conclusion. Review fields remain blank except UNREVIEWED.
+
+Original triage is verified as known-container 19, global seam 14, local 10,
+non-textual group 8 and role pair 6. The six role rows are three explicit pairs:
+three canonical speech nodes and three cycle-role aliases. Both records remain.
+No parent-complete tree is required by the integration; composition membership,
+textual hierarchy, transitions, overlays and negative constraints stay separate.
+Technical root links are preserved in a separate navigation table.
+
+FRIENDS_ENTRY_RESOLUTION_PARTICIPANT_ARC is only NEXT_RESEARCH_SCOPE with separate
+2:11–13 and 42:7–9 windows. No accepted 2:11–42:9 span, parentage or 42:10 boundary.
+R4.4 remains NOT STARTED. Its readiness output is a design-contract recommendation,
+not an implemented consumer or empirical R4.4 validation.
+
+Validation complete: **66 new / 1,199 total tests PASS, skip 0**; synthetic,
+real and independent rerun **36/36 gates PASS**. Independent ZIP byte-identical.
+Proposal counts: P2 8, P3 6, P4 10, P5 19, P6 13, P7 1. The sole P7 candidate
+is H:HSA012 (2:11), not a finding that a direct parent must exist. All 57 original
+parent questions remain unresolved and all proposals remain UNREVIEWED.
+Canonical views: 75 nodes, 14 composition groups, 250 existing relation rows
+(including 57 technical navigation links), and 58 unresolved/deferred questions.
+New human judgments / structural relations / composition relations = 0 / 0 / 0.
+All 152 frozen pins and 202 upstream members preserved; 225 output members,
+14 manifests, 676 source-row links and the D/E JSON scope annotation verified.
+Real ZIP: `results/hsa3_layer_0_1_real_final_20260923_c_results.zip`, SHA256
+`85232a5fae33433333b75daaac496f36836b00bd36d3ce0d9cf37d358b1a0e17`.
+Packet: `results/hsa3_layer_0_1_real_final_20260923_c/16_researcher_review_packet.md`.
+Detailed validation and artifacts are recorded in
+[HSA3_LAYER_0_1_VALIDATION_REPORT.md](HSA3_LAYER_0_1_VALIDATION_REPORT.md).
+Next: researcher reviews the proposed necessity categories, particularly P7,
+and decides whether direct textual parentage is needed or current layered
+relations suffice. No automatic resolution or progression to R4.4.
+
+## Previous completed task — HSA3-F/G final global seam adjudication, 2026-09-23
 
 Active specification: [HSA3_FG_SPEC.md](HSA3_FG_SPEC.md); execution:
 [README_MILAL_HSA3_FG.md](README_MILAL_HSA3_FG.md); authority:

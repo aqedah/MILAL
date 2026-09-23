@@ -1,0 +1,754 @@
+현재 MILAL 저장소에서 다음 단계를 수행하세요.
+
+작업명:
+HSA3-LAYER.0.1 — Layered Integration and Parentage-Necessity Audit
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  45a23a833d98c1e6aa7f37824d98ac6c85768fa4
+- HSA3 SEAM_A–G = 모두 FROZEN
+- ANA-Q2/Q4/Q5 ACCEPTED
+- ANA-Q3 UNRESOLVED / HUMAN_DEFERRED
+- 2:11–42:9 participant frame = UNADJUDICATED
+- R4.4 = NOT STARTED
+
+이번 단계는 새로운 structural adjudication이 아니다.
+
+목적은:
+1. HSA1–HSA3에서 확정된 모든 구조 정보를 layer별 canonical summary로 통합하고,
+2. R4.3에서 남은 57개 direct-parent 질문 각각에 대해
+   “direct textual parent라는 질문 자체가 layered model에서 필요한가?”
+   를 감사하며,
+3. 실제로 추가 연구자 parentage 판정이 필요한 최소 집합을 분리하는 것이다.
+
+새 human judgment를 생성하지 않는다.
+기존 57개를 억지로 해결하지 않는다.
+2:11–42:9 participant-frame도 아직 판정하지 않는다.
+R4.4를 시작하지 않는다.
+
+==================================================
+1. 출발점
+==================================================
+
+현재 HSA3 complete summary는 다음 layered structure를 가진다.
+
+OPENING_NARRATIVE_COMPLEX
+1:1–2:13
+NON_TEXTUAL_COMPOSITION
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+3:1–31:40
+NON_TEXTUAL_COMPOSITION
+
+32:1
+TRANSITION_COMPONENT
+
+32:2–37:24
+NARRATIVE_INTRODUCTION + ELIHU_SPEECH_SEQUENCE
+
+YHWH_JOB_RESPONSE_SEQUENCE
+38:1–42:6
+NON_TEXTUAL_COMPOSITION
+  - RESPONSE_COMPLEX_1 38:1–40:5
+  - RESPONSE_COMPLEX_2 40:6–42:6
+
+FINAL_NARRATIVE_COMPLEX
+42:7–17
+NON_TEXTUAL_COMPOSITION
+
+그리고 다음 layer를 명확히 분리한다.
+
+A. TEXTUAL_HIERARCHY
+B. TEXTUAL_SAME_LEVEL
+C. COMPOSITION_GROUPING
+D. TRANSITION
+E. OVERLAY_RESPONSIO
+F. NEGATIVE_CONSTRAINT
+G. UNRESOLVED / DEFERRED
+
+이 layer를 절대로 하나의 tree로 합치지 않는다.
+
+==================================================
+2. 핵심 문제: 57 unresolved의 의미를 재감사
+==================================================
+
+현재 R4.3 historical unresolved direct-parent rows = 57.
+
+HSA3-PREP의 원래 triage classification은 정확히 다음이어야 한다.
+
+KNOWN_CONTAINER_BUT_DIRECT_PARENT_UNRESOLVED = 19
+TRUE_GLOBAL_SEAM = 14
+LOCAL_RELATION_ALREADY_CONSTRAINS_STRUCTURE = 10
+GROUP_PARENTAGE_UNRESOLVED = 8
+ROLE_ALIAS_OR_SAME_TEXTUAL_LOCUS = 6
+
+total = 57
+
+먼저 실제 frozen artifact에서 이 수치를 검증한다.
+
+이 57개를 모두
+“나중에 반드시 parent를 찾아야 하는 node”
+로 취급하지 않는다.
+
+이번 audit의 핵심 질문:
+
+Does this node actually require a DIRECT TEXTUAL PARENT
+in the MILAL layered representation?
+
+==================================================
+3. 새 parentage-necessity classification
+==================================================
+
+각 57개 unresolved row에 대해
+기존 판단을 변경하지 않고 다음 review category 중 하나를
+machine-generated audit proposal로 부여한다.
+
+중요:
+이는 HUMAN JUDGMENT가 아니다.
+proposal_status = UNREVIEWED 이어야 한다.
+
+권장 category:
+
+P1_GENUINE_TEXTUAL_PARENTAGE_QUESTION
+
+의미:
+현재까지 확보된 relation/grouping만으로는
+textual hierarchy상의 direct attachment 문제가 실제로 남아 있다.
+
+P2_DIRECT_PARENT_NOT_REQUIRED_NON_TEXTUAL_GROUP
+
+의미:
+node 자체가 composition/grouping technical node이므로
+textual parent를 가져야 한다는 요구가 잘못되었을 가능성이 높다.
+
+예상 후보:
+- CYCLE_1
+- CYCLE_2
+- CYCLE_3
+- DIALOGUE_CYCLE_SEQUENCE
+- ELIHU_SPEECH_SEQUENCE
+- HUMAN_SCOPE_1_1_5
+- HUMAN_SCOPE_2_1_10
+- POST_DIALOGUE_JOB
+
+단, hard-code하지 말고 실제 node type/schema를 확인한다.
+
+P3_DIRECT_PARENT_NOT_REQUIRED_ROLE_ALIAS
+
+의미:
+동일 textual locus에 대한 별도 role alias이므로
+별도 textual parent가 불필요할 가능성이 높다.
+
+예상 historical category:
+ROLE_ALIAS_OR_SAME_TEXTUAL_LOCUS
+
+P4_LOCAL_RELATION_SUFFICIENT
+
+의미:
+CHILD_OF / CONTINUES_WITHIN / HIERARCHICALLY_ABOVE /
+NO_BOUNDARY / closure 등 이미 accepted local relation이
+필요한 textual structure를 충분히 제약한다.
+
+추가 direct parent를 요구할 이유가 명확하지 않다.
+
+P5_CONTAINER_MEMBERSHIP_SUFFICIENT
+
+의미:
+정확한 direct textual parent는 없지만,
+accepted non-textual container membership과
+same-level/function relations가 필요한 구조 정보를 이미 제공한다.
+
+예:
+개별 dialogue speech units within cycles,
+Elihu speech units within ELIHU_SPEECH_SEQUENCE,
+27:1 / 29:1 within POST_DIALOGUE_JOB 등.
+
+P6_GLOBAL_LAYER_RELATION_SUFFICIENT
+
+의미:
+HSA3 global seam에서 composition / transition /
+negative constraint로 관계가 충분히 판정되었으며
+textual parent를 추가하는 것은 오히려 layer collapse가 될 수 있다.
+
+P7_GENUINELY_UNRESOLVED_AFTER_LAYERED_REVIEW
+
+의미:
+layered structure를 모두 고려한 뒤에도
+실제 textual direct-parent question이 남는다.
+
+P1과 P7의 차이:
+P1 = audit 시작 시 plausible genuine question
+P7 = 모든 existing evidence/layers를 검토한 뒤에도
+     실제로 인간 판정이 필요한 것으로 남은 final audit outcome.
+
+가능하면 P1은 intermediate field로,
+최종 추천은 P2–P7 중 하나로 둔다.
+
+==================================================
+4. 중요한 원칙
+==================================================
+
+다음 전제를 금지한다.
+
+“Every structural node must have exactly one direct textual parent.”
+
+MILAL은 이제 one-edge tree가 아니다.
+
+따라서 다음은 정상적인 최종 상태일 수 있다.
+
+- textual parent 없음
+- composition membership 있음
+- same-level relation 있음
+- transition relation 있음
+- overlay relation 있음
+
+즉:
+
+NO DIRECT TEXTUAL PARENT
+≠
+STRUCTURAL INFORMATION MISSING
+
+이를 보고서의 핵심 방법론 문장으로 명시한다.
+
+==================================================
+5. GROUP_PARENTAGE_UNRESOLVED 8개 감사
+==================================================
+
+historical category:
+GROUP_PARENTAGE_UNRESOLVED = 8
+
+각 node가 실제로 NON_TEXTUAL_GROUP인지 확인한다.
+
+특히:
+CYCLE_1
+CYCLE_2
+CYCLE_3
+DIALOGUE_CYCLE_SEQUENCE
+ELIHU_SPEECH_SEQUENCE
+HUMAN_SCOPE_1_1_5
+HUMAN_SCOPE_2_1_10
+POST_DIALOGUE_JOB
+
+각각에 대해:
+
+- node layer
+- textual/non-textual
+- members
+- ordered membership
+- existing relations
+- whether textual parent is semantically meaningful
+- parentage necessity proposal
+
+를 기록한다.
+
+NON_TEXTUAL_GROUP이면 기본적으로:
+P2_DIRECT_PARENT_NOT_REQUIRED_NON_TEXTUAL_GROUP
+
+candidate로 제시할 수 있다.
+
+그러나 자동 HUMAN RESOLUTION으로 만들지 않는다.
+
+==================================================
+6. ROLE_ALIAS 6개 감사
+==================================================
+
+historical:
+ROLE_ALIAS_OR_SAME_TEXTUAL_LOCUS = 6
+
+각 alias가 실제 어느 canonical textual node와
+같은 locus를 가리키는지 명확히 crosswalk한다.
+
+예상:
+cycle onset role aliases.
+
+각각:
+- alias node
+- canonical textual node
+- same textual locus
+- source judgment
+- separate parentage adds information? yes/no
+- proposal category
+
+별도 textual entity가 아니라 role alias라면:
+P3_DIRECT_PARENT_NOT_REQUIRED_ROLE_ALIAS
+
+candidate.
+
+==================================================
+7. LOCAL_RELATION_ALREADY_CONSTRAINS_STRUCTURE 10개 감사
+==================================================
+
+각 node에 대해 현재 accepted local edge를 출력한다.
+
+예:
+CONTINUES_WITHIN
+CHILD_OF
+HIERARCHICALLY_ABOVE
+NO_BOUNDARY
+closure relation
+internal speech relation
+
+질문:
+이미 존재하는 relation으로 textual placement가 충분한가?
+
+충분하다면:
+P4_LOCAL_RELATION_SUFFICIENT
+
+로 proposal.
+
+단:
+closure / no-boundary / continuation은 서로 다른 의미이므로
+하나로 collapse하지 않는다.
+
+==================================================
+8. KNOWN_CONTAINER 19개 감사
+==================================================
+
+historical:
+KNOWN_CONTAINER_BUT_DIRECT_PARENT_UNRESOLVED = 19
+
+이 category를 가장 신중하게 검토한다.
+
+각 node에:
+- canonical locus
+- existing composition/group membership
+- same-level relations
+- accepted structural function
+- direct textual parent candidate가 실제 필요한지
+- parent를 추가할 경우 기존 layered distinction이 무너지는지
+
+를 기록한다.
+
+특히 dialogue cycle members에 대해:
+
+GROUP_MEMBER_OF CYCLE_n
++
+SAME_LEVEL_SIBLING
++
+speech-unit onset
+
+이 이미 확보되어 있다면,
+nearest preceding speech 또는 cycle onset을
+textual parent로 만들 필요가 있는지 의문을 제기한다.
+
+Elihu:
+32:6 / 34:1 / 35:1 / 36:1
+
+도 동일하게 검토한다.
+
+27:1 / 29:1도
+POST_DIALOGUE_JOB membership이 있는 상황에서
+추가 direct parent를 강요하지 않는다.
+
+가능 outcome:
+P5_CONTAINER_MEMBERSHIP_SUFFICIENT
+또는
+P7_GENUINELY_UNRESOLVED_AFTER_LAYERED_REVIEW
+
+Codex가 어느 쪽을 human-final로 결정하지 않는다.
+
+==================================================
+9. TRUE_GLOBAL_SEAM 14개 감사
+==================================================
+
+historical:
+TRUE_GLOBAL_SEAM = 14
+
+nodes:
+
+1:6
+1:22
+2:1
+2:10
+2:11
+3:1
+32:1
+32:2
+37:24
+38:1
+40:3
+40:6
+42:1
+42:7
+
+실제 frozen HSA3 A–G decisions와 crosswalk한다.
+
+각 node에 대해:
+
+- HSA3 seam
+- frozen decision
+- composition membership
+- transition relation
+- accepted negative constraints
+- textual local relation
+- exact direct parent still unknown?
+- does the layered model actually require one?
+
+를 기록한다.
+
+예:
+
+2:11
+FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION
+exact parent explicitly left unresolved
+
+이는 genuine question 후보가 될 수 있다.
+
+반면:
+
+38:1 / 40:6
+이미 response complexes와 response sequence에
+compositionally placed되어 있고
+textual SAME_LEVEL relation도 확정되어 있다.
+
+이 경우 direct parent를 추가하는 것이
+필수인지 별도로 검토한다.
+
+즉 TRUE_GLOBAL_SEAM이라고 해서
+모두 P7이 되는 것이 아니다.
+
+==================================================
+10. canonical layered registry 생성
+==================================================
+
+HSA1–HSA3 전체에서
+최종 canonical structure를 layer별로 합친다.
+
+최소 파일:
+
+A. canonical nodes
+- textual node
+- role alias
+- composition group
+- transition anchor
+- overlay node if applicable
+
+B. textual hierarchy edges
+
+C. textual same-level edges
+
+D. composition groups and membership
+
+E. composition peer/sequential relations
+
+F. transition relations
+
+G. overlay/responsio relations
+
+H. negative constraints
+
+I. unresolved/deferred questions
+
+각 relation에:
+- source stage
+- human/automatic
+- frozen status
+- evidence/provenance
+를 유지한다.
+
+==================================================
+11. HSA3 complete layered matrix
+==================================================
+
+다음 주요 단위를 한 표에서 보여라.
+
+OPENING_NARRATIVE_COMPLEX
+1:1–2:13
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+3:1–31:40
+
+32:1 TRANSITION_COMPONENT
+
+32:2–5 NARRATIVE_INTRODUCTION
+
+ELIHU_SPEECH_SEQUENCE
+32:6–37:24
+
+YHWH_JOB_RESPONSE_SEQUENCE
+38:1–42:6
+
+FINAL_NARRATIVE_COMPLEX
+42:7–17
+
+각 단위별:
+
+- textual hierarchy status
+- composition status
+- transition status
+- overlay status
+- terminal/onset markers
+- unresolved issues
+
+를 나란히 표시한다.
+
+이것이 dissertation methodology에서 사용할
+layered structural output의 prototype이 될 수 있다.
+
+==================================================
+12. 2:11–42:9 participant-frame는 아직 판정하지 않는다
+==================================================
+
+이번 audit에서는 이 가설을 오직
+NEXT_RESEARCH_SCOPE로만 기록한다.
+
+가설 이름은 provisional하게:
+
+FRIENDS_ENTRY_RESOLUTION_PARTICIPANT_ARC
+
+또는 repository convention에 맞는 중립적 이름.
+
+핵심 candidate loci:
+
+opening:
+2:11–13
+
+resolution:
+42:7–9
+
+관찰 대상:
+- same three friends / participant set
+- introduction vs divine adjudication
+- 42:9 obedience and disappearance
+- transition to Job-focused restoration at 42:10
+- relation to 32:1–5
+- possible חרה אף correspondence 32:2 / 42:7
+- narrative voice
+- participant continuity/discontinuity
+
+하지만 이번 단계에서는:
+- frame accepted 금지
+- 2:11–42:9 span 생성 금지
+- textual parentage 금지
+- 42:10 boundary 생성 금지
+
+==================================================
+13. R4.4 readiness audit
+==================================================
+
+R4.4를 시작하지 말고
+R4.4가 어떤 layered data를 소비해야 하는지만 평가한다.
+
+다음 질문에 답한다.
+
+1.
+R4.4가 direct-parent-complete tree를 요구하는가?
+
+2.
+그렇다면 현재 HSA3 layered model과 충돌하는가?
+
+3.
+R4.4 input schema를:
+- partial textual graph
+- composition graph
+- transition relations
+- overlays
+- negative constraints
+- unresolved states
+
+를 모두 보존하도록 수정해야 하는가?
+
+4.
+57 unresolved를 해결하지 않고도
+R4.4가 lossless하게 동작할 수 있는가?
+
+결론은 design recommendation으로만 출력한다.
+R4.4 code는 작성하지 않는다.
+
+==================================================
+14. 이번 단계 human judgment
+==================================================
+
+new_human_judgment_count = 0
+new_structural_relation_count = 0
+new_composition_relation_count = 0
+
+parentage necessity classification은:
+AUDIT_PROPOSAL
+UNREVIEWED
+
+상태로만 생성한다.
+
+연구자가 다음 단계에서 승인한다.
+
+==================================================
+15. 출력 파일
+==================================================
+
+최소:
+
+01_hsa3_canonical_nodes.csv
+02_hsa3_textual_hierarchy_edges.csv
+03_hsa3_textual_same_level_edges.csv
+04_hsa3_composition_groups.csv
+05_hsa3_composition_relations.csv
+06_hsa3_transition_relations.csv
+07_hsa3_overlay_relations.csv
+08_hsa3_negative_constraints.csv
+09_hsa3_unresolved_deferred.csv
+
+10_parentage_necessity_audit.csv
+11_parentage_necessity_summary.md
+12_hsa3_complete_layered_matrix.csv
+13_hsa3_complete_layered_summary.md
+
+14_participant_arc_next_scope.md
+15_r4_4_readiness_audit.md
+
+16_researcher_review_packet.md
+17_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+16. researcher review packet
+==================================================
+
+16_researcher_review_packet.md에는 다음만 남긴다.
+
+A.
+57 parentage rows에 대한 proposed category별 집계
+
+B.
+P7_GENUINELY_UNRESOLVED_AFTER_LAYERED_REVIEW
+candidate 목록
+
+C.
+researcher가 승인해야 하는 질문:
+
+“이 node에 direct textual parent를 계속 요구할 것인가,
+아니면 현재 layered relation을 충분한 최종 표현으로 볼 것인가?”
+
+D.
+FRIENDS_ENTRY_RESOLUTION_PARTICIPANT_ARC
+다음 audit 범위
+
+E.
+R4.4 readiness result
+
+이번 packet에서 연구자 결론은 blank.
+
+==================================================
+17. 필수 tests/gates
+==================================================
+
+최소:
+
+1. baseline commit exact
+2. A–G all FROZEN preserved
+3. ANA decisions preserved
+4. HSA2-F preserved
+5. original 57 unresolved rows preserved losslessly
+6. original triage counts:
+   19 / 14 / 10 / 8 / 6
+   exact
+7. no row dropped
+8. no historical unresolved row overwritten
+9. every row receives one audit proposal category
+10. all proposal statuses UNREVIEWED
+11. no new human judgment
+12. no new textual parent relation
+13. no new composition relation
+14. non-textual groups never converted to textual nodes
+15. role aliases linked to canonical loci
+16. composition membership does not create parentage
+17. local relation sufficient category does not rewrite source relation
+18. container membership category does not create hidden parent
+19. global seam freeze preserved
+20. Q3 remains unresolved
+21. 2:11–42:9 remains unadjudicated
+22. no 42:10 promotion
+23. no R4.4 implementation
+24. canonical layered registry contains all frozen relation layers
+25. no relation-layer collapse
+26. provenance preserved
+27. historical artifacts unchanged
+28. full regression PASS, skip 0
+29. manifest valid
+30. deterministic rerun byte-identical
+
+==================================================
+18. 방법론적 핵심 문장
+==================================================
+
+보고서에 명시:
+
+“A direct textual parent is not a mandatory property of every MILAL node.”
+
+“Unresolved parentage must be distinguished from parentage that is
+not required by the analytical layer.”
+
+“Composition membership, textual hierarchy, transition, and rhetorical
+overlay are independent relation dimensions.”
+
+“Therefore the number of unresolved R4.3 parent fields is not itself
+a measure of structural incompleteness.”
+
+이 네 문장은 이번 단계의 핵심이다.
+
+==================================================
+19. commit / push
+==================================================
+
+모든 테스트/gate PASS 후에만 commit.
+
+Suggested commit:
+
+Integrate HSA3 layers and audit parentage necessity
+
+push origin/main.
+
+확인:
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+20. 최종 보고
+==================================================
+
+보고:
+
+1. start/end commit
+2. commit message
+3. push status
+
+4. original 57 triage counts
+5. proposed parentage-necessity category counts
+6. P7 genuine unresolved candidate count
+7. P7 node list
+
+8. non-textual groups audited
+9. role aliases audited
+10. locally constrained nodes audited
+11. known-container nodes audited
+12. global-seam nodes audited
+
+13. canonical layer counts:
+- textual hierarchy
+- textual same-level
+- composition groups
+- composition relations
+- transitions
+- overlays
+- negative constraints
+- unresolved/deferred
+
+14. confirmation:
+new human judgments = 0
+new structural relations = 0
+
+15. participant-arc next scope summary
+16. R4.4 readiness finding
+
+17. tests/gates
+18. deterministic rerun
+19. ZIP / SHA256
+
+중요:
+57 unresolved를 자동 해결하지 않는다.
+57이라는 숫자를 completion target으로 사용하지 않는다.
+2:11–42:9를 아직 판정하지 않는다.
+R4.4를 아직 시작하지 않는다.
