@@ -1,6 +1,54 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-D/E Elihu seam adjudication, 2026-09-23
+## Current task — HSA3-A/C opening–dialogue seam adjudication, 2026-09-23
+
+Active specification: [HSA3_ABC_SPEC.md](HSA3_ABC_SPEC.md); execution:
+[README_MILAL_HSA3_ABC.md](README_MILAL_HSA3_ABC.md); authority:
+[researcher request](HSA3_ABC_RESEARCHER_SOURCE.txt) and
+[canonical decisions](../config/hsa3_abc_human_decisions.json).
+Starting HEAD: `9abbb45f1a4159db99a86ce4647f26d538937808`.
+The researcher authorized A/B/C only, synthetic and real frozen-artifact
+validation, independent rerun, and commit/push after tests and gates pass.
+
+SEAM_A/B/C record supplied FROZEN decisions. 2:11–13 is a separate friends-arrival
+unit outside the second testing scene; its exact textual parent remains
+UNRESOLVED. OPENING_NARRATIVE_COMPLEX contains the four ordered opening components.
+H:HSA013 is reused as INITIAL_JOB_SPEECH (3:1–26), outside Cycle 1 (starts 4:1).
+The historical PARAGRAPH_ONSET and SPEECH_UNIT_ONSET records remain intact.
+The cycle sequence retains 6/6/4 members, with no synthetic Zophar III or Cycle 4.
+POST_DIALOGUE_JOB is distinct from the cycle sequence and Cycle 3.
+
+JOB_FRIENDS_DISPUTE_COMPLEX begins at 3:1 and ends at 31:40, with ordered
+INITIAL_JOB_SPEECH, DIALOGUE_CYCLE_SEQUENCE and POST_DIALOGUE_JOB components.
+Both new complexes are NON_TEXTUAL_COMPOSITION_GROUP, not textual parents or
+BHSA mother surrogates. No 2:11 membership in the dispute complex; no adjudication
+of the broader 2:11–42:9 participant-frame hypothesis. No new higher parent at 32+.
+
+Computed accounting: 3 new seam decisions, 2 new groups, 7 membership relations,
+123 existing edge-row confirmations, 6 explicit negatives, 43 unresolved-retained,
+0 duplicate-skipped requests. Four of the negatives represent both directional
+parent exclusions for sequence/post-dialogue and Cycle 3/post-dialogue pairs.
+Frozen seam decisions do not mean parent questions were resolved: crosswalk
+resolved A/B/C = 0/0/0; remains unresolved 43; not applicable 14. All 57 original
+parent questions remain, with the historical artifact unchanged.
+
+D/E remain FROZEN. ANA Q2/Q4/Q5 stay ACCEPTED; Q3 stays UNRESOLVED/HUMAN_DEFERRED.
+HSA2-F, all earlier analytical cores, 125 pinned repository files and all 129
+upstream artifact members are preserved. No new lexical analysis occurred.
+**Only SEAM_F/G remain for global seam human adjudication. R4.4 is not started.**
+
+Validation receipt and final local result paths are recorded in
+[HSA3_ABC_VALIDATION_REPORT.md](HSA3_ABC_VALIDATION_REPORT.md).
+Validation: **67 new / 1,006 total tests PASS, zero skips**; synthetic and real
+**39/39 gates PASS**. Independent real ZIP rerun is byte-identical. All 264
+source row links, 146 result members, 10 manifests and ZIP CRC verified.
+Real ZIP: `results/hsa3_abc_opening_dialogue_final_20260923_a_results.zip`, SHA256
+`e79575a4290913edce774f68d2bf94c2f03583f35636d9086a6bc0cca40f147b`.
+F/G packet: `results/hsa3_abc_opening_dialogue_final_20260923_a/09_hsa3_fg_remaining_review_packet.md`.
+Next task: researcher review of the F/G packet; retain blank canonical review
+fields. No automatic F/G decision, participant-frame resolution or R4.4 progression.
+
+## Previous completed task — HSA3-D/E Elihu seam adjudication, 2026-09-23
 
 Active specification: [HSA3_DE_SPEC.md](HSA3_DE_SPEC.md); execution:
 [README_MILAL_HSA3_DE.md](README_MILAL_HSA3_DE.md); authority:

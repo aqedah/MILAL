@@ -1,0 +1,945 @@
+현재 MILAL 저장소에서 다음 단계를 수행하세요.
+
+작업명:
+HSA3-A/C — Opening–Dialogue Global Seam Human Adjudication
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  9abbb45f1a4159db99a86ce4647f26d538937808
+- HSA3-D/E 완료
+- SEAM_D / SEAM_E = FROZEN
+- ANA-Q2 ACCEPTED
+- ANA-Q3 UNRESOLVED / HUMAN_DEFERRED
+- ANA-Q4 ACCEPTED
+- ANA-Q5 ACCEPTED
+- R4.4는 아직 시작하지 않는다.
+
+이번 단계에서는 HSA3-PREP의 global seam 가운데
+SEAM_A, SEAM_B, SEAM_C만 researcher-supplied human adjudication으로 동결한다.
+
+SEAM_F / SEAM_G는 수정하거나 판정하지 않는다.
+
+==================================================
+1. 이번 작업의 핵심 원칙
+==================================================
+
+이번 단계는 새 lexical analysis가 아니다.
+
+금지:
+- 새 BHSA lexical scan
+- 새 marker discovery
+- 새 ענה audit
+- HSA3-ANA 재판정
+- SEAM_D/E 재판정
+- SEAM_F/G 판정
+- R4.4 시작
+- chapter boundary만으로 구조 생성
+- speaker alternation만으로 parentage 생성
+- nearest-opening heuristic
+- composition group을 textual parent로 사용
+- traditional outline을 hard-code하여 결과 생성
+
+오직 승인된 A–C human decisions를
+기존 evidence / provenance / criteria registry와 연결하여 동결한다.
+
+==================================================
+2. 반드시 보존할 기존 판단
+==================================================
+
+다음 기존 human judgments와 relations는 재판정하지 않는다.
+
+1:5
+- INTERNAL_TRANSITION
+- CONTINUES_WITHIN 1:1–1:5
+
+1:6
+- scene onset
+- SAME_LEVEL_SIBLING with 2:1
+
+1:13
+- child of 1:6
+
+1:14 / 1:16 / 1:17 / 1:18
+- continue within 1:13 scene
+
+1:22
+- PARALLEL_ENDING
+- not MR1 direct closure
+
+2:1
+- same-level testing-scene onset with 1:6
+
+2:10
+- PARALLEL_ENDING
+- not MR1 direct closure
+
+2:11
+- paragraph / participant-arrival onset
+- exact direct parent unresolved
+
+3:1
+- PARAGRAPH_ONSET
+- independent first Job utterance frame
+- HIERARCHICALLY_ABOVE 3:2
+
+3:2
+- SPEECH_UNIT_ONSET
+- CONTINUES_WITHIN 3:1
+- FORMULAIC_CSF negative response control
+
+Dialogue Cycle 1:
+4:1, 6:1, 8:1, 9:1, 11:1, 12:1
+
+Dialogue Cycle 2:
+15:1, 16:1, 18:1, 19:1, 20:1, 21:1
+
+Dialogue Cycle 3:
+22:1, 23:1, 25:1, 26:1
+
+4:1 / 15:1 / 22:1:
+- same higher structural function
+- cycle onsets
+
+27:1 / 29:1:
+- SAME_LEVEL_SIBLING
+- post-dialogue Job speech onsets
+
+28:1:
+- NO_BOUNDARY / CONTINUES_WITHIN 27:1
+
+31:40:
+- → 29:1 DIRECT_LOCAL_CLOSURE
+- → 27:1 NO_DIRECT_RELATION in direct closure dimension
+- → POST_DIALOGUE_JOB TERMINATES_ENCLOSING_GROUP
+
+32:1 onward:
+- preserve all D/E and ANA judgments unchanged.
+
+==================================================
+3. SEAM_A researcher decision
+==================================================
+
+SEAM_A concerns the opening narrative and Job 2:11–13.
+
+Approved researcher judgment:
+
+A1.
+Job 2:11–13 is a separate
+FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION unit.
+
+It must NOT be treated as a child of the second testing scene 2:1–10.
+
+Therefore record or confirm:
+
+2:11–13
+FUNCTION =
+FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION
+
+and a negative constraint:
+
+2:11–13
+NOT_WITHIN_SECOND_TESTING_SCENE
+
+If the existing schema supports:
+
+2:11 → 2:1
+NO_DIRECT_PARENTAGE
+
+this may be used only if it precisely represents the approved judgment.
+
+Do not invent a stronger negative relation than the researcher approved.
+
+--------------------------------------------------
+A2. Exact parent remains unresolved
+--------------------------------------------------
+
+The exact direct textual parent of 2:11–13 is NOT adjudicated here.
+
+Do NOT assign:
+
+2:11 CHILD_OF 1:1
+2:11 CHILD_OF 2:1
+2:11 CHILD_OF 3:1
+
+Do NOT infer a parent from adjacency or narrative continuity.
+
+Record:
+
+direct_parent_status =
+UNRESOLVED
+
+--------------------------------------------------
+A3. Opening narrative composition
+--------------------------------------------------
+
+At composition/grouping level only,
+the following already identified narrative components may be grouped as:
+
+OPENING_NARRATIVE_COMPLEX
+span:
+Job 1:1–2:13
+
+possible members:
+- opening situation / household frame 1:1–5
+- testing scene 1: 1:6–1:22
+- testing scene 2: 2:1–2:10
+- friends arrival / participant introduction: 2:11–13
+
+Important:
+OPENING_NARRATIVE_COMPLEX is:
+
+NON_TEXTUAL_COMPOSITION_GROUP
+
+It is NOT:
+- textual parent
+- CHILD_OF target
+- HIERARCHICALLY_ABOVE relation
+- BHSA mother surrogate
+
+If an equivalent composition group already exists in the repository,
+reuse/confirm it rather than creating a duplicate.
+
+--------------------------------------------------
+A4. Do not solve the 2:11 larger-frame question
+--------------------------------------------------
+
+Do NOT yet connect 2:11 to:
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+or
+2:11–42:9 participant frame
+
+as a canonical structural relation.
+
+That broader participant-frame hypothesis remains outside this step.
+
+==================================================
+4. SEAM_B researcher decision
+==================================================
+
+SEAM_B concerns Job 3:1–26 and the beginning of the dialogue cycles.
+
+Approved researcher judgment:
+
+B1.
+Job 3:1–26 is:
+
+INITIAL_JOB_SPEECH
+
+It is NOT part of Dialogue Cycle 1.
+
+Cycle 1 begins at Job 4:1.
+
+Therefore preserve the distinction:
+
+INITIAL_JOB_SPEECH
+3:1–3:26
+
+DIALOGUE_CYCLE_1
+begins 4:1
+
+--------------------------------------------------
+B2. No Cycle-1 membership for Job 3
+--------------------------------------------------
+
+Record/confirm:
+
+3:1–26
+NOT_MEMBER_OF_CYCLE_1
+
+Do not create:
+
+3:1 CHILD_OF 4:1
+4:1 CHILD_OF 3:1
+3:1 GROUP_MEMBER_OF CYCLE_1
+
+unless an already existing historical relation explicitly requires
+a different dimension and is not being rewritten here.
+
+Existing:
+3:1 HIERARCHICALLY_ABOVE 3:2
+must remain unchanged.
+
+--------------------------------------------------
+B3. Sequential/compositional relation
+--------------------------------------------------
+
+INITIAL_JOB_SPEECH precedes the dialogue cycles and functions as the
+initial Job speech before the friends begin replying.
+
+The allowed relation is composition/sequential, not textual parentage.
+
+Prefer an existing canonical relation type if available, such as:
+
+PRECEDES
+INITIAL_CONTEXT_FOR
+SEQUENCE_PRECEDES
+
+Do NOT invent a new relation if the repository already has an equivalent.
+
+If no suitable canonical relation exists,
+record the compositional ordering in the group membership/order fields
+rather than creating an unnecessary new edge type.
+
+Important:
+
+4:1 may contextually answer Job 3,
+but that does not make Job 3 a member or parent of Cycle 1.
+
+==================================================
+5. SEAM_C researcher decision
+==================================================
+
+SEAM_C concerns the relationship between:
+
+- the three dialogue cycles
+- POST_DIALOGUE_JOB 27:1–31:40
+
+Approved researcher judgment:
+
+C1.
+DIALOGUE_CYCLE_SEQUENCE and POST_DIALOGUE_JOB are NOT parent/child.
+
+Do NOT create:
+
+POST_DIALOGUE_JOB CHILD_OF CYCLE_3
+CYCLE_3 CHILD_OF POST_DIALOGUE_JOB
+27:1 as CYCLE_4 onset
+
+--------------------------------------------------
+C2. Dialogue cycle sequence
+--------------------------------------------------
+
+Preserve:
+
+DIALOGUE_CYCLE_SEQUENCE
+
+members:
+- Cycle 1
+- Cycle 2
+- Cycle 3
+
+Cycle onsets:
+4:1
+15:1
+22:1
+
+Cycle 3 is incomplete in the sense that no Zophar III speech occurs,
+but do not repair or normalize this pattern.
+
+Do not fabricate a missing cycle member.
+
+--------------------------------------------------
+C3. Post-dialogue Job
+--------------------------------------------------
+
+Preserve:
+
+POST_DIALOGUE_JOB
+span:
+27:1–31:40
+
+with:
+27:1 / 29:1 same-level speech-unit onsets
+28:1 continues within 27:1
+31:40 local closure + higher-order terminal effect
+
+POST_DIALOGUE_JOB is a separate composition component
+after the dialogue cycles.
+
+==================================================
+6. JOB_FRIENDS_DISPUTE_COMPLEX
+==================================================
+
+Approved higher composition judgment:
+
+Create or confirm a NON_TEXTUAL_COMPOSITION_GROUP:
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+
+span:
+Job 3:1–31:40
+
+members in canonical order:
+
+1. INITIAL_JOB_SPEECH
+   3:1–3:26
+
+2. DIALOGUE_CYCLE_SEQUENCE
+   4:1–26:14
+   or the exact repository-established end of Cycle 3
+
+3. POST_DIALOGUE_JOB
+   27:1–31:40
+
+Important:
+This group is a composition/reporting unit only.
+
+It must NOT be used as:
+- textual parent
+- structural mother
+- CHILD_OF target
+- HIERARCHICALLY_ABOVE node
+
+Group membership does NOT imply direct parentage.
+
+If the repository already contains an equivalent dispute/dialogue group,
+do not create a duplicate.
+Instead:
+CONFIRM_EXISTING
+or
+REFINE_EXISTING_LABEL
+only if current schema supports this without rewriting history.
+
+==================================================
+7. Important limit: 2:11 is not yet attached to this group
+==================================================
+
+Do NOT make:
+
+2:11–13 GROUP_MEMBER_OF JOB_FRIENDS_DISPUTE_COMPLEX
+
+Do NOT set:
+
+JOB_FRIENDS_DISPUTE_COMPLEX span = 2:11–31:40
+
+The approved dispute composition begins at 3:1 for now.
+
+Reason:
+2:11 certainly introduces the friends,
+but the larger 2:11–42:9 participant-frame hypothesis has not yet been adjudicated.
+
+Keep that question open for a later overlay/participant-frame analysis.
+
+==================================================
+8. Relation-dimension separation
+==================================================
+
+This step must explicitly distinguish:
+
+A. TEXTUAL HIERARCHY
+- CHILD_OF
+- CONTINUES_WITHIN
+- HIERARCHICALLY_ABOVE
+
+B. SAME-LEVEL STRUCTURE
+- SAME_LEVEL_SIBLING
+
+C. COMPOSITION / GROUPING
+- GROUP_MEMBER_OF
+- ordered composition
+- non-textual complex
+
+D. TRANSITION / OVERLAY
+- not addressed here except preservation
+
+The new JOB_FRIENDS_DISPUTE_COMPLEX belongs only to C.
+
+OPENING_NARRATIVE_COMPLEX belongs only to C.
+
+Do not allow either to leak into A.
+
+==================================================
+9. Criteria registry application
+==================================================
+
+Apply the existing HSA adjudication criteria registry.
+
+Read the actual canonical registry first.
+Do not invent code names if suitable codes already exist.
+
+SEAM_A evidence may include:
+- explicit participant introduction
+- scene boundary
+- participant-set change
+- distributional narrative pattern
+- negative evidence against continuation within 2:1–10
+
+Insufficient alone:
+- chapter boundary
+- adjacency
+- theme
+
+SEAM_B evidence may include:
+- 3:1 paragraph onset
+- 3:2 internal CSF
+- 4:1 separate dialogue-turn onset
+- cycle pattern beginning at 4:1
+- speaker-turn sequence evidence
+
+Insufficient alone:
+- 4:1 being adjacent to 3:26
+- semantic response alone
+
+SEAM_C evidence may include:
+- established cycle-onset pattern
+- absence of Zophar III preserved as observed structure
+- distinct 27:1/29:1 formula family
+- 31:40 explicit closure
+- group-level ordering
+
+Insufficient alone:
+- chapter number
+- same speaker Job
+- thematic continuity
+
+==================================================
+10. Existing relations: confirm rather than duplicate
+==================================================
+
+Before creating any new relation:
+
+1. inspect accepted canonical relation registry
+2. search for semantic-equivalent relation
+3. reuse existing relation ID where possible
+
+Especially inspect whether there are already:
+
+- OPENING_NARRATIVE_BLOCK / OPENING_NARRATIVE_COMPLEX
+- INITIAL_JOB_SPEECH
+- DIALOGUE_CYCLE_SEQUENCE
+- POST_DIALOGUE_JOB
+- participant introduction groups
+- cycle-group membership relations
+
+Report each action as:
+
+CREATED
+CONFIRMED_EXISTING
+NEGATIVE_CONSTRAINT_CREATED
+UNRESOLVED_RETAINED
+NO_ACTION_DUPLICATE
+
+==================================================
+11. HSA3-PREP unresolved crosswalk
+==================================================
+
+Do not alter the historical HSA3-PREP artifact.
+
+Create a new resolution crosswalk for A/B/C-related unresolved rows.
+
+Each relevant row must receive one:
+
+RESOLVED_BY_SEAM_A
+RESOLVED_BY_SEAM_B
+RESOLVED_BY_SEAM_C
+REMAINS_UNRESOLVED
+NOT_APPLICABLE_TO_APPROVED_DECISION
+
+Important:
+A decision such as
+“exact parent remains unresolved”
+does NOT count as resolved merely because the seam itself is frozen.
+
+In particular:
+2:11 exact direct parent should remain unresolved.
+
+Any unresolved row asking for a direct textual parent that the approved
+composition decision does not supply must remain unresolved.
+
+==================================================
+12. SEAM_A/B/C frozen state
+==================================================
+
+After the step:
+
+SEAM_A = FROZEN
+SEAM_B = FROZEN
+SEAM_C = FROZEN
+
+But “FROZEN” means:
+the approved researcher decision is complete.
+
+It does NOT mean:
+every parentage question in the seam has received a positive parent.
+
+This distinction must be explicit in the report.
+
+==================================================
+13. Expected conceptual structure
+==================================================
+
+The output should represent approximately:
+
+OPENING_NARRATIVE_COMPLEX
+1:1–2:13
+|
+|-- opening situation 1:1–5
+|-- testing scene 1 1:6–1:22
+|-- testing scene 2 2:1–2:10
+`-- friends arrival 2:11–13
+    exact direct parent unresolved
+
+Then:
+
+JOB_FRIENDS_DISPUTE_COMPLEX
+3:1–31:40
+
+|-- INITIAL_JOB_SPEECH
+|   3:1–26
+|
+|-- DIALOGUE_CYCLE_SEQUENCE
+|   |-- Cycle 1
+|   |-- Cycle 2
+|   `-- Cycle 3
+|
+`-- POST_DIALOGUE_JOB
+    27:1–31:40
+
+Then, already frozen:
+
+32:1
+TRANSITION_COMPONENT
+
+32:2–37:24
+ELIHU INTERVENTION / SPEECH SEQUENCE
+
+38:1 onward
+YHWH speech complex
+
+Do NOT combine these latter units into a new higher parent in this step.
+
+==================================================
+14. Required output files
+==================================================
+
+Use repository naming conventions, but generate at minimum:
+
+01_hsa3_abc_seam_adjudications.csv
+
+02_hsa3_abc_relation_actions.csv
+
+03_hsa3_abc_composition_groups.csv
+
+04_hsa3_abc_negative_constraints.csv
+
+05_hsa3_abc_criteria_application.csv
+
+06_hsa3_abc_unresolved_crosswalk.csv
+
+07_hsa3_abc_frozen_integrity.csv
+
+08_hsa3_abc_adjudication_report.md
+
+09_hsa3_fg_remaining_review_packet.md
+
+10_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+15. 09_hsa3_fg_remaining_review_packet.md
+==================================================
+
+After A/B/C are frozen, only remaining global seams should be:
+
+SEAM_F
+SEAM_G
+
+D/E already frozen.
+A/B/C now frozen.
+
+For F/G preserve:
+- exact original question
+- participating nodes
+- current evidence
+- accepted positive constraints
+- accepted negative constraints
+- unresolved rows
+- relevant criteria dimensions
+- researcher response fields blank
+
+Do not adjudicate F/G.
+
+==================================================
+16. Required tests
+==================================================
+
+At minimum verify:
+
+1.
+start commit =
+9abbb45f1a4159db99a86ce4647f26d538937808
+
+2.
+SEAM_D remains FROZEN unchanged.
+
+3.
+SEAM_E remains FROZEN unchanged.
+
+4.
+ANA Q2/Q3/Q4/Q5 unchanged.
+
+5.
+2:11–13 classified as FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION.
+
+6.
+2:11–13 not placed inside second testing scene.
+
+7.
+2:11 exact direct parent remains unresolved.
+
+8.
+No 2:11 CHILD_OF 2:1.
+
+9.
+No 2:11 CHILD_OF 3:1.
+
+10.
+OPENING_NARRATIVE_COMPLEX is non-textual composition only.
+
+11.
+OPENING_NARRATIVE_COMPLEX not used as textual parent.
+
+12.
+3:1–26 classified/confirmed as INITIAL_JOB_SPEECH.
+
+13.
+3:1–26 not member of Cycle 1.
+
+14.
+Cycle 1 begins at 4:1.
+
+15.
+3:1 HIERARCHICALLY_ABOVE 3:2 preserved.
+
+16.
+3:2 CONTINUES_WITHIN 3:1 preserved.
+
+17.
+Cycle 1 member pattern preserved.
+
+18.
+Cycle 2 member pattern preserved.
+
+19.
+Cycle 3 member pattern preserved.
+
+20.
+No synthetic Zophar III created.
+
+21.
+27:1 / 29:1 same-level relation preserved.
+
+22.
+28:1 continuation preserved.
+
+23.
+31:40 HSA2-F relations preserved.
+
+24.
+POST_DIALOGUE_JOB not made child of Cycle 3.
+
+25.
+27:1 not classified as Cycle 4 onset.
+
+26.
+JOB_FRIENDS_DISPUTE_COMPLEX exists or equivalent existing group confirmed.
+
+27.
+Its span is 3:1–31:40.
+
+28.
+Its ordered members are:
+INITIAL_JOB_SPEECH
+DIALOGUE_CYCLE_SEQUENCE
+POST_DIALOGUE_JOB
+
+29.
+JOB_FRIENDS_DISPUTE_COMPLEX is non-textual.
+
+30.
+No textual parentage generated from dispute group membership.
+
+31.
+2:11–13 is NOT added as member of JOB_FRIENDS_DISPUTE_COMPLEX.
+
+32.
+No 2:11–42:9 frame is adjudicated.
+
+33.
+SEAM_A = FROZEN.
+
+34.
+SEAM_B = FROZEN.
+
+35.
+SEAM_C = FROZEN.
+
+36.
+SEAM_F unchanged/unreviewed.
+
+37.
+SEAM_G unchanged/unreviewed.
+
+38.
+No R4.4.
+
+39.
+No duplicate semantic-equivalent relations.
+
+40.
+Historical artifacts unchanged.
+
+41.
+Full regression PASS, skip 0.
+
+42.
+Manifest PASS.
+
+43.
+Deterministic independent rerun byte-identical.
+
+==================================================
+17. Gates
+==================================================
+
+Include at minimum:
+
+- BASELINE_COMMIT_VERIFIED
+- PRIOR_DE_SEAMS_FROZEN
+- SEAM_A_RESEARCHER_DECISION_RECORDED
+- SEAM_B_RESEARCHER_DECISION_RECORDED
+- SEAM_C_RESEARCHER_DECISION_RECORDED
+- FRIENDS_ARRIVAL_SEPARATE_FROM_TEST_2
+- FRIENDS_ARRIVAL_PARENT_UNRESOLVED
+- OPENING_NARRATIVE_GROUP_NON_TEXTUAL
+- INITIAL_JOB_SPEECH_NOT_CYCLE1
+- CYCLE1_STARTS_4_1
+- THREE_CYCLE_PATTERN_PRESERVED
+- NO_SYNTHETIC_ZOPHAR_III
+- POST_DIALOGUE_JOB_DISTINCT_FROM_CYCLE3
+- NO_CYCLE4_AT_27_1
+- DISPUTE_COMPLEX_PRESENT
+- DISPUTE_COMPLEX_NON_TEXTUAL
+- DISPUTE_COMPLEX_ORDERED_MEMBERS_CORRECT
+- JOB_2_11_NOT_ATTACHED_TO_DISPUTE_COMPLEX
+- NO_2_11_42_9_FRAME_ADJUDICATION
+- HSA2_F_INTEGRITY
+- ANA_INTEGRITY
+- DE_INTEGRITY
+- FG_UNCHANGED
+- NO_DUPLICATE_RELATIONS
+- NO_R4_4
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+
+==================================================
+18. Methodological documentation
+==================================================
+
+The adjudication report must explicitly state:
+
+1.
+A frozen seam does not require a positive direct parent for every node.
+
+2.
+Composition/grouping and textual hierarchy are distinct.
+
+3.
+Job 2:11–13 may be compositionally part of the opening narrative
+without receiving a direct textual parent.
+
+4.
+Job 3:1–26 is structurally prior to the dialogue cycles
+but not a member of Cycle 1.
+
+5.
+The dialogue cycles and post-dialogue Job speeches are ordered components
+of a larger dispute composition, not parent/child units.
+
+6.
+The JOB_FRIENDS_DISPUTE_COMPLEX is a researcher-adjudicated composition
+layer and must not be confused with BHSA syntactic hierarchy.
+
+7.
+The broader 2:11–42:9 participant-frame hypothesis remains unadjudicated.
+
+==================================================
+19. Commit / push
+==================================================
+
+Only if all tests and gates pass:
+
+git status
+git diff
+git diff --check
+
+Commit.
+
+Suggested commit message:
+
+Freeze opening and dialogue global seam adjudications
+
+Push origin/main.
+
+Verify:
+local HEAD == origin/main HEAD
+working tree clean
+
+==================================================
+20. Final report
+==================================================
+
+Report:
+
+1. start commit
+2. end commit
+3. commit message
+4. push status
+5. changed files
+
+6. SEAM_A final decision
+7. SEAM_B final decision
+8. SEAM_C final decision
+
+9. new researcher seam decision count
+10. new positive relation count
+11. confirmed-existing relation count
+12. new negative constraint count
+13. unresolved-retained count
+14. duplicate-skipped count
+
+15. Job 2:11 parent status
+16. opening narrative complex result
+17. Job 3:1–26 status
+18. Cycle 1 start status
+19. dialogue cycle sequence result
+20. post-dialogue Job relation result
+21. JOB_FRIENDS_DISPUTE_COMPLEX result
+22. confirmation that 2:11 was NOT attached to the dispute complex
+
+23. HSA3-PREP unresolved crosswalk:
+- resolved by A
+- resolved by B
+- resolved by C
+- remains unresolved
+- not applicable
+
+24. A/B/C frozen
+25. D/E still frozen
+26. F/G still unreviewed
+27. Q2/Q3/Q4/Q5 integrity
+28. HSA2-F integrity
+29. R4.4 not started
+
+30. new tests
+31. full regression tests
+32. synthetic gates
+33. real gates
+34. deterministic rerun
+
+35. result ZIP name
+36. SHA256
+
+37. SEAM_F/G remaining review packet summary
+
+중요:
+이번 단계에서 F/G를 판정하지 않는다.
+2:11을 JOB_FRIENDS_DISPUTE_COMPLEX에 붙이지 않는다.
+2:11–42:9 participant frame을 확정하지 않는다.
+composition group을 textual parentage로 사용하지 않는다.
+R4.4를 시작하지 않는다.

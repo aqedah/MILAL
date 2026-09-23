@@ -1,0 +1,192 @@
+{
+  "version": "HSA3-A/C",
+  "source_path": "docs/HSA3_ABC_RESEARCHER_SOURCE.txt",
+  "source_sha256": "197dc8873eeac83ba5c5cbe086ebf565e431117042ad6d940634f73d0d0d77da",
+  "authority": "RESEARCHER_SUPPLIED",
+  "decisions": [
+    {
+      "seam_id": "SEAM_A",
+      "status": "FROZEN",
+      "decision": "Separate FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION at 2:11–13; NOT_WITHIN_SECOND_TESTING_SCENE; exact textual parent UNRESOLVED. Opening components form a non-textual composition only."
+    },
+    {
+      "seam_id": "SEAM_B",
+      "status": "FROZEN",
+      "decision": "INITIAL_JOB_SPEECH at 3:1–26 is outside Cycle 1 (begins 4:1); retain 3:1 above 3:2. Composition order is not textual parentage."
+    },
+    {
+      "seam_id": "SEAM_C",
+      "status": "FROZEN",
+      "decision": "Three cycles and POST_DIALOGUE_JOB are distinct ordered components, not parent/child. No Cycle 4 or Zophar III. Dispute complex begins at 3:1, excludes 2:11."
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "OPENING_NARRATIVE_COMPLEX",
+      "seam_id": "SEAM_A",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "1:1",
+      "span_end": "2:13",
+      "members": [
+        "HUMAN_SCOPE_1_1_5",
+        "H:HSA002",
+        "HUMAN_SCOPE_2_1_10",
+        "H:HSA012"
+      ],
+      "member_labels": [
+        "OPENING_HOUSEHOLD_FRAME",
+        "TESTING_SCENE_1",
+        "TESTING_SCENE_2",
+        "FRIENDS_ARRIVAL"
+      ],
+      "member_spans": [
+        "1:1–1:5",
+        "1:6–1:22",
+        "2:1–2:10",
+        "2:11–2:13"
+      ]
+    },
+    {
+      "group_id": "JOB_FRIENDS_DISPUTE_COMPLEX",
+      "seam_id": "SEAM_C",
+      "node_type": "NON_TEXTUAL_COMPOSITION_GROUP",
+      "span_start": "3:1",
+      "span_end": "31:40",
+      "members": [
+        "H:HSA013",
+        "DIALOGUE_CYCLE_SEQUENCE",
+        "POST_DIALOGUE_JOB"
+      ],
+      "member_labels": [
+        "INITIAL_JOB_SPEECH",
+        "DIALOGUE_CYCLE_SEQUENCE",
+        "POST_DIALOGUE_JOB"
+      ],
+      "member_spans": [
+        "3:1–3:26",
+        "4:1–26:14",
+        "27:1–31:40"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "node_id": "H:HSA012",
+      "label": "FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION",
+      "span_start": "2:11",
+      "span_end": "2:13",
+      "direct_parent_status": "UNRESOLVED",
+      "seam_id": "SEAM_A"
+    },
+    {
+      "node_id": "H:HSA013",
+      "label": "INITIAL_JOB_SPEECH",
+      "span_start": "3:1",
+      "span_end": "3:26",
+      "direct_parent_status": "UNRESOLVED",
+      "seam_id": "SEAM_B"
+    }
+  ],
+  "negative_constraints": [
+    {
+      "seam_id": "SEAM_A",
+      "source_node": "H:HSA012",
+      "target_node": "HUMAN_SCOPE_2_1_10",
+      "relation_type": "NOT_WITHIN_SECOND_TESTING_SCENE",
+      "dimension": "PARENTAGE_CONTAINMENT"
+    },
+    {
+      "seam_id": "SEAM_B",
+      "source_node": "H:HSA013",
+      "target_node": "CYCLE_1",
+      "relation_type": "NOT_MEMBER_OF_CYCLE_1",
+      "dimension": "COMPOSITION_GROUPING"
+    },
+    {
+      "seam_id": "SEAM_C",
+      "source_node": "DIALOGUE_CYCLE_SEQUENCE",
+      "target_node": "POST_DIALOGUE_JOB",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE"
+    },
+    {
+      "seam_id": "SEAM_C",
+      "source_node": "POST_DIALOGUE_JOB",
+      "target_node": "DIALOGUE_CYCLE_SEQUENCE",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE"
+    },
+    {
+      "seam_id": "SEAM_C",
+      "source_node": "CYCLE_3",
+      "target_node": "POST_DIALOGUE_JOB",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE"
+    },
+    {
+      "seam_id": "SEAM_C",
+      "source_node": "POST_DIALOGUE_JOB",
+      "target_node": "CYCLE_3",
+      "relation_type": "NO_DIRECT_PARENTAGE",
+      "dimension": "TEXTUAL_PARENTAGE"
+    }
+  ],
+  "criteria": {
+    "SEAM_A": [
+      "E-EXPLICIT-ONSET",
+      "E-PARTICIPANT-ALIGNMENT",
+      "E-DISTRIBUTIONAL-PATTERN",
+      "E-NEGATIVE-CONTROL",
+      "N-CHAPTER-BOUNDARY-ONLY",
+      "N-ADJACENCY-ONLY",
+      "N-THEME-ONLY"
+    ],
+    "SEAM_B": [
+      "E-EXPLICIT-ONSET",
+      "E-DISTRIBUTIONAL-PATTERN",
+      "E-NEGATIVE-CONTROL",
+      "N-ADJACENCY-ONLY",
+      "N-SEMANTIC-SIMILARITY-ONLY",
+      "N-SPEAKER-ONLY"
+    ],
+    "SEAM_C": [
+      "E-FUNCTIONAL-EQUIVALENCE",
+      "E-FORMULA-CORRESPONDENCE",
+      "E-EXPLICIT-CLOSURE",
+      "E-DISTRIBUTIONAL-PATTERN",
+      "N-CHAPTER-BOUNDARY-ONLY",
+      "N-SPEAKER-ONLY",
+      "N-THEME-ONLY"
+    ]
+  },
+  "cycle_references": [
+    [
+      "4:1",
+      "6:1",
+      "8:1",
+      "9:1",
+      "11:1",
+      "12:1"
+    ],
+    [
+      "15:1",
+      "16:1",
+      "18:1",
+      "19:1",
+      "20:1",
+      "21:1"
+    ],
+    [
+      "22:1",
+      "23:1",
+      "25:1",
+      "26:1"
+    ]
+  ],
+  "outside_scope": [
+    "SEAM_F",
+    "SEAM_G",
+    "R4.4",
+    "2:11–42:9 participant frame"
+  ]
+}
