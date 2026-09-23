@@ -1,6 +1,48 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-PREP global structural seam review preparation, 2026-09-22
+## Current task — HSA3-ANA.0.1 source audit complete, 2026-09-23
+
+Active specification: [HSA3_ANA_0_1_SPEC.md](HSA3_ANA_0_1_SPEC.md); execution:
+[README_MILAL_HSA3_ANA.md](README_MILAL_HSA3_ANA.md); results:
+[HSA3_ANA_0_1_VALIDATION_REPORT.md](HSA3_ANA_0_1_VALIDATION_REPORT.md).
+Starting HEAD: `f1292ba51b90fd545069741ee5ccce3d63d9704a` (HSA3-PREP complete).
+The researcher authorized this independent linguistic audit, actual BHSA 2021,
+deterministic rerun and commit/push after successful validation.
+
+**HSA3 A–G remain unadjudicated. R4.4 is not started or authorized.**
+Whole-book BHSA 2021 / Text-Fabric 13.1.0 scan: 10,912 words, 2,938 clauses,
+62 ענה occurrences = 60 answer lexeme + 2 separate be-lowly homonyms.
+Construction counts and explicit limitations are in the validation report.
+3:2 remains the formal-CSF/nonreply control; 36:1 is NO_ANA / ADD_SPEECH.
+31:35 is a contextual request; 32:1 has cessation with explicit target Job;
+38:1 has an explicit YHWH subject and Job object. No long-distance antecedent,
+שדי=יהוה equivalence, Elihu fourth-friend identity or parentage is inferred.
+
+Four hypotheses ANA-C1–C4 remain UNADJUDICATED with automatic_resolution=false:
+post-closure transition 31:40→32:1; long-distance response 31:35→38:1;
+contrastive frame 32:1→38:1; Elihu within that positional interval.
+**Next: researcher ANA-Q2–Q5 review of those four questions.** ANA-Q1 displays
+the frozen 3:2 control only. Source-supported relation / UNRESOLVED /
+INSUFFICIENT_EVIDENCE are the allowed human outcomes. SEAM_D/E receive an
+evidence-dependency addendum only; original A–G cases and review fields are unchanged.
+
+Frozen preservation: 89 repository files; 12 exact accepted upstream ZIPs;
+all 62 PREP archive members; 59 human judgments, 61 nodes, 205 relations and
+57 unresolved parent rows. New human judgments and structural relations: both 0.
+The three HSA2-F closure decisions and all prior analytical cores remain intact.
+
+Validation: 58 new tests; 737 full regression tests; zero skips; 32/32 synthetic
+and actual gates, each with negative coverage. Independent actual rerun is
+byte-identical across the ZIP and all 78 members. Six nested/current manifests,
+251 evidence-row links, ZIP CRCs and all frozen/source hashes passed.
+
+Final local artifact:
+`results/hsa3_ana_0_1_response_frame_final_20260923_a_results.zip`
+SHA256 `b7238ddcb0ee0940bd6a397a23bbef95a18da0dacb5af98e2b1b17396eb89294`.
+It is technical evidence for review, not an accepted final hierarchy.
+All result ZIPs/directories/logs and BHSA data remain outside Git tracking.
+
+## Previous task — HSA3-PREP global structural seam review preparation, 2026-09-22
 
 Active specification: [HSA3_PREP_SPEC.md](HSA3_PREP_SPEC.md); execution:
 [README_MILAL_HSA3_PREP.md](README_MILAL_HSA3_PREP.md); results:
