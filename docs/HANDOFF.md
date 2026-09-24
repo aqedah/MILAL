@@ -1,6 +1,53 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.0.1 layered input contract audit, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.1 single-mother compatibility audit, 2026-09-24
+
+Active specification: [R4_4_CONTRACT_JIN_0_1_SPEC.md](R4_4_CONTRACT_JIN_0_1_SPEC.md);
+methodology: [addendum](R4_4_CONTRACT_JIN_0_1_ADDENDUM.md);
+execution: [README](README_MILAL_R4_4_CONTRACT_JIN_0_1.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_1_RESEARCHER_SOURCE.txt).
+Starting HEAD: `28162717d229c8541d9386668ab7123cd7cded10`.
+The researcher authorizes append-only audit, synthetic/frozen-real validation,
+independent deterministic rerun and commit/push. No node-specific mother
+adjudication or R4.4 consumer is authorized.
+
+Current contract readiness: **BLOCKED_PENDING_SINGLE_MOTHER_COMPATIBILITY_REVIEW**.
+Historical Contract.0.1 readiness and Q1–Q7 remain unchanged. Revised Q1–Q9 and
+JIN-Q0/Q1/Q2 are UNREVIEWED. Exactly one methodological human judgment is supplied:
+JIN_SINGLE_MOTHER_PRINCIPLE_ADOPTED_FOR_REVIEW. New parent edges and node-specific
+human judgments remain zero. All historical analytical cores stay frozen.
+
+Audit validation complete: **63 new / 1,388 total tests PASS, skip 0**;
+synthetic/real/independent rerun **38/38 gates PASS**; **2/2 external release gates
+PASS**. Real ZIPs byte-identical; 257 upstream members, 17 manifests, 779 exact
+input receipts and 180 frozen repository pins verified.
+
+Real canonical inventory: 75 = 42 TEXTUAL_NODE + 7 TRANSITION_ANCHOR + 14 groups
+and 3 aliases + 8 evidence-only anchors + 1 technical root. Actual textual nodes
+49: mother=1 for 3, mother=0 for 46, mother>1 for 0. SM1/SM2/SM3/SM4/SM5/SM6/SM7
+= 42/3/14/3/1/0/12. Four textual rows plus eight evidence-only anchors are SM7.
+Historical 57: 8 group exemptions + 3 alias exemptions + 46 textual review rows;
+all old UNRESOLVED/necessity/false-additional-review fields remain unchanged.
+P3's six rows contain three canonical speech representatives and three aliases.
+Job 2:11 is reopened as SM1 proposal with no mother assignment. Candidate pool:
+8 UNADJUDICATED candidates on 8 of 46 motherless nodes; 38 have no candidates.
+No root candidate is fabricated; global root scope remains open.
+
+Real ZIP: `results/r4_4_contract_jin_0_1_real_final_20260924_b_results.zip`, SHA256
+`895264dfd4a11efc147464c393933ed8650e4ad146da42fa067a1c9e9eb30d5e`.
+Review packet: `results/r4_4_contract_jin_0_1_real_final_20260924_b/11_revised_r4_4_contract_review_packet.md`.
+Details: [validation report](R4_4_CONTRACT_JIN_0_1_VALIDATION_REPORT.md).
+SM1–SM7 are applicability audit proposals, not human node judgments.
+The parentage scope excludes non-textual groups, aliases and technical nodes.
+Textual nodes with unclear participation require applicability review first.
+No textual root is chosen; technical JOB_BOOK is never a textual mother.
+
+Next: review clause-versus-macro applicability (Q8/JIN-Q0), decide whether to
+authorize a separate TEXTUAL ROOT AUDIT, and then consider SINGLE-MOTHER PARENTAGE
+ADJUDICATION only for flagged actual textual nodes. Do not reopen all 57
+indiscriminately. Participant arc remains UNADJUDICATED; consumer NOT IMPLEMENTED.
+
+## Previous completed task — R4.4-CONTRACT.0.1 layered input contract audit, 2026-09-24
 
 Active specification: [R4_4_CONTRACT_0_1_SPEC.md](R4_4_CONTRACT_0_1_SPEC.md);
 execution: [README_MILAL_R4_4_CONTRACT_0_1.md](README_MILAL_R4_4_CONTRACT_0_1.md);
