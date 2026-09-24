@@ -1,0 +1,981 @@
+{
+  "proposal_status": "CONTRACT_PROPOSAL",
+  "fields": {
+    "node": [
+      {
+        "field": "node_id",
+        "type": "string",
+        "required": true,
+        "rule": "Exact canonical node_id; never merge by locus.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "canonical_node_id",
+        "type": "string",
+        "required": true,
+        "rule": "canonical_textual_node when explicitly supplied; otherwise the same node_id. Role aliases remain records.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "node_kind",
+        "type": "enum",
+        "required": true,
+        "rule": "Reuse TEXTUAL_NODE, TRANSITION_ANCHOR, ROLE_ALIAS, COMPOSITION_GROUP, TECHNICAL_ROOT, SOURCE_EVIDENCE_ANCHOR. A textual anchor is not automatically a unit.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "textuality",
+        "type": "enum",
+        "required": true,
+        "rule": "TEXTUAL / NON_TEXTUAL / TECHNICAL from stored textual boolean and explicit technical kind; alias retains textuality but is not another unit.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "reference_start",
+        "type": "optional string",
+        "required": true,
+        "rule": "Original structured reference_start or span_start only; do not parse a display range into unit coverage.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "reference_end",
+        "type": "optional string",
+        "required": true,
+        "rule": "Original structured reference_end or span_end only; not preceding-verse inference.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "anchor_ref",
+        "type": "string",
+        "required": true,
+        "rule": "Exact reference expression; may name a locus or supplied group scope.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "span_type",
+        "type": "enum",
+        "required": true,
+        "rule": "HISTORICAL_LOCUS / SUPPLIED_GROUP_SCOPE / SOURCE_EVIDENCE_LOCUS / NO_SPAN_RECORDED; never infer coverage from membership.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "structural_function",
+        "type": "string",
+        "required": true,
+        "rule": "Exact frozen function, including NO_BOUNDARY and transition functions.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "speaker",
+        "type": "optional string",
+        "required": true,
+        "rule": "Only original human_speaker if recorded; do not resolve participants.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "participant_role",
+        "type": "optional string",
+        "required": true,
+        "rule": "Only explicit source field; missing is NOT_RECORDED, not an inferred identity.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "source_stage",
+        "type": "string",
+        "required": true,
+        "rule": "Exact source_stage.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "human_status",
+        "type": "object",
+        "required": true,
+        "rule": "Source authority and accepted annotations; do not coerce source frozen status into an invented human vote.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "frozen_status",
+        "type": "string",
+        "required": true,
+        "rule": "Exact frozen_status.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "historical_parent_status",
+        "type": "optional string",
+        "required": true,
+        "rule": "original_record.parentage_status if present; explicit missing-field state otherwise.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "parentage_necessity_status",
+        "type": "optional string",
+        "required": true,
+        "rule": "Exact latest human necessity status joined by node_id only.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "additional_parentage_review_required",
+        "type": "optional boolean",
+        "required": true,
+        "rule": "Separate latest necessity claim; no overwriting historical later_human_review_required.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "direct_parent_edge_resolved",
+        "type": "optional boolean",
+        "required": true,
+        "rule": "Latest necessity review did not discover parent edges.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "direct_parent_ids",
+        "type": "array",
+        "required": true,
+        "rule": "Only existing explicit original_record.direct_parent_ids; no synthetic defaults.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "technical_only",
+        "type": "boolean",
+        "required": true,
+        "rule": "True only for explicit technical root/navigation kinds.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "qualified_spans",
+        "type": "array",
+        "required": true,
+        "rule": "All accepted_annotations and source-supplied group spans with authority, preserved independently of historical loci.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "provenance_ids",
+        "type": "array",
+        "required": true,
+        "rule": "Exact record receipt plus original source chain, never lossy merge.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "field_presence",
+        "type": "object",
+        "required": true,
+        "rule": "Missing optional source field is NOT_RECORDED; distinguish false, empty, NOT_APPLICABLE and UNRESOLVED.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "original_record",
+        "type": "object",
+        "required": true,
+        "rule": "Full original canonical record, including all original source records and annotations.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      }
+    ],
+    "relation": [
+      {
+        "field": "relation_id",
+        "type": "string",
+        "required": true,
+        "rule": "Exact existing relation_id.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "source_id",
+        "type": "string",
+        "required": true,
+        "rule": "Exact source_node; empty is allowed only with native reference/scope endpoint form.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "target_id",
+        "type": "string",
+        "required": true,
+        "rule": "Exact target_node; no reference-to-node guessing.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "endpoint_form",
+        "type": "enum",
+        "required": true,
+        "rule": "NODE_IDS / REFERENCE_PAIR / REFERENCE_SCOPE; no fabricated overlay anchors.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "source_ref",
+        "type": "string",
+        "required": true,
+        "rule": "Exact native reference endpoint, if supplied.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "target_ref",
+        "type": "string",
+        "required": true,
+        "rule": "Exact native reference endpoint, if supplied.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "scope_ref",
+        "type": "string",
+        "required": true,
+        "rule": "Exact native scope endpoint, if supplied; not forced into a binary edge.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "relation_layer",
+        "type": "enum",
+        "required": true,
+        "rule": "Explicit source layer, retaining COMPOSITION_GROUPING convention; validate against the source member, not relation_type alone.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "relation_type",
+        "type": "string",
+        "required": true,
+        "rule": "Exact existing type; SAME_LEVEL_SIBLING differs from SAME_LEVEL_COMPOSITION_PEERS.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "polarity",
+        "type": "enum",
+        "required": true,
+        "rule": "NEGATIVE for explicit negative layer; TECHNICAL for navigation; POSITIVE otherwise. Absence creates no record.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "directionality",
+        "type": "string",
+        "required": true,
+        "rule": "Original direction when supplied; otherwise stored orientation, with peer reciprocity preserved and no inverse generation.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "status",
+        "type": "string",
+        "required": true,
+        "rule": "Exact source_status, including ACCEPTED_SOURCE; separate from review/frozen/historical axes.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "human_supplied",
+        "type": "boolean",
+        "required": true,
+        "rule": "True for HUMAN_ACCEPTED_SOURCE, false for explicit automatic-derived/technical origin; original authority remains intact.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "automatic_resolution",
+        "type": "boolean",
+        "required": true,
+        "rule": "False: contract mapping makes no analytical resolution.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "source_stage",
+        "type": "string",
+        "required": true,
+        "rule": "Exact originating stage.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "evidence_ids",
+        "type": "object",
+        "required": true,
+        "rule": "Source-named evidence ID fields retained with paths; empty technical evidence is explicitly allowed.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "provenance_ids",
+        "type": "array",
+        "required": true,
+        "rule": "Exact current source receipt; full original provenance chain retained.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "limitations",
+        "type": "object",
+        "required": true,
+        "rule": "Source-named limitation fields retained with paths; absence is NOT_RECORDED.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "historical_status",
+        "type": "object",
+        "required": true,
+        "rule": "Original status fields stay in the source record; not collapsed into active status.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "original_dimension",
+        "type": "string",
+        "required": true,
+        "rule": "Preserve DIRECT_CLOSURE_TARGET, RESPONSE_RELATION etc. Different dimensions are not conflicts.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "membership_position",
+        "type": "string or number",
+        "required": true,
+        "rule": "Exact stored ordering field, no new ORDERED_MEMBER edge.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "graph_scope",
+        "type": "enum",
+        "required": true,
+        "rule": "ANALYTICAL_GRAPH or TECHNICAL_NAVIGATION based on source layer.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "original_record",
+        "type": "object",
+        "required": true,
+        "rule": "Full canonical relation and all originating records/provenance; no record deleted.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      }
+    ],
+    "status": [
+      {
+        "field": "adjudication_status",
+        "type": "enum",
+        "required": true,
+        "rule": "Keep ACCEPTED / ACCEPTED_SOURCE / UNRESOLVED independently; do not promote a deferred candidate.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "human_decision_status",
+        "type": "enum",
+        "required": true,
+        "rule": "HUMAN_DEFERRED is a decision while candidate remains UNRESOLVED.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "historical_status",
+        "type": "object",
+        "required": true,
+        "rule": "HISTORICAL records retain original status; SUPERSEDED_BY_LATER_ADJUDICATION is a scoped link, not a rewrite.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "necessity_status",
+        "type": "enum",
+        "required": true,
+        "rule": "DIRECT_PARENT_NOT_REQUIRED / CURRENT_LAYERED_RELATIONS_SUFFICIENT / DIRECT_TEXTUAL_PARENT_NOT_REQUIRED; independent of parent existence.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "review_status",
+        "type": "enum",
+        "required": true,
+        "rule": "UNREVIEWED future or historical proposal stays separate from actual supplied human decisions.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "frozen_status",
+        "type": "enum",
+        "required": true,
+        "rule": "FROZEN / FROZEN_SOURCE is immutability/provenance, not generic analytical acceptance.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "future_scope_status",
+        "type": "enum",
+        "required": true,
+        "rule": "NEXT_RESEARCH_SCOPE / UNADJUDICATED remains a note, not a live accepted relation.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      }
+    ],
+    "provenance": [
+      {
+        "field": "originating_stage",
+        "type": "string",
+        "required": true,
+        "rule": "Exact source_stage or named authoritative source family.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "historical_source_id",
+        "type": "string",
+        "required": true,
+        "rule": "Typed object identity plus exact source member and row; no text matching.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "human_judgment_ids",
+        "type": "object",
+        "required": true,
+        "rule": "Preserve exact named IDs and their field paths in original records; do not invent missing human IDs for technical objects.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "evidence_ids",
+        "type": "object",
+        "required": true,
+        "rule": "Preserve all named evidence collections, their paths and scope; not representative samples.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "later_addendum_ids",
+        "type": "object",
+        "required": true,
+        "rule": "Exact seam/ANA/necessity decision IDs; scoped links only.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "source_receipt",
+        "type": "object",
+        "required": true,
+        "rule": "artifact SHA256, member SHA256, raw CSV row SHA256, member, data_row, identity key/value.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "upstream_provenance",
+        "type": "array/object",
+        "required": true,
+        "rule": "Complete original provenance including nested source records and JSON pointers retained.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "authority_scope",
+        "type": "string",
+        "required": true,
+        "rule": "Observation, human adjudication, necessity or technical context; rank only within an explicit question/dimension.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      },
+      {
+        "field": "missing_value_policy",
+        "type": "string",
+        "required": true,
+        "rule": "NOT_RECORDED / NOT_APPLICABLE with source field presence; never fabricated IDs.",
+        "proposal_status": "CONTRACT_PROPOSAL"
+      }
+    ]
+  },
+  "node_kinds": {
+    "TEXTUAL_NODE": "TEXTUAL",
+    "TRANSITION_ANCHOR": "TEXTUAL",
+    "ROLE_ALIAS": "TEXTUAL",
+    "COMPOSITION_GROUP": "NON_TEXTUAL",
+    "TECHNICAL_ROOT": "TECHNICAL",
+    "SOURCE_EVIDENCE_ANCHOR": "NON_TEXTUAL"
+  },
+  "relation_layers": [
+    "TEXTUAL_HIERARCHY",
+    "TEXTUAL_SAME_LEVEL",
+    "COMPOSITION_GROUPING",
+    "TRANSITION",
+    "OVERLAY_RESPONSIO",
+    "NEGATIVE_CONSTRAINT",
+    "TECHNICAL_NAVIGATION"
+  ],
+  "endpoint_forms": [
+    "NODE_IDS",
+    "REFERENCE_PAIR",
+    "REFERENCE_SCOPE"
+  ],
+  "future_overlay_extension": {
+    "proposal_status": "CONTRACT_PROPOSAL",
+    "extension_point": "APPEND_SEPARATE_TYPED_OVERLAY_RECORDS_AFTER_HUMAN_APPROVAL",
+    "lower_layer_mutation_required": false,
+    "actual_relations_created": []
+  },
+  "cycle_policy": {
+    "parent_types": [
+      "CHILD_OF",
+      "HIERARCHICALLY_ABOVE"
+    ],
+    "parent_layer": "TEXTUAL_HIERARCHY",
+    "same_level_policy": "RECIPROCAL_ARCS_ALLOWED",
+    "composition_membership_policy": "SEPARATE_MEMBERSHIP_DAG_IF_APPROVED",
+    "transition_overlay_negative_policy": "NO_GENERIC_TREE_CYCLE_TEST"
+  },
+  "review_questions": [
+    "Adopt a layered typed graph instead of a complete one-parent tree?",
+    "Preserve historical unresolved parent and human parent-not-required concurrently?",
+    "Freeze the invariant that current non-textual composition groups cannot serve as textual parents?",
+    "Separate technical navigation from the analytical graph?",
+    "Keep human negative constraints as first-class records?",
+    "Allow future participant/rhetorical overlays to be appended without changing frozen lower layers?",
+    "Validate cycles according to relation-layer semantics rather than the heterogeneous whole graph?"
+  ],
+  "fixtures": [
+    {
+      "fixture_id": "JOB_2_11",
+      "assertions": [
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "H:HSA012",
+            "textuality": "TEXTUAL",
+            "structural_function": "PARAGRAPH_ONSET",
+            "historical_parent_status": "UNRESOLVED",
+            "parentage_necessity_status": "DIRECT_TEXTUAL_PARENT_NOT_REQUIRED",
+            "direct_parent_ids": [],
+            "original_record.accepted_annotations.original_record.label": "FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA012",
+            "target_id": "OPENING_NARRATIVE_COMPLEX"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NOT_WITHIN_SECOND_TESTING_SCENE",
+            "relation_layer": "NEGATIVE_CONSTRAINT",
+            "source_id": "H:HSA012",
+            "target_id": "HUMAN_SCOPE_2_1_10"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "JOB_31_40",
+      "assertions": [
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "H:HSA017",
+            "structural_function": "SPEECH_UNIT_END"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "DIRECT_LOCAL_CLOSURE",
+            "relation_layer": "TEXTUAL_HIERARCHY",
+            "original_dimension": "DIRECT_CLOSURE_TARGET",
+            "source_id": "H:HSA017",
+            "target_id": "H:HSA016"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NO_DIRECT_RELATION",
+            "relation_layer": "NEGATIVE_CONSTRAINT",
+            "original_dimension": "DIRECT_CLOSURE_TARGET",
+            "source_id": "H:HSA017",
+            "target_id": "H:HSA015"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "TERMINATES_ENCLOSING_GROUP",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA017",
+            "target_id": "POST_DIALOGUE_JOB"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "JOB_32_1",
+      "assertions": [
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "H:HSA018",
+            "structural_function": "TRANSITION_COMPONENT",
+            "additional_parentage_review_required": false,
+            "direct_parent_ids": []
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "TRANSITION_COMPONENT",
+            "relation_layer": "TRANSITION",
+            "source_id": "H:HSA018",
+            "target_id": "H:HSA018"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "POST_CLOSURE_TRANSITION",
+            "relation_layer": "TRANSITION",
+            "source_ref": "31:40",
+            "target_ref": "32:1",
+            "endpoint_form": "REFERENCE_PAIR"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "CONTRASTIVE_ANA_FRAME",
+            "relation_layer": "OVERLAY_RESPONSIO",
+            "source_ref": "32:1",
+            "target_ref": "38:1"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "ELIHU",
+      "assertions": [
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "H:HSA019",
+            "anchor_ref": "32:2",
+            "original_record.original_record.reference_end": "32:5"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NARRATIVE_INTRODUCTION",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA019",
+            "target_id": "ELIHU_SPEECH_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "ELIHU_SPEECH_SEQUENCE",
+            "node_kind": "COMPOSITION_GROUP",
+            "original_record.accepted_annotations.original_record.group_scope": "32:6–37:24"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "ELIHU_RESPONSE_ROLE_INTERVENTION",
+            "relation_layer": "OVERLAY_RESPONSIO",
+            "scope_ref": "32:2–37:24",
+            "endpoint_form": "REFERENCE_SCOPE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA020",
+            "target_id": "ELIHU_SPEECH_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA021",
+            "target_id": "ELIHU_SPEECH_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA022",
+            "target_id": "ELIHU_SPEECH_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA023",
+            "target_id": "ELIHU_SPEECH_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA020",
+            "target_id": "H:HSA021"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA020",
+            "target_id": "H:HSA022"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA020",
+            "target_id": "H:HSA023"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA021",
+            "target_id": "H:HSA020"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA021",
+            "target_id": "H:HSA022"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA021",
+            "target_id": "H:HSA023"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA022",
+            "target_id": "H:HSA020"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA022",
+            "target_id": "H:HSA021"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA022",
+            "target_id": "H:HSA023"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA023",
+            "target_id": "H:HSA020"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA023",
+            "target_id": "H:HSA021"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA023",
+            "target_id": "H:HSA022"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "JOB_37_24_38_1",
+      "assertions": [
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NO_DIRECT_PARENTAGE",
+            "relation_layer": "NEGATIVE_CONSTRAINT",
+            "source_id": "H:HSA024",
+            "target_id": "H:HSA025"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NO_DIRECT_RESPONSE_ANTECEDENT",
+            "relation_layer": "NEGATIVE_CONSTRAINT",
+            "source_id": "H:HSA024",
+            "target_id": "H:HSA025"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "CONTRASTIVE_ANA_FRAME",
+            "relation_layer": "OVERLAY_RESPONSIO",
+            "source_ref": "32:1",
+            "target_ref": "38:1"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "ELIHU_RESPONSE_ROLE_INTERVENTION",
+            "relation_layer": "OVERLAY_RESPONSIO",
+            "scope_ref": "32:2–37:24"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "YHWH_RESPONSE",
+      "assertions": [
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA025",
+            "target_id": "H:HSA028"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_SIBLING",
+            "relation_layer": "TEXTUAL_SAME_LEVEL",
+            "source_id": "H:HSA028",
+            "target_id": "H:HSA025"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "SAME_LEVEL_COMPOSITION_PEERS",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "YHWH_JOB_RESPONSE_COMPLEX_1",
+            "target_id": "YHWH_JOB_RESPONSE_COMPLEX_2"
+          }
+        },
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "YHWH_JOB_RESPONSE_SEQUENCE",
+            "node_kind": "COMPOSITION_GROUP"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "YHWH_JOB_RESPONSE_COMPLEX_1",
+            "target_id": "YHWH_JOB_RESPONSE_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "YHWH_JOB_RESPONSE_COMPLEX_2",
+            "target_id": "YHWH_JOB_RESPONSE_SEQUENCE"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "CHILD_OF",
+            "relation_layer": "TEXTUAL_HIERARCHY",
+            "source_id": "H:HSA026",
+            "target_id": "H:HSA025"
+          }
+        }
+      ]
+    },
+    {
+      "fixture_id": "JOB_42",
+      "assertions": [
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "H:HSA030",
+            "anchor_ref": "42:7",
+            "structural_function": "PARAGRAPH_ONSET"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "GROUP_MEMBER_OF",
+            "relation_layer": "COMPOSITION_GROUPING",
+            "source_id": "H:HSA030",
+            "target_id": "FINAL_NARRATIVE_COMPLEX"
+          }
+        },
+        {
+          "record_kind": "NODE",
+          "where": {
+            "node_id": "FINAL_NARRATIVE_COMPLEX",
+            "node_kind": "COMPOSITION_GROUP",
+            "original_record.original_record.span_start": "42:7"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "POST_SPEECH_NARRATIVE_TRANSITION",
+            "relation_layer": "TRANSITION",
+            "source_id": "YHWH_JOB_RESPONSE_SEQUENCE",
+            "target_id": "FINAL_NARRATIVE_COMPLEX"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "NO_BOUNDARY",
+            "relation_layer": "NEGATIVE_CONSTRAINT",
+            "source_id": "H:HSA031",
+            "target_id": "H:HSA031"
+          }
+        },
+        {
+          "record_kind": "RELATION",
+          "where": {
+            "relation_type": "CONTINUES_WITHIN",
+            "relation_layer": "TEXTUAL_HIERARCHY",
+            "source_id": "H:HSA031",
+            "target_id": "H:HSA030"
+          }
+        },
+        {
+          "record_kind": "NODE",
+          "where": {
+            "anchor_ref": "42:10",
+            "node_kind": "SOURCE_EVIDENCE_ANCHOR"
+          }
+        },
+        {
+          "record_kind": "NODE",
+          "where": {
+            "anchor_ref": "42:12",
+            "node_kind": "SOURCE_EVIDENCE_ANCHOR"
+          }
+        }
+      ]
+    }
+  ]
+}

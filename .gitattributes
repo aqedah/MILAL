@@ -31,3 +31,5 @@ docs/HSA3_FG_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,sp
 docs/HSA3_LAYER_0_1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 docs/HSA3_LAYER_0_2_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+docs/R4_4_CONTRACT_0_1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

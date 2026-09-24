@@ -1,6 +1,57 @@
 # MILAL Development Handoff
 
-## Current task — HSA3-LAYER.0.2 parentage necessity human freeze, 2026-09-24
+## Current task — R4.4-CONTRACT.0.1 layered input contract audit, 2026-09-24
+
+Active specification: [R4_4_CONTRACT_0_1_SPEC.md](R4_4_CONTRACT_0_1_SPEC.md);
+execution: [README_MILAL_R4_4_CONTRACT_0_1.md](README_MILAL_R4_4_CONTRACT_0_1.md);
+authority: [exact researcher request](R4_4_CONTRACT_0_1_RESEARCHER_SOURCE.txt).
+Starting HEAD: `113a1f3fe13ff9698a97f82f3f1a53b41b4f3b21`.
+The user authorizes architecture/schema audit, input CONTRACT_PROPOSAL,
+synthetic and frozen-real mapping dry-runs, independent rerun, and commit/push.
+No R4.4 analytical consumer or final-output contract is implemented.
+
+Audit complete: **READY_FOR_HUMAN_CONTRACT_REVIEW**. Q1–Q7 remain UNREVIEWED
+with blank answers. No Codex approval or READY_FOR_IMPLEMENTATION declaration.
+R4.3 already expresses a partial scaffold, typed relations and technical-only
+root links; it does not require a complete tree. Actual restrictions include
+at most one asserted parent and a historical blanket later-review flag.
+The latter is no longer the active queue after the 57 necessity decisions.
+R4.3 mixed 06_overlay view is historical, not modern OVERLAY_RESPONSIO.
+
+Propose explicit node kinds/textuality, seven source relation layers, native
+NODE_IDS / REFERENCE_PAIR / REFERENCE_SCOPE endpoints, independent status axes,
+qualified spans, exact provenance and scoped human-decision precedence.
+Preserve historical records; no guessed endpoints, default parents, full-tree
+synthesis or composition-to-parent conversion. Same-level reciprocal arcs are
+valid; hierarchy cycles are tested only for explicit parent relations.
+
+Real mapping: **646 records** = LOSSLESS 331, LOSSLESS_WITH_EXTENSION 308,
+AMBIGUOUS_SCHEMA 0, INCOMPATIBLE 0, NOT_APPLICABLE 7 (preserved presentation views).
+Seven real fixtures PASS: 2:11, 31:40, 32:1, Elihu, 37:24/38:1, YHWH response,
+Job 42. R4.3 audit covers 83 field/document entries in 10 artifacts. Its historical
+parent-status ambiguity is represented through separate axes in the proposal;
+no mapping schema blocker remains under the proposed extensions.
+
+All 57 historical parents remain UNRESOLVED; 57 necessity decisions FROZEN;
+active future direct-parent questions 0; new parent edges 0. A–G FROZEN;
+ANA-Q2/Q4/Q5 accepted, Q3 UNRESOLVED/HUMAN_DEFERRED. Participant arc remains
+NEXT_RESEARCH_SCOPE / UNADJUDICATED; extensibility test creates no relation.
+New human judgments / structural / composition / overlay relations = 0 / 0 / 0 / 0.
+All prior analytical cores remain unchanged. R4.4 analytical consumer NOT STARTED.
+
+Validation: **68 new / 1,325 total tests PASS, skip 0**; syntax PASS;
+synthetic/real/independent rerun **44/44 run gates PASS**, every gate negatively
+tested; **2/2 external release gates PASS**. Two real ZIPs byte-identical.
+All 237 upstream members, 169 frozen repository pins and 646 exact source receipts
+verified; output 257 members and 16 valid manifests.
+Real ZIP: `results/r4_4_contract_0_1_real_final_20260924_a_results.zip`, SHA256
+`9fb5e4ec65cb7eb8961a1ee25c4cd7f64a0c5ee598fb160d0dcd0bfaae5560f2`.
+Review packet: `results/r4_4_contract_0_1_real_final_20260924_a/13_r4_4_contract_review_packet.md`.
+Details: [R4_4_CONTRACT_0_1_VALIDATION_REPORT.md](R4_4_CONTRACT_0_1_VALIDATION_REPORT.md).
+Next: researcher contract review Q1–Q7 and explicit extension decisions;
+R4.4 implementation requires separate subsequent authorization.
+
+## Previous completed task — HSA3-LAYER.0.2 parentage necessity human freeze, 2026-09-24
 
 Active specification: [HSA3_LAYER_0_2_SPEC.md](HSA3_LAYER_0_2_SPEC.md); execution:
 [README_MILAL_HSA3_LAYER_0_2.md](README_MILAL_HSA3_LAYER_0_2.md); authority:
