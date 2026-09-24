@@ -1,6 +1,48 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.9 independent strict/macro top-level audit, 2026-09-24
+## Current task — MFR.0.1 marker-first reconstruction baseline, 2026-09-24
+
+Active specification: [MFR.0.1](MFR_0_1_SPEC.md); authority:
+[exact researcher request](MFR_0_1_RESEARCHER_SOURCE.txt); method:
+[MARKER_FIRST_METHOD](MARKER_FIRST_METHOD.md); execution:
+[Windows/Termux README](README_MILAL_MFR_0_1.md); results:
+[validation report](MFR_0_1_VALIDATION_REPORT.md).
+Start HEAD `3ee008dc59bc507dcb77ff14be5cfcea0643d4c5`.
+
+**MARKER_FIRST_BASELINE_ESTABLISHED**;
+**READY_FOR_MARKER_RELATION_HUMAN_REVIEW**.
+This supersedes the active discovery workflow, not historical judgments/artifacts.
+Surface markers → families → force/coverage evidence → relation candidates →
+human adjudication → hierarchy → interpretation. No root or tree is generated.
+No strict/macro preclassification, same-book/chapter/verse eligibility filter,
+coverage winner, numeric force score or forced one-mother constraint.
+
+Five raw BHSA 2021 scopes independently freeze before known-control and historical
+loads. Actual read/source and target-reference leakage counts: zero.
+Job: 2938 clauses; 2977 atoms; 41405 signatures;
+1120 markers, 5717 families, 7357 memberships;
+4092 alternative coverage intervals; 2435 relation pairs.
+Labels coexist and are not accepted hierarchy. Full corpus/control details in report.
+All 250 historical relations and 335 baseline asset hashes unchanged.
+Historical chronology lacking proof remains PROVENANCE_UNCLEAR, requiring marker-first
+readjudication. New judgments/accepted relations/roots/migration zero; participant
+arc UNADJUDICATED; R4.4 consumer absent. Previous analytical cores remain frozen.
+
+Validation: 97 stage tests; full **1957 PASS / fail0 / error0 / skip0**.
+**55 run gates + 3 external release gates PASS**, negative-tested. Independent real
+Windows rerun byte-identical; five blind manifests and final manifest verified.
+No empirical Termux claim. Final ZIP: `results/mfr01_real_corrected_20260924_a_results.zip`.
+SHA256 `a0904cb11931790e6d78d53f5f67731aba067c5feca4ed50dd10eb11e268b05d`.
+
+필수 업로드: final MFR.0.1 results ZIP (complete package).
+추가 검증용: validation report, human review packet, selected CSVs if needed.
+No raw inputs/results/logs are committed. Request section 54 authorizes commit/push.
+
+Next: MFR.0.2 human marker-family/relation adjudication. Only afterward MFR.0.3
+adjudicated-relation hierarchy assembly. Plot/narrative/rhetoric integration follows.
+Do not declare R4.4 implementation readiness or root resolution.
+
+## Previous task — R4.4-CONTRACT.JIN.0.9 independent strict/macro top-level audit, 2026-09-24
 
 Active specification: [JIN.0.9 spec](R4_4_CONTRACT_JIN_0_9_SPEC.md);
 authority: [exact researcher request](R4_4_CONTRACT_JIN_0_9_RESEARCHER_SOURCE.txt);

@@ -1,0 +1,95 @@
+{
+  "version": "MFR.0.1",
+  "construction_window": 4,
+  "same_book_required": false,
+  "speech_predicates": [
+    ">MR[",
+    "DBR[",
+    "QR>[",
+    "<NH["
+  ],
+  "cessation_predicates": [
+    "TMM[",
+    "KLH[",
+    "CBT["
+  ],
+  "add_predicate": "JSP[",
+  "call_predicate": "QR>[",
+  "proverb_noun": "MCL/",
+  "open_predicate": "PTX[",
+  "mouth_noun": "PH/",
+  "be_predicate": "HJH[",
+  "temporal_lexemes": [
+    "JWM/",
+    "LJLH/",
+    "<T/",
+    ">XR/"
+  ],
+  "divine_name": "JHWH/",
+  "addressee_name": "MCH=/",
+  "revelation_nouns": [
+    "XZWN/",
+    "DBR/"
+  ],
+  "relative_lexeme": ">CR",
+  "death_predicate": "MWT[",
+  "death_noun": "MWT/",
+  "after_lexeme": ">XR/",
+  "year_noun": "CNH/",
+  "one_lexeme": ">XD/",
+  "scopes": {
+    "job": {
+      "books": [
+        "Iob"
+      ],
+      "prefix": "JM"
+    },
+    "pentateuch": {
+      "books": [
+        "Genesis",
+        "Exodus",
+        "Leviticus",
+        "Numeri",
+        "Deuteronomium"
+      ],
+      "prefix": "PM"
+    },
+    "prophets": {
+      "books": [
+        "Jesaia",
+        "Jeremia",
+        "Ezechiel",
+        "Hosea",
+        "Joel",
+        "Amos",
+        "Obadia",
+        "Jona",
+        "Micha",
+        "Nahum",
+        "Habakuk",
+        "Zephania",
+        "Haggai",
+        "Sacharia",
+        "Maleachi"
+      ],
+      "prefix": "HM"
+    },
+    "death": {
+      "books": [
+        "Deuteronomium",
+        "Josua",
+        "Judices",
+        "Samuel_I",
+        "Samuel_II"
+      ],
+      "prefix": "DM"
+    },
+    "daniel_ezra": {
+      "books": [
+        "Daniel",
+        "Esra"
+      ],
+      "prefix": "KM"
+    }
+  }
+}

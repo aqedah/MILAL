@@ -1,0 +1,2107 @@
+현재 MILAL 저장소에서 다음 작업을 구현·검증하고, 모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.1
+— Marker-First Reconstruction Baseline
+— Surface Marker Families → Hierarchical-Force Evidence → Relation Candidates
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  3ee008dc59bc507dcb77ff14be5cfcea0643d4c5
+
+중요:
+이 작업은 JIN.0.9의 연장이 아니라
+MILAL의 발견 순서를 바로잡는 MARKER-FIRST reconstruction baseline이다.
+
+Git history는 되돌리지 않는다.
+HSA1부터 JIN.0.9까지 모든 artifact와 human judgment는
+historical provenance로 그대로 보존한다.
+
+그러나 MFR.0.1의 BLIND DISCOVERY에서는
+기존 구조 판단을 입력으로 사용하지 않는다.
+
+==================================================
+0. 연구자의 수정된 방법론 — 최우선
+==================================================
+
+MILAL의 발견 순서는 반드시 다음과 같다.
+
+SURFACE-LINGUISTIC MARKERS
+        ↓
+MARKER FAMILIES
+        ↓
+FORMAL / SYNTACTIC CORRESPONDENCE
+        ↓
+HIERARCHICAL-FORCE EVIDENCE
+        ↓
+MARKER-TO-MARKER RELATION CANDIDATES
+        ↓
+HUMAN ADJUDICATION
+        ↓
+TEXT-HIERARCHICAL STRUCTURE
+        ↓
+PLOT / RHETORICAL / LITERARY INTERPRETATION
+
+절대로 다음 순서로 가지 않는다.
+
+literary outline
+→ scene/group/root
+→ marker assignment
+
+또한:
+
+BOOK BOUNDARY
+≠
+ABSOLUTE TEXT-HIERARCHY BOUNDARY
+
+SCOPE BOUNDARY
+≠
+TEXTUAL BOUNDARY
+
+책/장/절 정보는 metadata다.
+candidate generation을 차단하는 규칙이 아니다.
+
+동일한 표층 형식:
+≠ 자동 동일 textual level
+
+서로 다른 표층 형식:
+≠ 자동 다른 textual level
+
+동일 marker family의 실제 hierarchical force는
+다른 marker들과의 관계, adjunct configuration,
+분포, coverage, surrounding configuration 등에서 판정된다.
+
+==================================================
+1. 핵심 금지사항
+==================================================
+
+MFR.0.1 BLIND DISCOVERY에서는 다음을 절대 입력하지 않는다.
+
+- HSA1 human judgments
+- HSA2 / HSA2-F
+- HSA3 A–G decisions
+- JIN.0.1–0.9 human judgments
+- CHILD_OF accepted relations
+- SAME_LEVEL accepted relations
+- HIERARCHICALLY_ABOVE
+- CONTINUES_WITHIN human interpretation
+- scene labels
+- cycle labels
+- speech-group labels
+- dialogue-group labels
+- OPENING_NARRATIVE_COMPLEX
+- JOB_FRIENDS_DISPUTE_COMPLEX
+- POST_DIALOGUE_JOB
+- ELIHU_SPEECH_SEQUENCE
+- YHWH_JOB_RESPONSE_SEQUENCE
+- FINAL_NARRATIVE_COMPLEX
+- participant arc
+- transition adjudications
+- macro containment adjudications
+- root adjudications
+- JOB_NARRATIVE_ROOT
+- JOB_BOOK technical root
+- strict/macro relation-layer judgments
+- traditional Job outline
+- commentary-derived outline
+
+다음과 같은 reference-specific rule도 금지한다.
+
+if ref == "1:13": ...
+if ref == "32:1": ...
+if ref == "38:1": ...
+
+Known references may appear ONLY in post-blind validation controls.
+
+==================================================
+2. 기존 작업은 삭제하지 말고 QUARANTINE
+==================================================
+
+Stage 0에서 기존 repository assets를 provenance 기준으로 분류한다.
+
+분류:
+
+A.
+OBSERVATION_SAFE
+
+예:
+- raw BHSA features
+- clause IDs
+- clause_atom IDs
+- word/phrase features
+- surface text
+- morphology
+- clause type
+- domain
+- lexical occurrence
+- reference metadata
+
+B.
+DERIVED_BLIND_SAFE
+
+human structural input 없이 생성된 것이 검증된 경우에만:
+- neutral formal signatures
+- raw pairwise feature bundles
+- context signatures
+- formula occurrences
+- raw frequency inventories
+
+C.
+POSTBLIND_ONLY
+
+예:
+- HSA judgments
+- accepted CHILD_OF
+- accepted SAME_LEVEL
+- cycle/group judgments
+- seam decisions
+- JIN human adjudications
+- revised contracts
+- relation-layer decisions
+
+D.
+CONTAMINATED_OR_UNCLEAR
+
+dependency provenance가 불명확하거나
+human structural labels에 의존한 code/data.
+
+Rule:
+C/D는 blind discovery에서 로드 금지.
+
+D는 재사용하지 말고 필요한 helper를 clean-room 방식으로 다시 구현.
+
+출력:
+01_existing_asset_provenance_audit.csv
+
+필드:
+asset_path
+asset_type
+source_stage
+dependency_summary
+human_dependency
+structural_label_dependency
+reuse_class
+reason
+
+==================================================
+3. BLIND INPUT WHITELIST
+==================================================
+
+Blind Job run에서 허용하는 input:
+
+- BHSA 2021 raw Text-Fabric data
+- explicit MFR config
+- code-only generic linguistic rules
+- 검증된 OBSERVATION_SAFE helper
+- 검증된 DERIVED_BLIND_SAFE helper
+
+Blind run 종료 후 반드시:
+
+02_blind_input_manifest.csv
+
+생성.
+
+모든 실제 read file/path를 기록한다.
+
+Gate:
+BLIND_HUMAN_INPUT_COUNT = 0
+BLIND_STRUCTURAL_LABEL_INPUT_COUNT = 0
+BLIND_TECHNICAL_ROOT_INPUT_COUNT = 0
+
+==================================================
+4. BHSA source
+==================================================
+
+실제 BHSA 2021을 사용한다.
+
+Windows known path example:
+C:\Users\yisaa\text-fabric-data\github\etcbc\bhsa\tf\2021
+
+Termux known path:
+~/text-fabric-data/github/ETCBC/bhsa/tf/2021
+
+Hard-code하지 말고 runner/config에서 검증 후 사용.
+
+Job 전체:
+2,938 clauses expected from previous real run,
+but actual run에서 재검증한다.
+
+clause_atom을 canonical textual anchor로 사용하되:
+
+clause_atom anchor
+≠
+hierarchy judgment
+
+임을 유지한다.
+
+==================================================
+5. STEP A — Whole-Job Surface Observation Inventory
+==================================================
+
+Job 전체에서 모든 clause / clause_atom에 대해
+구조 판단 없이 observation table을 만든다.
+
+최소 필드:
+
+book
+chapter
+verse
+clause_id
+clause_atom_ids
+word_ids
+surface_hebrew
+
+clause_type
+domain
+
+predicate_lexeme
+predicate_morphology
+verbal_conjugation
+
+subject_surface
+subject_lexemes
+object_surface
+complement_surface
+addressee_surface
+
+phrase_function_sequence
+phrase_type_sequence
+constituent_order
+
+conjunction
+prepositions
+
+temporal_phrase_surface
+temporal_phrase_structure
+
+locative_phrase_surface
+locative_phrase_structure
+
+participant_surface_set
+
+lexeme_sequence
+pos_sequence
+
+reported_speech_features
+
+No structural_function.
+
+출력:
+03_job_surface_observation_inventory.csv
+
+==================================================
+6. STEP B — Multi-resolution formal signatures
+==================================================
+
+하나의 signature만 강제하지 않는다.
+
+각 clause/clause_atom occurrence에
+여러 resolution의 linguistic signatures를 생성한다.
+
+SIG_EXACT
+- lexeme
+- morphology
+- phrase order
+- conjunction/preposition
+- clause type
+
+SIG_LEXICAL_SLOT
+- 주요 lexical predicates/prepositions 보존
+- proper-name/participant values는 slot 처리 가능
+- 단 original value도 반드시 보존
+
+SIG_CONSTRUCTION
+- clause type
+- verbal form
+- subject/addressee configuration
+- phrase-function sequence
+- adjunct classes
+
+SIG_ADJUNCT
+- Time
+- Loca
+- double Loca
+- Time + Loca
+- 기타 adjunct configuration
+
+SIG_SEQUENCE_2
+SIG_SEQUENCE_3
+SIG_SEQUENCE_4
+
+연속 2–4 clause/atom configuration도 생성.
+
+중요:
+어느 signature가 “정답”인지 자동 결정하지 않는다.
+
+출력:
+04_job_formal_signatures.csv
+
+==================================================
+7. STEP C — Marker candidate discovery
+==================================================
+
+marker는 기존 구조점 목록에서 가져오지 않는다.
+
+Job 전체에서 generic하게 discovery한다.
+
+Marker candidate source는 최소:
+
+A.
+repeated clause formula
+
+B.
+repeated multi-clause formula/configuration
+
+C.
+formula + unusual adjunct expansion
+
+D.
+temporal frame construction
+
+E.
+locative frame construction
+
+F.
+speech-onset construction
+
+G.
+reported-speech formula
+
+H.
+formula resumption/repetition
+
+I.
+explicit cessation/ending construction
+
+J.
+subject/addressee configuration shift
+
+K.
+domain-transition-associated construction
+
+L.
+rare but formally explicit boundary-like construction
+
+Known examples such as:
+ויהי היום
+ויען ... ויאמר
+ויסף ... ויאמר
+פתח ... פה
+תמו דברי ...
+אחרי ...
+may naturally emerge,
+but do not seed their Job references.
+
+Marker IDs must be neutral:
+
+JM000001
+JM000002
+...
+
+출력:
+05_job_marker_candidates.csv
+
+==================================================
+8. singleton marker candidates
+==================================================
+
+반복 횟수 >=2만 marker로 인정하면 안 된다.
+
+독특하지만 명시적인 construction도 보존한다.
+
+예:
+explicit cessation formula
+unique extended construction
+rare formula with clear formal marking
+
+단:
+“31:40 is ending”
+같은 human judgment를 seed하지 않는다.
+
+generic linguistic construction으로 발견해야 한다.
+
+필드:
+singleton_reason
+formal_explicitness
+repeat_count
+
+==================================================
+9. STEP D — Marker Family formation
+==================================================
+
+marker occurrence들을 먼저 family 후보로 묶는다.
+
+다음 family relation들을 별도로 보존:
+
+EXACT_FORM_FAMILY
+
+SLOT_NORMALIZED_FAMILY
+
+CONSTRUCTION_FAMILY
+
+ADJUNCT_EXPANSION_FAMILY
+
+MULTI_CLAUSE_CONFIGURATION_FAMILY
+
+PARTIAL_FORMAL_FAMILY
+
+LEXICAL_RESUMPTION_FAMILY
+
+중요:
+
+family membership
+≠
+same textual level
+
+family membership
+≠
+parataxis
+
+family membership
+≠
+hypotaxis
+
+family membership은 correspondence evidence일 뿐이다.
+
+Family IDs:
+JMF0001
+JMF0002
+...
+
+출력:
+06_job_marker_family_registry.csv
+07_job_marker_family_membership.csv
+
+==================================================
+10. 동일 family 내 variant hierarchy를 미리 만들지 말 것
+==================================================
+
+예를 들어:
+
+FORMULA
+FORMULA + Loca
+FORMULA + Time
+FORMULA + Loca + Time
+
+등의 expansion relation은 기록할 수 있다.
+
+그러나:
+
+more adjuncts
+= higher level
+
+이라는 자동 규칙 금지.
+
+필드:
+base_construction
+extension_features
+added_adjuncts
+removed_adjuncts
+
+만 기록.
+
+==================================================
+11. STEP E — Hierarchical-Force Evidence Matrix
+==================================================
+
+이 단계가 핵심이다.
+
+각 marker occurrence마다
+“어느 계층이다”를 아직 결정하지 말고
+hierarchical-force 관련 증거를 계산한다.
+
+최소 evidence dimensions:
+
+HF_FORMAL_ELABORATION
+- base vs expanded formula
+- adjunct count
+- adjunct type
+- clause-sequence elaboration
+
+HF_RECURRENCE
+- family occurrences
+- repeated configurations
+
+HF_DISTRIBUTION
+- position of occurrence
+- recurrence distribution
+- gaps
+
+HF_CONTEXT_BEFORE
+- preceding clause sequence signature
+
+HF_CONTEXT_AFTER
+- following clause sequence signature
+
+HF_PARTICIPANT_CONFIGURATION
+- participant continuity/change
+
+HF_DOMAIN_CONFIGURATION
+- domain before/after
+
+HF_TEMPORAL_CONFIGURATION
+
+HF_LOCATIVE_CONFIGURATION
+
+HF_NESTED_MARKERS
+- 어떤 marker/family들이 candidate span 내부에 등장하는가
+
+HF_CLOSURE_CORRESPONDENCE
+- explicit/formal closure candidate와 대응하는가
+
+HF_COVERAGE_CANDIDATES
+- 가능한 coverage intervals
+
+HF_RESUMPTION
+- 앞선 formula/event/participant configuration을 재개하는가
+
+HF_CROSS_FAMILY_RELATION
+- 더 확장/축약된 family와 어떤 분포 관계인가
+
+Composite numerical score 금지.
+
+No:
+hierarchical_force_score
+rank
+best_marker
+
+출력:
+08_job_hierarchical_force_evidence.csv
+
+==================================================
+12. Coverage를 한 개로 확정하지 말 것
+==================================================
+
+진규상 방법에서 coverage는 중요한 evidence이지만
+coverage를 자동 hierarchy로 바꾸지 않는다.
+
+각 marker occurrence에 대해
+복수의 coverage candidate를 허용한다.
+
+가능 candidate ends:
+
+- next exact-family occurrence
+- next construction-family occurrence
+- next expansion-family peer
+- explicit closure candidate
+- configuration break
+- domain/configuration break
+- end of analysis scope
+
+각 row:
+
+coverage_candidate_id
+marker_id
+start_anchor
+candidate_end_anchor
+end_basis
+word_count
+clause_count
+nested_marker_count
+nested_family_count
+limitations
+
+출력:
+09_job_coverage_candidates.csv
+
+No winner.
+
+==================================================
+13. Nested marker configuration
+==================================================
+
+각 coverage candidate 안의 marker들을 계산한다.
+
+예:
+marker A의 candidate span 안에
+B, C, D families가 반복되는지.
+
+이를 통해:
+
+A encompasses B
+같은 “observed span relation evidence”를 만들 수 있지만
+
+아직:
+A mother of B
+
+라고 하지 않는다.
+
+출력:
+10_job_nested_marker_evidence.csv
+
+==================================================
+14. STEP F — Marker-to-Marker Relation Candidates
+==================================================
+
+이제서야 relation candidate를 생성한다.
+
+허용 candidate labels:
+
+FORMAL_PARALLEL_CANDIDATE
+
+PARATAXIS_CANDIDATE
+
+HYPOTAXIS_CANDIDATE
+
+EMBEDDING_CANDIDATE
+
+RESUMPTION_CANDIDATE
+
+TEMPORAL_RESUMPTION_CANDIDATE
+
+CLOSURE_TARGET_CANDIDATE
+
+HIGHER_ORDER_TERMINAL_EFFECT_CANDIDATE
+
+FORMAL_CORRESPONDENCE_ONLY
+
+COMPETING_RELATIONS
+
+INSUFFICIENT_EVIDENCE
+
+중요:
+candidate일 뿐이다.
+
+automatic_resolution = false
+
+==================================================
+15. relation candidate evidence
+==================================================
+
+각 pair/case에 최소:
+
+source_marker_id
+target_marker_id
+
+source_family_ids
+target_family_ids
+
+exact_form_correspondence
+construction_correspondence
+adjunct_correspondence
+
+context_before_correspondence
+context_after_correspondence
+
+participant_correspondence
+domain_correspondence
+
+temporal_correspondence
+locative_correspondence
+
+coverage_relationship
+nested_relationship
+
+resumption_evidence
+closure_evidence
+
+competing_evidence
+limitations
+
+relation_candidates
+
+를 기록.
+
+No selected_relation.
+
+출력:
+11_job_marker_relation_candidates.csv
+
+==================================================
+16. Pair universe 최적화
+==================================================
+
+모든 marker × marker pair를 무조건 materialize할 필요는 없다.
+
+linguistic index로 candidate를 생성한다.
+
+허용 index:
+- shared family
+- shared construction
+- adjunct expansion relation
+- lexical resumption
+- participant/configuration recurrence
+- closure/opening correspondence
+- sequence signature relation
+
+금지 index:
+- same chapter
+- same section
+- same HSA group
+- nearest preceding only
+- same book only
+- traditional structural unit
+
+==================================================
+17. BOOK BOUNDARY 규칙
+==================================================
+
+코드 계약으로 명시:
+
+same_book_required = false
+
+book field = metadata only
+
+chapter field = metadata only
+
+verse field = metadata only
+
+다음과 같은 filter가 존재하면 FAIL:
+
+if source.book != target.book:
+    reject_candidate
+
+또한 scope outside relation은:
+
+OUTSIDE_SCOPE_NOT_TESTED
+
+로 표현.
+
+절대:
+
+NO_RELATION
+
+으로 자동 바꾸지 않는다.
+
+==================================================
+18. STEP G — CROSS-CORPUS METHOD CONTROLS
+==================================================
+
+이 단계는 필수다.
+
+목적:
+욥기 결과를 검증하는 것이 아니라,
+MFR discovery logic이 book boundary나
+same-form assumptions에 오염되지 않았음을 검증한다.
+
+Control corpus blind run도
+known target refs를 seed하지 않는다.
+
+Known refs는 BLIND FREEZE 이후에만
+validation lookup에 사용한다.
+
+==================================================
+19. CONTROL A — Pentateuch EDSF
+==================================================
+
+Blind scope:
+Genesis–Deuteronomy
+
+Generic DSF detector:
+
+YHWH as explicit speech subject
++
+אמר / דבר speech predicate
++
+Moses addressee/complement configuration
++
+optional adjunct phrase(s)
+
+known reference list는 blind run에 주지 않는다.
+
+Blind outputs freeze 후
+다음 refs를 post-blind lookup:
+
+Exod 4:19
+Exod 12:1
+
+Lev 1:1
+Lev 16:1
+Lev 25:1
+
+Num 1:1
+Num 3:14
+Num 9:1
+Num 20:23
+Num 33:50
+Num 35:1
+
+Deut 32:48
+
+Post-blind reference classification
+(verified from Jin; validation reference only):
+
+Pattern 1:
+Num 1:1
+DSF + double Loca + Time
+
+Pattern 2:
+Num 9:1
+DSF + Loca + Time
+
+Pattern 3:
+Num 20:23
+Num 33:50
+Num 35:1
+DSF + double Loca
+
+Pattern 4:
+Exod 4:19
+Exod 12:1
+Lev 1:1
+Lev 25:1
+Num 3:14
+DSF + Loca
+
+Pattern 5:
+Lev 16:1
+Deut 32:48
+DSF + Time
+
+The validation must test:
+
+A.
+these occurrences are recoverable from generic formal rules,
+not ref-specific code.
+
+B.
+same formal pattern can occur across book boundaries.
+
+C.
+same formal pattern is NOT automatically assigned same textual level.
+
+D.
+book boundary does not block relation candidates.
+
+E.
+Num 3:14 being formally identical to Pattern-4 occurrences
+must NOT force identical hierarchical placement.
+
+Do NOT require Jin’s final hierarchy as blind output.
+
+Jin comparison is post-blind descriptive validation only.
+
+==================================================
+20. CONTROL B — Prophetic Superscriptions
+==================================================
+
+Blind scope:
+Latter Prophets corpus available in BHSA.
+
+No specific verse seeds.
+
+Generic discovery should detect superscription-like
+formal/configurational families where supported.
+
+Post-blind inspect at minimum:
+
+Isa 1:1
+Hos 1:1
+
+Compare:
+
+- revelation/word heading
+- prophet + patronymic
+- אשר construction
+- reign-time phrase
+- shared king sequence
+- surrounding configuration
+
+Questions for validation:
+
+- Did code recover meaningful formal correspondence?
+- Was cross-book candidate generation allowed?
+- Did code avoid automatically declaring direct parataxis?
+- Did code preserve relation as candidate evidence?
+
+Output status:
+
+RECOVERED_STRONG_FORMAL_CORRESPONDENCE
+RECOVERED_PARTIAL_CORRESPONDENCE
+NOT_RECOVERED
+
+No hierarchy adjudication.
+
+==================================================
+21. CONTROL C — Cross-book death/resumption formula
+==================================================
+
+Blind scope must include:
+
+Deuteronomy
+Joshua
+Judges
+1 Samuel
+2 Samuel
+
+No reference seeds during discovery.
+
+Post-blind inspect:
+
+Deut 34:5
+Josh 1:1
+
+Josh 24:29–30
+Judg 1:1
+
+1 Sam 31 death-of-Saul context
+2 Sam 1:1
+
+Validation questions:
+
+A.
+Does the detector recover:
+ויהי אחרי מות X
+family where it occurs?
+
+B.
+Does it identify lexical/participant resumption from
+preceding death event?
+
+C.
+Does it preserve:
+formal-family correspondence
+separately from
+temporal-resumption relation candidate?
+
+D.
+Does book boundary block anything?
+It must not.
+
+Particularly:
+
+Josh 1:1
+Judg 1:1
+2 Sam 1:1
+
+may belong to one formal family,
+but code MUST NOT infer equal hierarchical level solely from that.
+
+==================================================
+22. CONTROL D — Daniel / Ezra
+==================================================
+
+Blind scope:
+Daniel + Ezra
+optionally surrounding relevant Ketuvim corpus if implementation permits.
+
+No target refs seeded.
+
+Post-blind inspect:
+
+Dan 9:1–2
+Ezra 1:1
+
+Evidence to compare:
+
+בשנת אחת ל־[king]
+
+דבר־יהוה
+
+ירמיה
+
+completion/fulfillment lexemes
+
+multi-clause configuration
+
+Candidate outcomes may include:
+
+FORMAL_PARALLEL_CANDIDATE
+
+RESUMPTION_CANDIDATE
+
+HYPOTAXIS_CANDIDATE
+
+LONG_DISTANCE_CORRESPONDENCE
+
+INSUFFICIENT_EVIDENCE
+
+Do NOT hard-code one.
+
+Critical gate:
+
+CROSS_BOOK_HYPOTAXIS_CANDIDATE_MUST_BE_REPRESENTABLE
+
+That does not mean it must be selected.
+
+==================================================
+23. Cross-corpus controls are NOT training labels
+==================================================
+
+Known control refs and Jin classifications must be loaded only:
+
+AFTER
+blind control outputs are serialized and hashed.
+
+Required two-phase architecture:
+
+CONTROL_BLIND_RUN
+→ HASH FREEZE
+→ KNOWN_REF_VALIDATION
+
+Gate:
+CONTROL_TARGET_REF_LEAKAGE = 0
+
+==================================================
+24. STEP H — Job BLIND FREEZE
+==================================================
+
+Before loading any historical Job judgments:
+
+freeze/hash:
+
+03–11 outputs
+blind input manifest
+code/config versions
+
+Create:
+12_job_blind_manifest.csv
+13_job_blind_hashes.json
+
+After freeze,
+blind files become immutable for this run.
+
+==================================================
+25. STEP I — Cross-Corpus BLIND FREEZE
+==================================================
+
+Freeze each control separately:
+
+Pentateuch
+Prophets
+Death/resumption corpus
+Daniel/Ezra
+
+Create:
+14_control_blind_manifests.csv
+15_control_blind_hashes.json
+
+==================================================
+26. STEP J — POST-BLIND historical comparison
+==================================================
+
+Only now may previous MILAL human judgments be loaded.
+
+Purpose:
+comparison only.
+
+Do NOT mutate blind outputs.
+
+Compare at minimum:
+
+- HSA1/HSA2 marker judgments
+- 1:6 / 1:13 / 2:1
+- 2:11
+- 3:1
+- dialogue speech formula loci
+- 27:1 / 29:1
+- 31:40
+- 32:1 / 32:2 / 32:6
+- 34:1 / 35:1 / 36:1
+- 37:24
+- 38:1 / 40:1 / 40:3 / 40:6
+- 42:1 / 42:7 / 42:16
+
+But these refs may appear ONLY after blind freeze.
+
+Statuses:
+
+BLIND_EVIDENCE_SUPPORTS_HISTORICAL
+
+BLIND_EVIDENCE_PARTIALLY_SUPPORTS_HISTORICAL
+
+BLIND_EVIDENCE_SUPPORTS_ALTERNATIVE
+
+HISTORICAL_RELATION_NOT_RECOVERED
+
+MULTIPLE_RELATIONS_REMAIN
+
+INSUFFICIENT
+
+STRUCTURAL_JUDGMENT_PRECEDED_LINGUISTIC_EVIDENCE
+
+The last status is essential.
+
+==================================================
+27. Structural contamination audit
+==================================================
+
+Review all previously accepted structural relations
+against the marker-first chain.
+
+For every prior human relation ask:
+
+1.
+Was the marker/form evidence discovered independently first?
+
+2.
+Was the human relation adjudicated only after evidence discovery?
+
+3.
+Or was the structure assumed first and evidence added later?
+
+Classification:
+
+EVIDENCE_FIRST_VALID_REVIEW_PATH
+
+EVIDENCE_FIRST_BUT_NEEDS_READJUDICATION
+
+STRUCTURE_FIRST_CONTAMINATION
+
+PROVENANCE_UNCLEAR
+
+Do NOT automatically delete any relation.
+
+Output:
+16_historical_relation_marker_first_audit.csv
+
+==================================================
+28. No STRICT / MACRO classification during blind discovery
+==================================================
+
+This is critical.
+
+Do not label blind relation candidates:
+
+STRICT_CLAUSE_HIERARCHY
+
+MACRO_TEXTUAL_HIERARCHY
+
+MACRO_PARATAXIS
+
+etc.
+
+Those are later interpretation layers.
+
+Blind evidence may report:
+
+distance
+coverage
+span
+nested markers
+configuration depth
+
+but does not pre-assign textual level.
+
+After human adjudication,
+textual level may be derived.
+
+==================================================
+29. No root discovery in MFR.0.1
+==================================================
+
+Do NOT generate:
+
+JOB_ROOT
+JOB_NARRATIVE_ROOT
+STRICT_ROOT
+MACRO_ROOT
+
+Do NOT attempt whole-book tree synthesis.
+
+The present task is:
+
+MARKERS
+→ FAMILIES
+→ FORCE EVIDENCE
+→ RELATION CANDIDATES
+
+only.
+
+==================================================
+30. Plot/narrative/rhetorical labels prohibited in discovery
+==================================================
+
+Blind code must not use:
+
+prologue
+epilogue
+dialogue
+Elihu section
+divine speech section
+testing scene
+cycle
+transition zone
+final narrative
+plot stage
+
+as discovery features.
+
+Participant names that occur in text are allowed as raw participant evidence.
+
+Literary labels are post-hierarchy interpretation only.
+
+==================================================
+31. Important Jin-compatible principles
+==================================================
+
+Document these explicitly.
+
+A.
+Same construction can have different hierarchical force.
+
+B.
+Different constructions can still be paratactic.
+
+C.
+Formal correspondence creates relation candidates,
+not automatic hierarchy.
+
+D.
+Adjunct expansion is hierarchical-force evidence,
+not a deterministic level rule.
+
+E.
+Coverage is evidence,
+not an automatic winner rule.
+
+F.
+A hypotactic daughter may later require one mother,
+but one-mother is NOT applied before hypotaxis is adjudicated.
+
+G.
+Book boundary is not an automatic hierarchy boundary.
+
+==================================================
+32. Job-specific validation controls
+==================================================
+
+These refs are POST-BLIND controls only.
+
+Control J1:
+1:6 / 1:13 / 2:1
+
+Question:
+Does the blind family system recover their formal relationship,
+while preserving their configuration differences?
+
+Control J2:
+27:1 / 29:1
+
+Question:
+Does repeated formula family emerge independently?
+
+Control J3:
+31:40
+
+Question:
+Does explicit/rare cessation construction emerge without
+pre-labeling it SPEECH_UNIT_END?
+
+Control J4:
+32:1
+
+Question:
+What marker/family evidence is actually present
+without calling it TRANSITION_COMPONENT?
+
+Control J5:
+38:1 / 40:1 / 40:6
+
+Question:
+Does formula expansion/configuration difference emerge
+without existing hierarchy?
+
+Control J6:
+42:7 / 42:16
+
+Question:
+What raw construction relation is recovered
+without “epilogue” or NO_BOUNDARY input?
+
+==================================================
+33. Review packet
+==================================================
+
+Generate a HUMAN REVIEW packet,
+but do not fill decisions.
+
+Organize by MARKER FAMILY,
+not by traditional literary section.
+
+For each family:
+
+- family ID
+- construction definition
+- occurrences
+- variants
+- adjunct configurations
+- context correspondence
+- coverage candidates
+- nested marker evidence
+- relation candidates
+- competing evidence
+- historical comparison (post-blind only)
+
+Human fields:
+
+review_status = UNREVIEWED
+
+family_validity
+
+relation_decision
+
+source_marker
+
+target_marker
+
+relation_type
+
+coverage_decision
+
+hierarchical_force_interpretation
+
+additional_context_needed
+
+reviewer_notes
+
+==================================================
+34. Primary outputs
+==================================================
+
+Required:
+
+01_existing_asset_provenance_audit.csv
+02_blind_input_manifest.csv
+
+03_job_surface_observation_inventory.csv
+04_job_formal_signatures.csv
+05_job_marker_candidates.csv
+
+06_job_marker_family_registry.csv
+07_job_marker_family_membership.csv
+
+08_job_hierarchical_force_evidence.csv
+09_job_coverage_candidates.csv
+10_job_nested_marker_evidence.csv
+
+11_job_marker_relation_candidates.csv
+
+12_job_blind_manifest.csv
+13_job_blind_hashes.json
+
+14_control_blind_manifests.csv
+15_control_blind_hashes.json
+
+16_historical_relation_marker_first_audit.csv
+
+17_job_postblind_comparison.csv
+
+18_pentateuch_edsf_control_report.csv
+19_prophetic_superscription_control_report.csv
+20_death_resumption_control_report.csv
+21_daniel_ezra_control_report.csv
+
+22_cross_corpus_method_control_summary.md
+
+23_marker_family_human_review_cases.csv
+24_marker_family_human_review_packet.md
+
+25_methodological_reconstruction_report.md
+26_next_scope.md
+
+27_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+35. Methodological reconstruction report
+==================================================
+
+25_methodological_reconstruction_report.md
+must state explicitly:
+
+“Marker discovery precedes structural adjudication.”
+
+“Book, chapter, and verse boundaries are metadata, not automatic
+text-hierarchy boundaries.”
+
+“Scope boundaries define what was tested; they do not prove textual
+discontinuity.”
+
+“Identical marker forms may have different hierarchical force.”
+
+“Different marker forms may occupy the same textual level.”
+
+“Marker family membership is evidence of correspondence, not proof of
+parataxis or hypotaxis.”
+
+“Hierarchical force is evaluated through a bundle of formal expansion,
+distribution, coverage, contextual configuration, participant/domain,
+and closure evidence.”
+
+“Coverage is evidence, not an automatic ranking rule.”
+
+“Textual hierarchy is assembled only after marker-to-marker relations
+are human-adjudicated.”
+
+“Plot and literary interpretation follow, rather than generate, the
+marker-based hierarchy.”
+
+==================================================
+36. Code architecture
+==================================================
+
+Use a new namespace.
+
+Do not keep extending contaminated structural logic under JIN names.
+
+Recommended:
+
+src/milal_mfr_observation.py
+src/milal_mfr_signatures.py
+src/milal_mfr_marker_discovery.py
+src/milal_mfr_families.py
+src/milal_mfr_force_evidence.py
+src/milal_mfr_coverage.py
+src/milal_mfr_relation_candidates.py
+src/milal_mfr_controls.py
+src/milal_mfr_postblind.py
+src/milal_mfr_provenance.py
+src/milal_mfr_common.py
+
+config:
+config/mfr_0_1_job.json
+config/mfr_0_1_controls.json
+
+tests:
+tests/test_mfr_0_1.py
+
+runners:
+scripts/run_milal_mfr_0_1_windows.ps1
+scripts/run_milal_mfr_0_1_termux.sh
+
+docs:
+docs/MFR_0_1_SPEC.md
+docs/MFR_0_1_VALIDATION_REPORT.md
+docs/MARKER_FIRST_METHOD.md
+
+HANDOFF.md update
+
+==================================================
+37. Static contamination checks
+==================================================
+
+Scan MFR source/config for hard-coded structural references.
+
+Fail if blind modules contain Job target refs such as:
+
+"1:6"
+"1:13"
+"2:1"
+"2:11"
+"3:1"
+"27:1"
+"29:1"
+"31:40"
+"32:1"
+"38:1"
+"42:7"
+
+unless they occur only in:
+- tests for post-blind controls
+- post-blind validation config
+- documentation examples
+
+Likewise fail if blind modules contain strings:
+
+CHILD_OF
+SAME_LEVEL_SIBLING
+JOB_NARRATIVE_ROOT
+OPENING_NARRATIVE_COMPLEX
+ELIHU_SPEECH_SEQUENCE
+YHWH_JOB_RESPONSE_SEQUENCE
+
+as discovery logic.
+
+==================================================
+38. Cross-book filter static check
+==================================================
+
+Fail if blind relation candidate generation contains a condition equivalent to:
+
+source.book == target.book
+
+as eligibility requirement.
+
+book equality may be recorded as a feature,
+not a filter.
+
+==================================================
+39. Synthetic fixtures
+==================================================
+
+At minimum:
+
+SYN1
+identical formula / same context / likely formal peers
+
+SYN2
+identical formula / different nested configuration
+
+SYN3
+same base formula + extra locative
+
+SYN4
+same base formula + time phrase
+
+SYN5
+same formula across artificial book boundary
+
+SYN6
+different formulas but repeated parallel configuration
+
+SYN7
+formal resumption after intervening material
+
+SYN8
+explicit singleton closure
+
+SYN9
+one marker enclosing several lower-level marker candidates
+
+SYN10
+same family where one occurrence has larger coverage
+
+SYN11
+book boundary present but candidate relation must survive
+
+SYN12
+scope boundary where external relation is NOT_TESTED rather than NO_RELATION
+
+SYN13
+nearest prior marker is not necessarily candidate mother
+
+SYN14
+coverage longest candidate does not automatically win
+
+SYN15
+multiple relation candidates remain simultaneously
+
+==================================================
+40. Critical gates
+==================================================
+
+At minimum:
+
+BASELINE_COMMIT_VERIFIED
+HISTORICAL_GIT_HISTORY_PRESERVED
+
+ASSET_PROVENANCE_AUDIT_COMPLETE
+
+BLIND_HUMAN_INPUT_COUNT_ZERO
+BLIND_STRUCTURAL_LABEL_INPUT_COUNT_ZERO
+BLIND_TECHNICAL_ROOT_INPUT_ZERO
+
+JOB_ALL_CLAUSES_OBSERVED
+
+MULTI_RESOLUTION_SIGNATURES_PRESENT
+MARKER_DISCOVERY_GENERIC
+
+REPEATED_MARKERS_DISCOVERED
+SINGLETON_EXPLICIT_MARKERS_PRESERVED
+
+MARKER_FAMILIES_GENERATED
+FAMILY_NOT_EQUAL_HIERARCHY
+
+HIERARCHICAL_FORCE_EVIDENCE_PRESENT
+NO_HIERARCHICAL_FORCE_SCORE
+COVERAGE_MULTIPLE_CANDIDATES_ALLOWED
+NO_COVERAGE_AUTOWINNER
+
+NESTED_MARKER_EVIDENCE_PRESENT
+
+RELATION_CANDIDATES_GENERATED
+NO_RELATION_AUTO_ACCEPTED
+
+NO_BOOK_BOUNDARY_FILTER
+NO_CHAPTER_BOUNDARY_FILTER
+NO_VERSE_BOUNDARY_FILTER
+
+SCOPE_BOUNDARY_NOT_EQUAL_TEXTUAL_BOUNDARY
+
+PENTATEUCH_CONTROL_BLIND
+PENTATEUCH_EDSF_POSTBLIND_LOOKUP_ONLY
+
+PROPHET_CONTROL_BLIND
+DEATH_RESUMPTION_CONTROL_BLIND
+DANIEL_EZRA_CONTROL_BLIND
+
+CONTROL_TARGET_REF_LEAKAGE_ZERO
+
+CROSS_BOOK_FORMAL_RELATION_REPRESENTABLE
+CROSS_BOOK_PARATAXIS_CANDIDATE_REPRESENTABLE
+CROSS_BOOK_HYPOTAXIS_CANDIDATE_REPRESENTABLE
+CROSS_BOOK_RESUMPTION_CANDIDATE_REPRESENTABLE
+
+SAME_FORM_NOT_AUTO_SAME_LEVEL
+DIFFERENT_FORM_NOT_AUTO_DIFFERENT_LEVEL
+
+JOB_BLIND_FROZEN_BEFORE_HISTORICAL_LOAD
+CONTROL_BLIND_FROZEN_BEFORE_KNOWN_REF_LOAD
+
+HISTORICAL_RELATIONS_POSTBLIND_ONLY
+
+NO_ROOT_GENERATED
+NO_TREE_SYNTHESIS
+NO_STRICT_MACRO_PRECLASSIFICATION
+
+PLOT_LABELS_NOT_USED_IN_DISCOVERY
+
+NO_NEW_HUMAN_JUDGMENT
+NO_NEW_ACCEPTED_PARENT
+NO_NEW_ACCEPTED_SIBLING
+
+R4_4_CONSUMER_NOT_IMPLEMENTED
+
+PARTICIPANT_ARC_UNTOUCHED
+
+MANIFEST_VALID
+DETERMINISTIC_RERUN
+FULL_REGRESSION_PASS
+SKIP_ZERO
+
+==================================================
+41. Pentateuch EDSF control success criteria
+==================================================
+
+Do not require exact Jin hierarchy.
+
+Require:
+
+- generic DSF/EDSF extraction finds the relevant constructions;
+- adjunct variants are observable;
+- cross-book occurrences can be compared;
+- same Pattern-4 construction across Exod/Lev/Num does not force same level;
+- Num 3:14 can remain same family while having different relation/force evidence;
+- no book boundary restriction appears.
+
+Post-blind comparison may state:
+
+CONSISTENT_WITH_JIN_FORMAL_FAMILY
+
+PARTIALLY_CONSISTENT
+
+NOT_RECOVERED
+
+but no human hierarchy decision.
+
+==================================================
+42. Prophetic control success criteria
+==================================================
+
+Isa 1:1 and Hos 1:1:
+
+must be capable of appearing in a
+cross-book formal correspondence case.
+
+Do NOT require direct sibling relation.
+
+The system should expose:
+shared formal/configurational features
+and competing differences.
+
+==================================================
+43. Daniel/Ezra control success criteria
+==================================================
+
+Dan 9:1–2 / Ezra 1:1:
+
+must NOT be rejected merely because book differs.
+
+The system must be able to preserve simultaneously:
+
+formal correspondence
+resumption possibility
+hypotaxis possibility
+long-distance correspondence possibility
+
+if linguistic evidence supports them.
+
+==================================================
+44. Job review-case success criteria
+==================================================
+
+The output should allow a researcher to inspect, WITHOUT prior structure labels:
+
+1:6 / 1:13 / 2:1
+
+27:1 / 29:1
+
+31:40
+
+32:1
+
+38:1 / 40:1 / 40:6
+
+42:7 / 42:16
+
+and see:
+
+what surface marker was found,
+which family it belongs to,
+how the surrounding configurations differ,
+what coverage candidates exist,
+and which relation candidates follow.
+
+==================================================
+45. Existing JIN/HSA relations
+==================================================
+
+Do not delete them.
+
+Do not silently mark them false.
+
+Instead post-blind audit them.
+
+Especially flag cases where:
+
+STRUCTURAL_JUDGMENT_PRECEDED_LINGUISTIC_EVIDENCE
+
+This is not the same as:
+REJECTED.
+
+It means:
+REQUIRES_MARKER_FIRST_READJUDICATION.
+
+==================================================
+46. Readiness
+==================================================
+
+Successful status:
+
+MARKER_FIRST_BASELINE_ESTABLISHED
+
+and
+
+READY_FOR_MARKER_RELATION_HUMAN_REVIEW
+
+Do NOT declare:
+
+READY_FOR_R4_4_IMPLEMENTATION
+READY_FOR_TREE_SYNTHESIS
+ROOT_RESOLVED
+
+==================================================
+47. Next scope
+==================================================
+
+26_next_scope.md should recommend:
+
+MFR.0.2
+— Human Marker-Family and Relation Adjudication
+
+Only after MFR.0.2:
+
+MFR.0.3
+— Adjudicated Relation → Text-Hierarchy Assembly
+
+Only after hierarchy assembly:
+
+plot / narrative / rhetoric integration.
+
+==================================================
+48. Validation order
+==================================================
+
+Run in this order:
+
+1. repository baseline validation
+2. provenance audit
+3. static contamination scan
+4. syntax/unit tests
+5. synthetic MFR tests
+6. full regression
+7. real Job blind observation
+8. Job signatures
+9. Job marker discovery
+10. Job family generation
+11. hierarchical-force evidence
+12. coverage generation
+13. relation candidates
+14. Job blind freeze/hash
+
+15. Pentateuch blind control
+16. freeze/hash
+
+17. Prophetic blind control
+18. freeze/hash
+
+19. death/resumption blind control
+20. freeze/hash
+
+21. Daniel/Ezra blind control
+22. freeze/hash
+
+23. known-control post-blind validation
+24. historical Job judgments load
+25. historical marker-first audit
+26. human-review packet generation
+
+27. independent deterministic rerun
+28. byte comparison
+29. manifest validation
+30. manual spot-check
+
+==================================================
+49. Manual spot-check required
+==================================================
+
+At minimum manually inspect:
+
+JOB:
+1:6
+1:13
+2:1
+27:1
+29:1
+31:40
+32:1
+38:1
+40:1
+40:6
+42:7
+42:16
+
+PENTATEUCH:
+Exod 4:19
+Exod 12:1
+Lev 1:1
+Lev 16:1
+Lev 25:1
+Num 1:1
+Num 3:14
+Num 9:1
+Num 20:23
+Num 33:50
+Num 35:1
+Deut 32:48
+
+PROPHETS:
+Isa 1:1
+Hos 1:1
+
+RESUMPTION:
+Deut 34:5
+Josh 1:1
+Judg 1:1
+2 Sam 1:1
+
+KETUVIM:
+Dan 9:1–2
+Ezra 1:1
+
+==================================================
+50. Tests
+==================================================
+
+Create comprehensive MFR.0.1 tests.
+
+Expected:
+all existing regression tests still pass.
+
+skip = 0
+
+No existing frozen artifact modification.
+
+No historical relation count changes.
+
+No accepted relation count changes.
+
+No new root.
+
+==================================================
+51. Windows / Termux runners
+==================================================
+
+Windows runner must:
+
+- verify repo HEAD
+- verify BHSA path
+- run self-tests
+- run real Job
+- run cross-corpus controls
+- run gates
+- create UTF-8 logs
+- create result ZIP
+- print SHA256
+
+Termux runner must provide equivalent output schema.
+
+Document exact Termux command.
+
+Expected general flow:
+
+cd ~/MILAL
+git pull --ff-only
+
+bash scripts/run_milal_mfr_0_1_termux.sh \
+  --bhsa ~/text-fabric-data/github/ETCBC/bhsa/tf/2021
+
+Use actual implemented CLI syntax,
+not this example if repository conventions differ.
+
+==================================================
+52. Upload guidance
+==================================================
+
+HANDOFF must distinguish:
+
+필수 업로드:
+- final MFR.0.1 results ZIP
+
+추가 검증용:
+- validation report
+- human review packet
+- selected CSVs if needed
+
+But ZIP should contain the complete result package.
+
+==================================================
+53. Docs
+==================================================
+
+Create/update:
+
+docs/MFR_0_1_SPEC.md
+docs/MFR_0_1_VALIDATION_REPORT.md
+docs/MARKER_FIRST_METHOD.md
+HANDOFF.md
+
+Do not rewrite historical JIN docs.
+
+==================================================
+54. Commit / push
+==================================================
+
+All tests/gates PASS 후:
+
+git status
+git diff
+git diff --check
+
+Suggested commit:
+
+Establish marker-first reconstruction baseline
+
+Then push origin/main under the normal authorization workflow.
+
+If authorization requires renewed explicit approval:
+do not bypass it.
+Commit and report hash.
+
+==================================================
+55. Final report
+==================================================
+
+Report:
+
+A. Git
+1. start commit
+2. end commit
+3. commit message
+4. push status
+5. working tree
+
+B. Provenance
+6. assets classified OBSERVATION_SAFE
+7. DERIVED_BLIND_SAFE count
+8. POSTBLIND_ONLY count
+9. CONTAMINATED_OR_UNCLEAR count
+
+C. Job observation
+10. clause count
+11. clause_atom count
+12. signature count
+
+D. markers
+13. marker candidate count
+14. repeated marker count
+15. singleton explicit marker count
+16. marker family count
+17. family membership count
+
+E. force
+18. hierarchical-force evidence rows
+19. coverage candidate count
+20. nested marker evidence count
+
+F. relations
+21. relation candidate count
+22. PARATAXIS candidates
+23. HYPOTAXIS candidates
+24. RESUMPTION candidates
+25. CLOSURE candidates
+26. competing/insufficient count
+
+G. Job postblind controls
+27. 1:6/1:13/2:1 result
+28. 27:1/29:1 result
+29. 31:40 result
+30. 32:1 result
+31. 38:1/40:1/40:6 result
+32. 42:7/42:16 result
+
+H. external method controls
+33. Pentateuch EDSF detection summary
+34. Jin pattern postblind comparison
+35. Isa1:1/Hos1:1 result
+36. death/resumption result
+37. Dan9:1–2/Ezra1:1 result
+38. cross-book candidate count
+
+I. contamination
+39. historical relations evidence-first count
+40. needs-readjudication count
+41. structure-first contamination count
+42. provenance-unclear count
+
+J. integrity
+43. human leakage = 0?
+44. target-ref leakage = 0?
+45. same-book filter = absent?
+46. new human judgment = 0
+47. new accepted relation = 0
+48. new root = 0
+49. R4.4 consumer absent
+50. participant arc unchanged
+
+K. validation
+51. stage tests
+52. full regression
+53. gates
+54. deterministic rerun
+55. ZIP
+56. SHA256
+
+L. readiness
+57. MARKER_FIRST_BASELINE_ESTABLISHED?
+58. READY_FOR_MARKER_RELATION_HUMAN_REVIEW?
+
+==================================================
+56. Final methodological warning
+==================================================
+
+Do not optimize for reproducing previous MILAL structure.
+
+Do not optimize for reproducing Jin’s final Pentateuch hierarchy.
+
+The goal is to reproduce the METHOD:
+
+linguistic marker first,
+correspondence second,
+hierarchical-force evidence third,
+relation candidate fourth,
+human hierarchy judgment last.
+
+If blind evidence contradicts previous MILAL structure,
+preserve the contradiction.
+
+If blind evidence fails to recover a previous relation,
+preserve that failure.
+
+If multiple relations remain possible,
+preserve all of them.
+
+If no hierarchy can yet be decided,
+do not decide it.
+
+The success condition of MFR.0.1 is not:
+“produce a beautiful Job hierarchy.”
+
+The success condition is:
+“produce a clean, source-grounded marker-first evidence base
+from which the Job hierarchy can later be adjudicated.”
