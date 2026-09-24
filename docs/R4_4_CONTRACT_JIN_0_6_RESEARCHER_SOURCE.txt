@@ -1,0 +1,964 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.6
+— Strict-Clause vs Macro-Hierarchy Relation Typing Audit
+— Existing Hierarchy Relation Layer Reclassification Prep
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  a3d770425004af8d635518271a3d640aaf8889dc
+
+현재 상태:
+- JIN.0.5 focused linguistic audits 완료
+- readiness =
+  READY_FOR_FOCUSED_RELATION_HUMAN_ADJUDICATION
+- historical hierarchy relations preserved
+- JIN.0.4:
+  1:13→1:6 REOPENED / HUMAN_DEFERRED
+  3:1/3:2 REOPENED / HUMAN_DEFERRED
+  2:11 macro mother unresolved
+  32:1 macro mother unresolved
+  40:1→38:1 historical CHILD_OF reconfirmed at macro level
+  1:6↔2:1 parataxis reconfirmed
+  38:1↔40:6 parataxis reconfirmed
+- JIN.0.5:
+  1:13 strict mother candidate = none
+  3:1/3:2 multiple linguistic relations remain possible
+  2:11 NO_MACRO_MOTHER_FOUND
+  32:1 NO_MACRO_MOTHER_FOUND
+- Q1–Q9 = UNAPPROVED
+- R4.4 consumer = NOT IMPLEMENTED
+- participant arc = UNADJUDICATED
+
+이번 단계의 목적:
+
+기존 hierarchy-like relation을 다음 두 분석 층으로
+명확하게 구별할 수 있는지 감사한다.
+
+A. STRICT_CLAUSE_HIERARCHY
+B. MACRO_TEXTUAL_HIERARCHY
+
+아직 relation type을 실제로 rewrite하지 않는다.
+새 parent edge를 만들지 않는다.
+기존 human judgment를 삭제하지 않는다.
+
+==================================================
+1. 핵심 방법론적 문제
+==================================================
+
+현재 MILAL에는 다음 relation types가 있다.
+
+- CHILD_OF
+- HIERARCHICALLY_ABOVE
+- CONTINUES_WITHIN
+- SAME_LEVEL_SIBLING
+- NO_BOUNDARY
+- closure relations
+- composition/group relations
+- transitions
+- overlays
+
+그러나 특히:
+
+CHILD_OF
+HIERARCHICALLY_ABOVE
+CONTINUES_WITHIN
+
+중 일부는:
+
+STRICT BHSA clause/clause_atom syntactic relation
+
+을 뜻할 수 있고,
+
+다른 일부는:
+
+macro textual unit placement
+
+을 뜻할 수 있다.
+
+현재 같은 relation label이
+두 층을 혼합하고 있을 가능성이 있다.
+
+이번 단계에서는 이를 감사한다.
+
+==================================================
+2. 두 hierarchy layer 정의
+==================================================
+
+--------------------------------------------------
+A. STRICT_CLAUSE_HIERARCHY
+--------------------------------------------------
+
+적용 대상:
+
+- 실제 BHSA clause / clause_atom
+- mother clause ↔ daughter clause
+- syntactic/form-to-function relation
+- Jin §3.2.9의 parataxis/hypotaxis 판단
+
+특징:
+
+HYPOTACTIC daughter라면
+exactly one mother.
+
+판정 근거 예:
+
+- explicit subordination marker
+- relative clause
+- infinitive dependency
+- anaphoric syntactic dependency
+- participant/reference dependency
+- embedded narrative line
+- clause-level form-to-function evidence
+
+--------------------------------------------------
+B. MACRO_TEXTUAL_HIERARCHY
+--------------------------------------------------
+
+적용 대상:
+
+- clause_atom anchored textual units
+- speech units
+- paragraph-level units
+- scene/frame-level units
+- larger textual onset/containment relations
+
+근거:
+
+- repeated multi-clause configuration
+- structural-function correspondence
+- paragraph/speech framing
+- distributional textual level
+- macro onset/closure pattern
+- human textual adjudication
+
+중요:
+
+MACRO_TEXTUAL_HIERARCHY
+≠
+STRICT_CLAUSE_HIERARCHY
+
+한 relation이 macro level에서 유효하더라도
+strict clause mother가 자동 확정되는 것은 아니다.
+
+==================================================
+3. 이번 단계 human judgment = 0
+==================================================
+
+이번 단계에서는:
+
+new_human_judgment_count = 0
+new_relation_count = 0
+new_parent_edge_count = 0
+
+기존 relation을:
+
+STRICT
+MACRO
+MIXED
+AMBIGUOUS
+
+중 하나의 AUDIT_PROPOSAL로만 분류한다.
+
+proposal_status = UNREVIEWED
+
+==================================================
+4. 감사 대상 relation universe
+==================================================
+
+현재 canonical / historical registry에서
+최소 다음을 전수 감사한다.
+
+PRIMARY:
+
+- CHILD_OF
+- HIERARCHICALLY_ABOVE
+- CONTINUES_WITHIN
+
+SECONDARY CONTROL:
+
+- SAME_LEVEL_SIBLING
+- NO_BOUNDARY
+- DIRECT_LOCAL_CLOSURE
+- TERMINATES_ENCLOSING_GROUP
+- NO_DIRECT_RELATION
+
+SECONDARY CONTROL은 hierarchy parent relation으로
+재분류하기 위한 것이 아니라
+layer confusion 여부를 확인하기 위한 것이다.
+
+==================================================
+5. relation별 source evidence 추출
+==================================================
+
+각 relation에 최소 다음 필드를 붙인다.
+
+relation_id
+source_id
+target_id
+relation_type
+relation_direction
+source_stage
+human_source_id
+
+source_ref
+target_ref
+
+source_clause_id
+target_clause_id
+
+source_clause_atom_ids
+target_clause_atom_ids
+
+source_span_start
+source_span_end
+target_span_start
+target_span_end
+
+source_is_single_clause
+target_is_single_clause
+
+source_is_single_clause_atom
+target_is_single_clause_atom
+
+source_is_multi_clause_unit
+target_is_multi_clause_unit
+
+source_structural_function
+target_structural_function
+
+original_rationale
+evidence_ids
+
+explicit_subordination_evidence
+syntactic_dependency_evidence
+reference_dependency_evidence
+
+multi_clause_configuration_evidence
+macro_distribution_evidence
+speech_frame_evidence
+onset_closure_evidence
+
+historical_status
+latest_review_status
+
+==================================================
+6. Layer classification proposal
+==================================================
+
+각 relation에 다음 중 하나를 제안한다.
+
+RL1_STRICT_CLAUSE_HIERARCHY
+
+조건 예:
+- source/target이 실제 clause/clause_atom relation
+- linguistic rationale가 local syntactic dependency
+- macro structural function에 의존하지 않음
+
+--------------------------------------------------
+
+RL2_MACRO_TEXTUAL_HIERARCHY
+
+조건 예:
+- relation이 textual units / speech units / scenes 사이의 관계
+- multi-clause configuration 또는 structural-function evidence 기반
+- strict clause mother를 직접 증명하지 않음
+
+--------------------------------------------------
+
+RL3_STRICT_AND_MACRO_SUPPORTED
+
+두 층에서 독립 evidence가 모두 존재.
+
+중요:
+한 relation ID를 그대로 두 층에 자동 복제하지 않는다.
+human review 필요.
+
+--------------------------------------------------
+
+RL4_HISTORICAL_LABEL_MIXES_LAYERS
+
+기존 relation label/rationale가
+strict clause와 macro hierarchy를 명확히 분리하지 못함.
+
+예:
+CHILD_OF라고 저장되어 있으나
+실제 rationale는 macro scene containment임.
+
+--------------------------------------------------
+
+RL5_NON_PARENT_HIERARCHICAL_PLACEMENT
+
+예:
+CONTINUES_WITHIN이 placement는 표현하지만
+strict mother edge는 아님.
+
+--------------------------------------------------
+
+RL6_RELATION_LAYER_UNRESOLVED
+
+현재 provenance로 분류 불가.
+
+==================================================
+7. 1:13 → 1:6 핵심 fixture
+==================================================
+
+historical:
+1:13 CHILD_OF 1:6
+
+JIN.0.2:
+pairwise PARATAXIS conflict
+
+JIN.0.3:
+context softens conflict
+
+JIN.0.5:
+strict mother supporting candidate = 0
+
+이번 audit에서는 다음을 명시적으로 검사한다.
+
+A.
+historical CHILD_OF가
+STRICT_CLAUSE claim으로 저장되었는가?
+
+B.
+original rationale가 실제로는:
+- repeated scene configuration
+- first testing frame
+- macro scene containment
+등에 의존하는가?
+
+C.
+strict clause mother evidence가 별도로 존재하는가?
+
+가능 proposal:
+
+RL2_MACRO_TEXTUAL_HIERARCHY
+or
+RL4_HISTORICAL_LABEL_MIXES_LAYERS
+
+를 허용한다.
+
+Codex가 선택을 human-final로 확정하지 않는다.
+
+Do NOT restore strict mother automatically.
+
+==================================================
+8. 3:1 / 3:2 핵심 fixture
+==================================================
+
+historical:
+3:1 HIERARCHICALLY_ABOVE 3:2
+3:2 CONTINUES_WITHIN 3:1
+
+JIN.0.5:
+strict relation remains linguistically unresolved.
+
+Audit:
+
+- 3:1 speech-event frame
+- 3:2 CSF
+- actual N→Q boundary at 3:2→3:3
+- existing relation rationale
+
+질문:
+
+historical relation은:
+
+STRICT_CLAUSE_HIERARCHY인가?
+
+MACRO_SPEECH_FRAME relation인가?
+
+둘이 혼합되었는가?
+
+가능 proposal:
+
+RL2
+RL4
+RL6
+
+Do not decide mother.
+
+==================================================
+9. 40:1 → 38:1 핵심 fixture
+==================================================
+
+historical:
+40:1 CHILD_OF 38:1
+
+JIN.0.2:
+pairwise parataxis candidate
+
+JIN.0.3:
+context softens conflict
+
+JIN.0.4:
+macro hypotaxis reconfirmed
+
+근거:
+- 38:1 / 40:6 expanded storm formula peer
+- 38:3 / 40:7 repeated challenge
+- 40:1 less elaborated onset
+- first YHWH response complex internal position
+
+이번 audit에서는:
+
+macro hierarchy evidence
+와
+strict clause hypotaxis evidence
+
+를 분리한다.
+
+Expected possibility:
+
+MACRO CHILD_OF supported
+while
+STRICT CLAUSE MOTHER remains unproven.
+
+이를 정상 상태로 표현 가능해야 한다.
+
+==================================================
+10. strict positive controls
+==================================================
+
+JIN.0.2 / 0.5 explicit subordinate controls를 사용한다.
+
+예:
+Job 32:3
+על אשר לא מצאו מענה
+
+이런 explicit subordination relation은
+STRICT_CLAUSE_HIERARCHY positive control이다.
+
+하지만:
+human macro relation으로 승격하지 않는다.
+
+Control label:
+
+STRICT_HYPOTAXIS_POSITIVE_CONTROL
+
+==================================================
+11. SAME_LEVEL relation audit
+==================================================
+
+SAME_LEVEL_SIBLING 98 historical relations 등을 검사한다.
+
+목적:
+
+이 relation이 실제로:
+
+A. STRICT CLAUSE PARATAXIS
+B. MACRO TEXTUAL PARATAXIS
+C. BOTH / layered ambiguity
+
+중 어느 수준에서 판정된 것인지 분류한다.
+
+특히:
+
+1:6 ↔ 2:1
+cycle speech units
+27:1 ↔ 29:1
+32:6 / 34:1 / 35:1 / 36:1
+38:1 ↔ 40:6
+40:3 ↔ 42:1
+
+을 반드시 review fixture로 포함한다.
+
+중요:
+기존 SAME_LEVEL을 motherless-error로 처리하지 않는다.
+
+==================================================
+12. CONTINUES_WITHIN semantics audit
+==================================================
+
+CONTINUES_WITHIN이 다음 중 무엇을 뜻하는지
+기존 source별로 분리한다.
+
+A.
+STRICT_SYNTACTIC_CONTINUATION
+
+B.
+MACRO_TEXTUAL_CONTINUATION
+
+C.
+NO_NEW_BOUNDARY placement
+
+D.
+historical mixed semantics
+
+특히:
+
+28:1 CONTINUES_WITHIN 27:1
+42:16 CONTINUES_WITHIN 42:7
+3:2 CONTINUES_WITHIN 3:1
+
+을 비교한다.
+
+이 세 관계가 동일한 엄밀한 syntactic relation이라고
+자동 가정하면 안 된다.
+
+==================================================
+13. relation-label overloading audit
+==================================================
+
+각 canonical relation type에 대해:
+
+relation_type
+number_of_occurrences
+
+strict_count
+macro_count
+mixed_count
+unresolved_count
+
+를 출력한다.
+
+목표:
+현재 같은 label이 여러 analytic layer에서 사용되었는지 식별.
+
+특히:
+CHILD_OF
+HIERARCHICALLY_ABOVE
+CONTINUES_WITHIN
+SAME_LEVEL_SIBLING
+
+에 집중한다.
+
+==================================================
+14. Node layer도 함께 감사
+==================================================
+
+relation뿐 아니라 source/target node가:
+
+STRICT_CLAUSE_NODE
+MACRO_TEXTUAL_UNIT
+ROLE_ALIAS
+COMPOSITION_GROUP
+TRANSITION_ANCHOR
+EVIDENCE_ANCHOR
+TECHNICAL
+
+중 무엇인지 crosswalk한다.
+
+중요:
+
+macro relation의 anchor가 clause_atom이라고 해서
+strict clause relation이 되는 것은 아니다.
+
+CLAUSE_ATOM_ANCHORED
+≠
+STRICT_CLAUSE_HIERARCHY
+
+를 명시한다.
+
+==================================================
+15. Strict / Macro relation contract proposal
+==================================================
+
+새 canonical relation schema proposal:
+
+relation_layer:
+STRICT_CLAUSE_HIERARCHY
+MACRO_TEXTUAL_HIERARCHY
+TEXTUAL_PARATAXIS
+MACRO_PARATAXIS
+COMPOSITION
+TRANSITION
+OVERLAY_RESPONSIO
+NEGATIVE_CONSTRAINT
+TECHNICAL_NAVIGATION
+
+그러나 이번 stage에서는
+기존 relation을 이 schema로 migrate하지 않는다.
+
+proposal only.
+
+==================================================
+16. Parent semantics proposal
+==================================================
+
+STRICT level:
+
+STRICT_MOTHER_OF
+STRICT_DAUGHTER_OF
+
+MACRO level:
+
+MACRO_CONTAINS
+MACRO_WITHIN
+MACRO_PARALLEL
+
+같은 의미 구분이 필요한지 audit한다.
+
+중요:
+새 relation 이름을 바로 채택하지 않는다.
+
+출력:
+
+REUSE_EXISTING_TYPE_WITH_LAYER_FIELD
+or
+NEW_TYPED_RELATION_NEEDED
+
+를 relation family별로 제안한다.
+
+==================================================
+17. Existing historical edge preservation
+==================================================
+
+예:
+
+historical:
+1:13 CHILD_OF 1:6
+
+를 이번 audit에서:
+
+MACRO_CHILD_OF_PROPOSAL
+
+로 판단하더라도
+historical row를 rewrite하지 않는다.
+
+crosswalk:
+
+historical_relation_id
+historical_type
+proposed_relation_layer
+proposed_future_type
+review_status = UNREVIEWED
+
+형식으로만 저장한다.
+
+==================================================
+18. Post-audit human questions
+==================================================
+
+최종 review packet에는
+다음 질문을 남긴다.
+
+Q-A.
+1:13→1:6 historical CHILD_OF를
+MACRO_TEXTUAL_HIERARCHY relation으로 재해석할 것인가?
+
+Q-B.
+3:1/3:2 historical hierarchy relation을
+strict clause relation이 아니라
+MACRO_SPEECH_FRAME relation으로 재해석할 것인가?
+
+Q-C.
+40:1→38:1 CHILD_OF는
+MACRO_TEXTUAL_HIERARCHY만 확정하고
+strict clause mother는 unresolved로 둘 것인가?
+
+Q-D.
+CONTINUES_WITHIN을 strict/macro/no-boundary semantics로
+분리 typing할 것인가?
+
+Q-E.
+SAME_LEVEL_SIBLING에
+STRICT_PARATAXIS vs MACRO_PARATAXIS layer를 추가할 것인가?
+
+Q-F.
+R4.4 contract에서 relation_type과 relation_layer를
+항상 별도 필드로 강제할 것인가?
+
+모두 UNREVIEWED.
+
+==================================================
+19. 2:11 / 32:1 처리
+==================================================
+
+이번 audit에서는 mother를 다시 찾지 않는다.
+
+JIN.0.5 result 유지:
+
+2:11:
+NO_MACRO_MOTHER_FOUND
+
+32:1:
+NO_MACRO_MOTHER_FOUND
+
+다만 두 node의 existing relations를 layer typing 대상으로만 감사한다.
+
+예:
+32:1 POST_CLOSURE_TRANSITION
+→ TRANSITION layer
+
+not parent.
+
+==================================================
+20. No new relation
+==================================================
+
+이번 단계:
+
+new_human_judgment = 0
+new_accepted_relation = 0
+new_parent_edge = 0
+new_relation_migration = 0
+
+오직:
+layer classification proposal
+future-schema proposal
+human-review packet
+
+만 생성.
+
+==================================================
+21. Outputs
+==================================================
+
+최소:
+
+01_hierarchy_relation_inventory.csv
+
+02_relation_node_layer_crosswalk.csv
+
+03_relation_layer_classification_proposals.csv
+
+04_child_of_semantics_audit.csv
+
+05_hierarchically_above_semantics_audit.csv
+
+06_continues_within_semantics_audit.csv
+
+07_same_level_semantics_audit.csv
+
+08_relation_label_overloading_summary.csv
+
+09_strict_clause_positive_controls.csv
+
+10_macro_hierarchy_controls.csv
+
+11_key_case_1_13.md
+12_key_case_3_1_2.md
+13_key_case_40_1.md
+
+14_relation_contract_split_proposal.csv
+
+15_historical_to_future_relation_crosswalk.csv
+
+16_human_review_cases.csv
+17_human_review_packet.md
+
+18_methodological_addendum.md
+
+19_next_scope.md
+
+20_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+22. Required key-case outcomes
+==================================================
+
+No human final outcome.
+
+But output must show evidence distinction.
+
+1:13→1:6:
+- strict evidence status
+- macro evidence status
+- historical relation
+- proposed layer
+
+3:1/3:2:
+same
+
+40:1→38:1:
+same
+
+==================================================
+23. Tests
+==================================================
+
+At minimum:
+
+1. baseline exact
+2. JIN.0.5 preserved
+3. no historical relation rewritten
+4. all hierarchy-like relations inventoried
+5. source/target node layer resolved where possible
+6. clause_atom anchor does not imply strict layer
+7. CHILD_OF occurrences layer-audited
+8. HIERARCHICALLY_ABOVE occurrences layer-audited
+9. CONTINUES_WITHIN occurrences layer-audited
+10. SAME_LEVEL occurrences layer-audited
+
+11. explicit subordinate control classified strict
+12. composition group never classified strict
+13. transition relation never classified strict mother
+14. overlay never classified hierarchy
+
+15. 1:13 strict/macro distinction represented
+16. 3:1/3:2 distinction represented
+17. 40:1 distinction represented
+18. 28:1 CONTINUES_WITHIN compared
+19. 42:16 CONTINUES_WITHIN compared
+
+20. 2:11 no mother assigned
+21. 32:1 no mother assigned
+
+22. new relation = 0
+23. new parent = 0
+24. new human judgment = 0
+
+25. Q1–Q9 remain unapproved
+26. new Q-A–Q-F unreviewed
+27. R4.4 consumer absent
+28. participant arc untouched
+
+29. full regression PASS, skip 0
+30. manifest PASS
+31. deterministic rerun byte-identical
+
+==================================================
+24. Gates
+==================================================
+
+최소:
+
+- BASELINE_COMMIT_VERIFIED
+- JIN_0_5_FROZEN_PRESERVED
+
+- HIERARCHY_RELATIONS_INVENTORIED
+- RELATION_LAYER_AUDIT_COMPLETE
+
+- CHILD_OF_LAYER_AUDITED
+- HIERARCHICALLY_ABOVE_LAYER_AUDITED
+- CONTINUES_WITHIN_LAYER_AUDITED
+- SAME_LEVEL_LAYER_AUDITED
+
+- STRICT_CONTROL_PRESENT
+- MACRO_CONTROL_PRESENT
+
+- CLAUSE_ATOM_ANCHOR_NOT_EQUAL_STRICT_HIERARCHY
+
+- JOB_1_13_LAYER_DISTINCTION_PRESENT
+- JOB_3_1_2_LAYER_DISTINCTION_PRESENT
+- JOB_40_1_LAYER_DISTINCTION_PRESENT
+
+- JOB_2_11_NO_MOTHER_CREATED
+- JOB_32_1_NO_MOTHER_CREATED
+
+- NO_HISTORICAL_REWRITE
+- NO_RELATION_MIGRATION
+- NO_NEW_PARENT
+- NO_NEW_HUMAN_JUDGMENT
+
+- Q1_Q9_UNAPPROVED
+- QA_QF_UNREVIEWED
+
+- R4_4_CONSUMER_ABSENT
+- PARTICIPANT_ARC_UNADJUDICATED
+
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+- REGRESSION_PASS
+
+==================================================
+25. Methodological document
+==================================================
+
+반드시 다음을 명시한다.
+
+“Strict clause hierarchy and macro textual hierarchy are related
+but non-identical analytical layers.”
+
+“A clause_atom anchor identifies textual location; it does not by itself
+determine whether a relation is strict syntactic hierarchy or macro textual
+hierarchy.”
+
+“Historical relation labels such as CHILD_OF, HIERARCHICALLY_ABOVE,
+CONTINUES_WITHIN, and SAME_LEVEL_SIBLING may require an explicit
+relation_layer field to avoid semantic overloading.”
+
+“Jin’s single-mother principle applies to a relation adjudicated as
+strict hypotactic daughterhood; it must not be inferred merely from a
+macro containment judgment.”
+
+“Macro textual hierarchy may use clause-level linguistic evidence,
+but macro projection requires separate human adjudication.”
+
+==================================================
+26. Readiness result
+==================================================
+
+결과는:
+
+READY_FOR_RELATION_LAYER_HUMAN_REVIEW
+
+또는
+
+BLOCKED_BY_RELATION_LAYER_AUDIT_ISSUES
+
+R4.4 implementation ready 선언 금지.
+
+==================================================
+27. Commit / push
+==================================================
+
+모든 test/gate 통과 후:
+
+Suggested commit:
+
+Audit strict and macro hierarchy relation layers
+
+commit + push origin/main.
+
+authorization 추가 요청 시 우회하지 않는다.
+
+==================================================
+28. Final report
+==================================================
+
+보고:
+
+1. start/end commit
+2. commit/push status
+
+3. hierarchy-like relation total count
+
+4. CHILD_OF:
+- strict proposal
+- macro proposal
+- mixed
+- unresolved
+
+5. HIERARCHICALLY_ABOVE:
+same
+
+6. CONTINUES_WITHIN:
+same
+
+7. SAME_LEVEL:
+- strict parataxis proposal
+- macro parataxis proposal
+- mixed/unresolved
+
+8. overloaded relation-type count
+
+9. 1:13 case proposal
+10. 3:1/3:2 case proposal
+11. 40:1 case proposal
+
+12. 28:1 / 42:16 CONTINUES_WITHIN comparison
+
+13. strict positive control results
+14. macro hierarchy control results
+
+15. Q-A–Q-F review packet
+
+16. new relations = 0
+17. new parent edges = 0
+18. new human judgments = 0
+
+19. tests/gates
+20. deterministic rerun
+21. ZIP/SHA256
+
+22. readiness
+23. recommended next human adjudication

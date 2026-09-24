@@ -1,6 +1,43 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.5 focused relation audits, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.6 relation-layer typing audit, 2026-09-24
+
+Active specification: [JIN.0.6 spec](R4_4_CONTRACT_JIN_0_6_SPEC.md);
+authority: [exact request](R4_4_CONTRACT_JIN_0_6_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_6.md);
+results/limits: [validation report](R4_4_CONTRACT_JIN_0_6_VALIDATION_REPORT.md).
+Start HEAD `a3d770425004af8d635518271a3d640aaf8889dc`.
+
+Readiness: **READY_FOR_RELATION_LAYER_HUMAN_REVIEW**.
+Next task: researcher Q-A–Q-F review of strict versus macro typing and future contract.
+All six questions and classification proposals UNREVIEWED. New human judgments,
+accepted relations, parent edges and migrations: 0. Q1–Q9 UNAPPROVED; participant arc
+UNADJUDICATED; R4.4 consumer absent. No mother search for 2:11 or 32:1.
+
+Inventory: 13 primary hierarchy-like rows; 250 complete registry/control rows;
+75 canonical nodes. CHILD_OF 2 and HIERARCHICALLY_ABOVE 1: RL2 macro proposals;
+CONTINUES_WITHIN 10: RL5 non-parent placement (8 macro continuation, 2 no-new-boundary);
+SAME_LEVEL_SIBLING 98: macro-parataxis proposals, no motherless error.
+Potential generic label overloading: 4 families, not proof of four mixed usages.
+Strict positive controls: two exact 32:3 clause pairs, never human macro acceptance.
+1:13 and 3:1/3:2 remain reopened with strict mother unproven. 40:1→38:1 preserves
+macro reconfirmation separately from unproven strict mother. 28:1→27:1 and 42:16→42:7
+preserve source-specific no-boundary placement. Historical rows remain byte-identical.
+
+Validation: 43 new tests; full **1,677 PASS / skip0**; final synthetic inspected;
+**34 run gates + 2 release gates PASS**, with negative tests. Independent real rerun
+ZIP byte-identical; 449 members, 425 preserved upstream files, 243 frozen repository
+pins unchanged, 22 recursive manifests valid. Windows runner exercised; no new raw
+BHSA extraction or Termux empirical claim. Future closure typing and unknown unit
+extents remain explicit; no schema migration has occurred.
+
+Local-only ZIP: `results/jin06_real_final_20260924_a_results.zip`.
+SHA256 `4ae3ea0d3486f8b655338568030f427c308726efc8ede72b24912f9efa6ea94d`.
+Independent `_b` ZIP identical. Review `17_human_review_packet.md`,
+`16_human_review_cases.csv`, per-family audits 04–07 and future crosswalk 15.
+Commit/push authorized by request §27 after tests/gates PASS.
+
+## Previous task — R4.4-CONTRACT.JIN.0.5 focused relation audits, 2026-09-24
 
 Active specification: [JIN.0.5 spec](R4_4_CONTRACT_JIN_0_5_SPEC.md);
 authority: [exact request](R4_4_CONTRACT_JIN_0_5_RESEARCHER_SOURCE.txt);
