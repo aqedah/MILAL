@@ -1,0 +1,1158 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.5
+— Focused Relation Audits
+— 1:13 Mother / 3:1–2 Speech Frame / 2:11·32:1 Macro Parent
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  7f946c313c92c78cf3003ed589d21e186fe8afbe
+
+현재 상태:
+- JIN.0.4 Batch 1 완료
+- B1 1:6↔2:1 PARATAXIS reconfirmed
+- B2 1:13/1:6 HUMAN_DEFERRED / REOPENED
+- B3 3:1/3:2 HUMAN_DEFERRED / REOPENED
+- B4 2:11 macro parent INSUFFICIENT_EVIDENCE
+- B5 32:1 macro parent INSUFFICIENT_EVIDENCE
+- B6 40:1→38:1 HYPOTAXIS reconfirmed
+- B7 38:1↔40:6 PARATAXIS reconfirmed
+- historical artifacts immutable
+- Q1–Q9 UNAPPROVED
+- R4.4 consumer NOT IMPLEMENTED
+- participant arc UNADJUDICATED
+- readiness:
+  BLOCKED_PENDING_FOCUSED_RELATION_AUDITS
+
+이번 단계에서는 새 human judgment를 만들지 않는다.
+
+목적은 다음 세 focused audit을 수행하는 것이다.
+
+A. JOB_1_13_MOTHER_AUDIT
+B. JOB_3_1_2_SPEECH_FRAME_AUDIT
+C. MACRO_PARENT_AUDIT_2_11_32_1
+
+각 audit은:
+BLIND DISCOVERY
+→ BLIND OUTPUT FREEZE
+→ POST-BLIND HISTORICAL COMPARISON
+순서를 지킨다.
+
+==================================================
+1. 공통 원칙
+==================================================
+
+이번 단계의 핵심 원칙:
+
+LINGUISTIC EVIDENCE FIRST
+→ RELATION CANDIDATES
+→ HUMAN REVIEW LATER
+
+Phase A discovery에서는 절대로 사용 금지:
+
+- historical SAME_LEVEL
+- CHILD_OF
+- HIERARCHICALLY_ABOVE
+- TRANSITION_COMPONENT
+- PARAGRAPH_ONSET human label
+- FRIENDS_ARRIVAL label
+- cycle/group membership
+- composition group
+- HSA structural functions
+- seam A–G decisions
+- JIN.0.4 human decisions
+- parentage necessity decisions
+- BHSA mother/tab/pargr/rela/code
+
+BHSA native hierarchy는 blind outputs freeze 후
+validation comparison에서만 사용한다.
+
+==================================================
+2. stage architecture
+==================================================
+
+가능하면 각 focused audit을 독립 module로 구현한다.
+
+권장:
+
+src/milal_jin_job_1_13_mother_audit.py
+src/milal_jin_speech_frame_audit.py
+src/milal_jin_macro_parent_audit.py
+src/milal_jin_focused_postblind_comparison.py
+
+공통 helper:
+src/milal_jin_focused_relation_common.py
+
+각 subaudit은 별도 blind manifest/hash를 가진다.
+
+A/B/C 중 하나의 human/historical source leakage가 발생하면
+전체 stage FAIL.
+
+==================================================
+3. AUDIT A — JOB_1_13_MOTHER_AUDIT
+==================================================
+
+연구 질문:
+
+Job 1:13은 어떤 textual relation을 가지는가?
+
+특히:
+
+1.
+1:13은 1:6과 PARATACTIC인가?
+
+2.
+1:13은 1:6 아래의 HYPOTACTIC daughter인가?
+
+3.
+1:6 외에 더 적절한 preceding mother candidate가 있는가?
+
+4.
+1:13은 앞선 participant/narrative configuration을 resume하는가?
+
+5.
+1:6↔2:1의 강한 parataxis와 비교할 때
+1:13의 위치는 어떻게 다른가?
+
+Codex는 답하지 않는다.
+
+--------------------------------------------------
+3.1 Candidate universe
+--------------------------------------------------
+
+Mother candidate는 target보다 앞선 clause여야 한다.
+
+Job 1:13 target에 대해 최소 Job 1:1–1:12의
+모든 preceding main-clause-compatible clauses를 scan한다.
+
+특히 다음은 반드시 evidence panel에 포함하되
+mother로 hard-code하지 않는다.
+
+- 1:1
+- 1:4
+- 1:5
+- 1:6
+- 1:7–12 relevant main clauses
+- 1:12
+
+2:1은 1:13 이후이므로 mother candidate가 아니다.
+
+2:1은 오직 comparative parataxis control이다.
+
+--------------------------------------------------
+3.2 Strict clause candidates vs macro anchors
+--------------------------------------------------
+
+두 후보 pool을 분리한다.
+
+A_STRICT_CLAUSE_MOTHER_CANDIDATES
+
+실제 preceding BHSA clause candidates.
+
+A_MACRO_ANCHOR_COMPARISON
+
+neutral textual loci:
+1:1
+1:5
+1:6
+1:13
+2:1
+
+Macro anchor comparison은 mother relation이 아니다.
+
+--------------------------------------------------
+3.3 Raw evidence
+--------------------------------------------------
+
+각 preceding candidate vs 1:13에 대해:
+
+- clause type
+- verbal morphology
+- constituent order
+- explicit subject
+- participant set
+- pronominal/suffix continuity
+- domain
+- Time phrase
+- Location phrase
+- lexical/formula correspondence
+- preceding context signature
+- following context signature
+- explicit subordinate marker
+- anaphoric/reference dependency
+- participant resumption
+
+을 출력한다.
+
+--------------------------------------------------
+3.4 Narrative-line resumption detector
+--------------------------------------------------
+
+generic helper를 구현하여:
+
+target participant/configuration이
+직전 context가 아니라 더 이전 context와 재연결되는지 검사한다.
+
+특히 1:13에 대해 blind하게:
+
+PRE_1_13_IMMEDIATE_CONTEXT
+vs
+EARLIER_CONTEXT_CONFIGURATION
+
+을 비교한다.
+
+금지:
+“earth scene”
+“heaven scene”
+
+같은 human semantic label을 discovery input으로 사용.
+
+대신:
+participant-set signature
+subject sequence
+domain sequence
+verb sequence
+raw lexical recurrence
+를 사용한다.
+
+--------------------------------------------------
+3.5 Mandatory comparative controls
+--------------------------------------------------
+
+A1:
+1:6 vs 2:1
+known later only in post-blind comparison.
+
+Blind stage에서는:
+raw repeated configuration comparison.
+
+A2:
+1:6 vs 1:13
+
+A3:
+1:13 vs earlier 1:4–5 participant configuration
+
+A4:
+1:13 vs immediate 1:12 context
+
+--------------------------------------------------
+3.6 A output hypotheses
+--------------------------------------------------
+
+허용 candidate labels:
+
+A_PARATAXIS_SUPPORTED
+
+A_HYPOTAXIS_SUPPORTED
+
+A_PARATAXIS_AND_HYPOTAXIS_SUPPORTED
+
+A_RESUMED_NARRATIVE_LINE_CANDIDATE
+
+A_NEW_PARAGRAPH_SAME_LEVEL_CANDIDATE
+
+A_MOTHER_CANDIDATE_SUPPORTED
+
+A_MOTHER_CANDIDATE_INSUFFICIENT
+
+A_RELATION_INSUFFICIENT
+
+No winner.
+
+No mother selected.
+
+==================================================
+4. AUDIT B — JOB_3_1_2_SPEECH_FRAME_AUDIT
+==================================================
+
+연구 질문:
+
+Job 3:1의 narrator speech-event frame과
+3:2의 formal CSF는 어떤 관계인가?
+
+기존 human relation은 blind stage에서 숨긴다.
+
+목표는 3:1–2만 hard-code하여 증명하는 것이 아니라
+욥기 전권에서:
+
+NARRATIVE SPEECH-EVENT FRAME
+→
+DIRECT-SPEECH / CSF ONSET
+
+패턴을 generic하게 탐색하는 것이다.
+
+--------------------------------------------------
+4.1 Whole-Job speech transition inventory
+--------------------------------------------------
+
+Job 전체에서 raw BHSA domain을 이용하여 다음 전환을 추출한다.
+
+NARRATIVE → DIRECT_SPEECH
+
+NARRATIVE_SPEECH_EVENT → CSF
+
+SPEECH_EVENT_VERB → AMR/ANA CSF
+
+DIRECT_SPEECH_FRAME → FORMAL_SPEECH_ONSET
+
+최소 speech-related lexemes/patterns:
+
+- פתח
+- פה
+- אמר
+- ענה
+- דבר
+- קרא
+- יסף where speech-related
+- ויאמר
+- ויען ... ויאמר
+- ויסף ... ויאמר
+
+단:
+lexeme alone = relation 아님.
+
+--------------------------------------------------
+4.2 Specific 3:1–2 evidence
+--------------------------------------------------
+
+반드시 exact clauses를 분리한다.
+
+3:1:
+אחרי כן פתח איוב את פיהו
+ויקַלל את יומו
+
+3:2:
+ויען איוב
+ויאמר
+
+BHSA actual segmentation을 source-of-truth로 사용한다.
+
+다음 질문의 evidence만 생성:
+
+- 3:1이 speech event를 이미 열었는가?
+- 3:2는 새로운 independent speech onset인가?
+- 3:2는 3:1에서 열린 speech event를 formalize/restate하는가?
+- 3:1과 3:2 사이에 referential dependency가 있는가?
+- 동일 speaker continuity가 있는가?
+- narrator-domain → speech-domain transition은 정확히 어디서 발생하는가?
+
+Codex가 답하지 않는다.
+
+--------------------------------------------------
+4.3 Comparable Job cases
+--------------------------------------------------
+
+전체 Job inventory에서 구조적으로 비교 가능한 cases를 찾는다.
+
+비교 기준:
+
+- narrator identifies speaker/event
+- immediately/near-immediately followed by CSF
+- same participant continuity
+- speech domain change
+- duplicate/redundant speech-announcement pattern
+
+가능한 comparable case가 없으면:
+
+NO_COMPARABLE_JOB_CASE
+
+로 명시한다.
+
+비교 case를 억지로 만들지 않는다.
+
+--------------------------------------------------
+4.4 External corpus 금지
+--------------------------------------------------
+
+이번 stage에서는 욥기 밖의 BHSA 사례로 확대하지 않는다.
+
+Job 내부 controls가 부족하면
+그 사실 자체를 결과로 남긴다.
+
+향후 연구자가 요청할 경우에만
+cross-biblical comparison stage를 별도로 만든다.
+
+--------------------------------------------------
+4.5 Speech-frame candidate labels
+--------------------------------------------------
+
+허용:
+
+B_FRAME_TO_CSF_HYPOTAXIS_SUPPORTED
+
+B_FRAME_TO_CSF_PARATAXIS_SUPPORTED
+
+B_CSF_CONTINUES_OPENED_SPEECH_EVENT
+
+B_REDUNDANT_FORMAL_SPEECH_ONSET_CANDIDATE
+
+B_INDEPENDENT_SPEECH_ONSET_CANDIDATE
+
+B_MULTIPLE_INTERPRETATIONS_SUPPORTED
+
+B_INSUFFICIENT_EVIDENCE
+
+모두 UNADJUDICATED.
+
+==================================================
+5. explicit hypotaxis controls
+==================================================
+
+JIN.0.4에서 보존한 explicit subordinate controls를
+이번 B audit의 calibration control로 사용하되
+human acceptance로 승격하지 않는다.
+
+JIN.0.2 detected controls:
+
+JP:JT0037:499628:499631
+JP:JT0037:499629:499631
+
+관련:
+Job 32:3
+על אשר לא מצאו מענה
+
+확인할 것:
+
+- explicit subordinate marker
+- local dependency
+- hypotaxis detection
+
+이 control은:
+STRICT_CLAUSE_HYPOTAXIS_POSITIVE_CONTROL
+
+이며
+macro hierarchy evidence가 아니다.
+
+==================================================
+6. AUDIT C — MACRO_PARENT_AUDIT_2_11_32_1
+==================================================
+
+연구 질문:
+
+Job 2:11과 32:1의 macro textual placement에서
+direct mother candidate를 언어학적으로 검출할 수 있는가?
+
+중요:
+
+JIN.0.3의 local/internal hypotaxis pair를
+macro mother로 승격하지 않는다.
+
+--------------------------------------------------
+6.1 Neutral target inventory
+--------------------------------------------------
+
+C1 blind discovery에서는
+neutral target inventory만 사용한다.
+
+Human structural labels strip.
+
+Target C-A:
+Job 2:11 main textual locus
+
+Target C-B:
+Job 32:1 main textual locus
+
+--------------------------------------------------
+6.2 Candidate macro anchors
+--------------------------------------------------
+
+각 target보다 앞선 neutral textual loci를
+모두 candidate scan에 포함한다.
+
+그러나 candidate retention은
+linguistic trigger가 있어야 한다.
+
+금지:
+
+nearest preceding locus
+nearest opening
+chapter boundary
+current composition membership
+current transition relation
+current human parent
+
+2:11 candidate search는
+preceding neutral loci through 2:10.
+
+32:1 candidate search는
+preceding neutral loci through 31:40.
+
+--------------------------------------------------
+6.3 Macro candidate evidence
+--------------------------------------------------
+
+각 preceding neutral locus와 target 사이에:
+
+- focal clause correspondence
+- clause-type relation
+- formula relation
+- participant recurrence/change
+- subject/reference continuity
+- domain transition
+- temporal/locative relation
+- closure/onset surface evidence
+- repeated multi-clause configuration
+- resumption evidence
+- explicit subordination
+- anaphoric relation
+- discourse-frame correspondence
+
+를 추출한다.
+
+주의:
+“closure/onset”도 raw surface feature로만.
+
+historical SPEECH_UNIT_END / PARAGRAPH_ONSET labels는
+blind stage에서 사용하지 않는다.
+
+--------------------------------------------------
+6.4 Local clause dependency exclusion
+--------------------------------------------------
+
+JIN.0.3 findings을 blind-source form으로 재검증한다.
+
+2:11:
+previously 4 hypotaxis candidates
+- 3 internal
+- 1 cross-locus
+- macro 0
+
+32:1:
+previously 2 hypotaxis
+- 0 internal
+- 2 cross-locus
+- macro 0
+
+이번 stage에서:
+
+STRICT_CLAUSE_RELATION
+vs
+MACRO_TEXTUAL_MOTHER_CANDIDATE
+
+를 완전히 분리한다.
+
+Local dependent clause는 macro candidate pool에서 제외.
+
+--------------------------------------------------
+6.5 Macro relation hypotheses
+--------------------------------------------------
+
+허용:
+
+C_MACRO_HYPOTAXIS_CANDIDATE
+
+C_MACRO_PARATAXIS_CANDIDATE
+
+C_TRANSITIONAL_PLACEMENT_CANDIDATE
+
+C_RESUMPTIVE_PLACEMENT_CANDIDATE
+
+C_NO_MACRO_MOTHER_SUPPORT
+
+C_MULTIPLE_MACRO_CANDIDATES
+
+C_INSUFFICIENT_EVIDENCE
+
+모두 UNADJUDICATED.
+
+No mother selected.
+
+==================================================
+7. Blind-stage source isolation
+==================================================
+
+A/B/C 각각 별도 source audit.
+
+필수:
+
+A_HUMAN_SOURCE_COUNT = 0
+B_HUMAN_SOURCE_COUNT = 0
+C_HUMAN_SOURCE_COUNT = 0
+
+A_HUMAN_LABEL_LEAKAGE = 0
+B_HUMAN_LABEL_LEAKAGE = 0
+C_HUMAN_LABEL_LEAKAGE = 0
+
+A/B/C_BHSA_NATIVE_HIERARCHY_INPUT = 0
+
+A/B/C_COMPOSITION_INPUT = 0
+
+각 blind stage는 별도 output freeze/hash 후
+post-blind comparison으로 넘어간다.
+
+==================================================
+8. Post-blind historical comparison
+==================================================
+
+Blind A/B/C outputs freeze 이후에만
+다음 historical data 로드.
+
+Audit A:
+- B1 1:6↔2:1
+- historical 1:13→1:6
+- JIN.0.4 B2 reopen status
+
+Audit B:
+- historical 3:1/3:2 relation
+- JIN.0.4 B3 reopen status
+
+Audit C:
+- 2:11 historical states
+- 32:1 historical states
+- JIN.0.4 B4/B5
+
+Post-blind comparison은:
+blind candidate를 수정하지 않는다.
+
+==================================================
+9. Post-blind comparison statuses
+==================================================
+
+허용:
+
+FOCUSED_EVIDENCE_SUPPORTS_HISTORICAL_RELATION
+
+FOCUSED_EVIDENCE_PARTIALLY_SUPPORTS_HISTORICAL_RELATION
+
+FOCUSED_EVIDENCE_SUPPORTS_ALTERNATIVE
+
+FOCUSED_EVIDENCE_LEAVES_RELATION_UNRESOLVED
+
+FOCUSED_EVIDENCE_DOES_NOT_RECOVER_RELATION
+
+FOCUSED_EVIDENCE_CONFLICTS_WITH_HISTORICAL_RELATION
+
+MULTIPLE_LINGUISTIC_RELATIONS_REMAIN_POSSIBLE
+
+모두 descriptive.
+
+No human acceptance.
+
+==================================================
+10. Mother candidate semantics
+==================================================
+
+이번 stage에서도 반드시:
+
+CANDIDATE MOTHER
+≠
+ACCEPTED MOTHER
+
+다수 후보가 가능하다.
+
+후보 pool에 ranking/score를 만들지 않는다.
+
+각 candidate에는:
+- evidence bundle
+- competing evidence
+- limitations
+- scope
+만 기록한다.
+
+==================================================
+11. No numeric ranking
+==================================================
+
+금지:
+
+mother_score
+parataxis_score
+hypotaxis_score
+candidate_rank
+best_candidate
+
+Evidence dimension count는 QA용 집계만 허용.
+
+“most evidence”를 winner selection에 사용 금지.
+
+==================================================
+12. Audit A special output
+==================================================
+
+Job 1:13 report는 반드시 다음 표를 포함한다.
+
+Candidate preceding clause/locus
+Clause type
+Formal correspondence
+Participant recurrence
+Participant change
+Temporal correspondence
+Context sequence correspondence
+Resumption evidence
+Hypotaxis evidence
+Parataxis evidence
+Limitation
+Candidate status
+
+그리고 별도 three-way comparison:
+
+1:6
+1:13
+2:1
+
+다음 차원:
+
+- focal formula
+- following 1
+- following 2
+- following 3
+- participant configuration
+- domain configuration
+- formula configuration
+
+==================================================
+13. Audit B special output
+==================================================
+
+Job 3:1–2 report:
+
+A.
+exact clause segmentation
+
+B.
+speech-event sequence
+
+C.
+domain transition
+
+D.
+participant continuity
+
+E.
+verb/formula sequence
+
+F.
+whole-Job comparable cases
+
+G.
+explicit hypotaxis controls
+
+H.
+whether Job provides enough comparative evidence
+
+중요:
+“unique pattern”이면 그 사실을 보존한다.
+
+==================================================
+14. Audit C special output
+==================================================
+
+2:11과 32:1 각각:
+
+- all previous clause-level candidates
+- excluded local-internal candidates
+- preceding macro-locus candidate pool
+- retained macro candidate count
+- relation hypothesis
+- evidence bundle
+- limitations
+
+별도:
+
+NO_MACRO_MOTHER_FOUND
+는 정상 결과다.
+
+이 경우 root/placement 문제를 억지로 해결하지 않는다.
+
+==================================================
+15. Generic candidate generation, not hard-coded answer
+==================================================
+
+Job 1:13, 3:1/2, 2:11, 32:1은 audit targets지만
+candidate rules 자체는 generic helper로 작성한다.
+
+즉 코드 안에:
+
+if ref == "1:13": mother = "1:6"
+
+같은 logic이 있으면 FAIL.
+
+Control/reference lists는 config에서 허용하지만
+결론 logic은 generic해야 한다.
+
+==================================================
+16. Synthetic fixtures
+==================================================
+
+최소:
+
+S1.
+participant configuration resumes earlier line after intervening scene
+
+S2.
+same focal formula but divergent surrounding configuration
+
+S3.
+same focal + repeated surrounding configuration
+
+S4.
+narrative speech-event frame followed by formal CSF
+
+S5.
+speech-event frame with no separate CSF
+
+S6.
+CSF without prior speech-event frame
+
+S7.
+local explicit subordinate clause
+
+S8.
+local hypotaxis that must NOT project to macro mother
+
+S9.
+cross-locus hypotaxis with macro-supporting context
+
+S10.
+multiple plausible preceding mother candidates
+
+S11.
+zero plausible macro mother candidate
+
+S12.
+nearest preceding candidate has weaker/absent linguistic trigger
+but earlier candidate has relevant trigger
+→ do not select nearest automatically
+
+==================================================
+17. Review packet
+==================================================
+
+Generate one researcher packet with three sections.
+
+SECTION A
+Job 1:13 Mother Audit
+
+SECTION B
+Job 3:1–2 Speech Frame Audit
+
+SECTION C
+Job 2:11 / 32:1 Macro Parent Audit
+
+Each case includes blank fields:
+
+review_status = UNREVIEWED
+
+relation_decision
+
+selected_mother
+
+paratactic_peer
+
+macro_projection_decision
+
+evidence_sufficient
+
+additional_information_needed
+
+reviewer_notes
+
+Codex fills none.
+
+==================================================
+18. Expected researcher questions
+==================================================
+
+A-Q1:
+Does focused linguistic evidence support 1:13 as a daughter of 1:6?
+
+A-Q2:
+If not, does another preceding textual clause provide stronger mother evidence?
+
+A-Q3:
+Does 1:13 instead belong to a resumed/paratactic narrative line?
+
+B-Q1:
+Does 3:1 function as a narrative speech-event frame that structurally governs 3:2?
+
+B-Q2:
+Is 3:2 an independent paratactic onset, a hypotactic/formal continuation,
+or insufficiently determined?
+
+B-Q3:
+Are there adequate Job-internal controls to decide?
+
+C-Q1:
+Does 2:11 have a linguistically supported macro textual mother?
+
+C-Q2:
+Does 32:1 have a linguistically supported macro textual mother?
+
+C-Q3:
+If not, what additional hierarchy/root rule is needed before adjudication?
+
+==================================================
+19. Outputs
+==================================================
+
+최소:
+
+01_job_1_13_candidate_inventory.csv
+02_job_1_13_context_comparison.csv
+03_job_1_13_resumption_audit.csv
+04_job_1_13_blind_report.md
+
+05_job_speech_transition_inventory.csv
+06_job_speech_frame_candidates.csv
+07_job_3_1_2_blind_report.md
+08_explicit_hypotaxis_controls.csv
+
+09_macro_parent_targets.csv
+10_macro_parent_candidate_inventory.csv
+11_macro_parent_local_exclusions.csv
+12_job_2_11_macro_parent_report.md
+13_job_32_1_macro_parent_report.md
+
+14_focused_blind_source_audit.csv
+15_focused_blind_manifest.csv
+
+16_focused_postblind_comparison.csv
+17_focused_relation_review_cases.csv
+18_focused_relation_review_packet.md
+
+19_method_compliance_report.md
+20_next_adjudication_scope.md
+
+21_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+필요한 provenance/link 파일 추가 가능.
+
+==================================================
+20. Critical gates
+==================================================
+
+- BASELINE_COMMIT_VERIFIED
+- JIN_0_4_FROZEN_PRESERVED
+
+- AUDIT_A_BLIND
+- AUDIT_B_BLIND
+- AUDIT_C_BLIND
+
+- A_HUMAN_SOURCE_COUNT_ZERO
+- B_HUMAN_SOURCE_COUNT_ZERO
+- C_HUMAN_SOURCE_COUNT_ZERO
+
+- A_HUMAN_LABEL_LEAKAGE_ZERO
+- B_HUMAN_LABEL_LEAKAGE_ZERO
+- C_HUMAN_LABEL_LEAKAGE_ZERO
+
+- BHSA_NATIVE_HIERARCHY_POSTBLIND_ONLY
+
+- JOB_1_13_NO_MOTHER_AUTO_SELECTED
+- JOB_1_13_THREE_WAY_CONTROL_PRESENT
+- JOB_1_13_RESUMPTION_AUDITED
+
+- JOB_3_1_2_GENERIC_SPEECH_FRAME_AUDIT
+- JOB_3_1_2_NO_RELATION_AUTO_SELECTED
+- SPEECH_FRAME_WHOLE_JOB_INVENTORY_PRESENT
+- EXPLICIT_HYPOTAXIS_CONTROL_PRESENT
+
+- JOB_2_11_LOCAL_HYPOTAXIS_EXCLUDED_FROM_MACRO
+- JOB_32_1_LOCAL_HYPOTAXIS_EXCLUDED_FROM_MACRO
+- JOB_2_11_NO_MOTHER_AUTO_SELECTED
+- JOB_32_1_NO_MOTHER_AUTO_SELECTED
+
+- NO_NEAREST_PRECEDING_HEURISTIC
+- NO_NUMERIC_RANKING
+- MULTIPLE_CANDIDATES_PRESERVED
+
+- NO_NEW_HUMAN_JUDGMENT
+- NO_NEW_ACCEPTED_RELATION
+- NO_NEW_PARENT_EDGE
+
+- Q1_Q9_STILL_UNAPPROVED
+- PARTICIPANT_ARC_UNADJUDICATED
+- R4_4_CONSUMER_ABSENT
+
+- HISTORICAL_ARTIFACTS_UNCHANGED
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+- FULL_REGRESSION_PASS
+
+==================================================
+21. Validation
+==================================================
+
+Run:
+
+1. syntax validation
+2. JIN.0.5 unit tests
+3. full regression
+4. synthetic A audit
+5. synthetic B audit
+6. synthetic C audit
+7. real BHSA A blind audit
+8. A freeze/hash
+9. real BHSA B blind audit
+10. B freeze/hash
+11. real BHSA C blind audit
+12. C freeze/hash
+13. source leakage audit
+14. post-blind historical comparison
+15. deterministic rerun
+16. manifest verification
+17. manual inspection
+
+Manual inspection minimum:
+- 1:6 / 1:13 / 2:1
+- 1:13 vs 1:4–5
+- 1:13 vs 1:12
+- 3:1 / 3:2
+- explicit subordinate control
+- 2:11
+- 32:1
+
+skip 0 required.
+
+==================================================
+22. Readiness
+==================================================
+
+Result:
+
+READY_FOR_FOCUSED_RELATION_HUMAN_ADJUDICATION
+
+or
+
+BLOCKED_BY_FOCUSED_AUDIT_ISSUES
+
+Do not declare:
+READY_FOR_R4_4_IMPLEMENTATION.
+
+==================================================
+23. Implementation / files
+==================================================
+
+Repository convention을 먼저 확인하고
+기존 JIN.0.2/0.3 helper를 재사용한다.
+
+권장 code:
+
+src/milal_jin_job_1_13_mother_audit.py
+src/milal_jin_speech_frame_audit.py
+src/milal_jin_macro_parent_audit.py
+src/milal_jin_focused_postblind_comparison.py
+src/milal_jin_focused_common.py
+
+config:
+config/r4_4_contract_jin_0_5_job.json
+
+tests:
+tests/test_r4_4_contract_jin_0_5.py
+
+Windows runner:
+scripts/run_milal_r4_4_contract_jin_0_5_windows.ps1
+
+Termux runner:
+repository convention이 있다면
+scripts/run_milal_r4_4_contract_jin_0_5_termux.sh
+
+docs:
+docs/R4_4_CONTRACT_JIN_0_5_SPEC.md
+docs/R4_4_CONTRACT_JIN_0_5_VALIDATION_REPORT.md
+
+HANDOFF.md update
+
+==================================================
+24. Termux instructions
+==================================================
+
+README/HANDOFF에 실제 실행 가능한 명령을 기록한다.
+
+최소 흐름:
+
+cd ~/MILAL
+git pull --ff-only
+
+실제 Termux runner 실행
+
+actual BHSA 2021 path 확인
+
+결과 ZIP 생성
+
+실제 파일명과 entrypoint를 코드에서 확인한 뒤
+정확한 명령만 문서화한다.
+
+==================================================
+25. Commit / push
+==================================================
+
+모든 tests/gates PASS 후:
+
+git status
+git diff
+git diff --check
+
+Suggested commit:
+
+Audit focused Jin hierarchy relations
+
+commit 후 push origin/main.
+
+authorization workflow가 추가 explicit approval을 요구하면
+우회하지 말고 commit까지만 완료 후 보고.
+
+==================================================
+26. Final report
+==================================================
+
+반드시 보고:
+
+1. start/end commit
+2. commit message
+3. push status
+4. working tree
+
+AUDIT A:
+5. scanned preceding clause count
+6. retained mother candidate count
+7. candidate refs
+8. 1:6/1:13 result
+9. 1:6/2:1 control
+10. 1:13 vs 1:4–5 resumption evidence
+11. 1:13 vs 1:12 immediate-context evidence
+12. A postblind comparison status
+
+AUDIT B:
+13. whole-Job narrative→speech transition count
+14. speech-frame comparable case count
+15. 3:1/3:2 evidence
+16. whether comparable controls exist
+17. explicit hypotaxis control result
+18. B postblind comparison status
+
+AUDIT C:
+19. 2:11 scanned macro candidates
+20. 2:11 retained macro candidates
+21. 2:11 excluded local clause candidates
+22. 32:1 scanned macro candidates
+23. 32:1 retained macro candidates
+24. 32:1 excluded local candidates
+25. C postblind comparison statuses
+
+GENERAL:
+26. human source leakage counts
+27. new human judgment = 0
+28. new accepted relation = 0
+29. new parent edge = 0
+
+30. tests/gates
+31. deterministic rerun
+32. ZIP
+33. SHA256
+
+34. focused human-review questions
+35. recommended next adjudication
+
+36. readiness
+
+중요:
+이번 단계는 B2/B3/B4/B5의 답을 미리 만드는 단계가 아니다.
+blind linguistic evidence를 충분히 확장하여
+연구자가 실제로 답할 수 있게 만드는 단계이다.

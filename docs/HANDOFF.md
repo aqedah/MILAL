@@ -1,6 +1,54 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.4 contextual human Batch 1, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.5 focused relation audits, 2026-09-24
+
+Active specification: [JIN.0.5 spec](R4_4_CONTRACT_JIN_0_5_SPEC.md);
+authority: [exact request](R4_4_CONTRACT_JIN_0_5_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_5.md);
+results/limits: [validation report](R4_4_CONTRACT_JIN_0_5_VALIDATION_REPORT.md).
+Start HEAD `7f946c313c92c78cf3003ed589d21e186fe8afbe`.
+
+Readiness: **READY_FOR_FOCUSED_RELATION_HUMAN_ADJUDICATION**.
+Next task: researcher review of four targets in the three-section focused packet.
+No human judgment, accepted relation or parent edge was added. JIN.0.4 B1–B7 remain
+unchanged; B2/B3 still deferred/reopened and B4/B5 unresolved. Q1–Q9 remain UNAPPROVED;
+participant arc UNADJUDICATED; R4.4 consumer NOT IMPLEMENTED. No root or mother selected.
+
+A/B/C ran in separate raw-BHSA processes with read/import allowlists and separate
+freezes before the postblind process opened human history. For each phase: human,
+label leakage, composition and native hierarchy input counts all 0. Raw 23-feature
+values/receipts match frozen JIN.0.2. All 366 upstream files and 226 frozen pins unchanged.
+
+A: 55 earlier clauses, 45 main-compatible scans; strict mother-support candidates 0.
+1:6/2:1 exact following configuration; 1:6/1:13 contrast. Earlier 1:4–5 has BN/
+recurrence absent from 1:12, but lexical recurrence is not participant identity (BN/
+also occurs in 1:6). Four raw resumption descriptors preserved, no mother inferred.
+B: whole Job 2,938 clauses; 119 adjacent N→Q transitions (not speech-unit count),
+202 frame/onset candidate rows; one external-to-focus Job comparator at 42:7.
+3:1 Unknown/N, 3:2 N/N, quoted Q begins at 3:3. 42:7 has completed-speech framing,
+so adequacy of this comparator remains a human question. Two explicit controls remain
+strict clause evidence, UNREVIEWED and not macro/human accepted.
+C: 2:11 scans11/trigger-retains3/macro-mother0; 32:1 scans35/retains21/macro-mother0.
+All four 2:11 local pairs (3 internal,1 cross) and both 32:1 pairs (0 internal,2 cross)
+are excluded from macro promotion. NO_MACRO_MOTHER_FOUND is preserved for both.
+Postblind: B1 descriptive support; B2/B3 multiple linguistic possibilities;
+B4/B5 remain unresolved. No historical relation is overwritten.
+
+Validation: 60 new tests; full **1,634 PASS / skip0**; S1–S12 PASS;
+**48 run gates + 2 external release gates PASS**, negative-tested. Final synthetic
+packet inspected before real execution. Independent real rerun ZIP byte-identical;
+21 recursive manifests plus all three individual/combined blind manifests verify.
+No Termux empirical claim; actual Termux commands are in the README.
+
+Real ZIP (local-only): `results/jin05_focused_real_final_20260924_a_results.zip`.
+SHA256 `a22f0f395edd95ce59b55c745dbb3d9a0fd8cd0b4348b3d9fc453ff2281b0587`.
+Independent `_b` ZIP is identical. Review `18_focused_relation_review_packet.md`,
+`17_focused_relation_review_cases.csv` and detailed blind reports 04/07/12/13.
+Windows entrypoint: `scripts/run_milal_jin_focused_windows.ps1` with explicit -TfData;
+Termux: `bash scripts/run_milal_jin_focused_termux.sh --tf-data <verified-path> --out <fresh-output>`.
+Commit/push authorized by request §25 after tests/gates PASS.
+
+## Previous task — R4.4-CONTRACT.JIN.0.4 contextual human Batch 1, 2026-09-24
 
 Active specification: [JIN.0.4 spec](R4_4_CONTRACT_JIN_0_4_SPEC.md);
 authority: [exact researcher request](R4_4_CONTRACT_JIN_0_4_RESEARCHER_SOURCE.txt);

@@ -1,0 +1,68 @@
+{
+  "a_anchors": [
+    "1:1",
+    "1:5",
+    "1:6",
+    "1:13",
+    "2:1"
+  ],
+  "a_controls": [
+    [
+      "1:6",
+      "2:1"
+    ],
+    [
+      "1:6",
+      "1:13"
+    ],
+    [
+      "1:13",
+      "2:1"
+    ]
+  ],
+  "a_earlier_refs": [
+    "1:4",
+    "1:5"
+  ],
+  "a_immediate_refs": [
+    "1:12"
+  ],
+  "a_scan_start": "1:1",
+  "a_target": "1:13",
+  "b_focus": [
+    "3:1",
+    "3:2"
+  ],
+  "book": "Job",
+  "c_targets": [
+    "2:11",
+    "32:1"
+  ],
+  "closure_lexemes": [
+    "TMM[",
+    "KLH[",
+    "CBT["
+  ],
+  "context_radius": 3,
+  "explicit_control_nodes": [
+    [
+      499628,
+      499631
+    ],
+    [
+      499629,
+      499631
+    ]
+  ],
+  "mouth": "PH/",
+  "open_verb": "PTX[",
+  "speech_add_verb": "JSP[",
+  "speech_near_clauses": 3,
+  "speech_verbs": [
+    ">MR[",
+    "<NH[",
+    "DBR[",
+    "QR>["
+  ],
+  "version": "JIN.0.5"
+}
