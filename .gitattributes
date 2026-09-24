@@ -39,3 +39,5 @@ docs/R4_4_CONTRACT_JIN_0_1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,b
 docs/R4_4_CONTRACT_JIN_0_2_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 docs/R4_4_CONTRACT_JIN_0_3_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+docs/R4_4_CONTRACT_JIN_0_4_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

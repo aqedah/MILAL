@@ -1,0 +1,786 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.4
+— Contextual Human Adjudication Batch 1
+— Parataxis / Hypotaxis Calibration Freeze
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  1781b36f52b9d0b47c1acfefbd07bb06411129a3
+
+현재 상태:
+- JIN.0.3 contextual consolidation 완료
+- readiness = READY_FOR_CONTEXTUAL_HUMAN_RELATION_REVIEW
+- contextual review cases = 206
+- JIN.0.2 / JIN.0.3 blind outputs frozen
+- 기존 HSA human judgments frozen
+- R4.4 consumer NOT IMPLEMENTED
+- participant arc UNADJUDICATED
+
+이번 단계에서는 전체 206건을 판정하지 않는다.
+
+연구자가 이번에 승인한/제공한 Batch 1 판단 7건만
+새 append-only human-adjudication layer에 기록한다.
+
+기존 historical relation은 삭제하거나 rewrite하지 않는다.
+
+==================================================
+1. Batch 1 researcher decisions
+==================================================
+
+--------------------------------------------------
+CASE B1 — Job 1:6 ↔ 2:1
+--------------------------------------------------
+
+DECISION:
+ACCEPTED_PARATAXIS
+
+relation:
+1:6 ↔ 2:1
+
+relation level:
+MACRO_TEXTUAL / TEXTUAL_PARATAXIS
+
+researcher rationale:
+
+1:6과 2:1은 focal ויהי היום가 동일할 뿐 아니라,
+후속 multi-clause configuration이 반복된다.
+
+Blind contextual audit:
+- focal correspondence = MATCH
+- following 1 = MATCH
+- following 2 = MATCH
+- following 3 = MATCH
+- configuration = EXACT_CONFIGURATION_CORRESPONDENCE
+
+따라서 이 두 locus는
+동일 textual level의 paratactic units로 판정한다.
+
+기존 SAME_LEVEL_SIBLING 판단과 부합한다.
+
+Important:
+- 새 CHILD_OF 생성 금지
+- 둘 중 하나를 mother로 만들지 않음
+
+human decision:
+PARATACTIC
+
+macro_projection_decision:
+MACRO_TEXTUAL
+
+evidence_sufficient:
+true
+
+historical relation:
+CONFIRMED_BY_INDEPENDENT_BLIND_CONTEXT_AUDIT
+
+--------------------------------------------------
+CASE B2 — Job 1:13 relative to 1:6
+--------------------------------------------------
+
+DECISION:
+HUMAN_DEFERRED / REQUIRES_ADDITIONAL_CONTEXT
+
+historical relation:
+1:13 CHILD_OF 1:6
+
+현재 blind evidence:
+pairwise PARATAXIS candidate
+
+context:
+CONFIGURATION_CONTRAST
+
+observed:
+- 1:6 / 1:13 focal ויהי היום correspondence exists
+- following 1/2/3 configuration differs
+- 1:6 / 2:1, by contrast, has exact following configuration correspondence
+
+Researcher judgment:
+
+현재 evidence는
+1:13을 1:6과 동일 계층 paratactic peer로 확정하기에는 부족하며,
+기존 pairwise parataxis conflict는 contextual audit에 의해 약화된다.
+
+그러나:
+
+“not same-level”
+does NOT entail
+“1:6 is necessarily the direct mother.”
+
+따라서 기존 CHILD_OF relation을 이번 단계에서
+CONFIRM하지도 REJECT하지도 않는다.
+
+record:
+
+review_status = HUMAN_DEFERRED
+relation_decision = REQUIRES_ADDITIONAL_CONTEXT
+
+historical_relation_status =
+REOPENED_FOR_FOCUSED_MOTHER_AUDIT
+
+selected_mother =
+NONE
+
+macro_projection_decision =
+UNRESOLVED
+
+다음 focused audit에서는 최소:
+- 1:5
+- 1:6
+- 1:12
+- 1:13
+- 2:1
+의 linguistic hierarchy를 비교해야 한다.
+
+기존 historical CHILD_OF edge는 source history에서 삭제하지 않는다.
+
+--------------------------------------------------
+CASE B3 — Job 3:2 relative to 3:1
+--------------------------------------------------
+
+DECISION:
+HUMAN_DEFERRED / REQUIRES_ADDITIONAL_CONTEXT
+
+historical:
+3:1 HIERARCHICALLY_ABOVE 3:2
+
+blind:
+LINGUISTIC_EVIDENCE_INSUFFICIENT
+
+context:
+NO_CONTEXTUAL_CORRESPONDENCE
+
+observed text:
+3:1
+אחרי כן פתח איוב את פיהו
+ויקַלל את יומו
+
+3:2
+ויען איוב
+ויאמר
+
+Researcher judgment:
+
+현재 rule set은
+3:1의 temporal/open-mouth/speech-event frame과
+3:2 CSF의 hierarchy relation을 충분히 검출하지 못했다.
+
+기존 human relation을
+이번 blind audit만으로 확인했다고 선언하지 않는다.
+
+record:
+
+review_status = HUMAN_DEFERRED
+relation_decision = REQUIRES_ADDITIONAL_CONTEXT
+selected_mother = NONE
+
+historical_relation_status =
+REOPENED_FOR_FOCUSED_SPEECH_FRAME_AUDIT
+
+다음 audit에서는 generic하게:
+NARRATIVE_SPEECH_EVENT_FRAME
+→
+CSF / DIRECT_SPEECH_ONSET
+
+관계를 검토한다.
+
+Job 3:1–2만 hard-code하지 않는다.
+
+--------------------------------------------------
+CASE B4 — Job 2:11 macro placement
+--------------------------------------------------
+
+DECISION:
+INSUFFICIENT_EVIDENCE
+
+JIN.0.3 results:
+
+original hypotaxis candidates = 4
+
+of which:
+- clause internal = 3
+- cross-locus = 1
+- macro-projectable = 0
+
+Important:
+the cross-locus candidate does not establish
+a macro mother for the Job 2:11 textual locus.
+
+Researcher judgment:
+
+현재 확보된 hypotaxis evidence는
+Job 2:11 textual unit의 macro mother를 결정하지 못한다.
+
+record:
+
+relation_decision =
+INSUFFICIENT_EVIDENCE
+
+macro_projection_decision =
+NO_MACRO_PROJECTION
+
+selected_mother =
+NONE
+
+existing historical facts remain:
+- PARAGRAPH_ONSET
+- FRIENDS_ARRIVAL / PARTICIPANT_INTRODUCTION
+- not within second testing scene
+- historical direct parent unresolved
+
+Do NOT restore:
+DIRECT_TEXTUAL_PARENT_NOT_REQUIRED
+as the final Jin-hierarchy answer.
+
+Instead:
+SINGLE_MOTHER_TARGET =
+UNRESOLVED_PENDING_FOCUSED_AUDIT
+
+--------------------------------------------------
+CASE B5 — Job 32:1 macro placement
+--------------------------------------------------
+
+DECISION:
+INSUFFICIENT_EVIDENCE
+
+JIN.0.3 results:
+
+hypotaxis candidates = 2
+- clause internal = 0
+- cross-locus = 2
+- macro-projectable = 0
+
+The candidate relations involve:
+31:40 clause context →
+32:1 internal InfC / causal clause evidence.
+
+They do not establish a macro direct mother for 32:1.
+
+Researcher judgment:
+
+relation_decision =
+INSUFFICIENT_EVIDENCE
+
+macro_projection_decision =
+NO_MACRO_PROJECTION
+
+selected_mother =
+NONE
+
+existing:
+32:1 TRANSITION_COMPONENT
+POST_CLOSURE_TRANSITION overlay
+etc.
+remain historically preserved.
+
+But composition/transition relation is not a substitute
+for textual mother adjudication.
+
+single_mother_target =
+UNRESOLVED_PENDING_FOCUSED_AUDIT
+
+--------------------------------------------------
+CASE B6 — Job 40:1 → 38:1
+--------------------------------------------------
+
+DECISION:
+ACCEPTED_HYPOTAXIS
+
+daughter:
+40:1
+
+mother:
+38:1
+
+relation:
+CHILD_OF
+or current canonical direct-mother relation preserving
+40:1 → 38:1 direction.
+
+Researcher rationale:
+
+Pairwise blind audit detected strong formal parallelism because:
+
+38:1:
+ויען יהוה את איוב מן הסערה ...
+
+40:1:
+ויען יהוה את איוב ...
+
+However wider formal distribution distinguishes their hierarchical force.
+
+38:1 and 40:6 share the expanded formula:
+
+ויען יהוה את איוב מן הסערה ...
+
+while 40:1 lacks מן הסערה.
+
+Furthermore:
+38:3 and 40:7 repeat:
+
+אזר נא כגבר חלציך
+
+supporting 38:1 and 40:6 as the two major parallel YHWH onsets.
+
+40:1 occurs within the first YHWH-response complex and uses
+the less elaborated formula.
+
+Therefore:
+
+pairwise formal parallelism is retained as evidence,
+but macro textual hierarchy is adjudicated as hypotactic:
+
+40:1 CHILD_OF 38:1.
+
+This is a concrete Job example of the distinction between:
+same/similar focal formula
+and
+different hierarchical force in wider distribution.
+
+record:
+
+relation_decision =
+HYPOTACTIC
+
+selected_mother =
+38:1
+
+macro_projection_decision =
+MACRO_TEXTUAL
+
+evidence_sufficient =
+true
+
+historical CHILD_OF =
+CONFIRMED_AFTER_BLIND_CONTEXT_REVIEW
+
+Do NOT delete the pairwise PARATAXIS candidate.
+Record it as lower-level formal evidence that did not determine
+the final macro hierarchy by itself.
+
+--------------------------------------------------
+CASE B7 — Job 38:1 ↔ 40:6
+--------------------------------------------------
+
+DECISION:
+ACCEPTED_PARATAXIS
+
+relation:
+38:1 ↔ 40:6
+
+level:
+MACRO_TEXTUAL
+
+Evidence:
+
+both:
+ויען יהוה את איוב מן הסערה ...
+
+with surface article variation preserved.
+
+38:3 / 40:7:
+אזר נא כגבר חלציך
+
+repeated challenge configuration.
+
+Both introduce YHWH→Job major speech sequences
+followed later by Job responses.
+
+Blind pairwise:
+PARATAXIS_SUPPORTED
+
+context:
+PARTIAL_CONFIGURATION_CORRESPONDENCE
+
+The +3 context is not expected to reproduce all speech content;
+therefore partial following-content correspondence does not negate
+the repeated major-onset configuration.
+
+Researcher judgment:
+
+PARATACTIC
+
+macro_projection_decision:
+MACRO_TEXTUAL
+
+evidence_sufficient:
+true
+
+existing SAME_LEVEL_SIBLING relation:
+CONFIRMED_BY_BLIND_PLUS_CONTEXTUAL_AUDIT
+
+No parent/child relation between 38:1 and 40:6.
+
+==================================================
+2. Important calibration result
+==================================================
+
+이번 Batch 1에서 다음 methodological controls를 동결한다.
+
+POSITIVE_PARATAXIS_CONTROL_1:
+1:6 ↔ 2:1
+
+POSITIVE_PARATAXIS_CONTROL_2:
+38:1 ↔ 40:6
+
+POSITIVE_MACRO_HYPOTAXIS_CONTROL:
+40:1 → 38:1
+
+UNRESOLVED_HYPOTAXIS_CASE:
+1:13 → ? mother
+
+UNRESOLVED_SPEECH_FRAME_CASE:
+3:2 → ? / relation to 3:1
+
+UNRESOLVED_MACRO_PARENT_CASE:
+2:11
+
+UNRESOLVED_TRANSITION_PARENT_CASE:
+32:1
+
+==================================================
+3. Add an explicit clause-level hypotaxis calibration control
+==================================================
+
+Batch 1 macro judgments alone are not sufficient to calibrate
+strict clause hypotaxis.
+
+Use the existing blind explicit-subordination cases as
+NON-HUMAN-AUTO-ACCEPTED calibration evidence.
+
+JIN.0.2 detected:
+
+JP:JT0037:499628:499631
+JP:JT0037:499629:499631
+
+relation hypothesis:
+HYPOTAXIS_EXPLICIT_SUBORDINATION_SUPPORTED
+
+related text includes:
+32:3
+על אשר לא מצאו מענה
+
+Do NOT automatically human-accept these in this step unless
+the researcher explicitly supplied such a decision.
+
+Instead label:
+
+EXPLICIT_SUBORDINATION_POSITIVE_CONTROL_FOR_REVIEW
+
+This control will be used in the next human batch to calibrate
+clause-level hypotaxis.
+
+==================================================
+4. Existing historical data is append-only
+==================================================
+
+Do NOT rewrite/delete:
+
+- HSA1
+- HSA2
+- HSA2-F
+- HSA3
+- JIN.0.1
+- JIN.0.2
+- JIN.0.3
+
+New decisions must be stored in a separate human adjudication layer.
+
+For B2/B3:
+historical accepted edge remains historical,
+but ACTIVE_REVIEW_STATUS becomes REOPENED / HUMAN_DEFERRED.
+
+This does not silently delete the edge.
+
+The active canonical consumer is still not implemented,
+so precedence behavior is recorded but not executed.
+
+==================================================
+5. Decision counts expected
+==================================================
+
+Batch 1 cases = 7
+
+accepted final relation judgments:
+- PARATAXIS = 2
+- HYPOTAXIS = 1
+
+deferred/requires-additional-context:
+- 1:13/1:6 = 1
+- 3:1/3:2 = 1
+
+insufficient macro evidence:
+- 2:11 = 1
+- 32:1 = 1
+
+new accepted relation semantics:
+3 human confirmations/adjudications
+
+but check duplicate handling:
+
+1:6↔2:1 already historical accepted
+38:1↔40:6 already historical accepted
+40:1→38:1 already historical accepted
+
+Therefore:
+do not create duplicate canonical edge IDs.
+
+Record:
+HUMAN_RECONFIRMED_AFTER_BLIND_AUDIT
+
+or repository-equivalent append-only status.
+
+new unique textual edge count should remain:
+0
+
+==================================================
+6. Reopened historical relation handling
+==================================================
+
+B2 and B3 require explicit state modeling.
+
+Historical source:
+remains ACCEPTED_SOURCE / frozen history.
+
+Latest review layer:
+REOPENED_FOR_ADDITIONAL_LINGUISTIC_AUDIT
+
+Do not mark:
+REJECTED
+
+Do not mark:
+SUPERSEDED
+
+Do not delete edge.
+
+Need later final human re-adjudication.
+
+This distinction is essential.
+
+==================================================
+7. Next focused audits
+==================================================
+
+Generate next-scope plan for three focused audits.
+
+A. JOB_1_13_MOTHER_AUDIT
+
+minimum candidate context:
+- 1:4–5
+- 1:6
+- 1:12
+- 1:13
+- 1:22
+- 2:1
+
+Questions:
+- does 1:13 resume the earlier earth narrative line?
+- is 1:13 embedded under 1:6?
+- is another prior clause a better mother?
+- how does 1:6/2:1 exact parataxis constrain 1:13 placement?
+
+No answer yet.
+
+B. JOB_3_1_2_SPEECH_FRAME_AUDIT
+
+generic pattern:
+temporal/narrative speech-event framing
+→ formal CSF / quoted speech onset.
+
+Search Job whole book for comparable:
+- פתח ... פה
+- אמר / ענה speech onset
+- narrator-introduced speech event followed by CSF
+
+Do not hard-code only 3:1–2.
+
+C. MACRO_PARENT_AUDIT_2_11_32_1
+
+2:11 and 32:1 should be reviewed against
+actual preceding main textual loci,
+not their internal subordinate clauses.
+
+No mother selected.
+
+==================================================
+8. Outputs
+==================================================
+
+At minimum:
+
+01_jin_human_batch1_decisions.csv
+
+02_jin_human_batch1_provenance.csv
+
+03_jin_human_batch1_historical_crosswalk.csv
+
+04_jin_human_batch1_controls.csv
+
+05_jin_human_batch1_reopened_relations.csv
+
+06_jin_human_batch1_deferred_cases.csv
+
+07_explicit_hypotaxis_review_control.csv
+
+08_next_focused_audit_scope.csv
+
+09_next_focused_audit_scope.md
+
+10_batch1_adjudication_report.md
+
+11_contract_implications.md
+
+12_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+9. Contract implications
+==================================================
+
+Do not approve Q1–Q9 yet.
+
+But record the following evidence from Batch 1:
+
+A.
+PARATAXIS is a genuine textual-hierarchy placement relation,
+not a missing-parent error.
+
+B.
+HYPOTAXIS may be adjudicated even where focal formulas resemble one another,
+if wider formal/distributional evidence establishes different hierarchical force.
+
+C.
+Pairwise linguistic support and macro textual relation must remain separate records.
+
+D.
+A contextual contrast can invalidate/weakens a simple parataxis inference
+without automatically proving a specific mother.
+
+E.
+A historical human judgment may be reopened when independent blind evidence
+fails to recover it sufficiently.
+
+==================================================
+10. Required gates
+==================================================
+
+At minimum:
+
+- BASELINE_COMMIT_VERIFIED
+
+- B1_PARATAXIS_ACCEPTED
+- B1_NO_PARENT_CREATED
+
+- B2_HUMAN_DEFERRED
+- B2_HISTORICAL_CHILD_PRESERVED
+- B2_NOT_REJECTED
+- B2_NO_NEW_MOTHER
+
+- B3_HUMAN_DEFERRED
+- B3_HISTORICAL_RELATION_PRESERVED
+- B3_NOT_REJECTED
+
+- B4_INSUFFICIENT_MACRO_EVIDENCE
+- B4_NO_MOTHER
+
+- B5_INSUFFICIENT_MACRO_EVIDENCE
+- B5_NO_MOTHER
+
+- B6_HYPOTAXIS_ACCEPTED
+- B6_MOTHER_38_1
+- B6_NO_DUPLICATE_EDGE
+
+- B7_PARATAXIS_ACCEPTED
+- B7_NO_PARENT_CHILD_EDGE
+
+- PAIRWISE_EVIDENCE_PRESERVED
+- CONTEXT_EVIDENCE_PRESERVED
+- HISTORICAL_ARTIFACTS_UNCHANGED
+
+- EXPLICIT_SUBORDINATION_CONTROL_PRESENT
+- EXPLICIT_SUBORDINATION_NOT_AUTO_HUMAN_ACCEPTED
+
+- NEXT_FOCUSED_AUDITS_DEFINED
+
+- NO_R4_4_CONSUMER
+- PARTICIPANT_ARC_UNADJUDICATED
+
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+- FULL_REGRESSION_PASS
+
+==================================================
+11. Tests
+==================================================
+
+Verify:
+
+Batch cases exactly 7.
+
+Decision distribution:
+accepted parataxis 2
+accepted hypotaxis 1
+deferred 2
+insufficient macro evidence 2
+
+No duplicate canonical relation.
+
+No new mother other than reaffirming existing historical 40:1→38:1.
+
+Historical 1:13→1:6 and 3:1→3:2 remain in historical source,
+but latest review status is REOPENED.
+
+Do not alter source history.
+
+Run full regression, skip 0.
+
+==================================================
+12. Commit / push
+==================================================
+
+After tests/gates PASS:
+
+Suggested commit:
+
+Record contextual relation adjudication batch 1
+
+Push origin/main according to normal authorization workflow.
+
+==================================================
+13. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. push status
+
+3. B1–B7 decisions
+
+4. confirmed/reconfirmed relations
+5. reopened historical relations
+6. insufficient macro cases
+
+7. new unique edge count
+8. duplicate avoided count
+
+9. explicit hypotaxis review-control result
+
+10. next focused audit scopes
+
+11. tests/gates
+12. deterministic rerun
+13. ZIP/SHA256
+
+14. current readiness
+
+Recommended readiness after Batch 1:
+
+BLOCKED_PENDING_FOCUSED_RELATION_AUDITS
+
+Do not declare R4.4 implementation ready.

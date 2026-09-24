@@ -1,6 +1,46 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.3 contextual relation consolidation, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.4 contextual human Batch 1, 2026-09-24
+
+Active specification: [JIN.0.4 spec](R4_4_CONTRACT_JIN_0_4_SPEC.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_4_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_4.md);
+results: [validation report](R4_4_CONTRACT_JIN_0_4_VALIDATION_REPORT.md).
+Start HEAD `1781b36f52b9d0b47c1acfefbd07bb06411129a3`.
+
+Readiness: **BLOCKED_PENDING_FOCUSED_RELATION_AUDITS**.
+Only seven researcher-supplied decisions are recorded in a separate append-only layer.
+B1 1:6↔2:1 and B7 38:1↔40:6: accepted macro parataxis.
+B6 40:1 CHILD_OF 38:1: accepted macro hypotaxis, original direction reaffirmed.
+B2 1:13/1:6 and B3 3:1/3:2: HUMAN_DEFERRED, historical edges remain ACCEPTED_SOURCE,
+latest review REOPENED_FOR_ADDITIONAL_LINGUISTIC_AUDIT, never rejected/superseded.
+B4 2:11 and B5 32:1: insufficient macro evidence, mother NONE, single-mother target
+UNRESOLVED_PENDING_FOCUSED_AUDIT. Historical transition/composition facts remain distinct.
+Three relation judgments reconfirmed; five existing oriented ID references reused;
+three relation-level duplicates avoided; new unique textual edges/parent edges = 0.
+The old 206-case queue remains unchanged. Q1–Q9 unapproved, consumer NOT IMPLEMENTED,
+participant arc UNADJUDICATED. No consumer precedence is executed.
+
+Explicit-subordination pair IDs JP:JT0037:499628:499631 and JP:JT0037:499629:499631
+are review calibration evidence only: UNREVIEWED, human_accepted=false.
+Next plans (not executed): JOB_1_13_MOTHER_AUDIT; generic whole-Job
+JOB_3_1_2_SPEECH_FRAME_AUDIT; MACRO_PARENT_AUDIT_2_11_32_1.
+No mother is preselected for any unresolved case. R4.4 remains blocked.
+
+Validation: 45 new tests; full **1,574 PASS / skip0**; **37 run gates + 2 external
+release gates PASS**, negative-tested. Synthetic inspected before real frozen-source
+execution. Independent real ZIP rerun byte-identical; all 350 upstream files,
+217 frozen pins and 20 recursive manifests verify. Previous analytical cores unchanged.
+Windows empirical execution only; no new BHSA run or Termux empirical claim.
+
+Real ZIP: `results/jin04_batch1_real_final_20260924_a_results.zip` (local-only).
+SHA256 `e0d188996973dcf04362cb1d09cf3084df8aa802024182666b474c7b881927e3`.
+Rerun `_b` has identical bytes. Review `10_batch1_adjudication_report.md`,
+`05_jin_human_batch1_reopened_relations.csv`, `07_explicit_hypotaxis_review_control.csv`
+and `09_next_focused_audit_scope.md` in the extracted directory.
+Commit/push authorized by the current researcher request §12 after validation.
+
+## Previous task — R4.4-CONTRACT.JIN.0.3 contextual relation consolidation, 2026-09-24
 
 Active specification: [JIN.0.3 spec](R4_4_CONTRACT_JIN_0_3_SPEC.md);
 authority: [exact request](R4_4_CONTRACT_JIN_0_3_RESEARCHER_SOURCE.txt);
