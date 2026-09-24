@@ -1,6 +1,45 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.7 human relation-layer freeze, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.8 revised contract human freeze, 2026-09-24
+
+Active specification: [JIN.0.8 spec](R4_4_CONTRACT_JIN_0_8_SPEC.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_8_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_8.md);
+results: [validation report](R4_4_CONTRACT_JIN_0_8_VALIDATION_REPORT.md).
+Start HEAD `f3b08ae8e07b6e9a54c9e62569bf1e6219415562`.
+
+CONTRACT_STATUS: **REVISED_R4_4_CONTRACT_HUMAN_FROZEN**.
+IMPLEMENTATION_READINESS: **BLOCKED_PENDING_TOP_LEVEL_AND_REMAINING_HIERARCHY_AUDITS**.
+R1–R10 ACCEPTED: 10 primary human decisions; R3/R8 qualification and R10 rewording
+preserved. 20 invariants; nine relation layers; separate type/layer/subtype and
+status axes. 111 derived interpretation records, not new human decisions.
+
+Strict one-mother applies only to adjudicated STRICT_HYPOTACTIC_DAUGHTER;
+by explicit extension, exactly one macro mother for MACRO_HYPOTACTIC_DAUGHTER.
+No universal mother requirement; no synthetic mother for paratactic/transition units.
+Historical strict unresolved states coexist with accepted macro relations.
+Q1–Q9 superseded for active contract review only; original artifacts stay unchanged.
+250 historical relations preserved; migration/new relations/parents/composition/
+roots/participant overlays all 0. R4.4 consumer absent. Participant arc UNADJUDICATED.
+
+Next: separate strict and macro top-level/root audits, remaining strict-scope review,
+targeted audits if needed, migration dry-run, then consider consumer implementation.
+No root/cardinality pre-assumed. 2:11 / 32:1 remain NO_MACRO_MOTHER_FOUND.
+220 open review-scope records: 209 strict (3 explicit + 206 historical candidate
+scope cases), 9 macro (2 unresolved + 7 provisional), 2 root. These are not counts
+of distinct established edges; original cases and subsequent judgments are linked.
+
+Validation: 63 new tests; full **1,784 PASS / skip0**; synthetic and real
+**57 run gates + 2 external release gates PASS**. Independent ZIP rerun identical.
+483 members, 465 upstream files preserved, 263 frozen hashes unchanged, 24 manifests.
+Windows frozen-input execution; no raw BHSA extraction or Termux empirical claim.
+Release ZIP: `results/jin08_real_recovered_20260924_a_results.zip`.
+SHA256 `0c23eeb732e7b94117fddf6705b164f5776893b619ef1f6a810923f343890ad1`.
+Independent recovered `_b` ZIP identical. Earlier `jin08_real_final_*` artifacts were
+found NUL-corrupted after interruption and are NOT release artifacts; see report.
+Commit/push authorized by request section 23 after all checks PASS.
+
+## Previous task — R4.4-CONTRACT.JIN.0.7 human relation-layer freeze, 2026-09-24
 
 Active specification: [JIN.0.7 spec](R4_4_CONTRACT_JIN_0_7_SPEC.md);
 authority: [exact researcher request](R4_4_CONTRACT_JIN_0_7_RESEARCHER_SOURCE.txt);
