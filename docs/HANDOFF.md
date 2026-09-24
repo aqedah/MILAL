@@ -1,6 +1,49 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.1 marker-first reconstruction baseline, 2026-09-24
+## Current task — MFR.0.1a evidence consolidation, 2026-09-25
+
+Active specification: [MFR.0.1a](MFR_0_1A_SPEC.md); authority:
+[exact researcher request](MFR_0_1A_RESEARCHER_SOURCE.txt); execution:
+[Windows/Termux README](README_MILAL_MFR_0_1A.md); results:
+[validation report](MFR_0_1A_VALIDATION_REPORT.md).
+Start HEAD `86b739c6f1f3ebc4675588a3452edd09e99387fd`.
+
+**MARKER_EVIDENCE_CONSOLIDATED**;
+**READY_FOR_MFR_0_2_HUMAN_ADJUDICATION**.
+This inserts lossless evidence consolidation before human adjudication.
+MFR.0.1 discovery and its 1,120 markers, 5,717 families, 7,357 memberships,
+2,435 relations and 4,092 coverage rows remain frozen.
+Exact occurrence sets produce 1414 bundles: 1400 default family
+cases and 14 archived reference bundles. All 2435 oriented-pair
+cases remain: 1182 default relation cases and 1253 archived.
+No arbitrary reduction target, numerical ranking or hierarchy decision is used.
+
+All 963 raw Job closure pairs have a frozen coverage endpoint at cessation,
+so the requested coverage criterion retains all of them for review; this is not
+independent proof of closure targeting. Extra structural-link evidence: 192 pairs.
+The 100-pair synthetic control retains 1 supported and 99 archived weak pairs.
+Raw IDs, original family records, raw labels, full upstream bytes and 362
+baseline pins remain unchanged. Five corpus freezes precede control lookup.
+No new judgments, accepted families/relations/closures, parents, roots or tree.
+Participant arc UNADJUDICATED; R4.4 consumer absent. Human fields remain blank.
+
+Validation: 69 stage tests; full **2026 PASS / fail0 / error0 / skip0**.
+Synthetic self-test: 149 assertions PASS; Windows `-SelfTest` runner PASS.
+**149 run assertions + 3 external release checks PASS** across
+44 negative-tested gate definitions. Independent real Windows
+ZIPs byte-identical; every manifest and upstream trace verified. No Termux empirical claim.
+Final ZIP: `results/mfr01a_real_release_20260925_a_results.zip`.
+SHA256 `c5815d00ec4383296568d24b03693dc8fc64ba52803d76563a2b34a46b2f1a92`.
+
+필수 업로드: complete final ZIP, containing frozen input, consolidation, archive
+crosswalks and human packet/marker pages. 추가 검증용: validation report and packet.
+Request section 43 authorizes commit/push after all checks pass.
+
+Next: MFR.0.2 Human Marker-Family and Relation Adjudication of consolidated cases.
+Do not send the 5,717 raw family rows as independent human validity questions.
+Do not declare hierarchy resolved, tree-assembly ready or R4.4 implementation ready.
+
+## Previous task — MFR.0.1 marker-first reconstruction baseline, 2026-09-24
 
 Active specification: [MFR.0.1](MFR_0_1_SPEC.md); authority:
 [exact researcher request](MFR_0_1_RESEARCHER_SOURCE.txt); method:

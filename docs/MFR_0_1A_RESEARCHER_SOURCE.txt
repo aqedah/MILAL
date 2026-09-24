@@ -1,0 +1,1343 @@
+현재 MILAL 저장소에서 다음 작업을 구현·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.1a
+— Marker Evidence Consolidation Before Human Adjudication
+— Multi-Resolution Families → Evidence Bundles → Reviewable Relation Cases
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  86b739c6f1f3ebc4675588a3452edd09e99387fd
+
+현재 상태:
+- MFR.0.1 MARKER_FIRST_BASELINE_ESTABLISHED
+- READY_FOR_MARKER_RELATION_HUMAN_REVIEW 로 보고되었음
+- 그러나 raw review universe를 그대로 human review에 넘기지 않는다.
+
+MFR.0.1 real Job 결과:
+- clauses = 2,938
+- clause_atoms = 2,977
+- marker candidates = 1,120
+- raw marker families = 5,717
+- family memberships = 7,357
+- relation candidates = 2,435
+- coverage candidates = 4,092
+
+실제 MFR.0.1 결과를 source-of-truth로 다시 읽고
+수치는 반드시 재검증한다.
+
+중요:
+이번 단계는 새로운 marker discovery 단계가 아니다.
+새 hierarchy를 만드는 단계도 아니다.
+human adjudication 단계도 아니다.
+
+목표는:
+
+1. MFR.0.1의 multi-resolution family evidence를 손실 없이 보존하고,
+2. 같은 marker occurrence set을 여러 signature resolution이 중복 표현한 것을
+   reviewable evidence bundle로 통합 표현하고,
+3. singleton / repeated / explicit marker evidence를 구별하고,
+4. relation candidate 2,435개를 evidence semantics에 따라 review case로 정리하고,
+5. closure candidate 과잉확장을 손실 없이 구조화하며,
+6. 실제 사람이 판정해야 할 review universe를 만든다.
+
+절대로:
+- hierarchy를 결정하지 않는다.
+- family를 삭제하지 않는다.
+- relation candidate를 삭제하지 않는다.
+- marker를 삭제하지 않는다.
+- human decision을 생성하지 않는다.
+
+==================================================
+0. 핵심 원칙
+==================================================
+
+MFR.0.1의 발견 순서를 그대로 유지한다.
+
+SURFACE OBSERVATION
+→ MARKER
+→ MULTI-RESOLUTION FAMILY EVIDENCE
+→ HIERARCHICAL-FORCE EVIDENCE
+→ RELATION CANDIDATE
+
+이번 MFR.0.1a는 그 다음에 위치한다.
+
+→ EVIDENCE CONSOLIDATION FOR HUMAN REVIEW
+
+즉:
+
+CONSOLIDATION
+≠
+ADJUDICATION
+
+BUNDLING
+≠
+MERGING LINGUISTIC CLAIMS
+
+ARCHIVE_FROM_DEFAULT_REVIEW
+≠
+DELETE
+
+동일 marker set을 여러 resolution이 표현했다면,
+그 여러 family는 서로 다른 증거 관점이다.
+
+따라서 family ID를 하나로 합쳐서 삭제하지 말고
+상위 EVIDENCE_BUNDLE 아래에 묶는다.
+
+==================================================
+1. MFR.0.1 frozen
+==================================================
+
+MFR.0.1 source/results semantics를 변경하지 않는다.
+
+특히:
+
+03_job_surface_observation_inventory.csv
+04_job_formal_signatures.csv
+05_job_marker_candidates.csv
+06_job_marker_family_registry.csv
+07_job_marker_family_membership.csv
+08_job_hierarchical_force_evidence.csv
+09_job_coverage_candidates.csv
+10_job_nested_marker_evidence.csv
+11_job_marker_relation_candidates.csv
+
+를 frozen input으로 취급한다.
+
+MFR.0.1 raw rows:
+- 수정 금지
+- 삭제 금지
+- ID 재발급 금지
+
+==================================================
+2. Blind / historical separation 유지
+==================================================
+
+이번 consolidation은 MFR.0.1 BLIND outputs만으로 수행한다.
+
+금지 input:
+
+- HSA relation
+- JIN relation
+- historical CHILD_OF
+- SAME_LEVEL
+- cycle labels
+- scene labels
+- dialogue labels
+- Elihu labels
+- transition labels
+- traditional outline
+- plot labels
+
+Historical/postblind data는 consolidation freeze 후
+validation comparison용으로만 읽을 수 있다.
+
+Gate:
+
+CONSOLIDATION_HUMAN_INPUT_COUNT_ZERO
+CONSOLIDATION_STRUCTURAL_LABEL_INPUT_ZERO
+
+==================================================
+3. 문제 1 — raw family row 중복 구조 감사
+==================================================
+
+MFR.0.1 raw family 5,717개를 감사한다.
+
+각 family에 대해:
+
+family_id
+family_type
+marker_ids
+occurrence_count
+construction_definition
+signature_resolution
+
+을 읽는다.
+
+우선 exact occurrence set key를 생성한다.
+
+canonical_occurrence_set =
+sorted(marker_ids)
+
+같은 canonical_occurrence_set을 가지는 family들을
+하나의:
+
+MARKER_EVIDENCE_BUNDLE
+
+로 묶는다.
+
+중요:
+
+family들은 삭제하지 않는다.
+
+Bundle example:
+
+MEB000001
+marker_ids = [JMxxxx, JMyyyy]
+
+contributing families:
+- EXACT_FORM_FAMILY
+- SLOT_NORMALIZED_FAMILY
+- ADJUNCT_EXPANSION_FAMILY
+- PARTIAL_FORMAL_FAMILY
+...
+
+각 family ID와 construction definition을 모두 보존.
+
+==================================================
+4. Bundle ID
+==================================================
+
+deterministic stable ID 사용.
+
+MEB000001
+MEB000002
+...
+
+정렬 기준은:
+canonical marker occurrence set
++
+stable deterministic tie handling.
+
+rerun 시 동일 ID 필수.
+
+==================================================
+5. Evidence bundle types
+==================================================
+
+각 bundle을 다음 descriptive category 중 하나 이상으로 분류한다.
+
+REPEATED_OCCURRENCE_BUNDLE
+- marker occurrence >= 2
+
+SINGLETON_EXPLICIT_BUNDLE
+- occurrence 1
+- explicit formal construction이 marker로 포착됨
+  예:
+  EXPLICIT_CESSATION
+  OPEN_MOUTH_CONSTRUCTION
+  ADD_PROVERB_SPEECH
+  기타 generic explicit construction
+
+SINGLETON_GENERIC_BUNDLE
+- occurrence 1
+- 여러 signature resolution이 동일 marker를 기술하지만
+  반복 관계 자체는 없음
+
+MULTI_RESOLUTION_BUNDLE
+- 동일 marker set을 둘 이상의 family type이 기술
+
+SINGLE_RESOLUTION_BUNDLE
+- 한 family representation만 존재
+
+Do not treat these as quality rankings.
+
+==================================================
+6. raw family redundancy report
+==================================================
+
+반드시 출력:
+
+- raw family count
+- unique occurrence-set bundle count
+- bundle당 family 개수
+- 동일 marker set을 2+ family가 기술하는 bundle count
+- singleton bundle count
+- repeated bundle count
+- explicit singleton bundle count
+
+그리고 family type별:
+
+EXACT_FORM
+SLOT_NORMALIZED
+CONSTRUCTION
+ADJUNCT_EXPANSION
+MULTI_CLAUSE_CONFIGURATION
+PARTIAL_FORMAL
+LEXICAL_RESUMPTION
+
+의 contribution을 보존.
+
+==================================================
+7. Family lattice — 동일 set 외의 관계
+==================================================
+
+Exact occurrence-set bundling 이후,
+관련 bundle끼리 limited family lattice를 생성한다.
+
+허용 관계:
+
+SAME_OCCURRENCE_SET
+STRICT_SUBSET
+STRICT_SUPERSET
+PARTIAL_OVERLAP
+
+단:
+모든 bundle × bundle 전수 pair를 만들지 않는다.
+
+candidate lattice relation은 다음 linguistic connection이 있을 때만:
+
+- same base construction
+- same construction family
+- same predicate configuration
+- adjunct expansion relation
+- shared marker occurrence
+- compatible slot-normalized construction
+
+출력:
+bundle A
+bundle B
+set relation
+shared markers
+construction relation
+adjunct difference
+
+No hierarchy inference.
+
+==================================================
+8. Expansion-chain representation
+==================================================
+
+특히 다음과 같은 pattern을 표현할 수 있어야 한다.
+
+BASE FORM
+→ BASE + LOCA
+→ BASE + TIME
+→ BASE + LOCA + TIME
+
+그러나:
+
+more elaborate
+≠
+higher hierarchy
+
+필드:
+
+expansion_source_bundle
+expansion_target_bundle
+added_features
+removed_features
+shared_core
+status = EVIDENCE_ONLY
+
+==================================================
+9. Marker-centric profile
+==================================================
+
+1,120 marker 각각에 대해
+모든 multi-resolution evidence를 한 화면에서 볼 수 있는
+MARKER_PROFILE을 생성한다.
+
+필드 최소:
+
+marker_id
+anchor
+surface
+discovery_sources
+
+all_family_ids
+all_bundle_ids
+
+exact_form_families
+construction_families
+slot_families
+adjunct_families
+multi_clause_families
+partial_families
+resumption_families
+
+repeat evidence
+explicit construction evidence
+
+hierarchical-force evidence link
+coverage candidate links
+nested-marker evidence links
+relation candidate links
+
+이 파일이 human review의 기본 marker lookup이 된다.
+
+==================================================
+10. Human family review는 raw family가 아니라 bundle 단위
+==================================================
+
+MFR.0.1의:
+
+5,717 raw family rows
+
+를 그대로 human review case로 만들지 않는다.
+
+Human-facing family review unit:
+
+MARKER_EVIDENCE_BUNDLE
+
+이다.
+
+그러나 모든 bundle을 기본 review queue에 넣을 필요도 없다.
+
+==================================================
+11. Default family review universe
+==================================================
+
+기본 human family review 대상:
+
+A.
+REPEATED_OCCURRENCE_BUNDLE
+
+B.
+SINGLETON_EXPLICIT_BUNDLE
+
+C.
+singletons라도 relation candidate에서
+PARATAXIS / HYPOTAXIS / EMBEDDING /
+RESUMPTION / CLOSURE
+등 실제 관계 후보에 참여하는 경우
+
+D.
+expansion chain의 핵심 member
+
+나머지:
+
+SINGLETON_GENERIC_BUNDLE
++
+hierarchical/relation evidence가 없는 경우
+
+ARCHIVE_FOR_REFERENCE
+
+로 보존.
+
+중요:
+
+ARCHIVE_FOR_REFERENCE
+≠
+linguistically invalid
+
+단지:
+별도의 family-validity human judgment가
+현재 hierarchy construction에 필요하지 않다는 뜻이다.
+
+No arbitrary numerical threshold.
+
+==================================================
+12. 문제 2 — relation candidate consolidation
+==================================================
+
+MFR.0.1 relation rows 2,435개를 모두 보존한다.
+
+각 row를 evidence semantics에 따라 review bucket으로 분류한다.
+
+Allowed buckets:
+
+REL_A_HIERARCHY_COMPETING
+- PARATAXIS_CANDIDATE
+- HYPOTAXIS_CANDIDATE
+- EMBEDDING_CANDIDATE
+- COMPETING_RELATIONS
+중 하나 이상 포함
+
+REL_B_RESUMPTION
+- RESUMPTION_CANDIDATE
+- TEMPORAL_RESUMPTION_CANDIDATE
+등
+- hierarchy candidate와 겹칠 수 있음
+
+REL_C_CLOSURE_REVIEW
+- CLOSURE_TARGET_CANDIDATE가 있고
+- 별도의 onset/span/coverage linguistic link가 존재하는 경우
+
+REL_D_FORMAL_CORRESPONDENCE
+- FORMAL_PARALLEL_CANDIDATE
+- FORMAL_CORRESPONDENCE_ONLY
+만 있는 경우
+
+REL_E_WEAK_CLOSURE_ARCHIVE
+- cessation target이 있다는 이유만으로 생성되었으나
+- source와 target 사이에 별도의 linguistic closure-link evidence가
+  현재 없는 경우
+
+REL_F_INSUFFICIENT
+- INSUFFICIENT_EVIDENCE
+
+한 relation row가 여러 semantics를 가질 경우
+primary ranking을 만들지 않는다.
+
+multiple_bucket_membership 허용.
+
+==================================================
+13. Closure candidate 재감사
+==================================================
+
+MFR.0.1에서 closure candidate가 넓게 생성되었다.
+
+모든 raw closure pair를 보존한다.
+
+그러나 다음을 반드시 분리한다.
+
+A.
+CESSATION_MARKER
+
+vs
+
+B.
+SUPPORTED_CLOSURE_TARGET_PAIR
+
+“target이 cessation marker다”
+만으로
+source marker가 실제 closure target candidate라는 뜻은 아니다.
+
+==================================================
+14. Closure source eligibility evidence
+==================================================
+
+generic하게 다음 evidence를 검사한다.
+
+CLOSURE_LINK_ONSET_FORM
+- source marker가 speech/narrative/onset-like formal construction evidence를 가짐
+
+CLOSURE_LINK_COVERAGE_END
+- source의 coverage candidate 중 target cessation anchor에서 끝나는 것이 있음
+
+CLOSURE_LINK_FORMAL_FAMILY
+- source/target 사이에 relevant formula/sequence relation 존재
+
+CLOSURE_LINK_PARTICIPANT
+- source 이후의 participant configuration과 cessation까지의 continuity
+
+CLOSURE_LINK_DOMAIN
+- source와 cessation 사이 domain configuration compatibility
+
+CLOSURE_LINK_NESTED_CONFIGURATION
+- source coverage에 cessation marker가 terminal nested marker로 위치
+
+CLOSURE_LINK_NONE
+- 위 evidence가 없음
+
+중요:
+숫자로 점수화하지 않는다.
+
+==================================================
+15. Closure review status
+==================================================
+
+각 raw closure relation을:
+
+CLOSURE_STRUCTURALLY_LINKED
+CLOSURE_FORMALLY_LINKED
+CLOSURE_COVERAGE_LINKED
+CLOSURE_MULTIPLE_LINK_TYPES
+CLOSURE_WEAK_PAIR_ONLY
+CLOSURE_LINK_INSUFFICIENT
+
+중 하나 이상으로 descriptive classification.
+
+Do not select closure.
+
+Do not delete weak candidates.
+
+Default human review에는:
+
+CLOSURE_STRUCTURALLY_LINKED
+CLOSURE_FORMALLY_LINKED
+CLOSURE_COVERAGE_LINKED
+CLOSURE_MULTIPLE_LINK_TYPES
+
+만 우선 포함.
+
+Weak/insufficient는 archive appendix.
+
+==================================================
+16. Opening / cessation terminology 주의
+==================================================
+
+“onset-like”는 linguistic feature label로만 사용.
+
+Do not infer:
+speech unit
+scene
+cycle
+macro section
+
+from it.
+
+Likewise cessation marker:
+does not automatically determine
+what level it terminates.
+
+==================================================
+17. Relation evidence case
+==================================================
+
+human relation review case는
+raw relation row를 그대로 복사하는 것이 아니라:
+
+RELATION_EVIDENCE_CASE
+
+로 만든다.
+
+key:
+
+source_marker_id
+target_marker_id
+
+그리고 연결:
+
+source marker profile
+target marker profile
+source bundles
+target bundles
+formal correspondence
+context correspondence
+coverage evidence
+nested evidence
+resumption evidence
+closure-link evidence
+competing evidence
+raw MFR.0.1 relation_candidate_id
+
+No decision.
+
+==================================================
+18. Relation review universe
+==================================================
+
+Default relation review 대상:
+
+1.
+REL_A_HIERARCHY_COMPETING
+
+2.
+REL_B_RESUMPTION
+단, 단순 lexical overlap만이 아니라
+MFR.0.1 resumption evidence가 실제 존재하는 경우
+
+3.
+REL_C_CLOSURE_REVIEW
+
+4.
+formal-only relation 중
+expansion-family comparison이나
+repeated multi-clause configuration에서
+hierarchical-force comparison에 필요한 것
+
+Archive by default:
+
+- generic FORMAL_CORRESPONDENCE_ONLY cases
+- weak closure pairs
+
+모두 raw archive에서 보존.
+
+==================================================
+19. Review order는 hierarchy order가 아니다
+==================================================
+
+Human packet은 readability를 위해 category별로 정리할 수 있다.
+
+예:
+
+SECTION A — repeated marker bundles
+SECTION B — explicit singleton marker bundles
+SECTION C — competing relation cases
+SECTION D — resumption cases
+SECTION E — closure cases
+SECTION F — formal-only appendix
+
+그러나 이것은 priority score가 아니다.
+
+No:
+rank
+score
+importance_score
+confidence_score
+
+==================================================
+20. Job structure labels 여전히 금지
+==================================================
+
+Consolidation 및 default-review selection에서 금지:
+
+- prologue
+- testing scene
+- dialogue cycle
+- Elihu
+- divine speech section
+- epilogue
+- transition zone
+
+고유명사 욥/엘리후/여호와 등은
+raw textual participant evidence로만 허용.
+
+==================================================
+21. Cross-corpus controls를 consolidation validation에 사용
+==================================================
+
+MFR.0.1 control outputs는 frozen.
+
+MFR.0.1a는 새 control discovery를 하지 않는다.
+
+다만 consolidation이 다음을 손상시키지 않았는지 검증한다.
+
+==================================================
+22. Pentateuch EDSF control
+==================================================
+
+Post-consolidation representation에서:
+
+Exod 4:19
+Exod 12:1
+Lev 1:1
+Lev 16:1
+Lev 25:1
+Num 1:1
+Num 3:14
+Num 9:1
+Num 20:23
+Num 33:50
+Num 35:1
+Deut 32:48
+
+의 evidence가:
+
+- family/bundle로 추적 가능
+- adjunct variant가 보존
+- 동일 formal pattern이 하나의 level로 collapse되지 않음
+- cross-book relation candidate가 보존
+
+되어야 한다.
+
+중요:
+MFR.0.1a consolidation 때문에
+Num 3:14와 Exod/Lev Pattern-4 occurrences가
+“same bundle = same textual level”로 해석되면 FAIL.
+
+==================================================
+23. Prophetic control
+==================================================
+
+Isa 1:1 / Hos 1:1의:
+
+cross-book formal correspondence evidence
+가 bundle/case representation에서 보존되어야 한다.
+
+No automatic parataxis.
+
+==================================================
+24. Death/resumption control
+==================================================
+
+Josh 1:1
+Judg 1:1
+2 Sam 1:1
+
+동일/유사 family evidence와
+
+Deut 34 → Josh 1
+Joshua death → Judg 1
+Saul death → 2 Sam 1
+
+resumption evidence를
+서로 다른 evidence dimension으로 유지.
+
+==================================================
+25. Daniel / Ezra control
+==================================================
+
+Dan 9:1–2 / Ezra 1:1은 consolidation 후에도:
+
+FORMAL correspondence
+RESUMPTION possibility
+HYPOTAXIS possibility
+LONG-DISTANCE relation possibility
+
+를 동시에 보존할 수 있어야 한다.
+
+Do not collapse to one relation.
+
+==================================================
+26. Job postblind controls는 consolidation 이후만
+==================================================
+
+Bundle/case outputs freeze 이후에만
+기존 Job refs를 validation lookup에 사용.
+
+At minimum inspect:
+
+1:6 / 1:13 / 2:1
+27:1 / 29:1
+31:40
+32:1
+38:1 / 40:1 / 40:6
+42:7 / 42:16
+
+목적:
+review packet이 실제 evidence를 사람이 읽을 수 있게
+보여주는지 확인.
+
+기존 human judgment는 입력 금지.
+
+==================================================
+27. MFR.0.1 37:24 non-recovery 보존
+==================================================
+
+MFR.0.1에서 Job 37:24가 marker로 회복되지 않았다면
+그 사실을 그대로 보존한다.
+
+Do NOT create marker for 37:24 merely because
+historical human analysis considered it structurally significant.
+
+Output:
+POSTBLIND_NONRECOVERY_PRESERVED
+
+This is methodologically important.
+
+==================================================
+28. Raw family statistics report
+==================================================
+
+반드시 MFR.0.1 실제 데이터를 읽어 다음을 보고:
+
+raw families
+family type distribution
+occurrence_count distribution
+
+특히:
+
+occurrence_count = 1
+occurrence_count >= 2
+
+를 분리.
+
+또한:
+
+unique canonical occurrence sets
+duplicate occurrence-set bundle count
+raw family rows represented by multi-family bundles
+
+를 보고.
+
+Expected values must be derived from actual results,
+not hard-coded.
+
+==================================================
+29. Human-review reduction report
+==================================================
+
+다음 수치를 명확히 보고:
+
+raw family rows
+→ evidence bundles
+→ default family review cases
+→ archived family-reference bundles
+
+raw relation rows
+→ relation evidence cases
+→ default relation review cases
+→ archived formal-only
+→ archived weak closure
+
+No arbitrary target percentage.
+
+Success condition:
+human review universe is materially smaller and
+semantically nonredundant,
+while every raw row is traceable.
+
+==================================================
+30. Traceability
+==================================================
+
+Every consolidated human case must link back to:
+
+raw family IDs
+raw marker IDs
+raw relation candidate IDs
+coverage candidate IDs
+nested evidence IDs
+force evidence rows
+
+Required:
+
+NO_RAW_EVIDENCE_LOSS
+
+==================================================
+31. Human decision = 0
+==================================================
+
+이번 stage:
+
+new_human_judgment = 0
+
+accepted_family = 0
+
+accepted_relation = 0
+
+accepted_parataxis = 0
+
+accepted_hypotaxis = 0
+
+accepted_closure = 0
+
+new_parent = 0
+
+hierarchy_assembly = 0
+
+==================================================
+32. MFR.0.2의 역할 재정의
+==================================================
+
+MFR.0.1a 성공 후에만:
+
+MFR.0.2
+— Human Marker-Family and Relation Adjudication
+
+으로 이동.
+
+MFR.0.2에서는
+raw 5,717 family가 아니라
+MFR.0.1a consolidated review cases를 판정한다.
+
+==================================================
+33. Required outputs
+==================================================
+
+최소:
+
+01_mfr01a_input_integrity.csv
+
+02_raw_family_redundancy_audit.csv
+
+03_marker_evidence_bundle_registry.csv
+04_marker_evidence_bundle_membership.csv
+
+05_marker_family_lattice.csv
+06_marker_expansion_relations.csv
+
+07_marker_profiles.csv
+
+08_family_review_universe.csv
+09_family_archive_reference.csv
+
+10_raw_relation_case_crosswalk.csv
+11_relation_evidence_cases.csv
+
+12_closure_candidate_audit.csv
+13_closure_review_cases.csv
+14_closure_archive.csv
+
+15_relation_review_universe.csv
+16_relation_archive_reference.csv
+
+17_raw_to_consolidated_traceability.csv
+
+18_cross_corpus_consolidation_validation.csv
+
+19_job_postconsolidation_controls.csv
+
+20_human_review_reduction_report.md
+
+21_mfr_0_2_human_review_cases.csv
+22_mfr_0_2_human_review_packet.md
+
+23_method_compliance_report.md
+24_next_scope.md
+
+25_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+34. Human review packet design
+==================================================
+
+Do NOT create 5,717 section headings.
+
+Packet must be case-centered.
+
+For each FAMILY BUNDLE case show:
+
+bundle_id
+marker occurrences with references
+Hebrew surface
+contributing family types
+construction definitions
+exact/slot/construction differences
+adjunct variants
+context variants
+coverage options
+relation links
+limitations
+
+Blank human fields:
+
+bundle_validity
+core_construction_decision
+variant_relationship_decision
+hierarchical_force_observation
+additional_context_needed
+reviewer_notes
+
+For each RELATION case show:
+
+case_id
+source marker
+target marker
+Hebrew surfaces
+bundle relations
+formal correspondence
+context correspondence
+coverage
+nested markers
+resumption
+closure link
+competing evidence
+limitations
+
+Blank:
+
+relation_decision
+parataxis
+hypotaxis
+embedding
+resumption
+closure
+insufficient
+additional_context_needed
+reviewer_notes
+
+==================================================
+35. Important — do not ask human to validate signatures mechanically
+==================================================
+
+Human researcher should not have to decide separately:
+
+“Is JMF01234 valid?”
+“Is JMF04567 valid?”
+
+when both describe the same marker occurrence set
+at different signature resolution.
+
+The human question is:
+
+“What linguistic construction/family is actually represented by this
+bundle of multi-resolution evidence?”
+
+This distinction is essential.
+
+==================================================
+36. Static safeguards
+==================================================
+
+Fail if consolidation source contains
+reference-specific structural logic.
+
+Fail if it contains:
+
+CHILD_OF
+SAME_LEVEL_SIBLING
+JOB_NARRATIVE_ROOT
+OPENING_NARRATIVE_COMPLEX
+ELIHU_SPEECH_SEQUENCE
+
+as decision logic.
+
+Historical strings may appear only in post-freeze validation code/docs.
+
+==================================================
+37. Synthetic tests
+==================================================
+
+At minimum:
+
+S1
+one marker represented by seven signature families
+→ one evidence bundle, seven preserved family IDs
+
+S2
+two markers represented by five identical-occurrence families
+→ one repeated bundle
+
+S3
+same core family with subset occurrence variant
+→ two bundles + SUBSET lattice relation
+
+S4
+same base + locative expansion
+→ expansion evidence only, no hierarchy
+
+S5
+singleton explicit cessation
+→ default review bundle
+
+S6
+singleton generic construction with no relation evidence
+→ archive reference
+
+S7
+cessation marker linked mechanically to 100 sources
+but only one has coverage end evidence
+→ all preserved; one review-linked, others archive/weak
+
+S8
+formal-only relation
+→ preserved, default archive
+
+S9
+formal + hypotaxis/parataxis competing relation
+→ default review
+
+S10
+cross-book identical family
+→ bundle/case survives book boundary
+
+S11
+same family different hierarchical force
+→ consolidation does not collapse level
+
+S12
+raw row traceability complete
+
+==================================================
+38. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+MFR_0_1_FROZEN_VERIFIED
+
+NO_RAW_MARKER_LOSS
+NO_RAW_FAMILY_LOSS
+NO_RAW_RELATION_LOSS
+NO_COVERAGE_LOSS
+NO_NESTED_EVIDENCE_LOSS
+
+CANONICAL_OCCURRENCE_SET_BUNDLES_CREATED
+MULTI_RESOLUTION_DUPLICATES_CONSOLIDATED_FOR_REVIEW
+
+RAW_FAMILY_IDS_PRESERVED
+RAW_RELATION_IDS_PRESERVED
+
+FAMILY_LATTICE_PRESENT
+EXPANSION_RELATIONS_EVIDENCE_ONLY
+
+SINGLETON_EXPLICIT_PRESERVED
+SINGLETON_GENERIC_ARCHIVE_SUPPORTED
+
+RELATION_CASES_CONSOLIDATED
+FORMAL_ONLY_ARCHIVE_SUPPORTED
+
+CLOSURE_MARKER_NOT_EQUAL_CLOSURE_TARGET
+CLOSURE_WEAK_PAIRS_PRESERVED
+CLOSURE_REVIEW_LINK_EVIDENCE_REQUIRED
+
+NO_NUMERIC_RANKING
+NO_HIERARCHY_ADJUDICATION
+
+CROSS_BOOK_RELATIONS_PRESERVED
+
+PENTATEUCH_EDSF_CONSOLIDATION_VALID
+PROPHET_CONTROL_CONSOLIDATION_VALID
+DEATH_RESUMPTION_CONSOLIDATION_VALID
+DANIEL_EZRA_CONSOLIDATION_VALID
+
+JOB_37_24_NONRECOVERY_PRESERVED
+
+HUMAN_REVIEW_UNIVERSE_REDUCED
+HUMAN_REVIEW_CASES_TRACEABLE
+
+NO_HUMAN_JUDGMENT
+NO_ACCEPTED_RELATION
+NO_PARENT_EDGE
+NO_TREE_SYNTHESIS
+
+R4_4_CONSUMER_ABSENT
+PARTICIPANT_ARC_UNTOUCHED
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+MANIFEST_VALID
+DETERMINISTIC_RERUN
+
+==================================================
+39. Validation order
+==================================================
+
+1. verify baseline
+2. verify MFR.0.1 frozen input hashes
+3. raw-family redundancy audit
+4. bundle generation
+5. bundle membership
+6. lattice generation
+7. expansion evidence
+8. marker profile generation
+9. family review/archive classification
+
+10. raw relation crosswalk
+11. relation evidence case generation
+12. closure candidate audit
+13. relation review/archive classification
+
+14. freeze consolidation outputs
+
+15. cross-corpus validation
+16. Job post-consolidation controls
+17. human packet generation
+
+18. unit tests
+19. full regression
+20. independent rerun
+21. byte comparison
+22. manifest validation
+23. manual packet inspection
+
+==================================================
+40. Manual inspection
+==================================================
+
+At minimum inspect bundles/cases corresponding post-freeze to:
+
+Job:
+1:6 / 1:13 / 2:1
+27:1 / 29:1
+31:40
+32:1
+38:1 / 40:1 / 40:6
+42:7 / 42:16
+
+Controls:
+Pentateuch EDSF 12 refs
+Isa 1:1 / Hos 1:1
+Josh 1:1 / Judg 1:1 / 2 Sam 1:1
+Dan 9:1–2 / Ezra 1:1
+
+==================================================
+41. Code architecture
+==================================================
+
+Recommended:
+
+src/milal_mfr_bundle.py
+src/milal_mfr_family_lattice.py
+src/milal_mfr_relation_consolidation.py
+src/milal_mfr_closure_consolidation.py
+src/milal_mfr_review_builder.py
+src/milal_mfr_traceability.py
+
+Reuse only MFR.0.1 frozen schemas/helpers.
+
+Do not reintroduce JIN structural logic.
+
+config:
+config/mfr_0_1a_job.json
+
+tests:
+tests/test_mfr_0_1a.py
+
+runners:
+scripts/run_milal_mfr_0_1a_windows.ps1
+scripts/run_milal_mfr_0_1a_termux.sh
+
+docs:
+docs/MFR_0_1A_SPEC.md
+docs/MFR_0_1A_VALIDATION_REPORT.md
+
+HANDOFF.md update.
+
+==================================================
+42. Readiness
+==================================================
+
+Successful final state:
+
+MARKER_EVIDENCE_CONSOLIDATED
+
+READY_FOR_MFR_0_2_HUMAN_ADJUDICATION
+
+Do NOT declare:
+
+HIERARCHY_RESOLVED
+READY_FOR_TREE_ASSEMBLY
+READY_FOR_R4_4_IMPLEMENTATION
+
+==================================================
+43. Commit / push
+==================================================
+
+After all tests/gates PASS:
+
+Suggested commit:
+
+Consolidate marker evidence for human review
+
+push origin/main under normal authorization workflow.
+
+==================================================
+44. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. push status
+3. working tree
+
+RAW:
+4. markers
+5. raw families
+6. raw memberships
+7. raw relations
+8. raw coverage rows
+
+BUNDLES:
+9. unique evidence bundle count
+10. repeated bundles
+11. singleton explicit bundles
+12. singleton generic bundles
+13. multi-resolution bundles
+14. raw families represented inside bundles
+15. lattice relations
+16. expansion relations
+
+FAMILY REVIEW:
+17. default family-review cases
+18. archived family-reference bundles
+19. reduction from raw family rows
+
+RELATIONS:
+20. raw relation rows
+21. consolidated relation cases
+22. hierarchy-competing cases
+23. resumption cases
+24. formal-only archive cases
+
+CLOSURE:
+25. explicit cessation marker count
+26. raw closure candidate count
+27. structurally/formally/coverage-linked closure cases
+28. weak/archive closure cases
+
+CONTROLS:
+29. Pentateuch EDSF consolidation
+30. Isa/Hos
+31. death/resumption
+32. Dan/Ezra
+33. Job 37:24 non-recovery
+
+INTEGRITY:
+34. raw evidence loss = 0?
+35. human leakage = 0?
+36. new human judgments = 0
+37. new accepted relations = 0
+38. hierarchy generated = 0
+
+VALIDATION:
+39. tests
+40. full regression
+41. gates
+42. deterministic rerun
+43. ZIP
+44. SHA256
+
+READINESS:
+45. MARKER_EVIDENCE_CONSOLIDATED
+46. READY_FOR_MFR_0_2_HUMAN_ADJUDICATION
