@@ -1,0 +1,29 @@
+{
+  "version": "JIN.0.9-NEUTRAL",
+  "speech_verbs": [
+    ">MR[",
+    "<NH[",
+    "DBR[",
+    "QR>["
+  ],
+  "closure_lexemes": [
+    "TMM[",
+    "KLH[",
+    "CBT["
+  ],
+  "terminal_lexemes": [
+    "MWT[",
+    "ZQN[",
+    "FB<["
+  ],
+  "context_clause_count": 3,
+  "temporal_lexemes": [
+    "JWM/",
+    "LJLH/",
+    "<T/",
+    ">XR/"
+  ],
+  "frame_verb": "HJH[",
+  "add_verb": "JSP[",
+  "proverb_lexeme": "MCL/"
+}

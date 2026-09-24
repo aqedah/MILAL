@@ -1,6 +1,49 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.8 revised contract human freeze, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.9 independent strict/macro top-level audit, 2026-09-24
+
+Active specification: [JIN.0.9 spec](R4_4_CONTRACT_JIN_0_9_SPEC.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_9_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_9.md);
+results: [validation report](R4_4_CONTRACT_JIN_0_9_VALIDATION_REPORT.md).
+Start HEAD `e64f115a97dc7e57c7b70a19885919e979c8ec8c`.
+
+Readiness: **READY_FOR_TOP_LEVEL_HUMAN_ADJUDICATION**.
+R4.4 implementation remains blocked pending human top-level and remaining scope review.
+Independent raw BHSA 2021 S and M processes freeze before historical human inputs open.
+Human/native-hierarchy/label leakage: zero in both. Native mother/tab/pargr/rela/code unused.
+S: 2,938 clauses, 9,337 retained relation candidates, 44 explicit/local hypotaxis,
+108 parataxis-supported, 421 top-level candidates (269 distinct references).
+M: 1,189 marker-bearing clause observations, 1,074 onsets, 308 closures,
+13 repeated configuration families, 234 top-level candidates (157 references).
+Both layers retain multiple-paratactic and insufficient configuration hypotheses;
+no unique root selected. Job 1:1 is scope-initial, with raw domain `?` preserved;
+partial opening/final correspondence does not establish a whole-book frame.
+
+Post-blind: 13,578 strict comparisons, 114 macro comparisons, 12 group comparisons,
+423 exact-anchor cross-layer records. Parataxis alone does not confirm historical
+hypotaxis (1:13 and 40:1 fixtures report S_ALTERNATIVE_SUPPORTED).
+ROOT:STRICT and ROOT:MACRO: five questions each, all UNREVIEWED.
+All 220 prior scope records preserved; remaining 218 not resolved by this task.
+2:11 / 32:1 remain NO_MACRO_MOTHER_FOUND; participant arc UNADJUDICATED.
+New human judgments/roots/parent edges/accepted relations/migration: zero.
+R4.4 consumer absent; previous analytical cores and 273 frozen pins unchanged.
+
+Validation: 76 stage tests; full **1,860 PASS / fail0 / error0 / skip0**.
+Synthetic and real **53 run gates + 2 release gates PASS**, negative-tested.
+Independent Windows real rerun byte-identical; 538 members, 483 upstream preserved,
+25 recursive manifests plus two independent blind manifests verified.
+No empirical Termux claim. Release ZIP:
+`results/jin09_real_release_20260924_a_results.zip`.
+SHA256 `80821a089d3097721e80eecdf85272640e77b3e19b0206e3066f82de6c088b06`; `_b` identical.
+Earlier `jin09_real_final_*` diagnostics superseded after a post-blind status fix;
+blind outputs unchanged. Commit/push authorized by request section 49 after PASS.
+
+Next: human adjudication of S-Q1–S-Q5 and M-Q1–M-Q5, without assuming shared roots
+or imposing one root. Then remaining scope review / targeted audit as needed;
+migration dry-run and consumer implementation require later authorization.
+
+## Previous task — R4.4-CONTRACT.JIN.0.8 revised contract human freeze, 2026-09-24
 
 Active specification: [JIN.0.8 spec](R4_4_CONTRACT_JIN_0_8_SPEC.md);
 authority: [exact researcher request](R4_4_CONTRACT_JIN_0_8_RESEARCHER_SOURCE.txt);

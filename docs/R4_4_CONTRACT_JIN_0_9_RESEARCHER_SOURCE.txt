@@ -1,0 +1,1447 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.9
+— Independent Strict / Macro Top-Level Structure Audit
+— Blind Root and Top-Level Configuration Discovery
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  e64f115a97dc7e57c7b70a19885919e979c8ec8c
+
+현재 상태:
+- R4.4-CONTRACT.JIN.0.8 완료
+- REVISED_R4_4_CONTRACT_HUMAN_FROZEN
+- R1–R10 = ACCEPTED
+- strict clause hierarchy / macro textual hierarchy 분리 확정
+- relation_type / relation_layer 분리 확정
+- historical relations 250 = unchanged
+- contract invariants = 20
+- relation-layer vocabulary = 9
+- open review scope = 220
+  - STRICT_RELATION_OPEN = 209
+  - MACRO_RELATION_OPEN = 9
+  - TOP_LEVEL_ROOT_OPEN = 2
+- 2:11 macro mother = NO_MACRO_MOTHER_FOUND
+- 32:1 macro mother = NO_MACRO_MOTHER_FOUND
+- 1:13 / 3:1–3:2 / 40:1 strict relation = unresolved/unproven
+- participant arc = UNADJUDICATED
+- R4.4 consumer = NOT IMPLEMENTED
+
+이번 단계에서는 다음 두 질문만 독립적으로 감사한다.
+
+A.
+STRICT_CLAUSE_HIERARCHY의 최상위 configuration은 무엇인가?
+
+B.
+MACRO_TEXTUAL_HIERARCHY의 최상위 configuration은 무엇인가?
+
+중요:
+이번 단계는 human adjudication이 아니다.
+
+코드가 먼저 독립적으로 evidence와 후보 configuration을 생성하고,
+blind output을 freeze/hash한 뒤,
+그 이후에만 기존 human structure와 비교한다.
+
+==================================================
+0. 핵심 방법론
+==================================================
+
+이번 단계의 절차:
+
+RAW BHSA / BLIND FORMAL DATA
+        ↓
+TOP-LEVEL CANDIDATE DISCOVERY
+        ↓
+RELATION / CONFIGURATION CANDIDATES
+        ↓
+BLIND OUTPUT FREEZE
+        ↓
+POST-BLIND HISTORICAL COMPARISON
+        ↓
+HUMAN REVIEW PACKET
+
+금지:
+
+- Job 1:1을 root로 미리 지정
+- JOB_BOOK technical root 사용
+- chapter boundary 기반 root 선정
+- 기존 HSA macro groups를 blind discovery input으로 사용
+- existing SAME_LEVEL / CHILD_OF를 blind input으로 사용
+- composition group을 root/mother로 사용
+- nearest preceding heuristic
+- tree library의 single-root requirement를 연구 결과로 사용
+- traditional Job outline hard-code
+- root/top-level winner 자동 선택
+- numeric ranking
+- weighted score
+
+==================================================
+1. 두 audit을 완전히 분리하라
+==================================================
+
+두 개의 별도 blind audit을 실행한다.
+
+--------------------------------------------------
+AUDIT S
+STRICT_TOP_LEVEL_STRUCTURE_AUDIT
+--------------------------------------------------
+
+대상:
+BHSA Job 전체 actual clauses / clause_atoms
+
+목표:
+strict clause-level form-to-function 관계를 이용하여
+책 범위 안에서 top-level 후보 configuration을 찾는다.
+
+--------------------------------------------------
+AUDIT M
+MACRO_TOP_LEVEL_STRUCTURE_AUDIT
+--------------------------------------------------
+
+대상:
+raw surface marker / multi-clause configuration /
+domain transition / onset / closure evidence
+
+목표:
+macro textual units의 최상위 관계 후보를 찾는다.
+
+S와 M은 서로의 결과를 blind discovery input으로 사용하지 않는다.
+
+각자 별도:
+- source audit
+- manifest
+- output hash
+를 생성한다.
+
+==================================================
+2. Scope-relative root와 linguistic root를 구별
+==================================================
+
+이번 audit에서 반드시 다음을 구분한다.
+
+A.
+BOOK_SCOPE_INITIAL
+
+분석 범위인 Job 안에서
+앞선 clause가 존재하지 않는다는 사실.
+
+B.
+LINGUISTIC_TOP_LEVEL_CANDIDATE
+
+언어학적 관계상 다른 textual unit 아래에
+종속되는 evidence가 확인되지 않고
+top-level placement evidence를 가지는 경우.
+
+C.
+UNIQUE_ROOT_CANDIDATE
+
+다른 top-level candidate들을
+언어학적으로 거느릴 가능성이 있는 하나의 textual unit.
+
+중요:
+
+BOOK_SCOPE_INITIAL
+≠
+UNIQUE_ROOT
+
+따라서:
+
+Job 1:1 is first in scope
+
+라는 이유만으로:
+
+Job 1:1 = root
+
+를 만들면 FAIL.
+
+==================================================
+3. AUDIT S — blind source isolation
+==================================================
+
+STRICT blind phase에서 허용:
+
+- raw BHSA 2021
+- clause
+- clause_atom
+- word
+- phrase
+- clause type
+- raw domain
+- raw morphology
+- participant/reference surface evidence
+- conjunction
+- relative markers
+- infinitives
+- temporal / locative phrases
+- constituent order
+- surface lexical repetition
+- JIN.0.2 Phase-A human-free linguistic rule helpers
+  단, human crosswalk가 섞이지 않았음을 source audit에서 검증
+
+STRICT blind phase 금지:
+
+- HSA relations
+- CHILD_OF historical edges
+- SAME_LEVEL historical edges
+- macro groups
+- HSA structural functions
+- JIN.0.4 human decisions
+- JIN.0.7 relation typing
+- JIN.0.8 contract fixture answers
+- BHSA mother/tab/pargr/rela/code
+
+BHSA native hierarchy는 strict blind freeze 후에만
+validation comparison용으로 읽는다.
+
+Gate:
+S_HUMAN_SOURCE_COUNT = 0
+S_HUMAN_LABEL_LEAKAGE = 0
+S_NATIVE_HIERARCHY_INPUT = 0
+S_COMPOSITION_INPUT = 0
+
+==================================================
+4. AUDIT S — 전체 Job strict clause inventory
+==================================================
+
+Job 전체 2,938 clauses를 실제 데이터에서 재검증한다.
+
+각 clause에 최소:
+
+- clause ID
+- clause_atom IDs
+- reference
+- surface
+- clause type
+- domain
+- verb lexeme
+- verb morphology
+- PNG
+- subject
+- object
+- complement
+- adjunct
+- phrase-function sequence
+- constituent order
+- conjunction
+- subordinate markers
+- relative markers
+- infinitive constructions
+- temporal phrase
+- locative phrase
+- participant/reference evidence
+
+를 추출한다.
+
+==================================================
+5. AUDIT S — strict relation candidate discovery
+==================================================
+
+각 clause가 다음 중 어느 relation candidate를 가지는지
+raw evidence로 탐색한다.
+
+STRICT_HYPOTAXIS_CANDIDATE
+
+STRICT_PARATAXIS_CANDIDATE
+
+STRICT_HYPOTAXIS_AND_PARATAXIS_COMPETE
+
+STRICT_LOCAL_DEPENDENCY
+
+STRICT_TOP_LEVEL_CANDIDATE
+
+STRICT_PLACEMENT_INSUFFICIENT
+
+중요:
+accepted relation이 아니다.
+
+automatic_resolution = false
+
+==================================================
+6. AUDIT S — mother candidate search
+==================================================
+
+각 target clause에 대해
+possible preceding mother candidates를 검색한다.
+
+그러나 전권 4백만+ pair를 무조건 materialize할 필요는 없다.
+
+효율적인 feature index를 사용할 수 있다.
+
+예:
+- explicit subordination local index
+- participant/reference index
+- clause-type/form index
+- repeated-formula index
+- temporal/locative frame index
+
+단:
+candidate universe를 줄이는 기준은
+linguistic trigger여야 한다.
+
+금지:
+- nearest clause only
+- chapter window only
+- current HSA hierarchy
+- current macro group
+
+각 retained candidate에:
+candidate_trigger
+evidence_bundle
+limitation
+를 기록한다.
+
+No ranking.
+
+==================================================
+7. AUDIT S — explicit dependency first
+==================================================
+
+strict hierarchy에서 가장 먼저 식별할 것은
+명시적 local hypotaxis이다.
+
+예:
+- אשר
+- כי where subordinate
+- InfC dependency
+- relative construction
+- explicit anaphoric syntactic dependency
+
+JIN.0.2/0.5의 explicit subordinate controls를
+blind rule regression control로 재현한다.
+
+하지만 historical IDs/labels를 discovery에 사용하지 않는다.
+
+==================================================
+8. AUDIT S — paratactic main-line candidates
+==================================================
+
+진규상 방식에 따라
+main clauses가 같은 textual level에서 병렬일 수 있음을 허용한다.
+
+PARATAXIS evidence:
+
+- formal correspondence
+- clause type correspondence or compatible difference
+- morphology
+- constituent arrangement
+- participant configuration
+- same/raw domain compatibility
+- temporal/locative configuration
+- repeated formal sequence
+
+중요:
+same clause type alone insufficient.
+different clause type does not exclude parataxis.
+
+==================================================
+9. AUDIT S — top-level candidate derivation
+==================================================
+
+strict top-level 후보는 다음을 만족할 가능성이 있는 clause다.
+
+- no accepted relation은 사용하지 않음
+- blind strict evidence상 explicit/local hypotactic daughter가 아님
+- higher-level paratactic/main-line evidence가 있음
+  또는
+- strong paragraph/frame-opening surface evidence가 있음
+  또는
+- no linguistically supported prior mother candidate within Job scope
+
+그러나:
+
+NO MOTHER CANDIDATE FOUND
+≠
+ROOT
+
+따라서 다음을 분리한다.
+
+S_TOP_UNEMBEDDED_CANDIDATE
+
+S_TOP_PARATACTIC_CANDIDATE
+
+S_SCOPE_INITIAL_CANDIDATE
+
+S_UNIQUE_ROOT_CANDIDATE_POSSIBLE
+
+S_TOP_LEVEL_INSUFFICIENT
+
+==================================================
+10. AUDIT S — top-level configuration hypotheses
+==================================================
+
+코드는 다음 configuration 후보만 제시할 수 있다.
+
+S_CONFIG_ONE_UNIQUE_ROOT_CANDIDATE
+
+S_CONFIG_MULTIPLE_TOP_LEVEL_PARATACTIC_CANDIDATES
+
+S_CONFIG_ONE_ROOT_PLUS_TOP_LEVEL_PARATAXIS
+
+S_CONFIG_OTHER_EXPLICIT
+
+S_CONFIG_INSUFFICIENT
+
+모두:
+UNADJUDICATED
+
+Codex가 하나를 선택하지 않는다.
+
+==================================================
+11. AUDIT S — candidate coverage / hierarchical force
+==================================================
+
+진규상의 hierarchical force 개념을
+자동 ranking으로 변형하지 않는다.
+
+다만 각 top-level candidate에:
+
+candidate_coverage_start
+candidate_coverage_end_if_observable
+candidate_coverage_basis
+
+를 descriptive하게 계산할 수 있다.
+
+basis 예:
+- repeated equivalent onset until next same-family marker
+- explicit local dependencies
+- paratactic span evidence
+- domain run
+
+금지:
+더 긴 coverage = 자동 root
+
+Coverage는 evidence일 뿐 판정 규칙이 아니다.
+
+==================================================
+12. AUDIT M — blind source isolation
+==================================================
+
+MACRO blind phase 허용:
+
+- raw BHSA 2021
+- human-free formal-marker extraction
+- JIN.0.2 Phase-A blind features
+- JIN.0.3 Phase-C1 context signatures
+- JIN.0.5 blind A/B/C outputs
+단, 인간 judgment/crosswalk 필드는 strip된 neutral forms만
+
+금지:
+
+- OPENING_NARRATIVE_COMPLEX label
+- JOB_FRIENDS_DISPUTE_COMPLEX label
+- ELIHU_SPEECH_SEQUENCE accepted group
+- YHWH_JOB_RESPONSE_SEQUENCE accepted group
+- FINAL_NARRATIVE_COMPLEX label
+- seam A–G judgments
+- macro SAME_LEVEL human judgments
+- macro CHILD_OF judgments
+- transition human labels
+- participant arc
+- technical navigation
+
+Gate:
+M_HUMAN_SOURCE_COUNT = 0
+M_HUMAN_LABEL_LEAKAGE = 0
+M_COMPOSITION_LABEL_INPUT = 0
+M_TECHNICAL_NAVIGATION_INPUT = 0
+
+==================================================
+13. AUDIT M — macro onset candidate discovery
+==================================================
+
+Job 전체에서 raw macro-onset candidates를 검출한다.
+
+가능 evidence:
+
+- Wayhi + Time
+- WayX frame onset
+- narrator→speech domain transition
+- expanded CSF
+- repeated CSF configuration
+- ויסף ... משל
+- explicit participant introduction
+- explicit temporal frame
+- major subject/addressee shift
+- repeated multi-clause onset configuration
+- unique/asymmetric opening formula
+
+중요:
+marker occurrence 자체가 macro onset을 자동 확정하지 않는다.
+
+output:
+
+M_ONSET_CANDIDATE
+
+M_ONSET_REPEATED_FAMILY_CANDIDATE
+
+M_LOCAL_ONLY_ONSET
+
+M_MACRO_PROJECTION_INSUFFICIENT
+
+==================================================
+14. AUDIT M — macro closure candidate discovery
+==================================================
+
+raw closure evidence:
+
+- explicit ending statement
+- cessation expression
+- final speech formula behavior
+- domain shift after unit
+- repeated paired onset/ending patterns
+- terminal participant/discourse configuration
+
+output:
+
+M_CLOSURE_CANDIDATE
+
+M_LOCAL_CLOSURE_ONLY
+
+M_HIGHER_TERMINAL_EFFECT_CANDIDATE
+
+M_CLOSURE_INSUFFICIENT
+
+기존 31:40 human judgments를 blind phase에서 사용 금지.
+
+==================================================
+15. AUDIT M — macro parataxis candidate families
+==================================================
+
+반복되는 onset/configuration을 family로 묶는다.
+
+generic detector를 사용한다.
+
+예시로 예상될 수 있으나 hard-code 금지:
+
+- 1:6 / 2:1
+- dialogue speech formulas
+- 27:1 / 29:1
+- Elihu onset formulas
+- 38:1 / 40:6
+- Job response formulas
+
+C1/C2/Cycle 같은 human name을 blind output에 쓰지 않는다.
+
+neutral family ID:
+MFxxxx
+
+사용.
+
+==================================================
+16. AUDIT M — macro hypotaxis / containment candidates
+==================================================
+
+macro containment 후보는
+한 focal formula만으로 만들지 않는다.
+
+요구 evidence bundle:
+
+- wider repeated/distributional configuration
+- nested onset behavior
+- internal/onset asymmetry
+- participant/domain containment
+- closure/onset compatibility
+
+output:
+
+M_MACRO_HYPOTAXIS_CANDIDATE
+
+M_MACRO_CONTAINMENT_POSSIBLE
+
+M_MACRO_PARATAXIS_POSSIBLE
+
+M_RELATION_INSUFFICIENT
+
+No mother selected.
+
+==================================================
+17. AUDIT M — top-level candidates
+==================================================
+
+macro top-level 후보는:
+
+- broad scope onset evidence
+- no supported macro containing candidate
+- parallel with other high-level units
+- book-wide narrative/discourse distribution
+- closure/frame evidence
+
+등을 descriptive하게 보존한다.
+
+가능 status:
+
+M_TOP_UNCONTAINED_CANDIDATE
+
+M_TOP_PARATACTIC_CANDIDATE
+
+M_HIGHER_FRAME_CANDIDATE
+
+M_SCOPE_INITIAL_CANDIDATE
+
+M_TOP_LEVEL_INSUFFICIENT
+
+==================================================
+18. AUDIT M — whole-book frame candidate
+==================================================
+
+특정 하나의 verse를 root로 hard-code하지 않는다.
+
+하지만 다음 가설이 raw evidence에서 나오는지 검토할 수 있다.
+
+WHOLE_BOOK_FRAME_CANDIDATE
+
+조건은 복수 evidence여야 한다.
+
+예:
+- opening narrative framing
+- final narrative correspondence
+- participant/narrator domain recurrence
+- beginning/end configuration
+
+그러나:
+prologue/epilogue라는 traditional label 사용 금지.
+
+또한:
+1:1–42:17을 자동 span으로 생성하지 않는다.
+
+candidate only.
+
+==================================================
+19. AUDIT M — top-level configuration hypotheses
+==================================================
+
+허용:
+
+M_CONFIG_ONE_UNIQUE_ROOT_CANDIDATE
+
+M_CONFIG_MULTIPLE_TOP_LEVEL_PARATACTIC_UNITS
+
+M_CONFIG_ONE_ROOT_PLUS_TOP_LEVEL_PARATAXIS
+
+M_CONFIG_ONE_HIGHER_MACRO_FRAME
+
+M_CONFIG_OTHER_EXPLICIT
+
+M_CONFIG_INSUFFICIENT
+
+전부:
+UNADJUDICATED
+
+==================================================
+20. Strict vs Macro는 blind phase에서 서로 비교하지 않는다
+==================================================
+
+S blind outputs freeze.
+
+M blind outputs freeze.
+
+그 전에는 서로 로드하지 않는다.
+
+그 뒤 POST-BLIND INTEGRATION 단계에서만 비교한다.
+
+==================================================
+21. Blind output freeze
+==================================================
+
+S:
+- source audit
+- outputs
+- manifest
+- SHA
+
+M:
+- source audit
+- outputs
+- manifest
+- SHA
+
+각각 별도 freeze.
+
+Gate:
+
+S_FROZEN_BEFORE_POSTBLIND
+M_FROZEN_BEFORE_POSTBLIND
+
+==================================================
+22. Post-blind historical comparison
+==================================================
+
+S/M freeze 이후에만 다음을 로드한다.
+
+- JIN.0.8 contract
+- historical HSA relations
+- JIN.0.7 macro typing
+- HSA3 composition groups
+- existing macro parataxis
+- historical unresolved strict relations
+
+목적:
+
+blind candidates와
+기존 human structure를 비교.
+
+기존 structure를 blind result에 역주입하지 않는다.
+
+==================================================
+23. Post-blind strict comparison
+==================================================
+
+비교 항목:
+
+- existing explicit strict controls
+- 1:13 strict unresolved
+- 3:1/3:2 strict unresolved
+- 40:1 strict unresolved
+- JIN.0.2/0.3 strict scope candidates
+
+statuses:
+
+S_HISTORICAL_SUPPORTED
+
+S_HISTORICAL_PARTIAL
+
+S_ALTERNATIVE_SUPPORTED
+
+S_HISTORICAL_NOT_RECOVERED
+
+S_MULTIPLE_OPTIONS
+
+S_INSUFFICIENT
+
+==================================================
+24. Post-blind macro comparison
+==================================================
+
+기존 macro structure와 비교:
+
+- macro CHILD_OF
+- macro SAME_LEVEL
+- macro continuation
+- no-new-boundary
+- transitions
+
+statuses:
+
+M_HISTORICAL_SUPPORTED
+
+M_HISTORICAL_PARTIAL
+
+M_ALTERNATIVE_SUPPORTED
+
+M_HISTORICAL_NOT_RECOVERED
+
+M_MULTIPLE_OPTIONS
+
+M_INSUFFICIENT
+
+==================================================
+25. 기존 composition groups는 validation control
+==================================================
+
+OPENING_NARRATIVE_COMPLEX 등 existing groups는
+POST-BLIND에서만 사용.
+
+질문:
+
+blind macro top-level candidates가
+기존 composition grouping과 어느 정도 일치하는가?
+
+하지만 composition group은 mother/root candidate가 아니다.
+
+==================================================
+26. top-level human review packet
+==================================================
+
+최종 packet은 두 section을 완전히 분리한다.
+
+==================================================
+SECTION S — STRICT
+==================================================
+
+Researcher questions:
+
+S-Q1.
+Strict clause hierarchy에서
+최상위 candidate는 하나인가, 복수인가?
+
+S-Q2.
+복수라면 top-level paratactic relation evidence가 있는가?
+
+S-Q3.
+Job 1:1은 단순 BOOK_SCOPE_INITIAL인가,
+linguistically supported unique strict root candidate인가?
+
+S-Q4.
+strict root를 현재 Job-book scope 안에서만 정의할 것인가,
+아니면 외부 canonical context 문제를 별도 남길 것인가?
+
+S-Q5.
+증거가 불충분하다면 unique root를 보류할 것인가?
+
+==================================================
+SECTION M — MACRO
+==================================================
+
+M-Q1.
+Macro textual hierarchy의 top-level configuration은
+one root / multiple peers / higher frame 중 무엇을 지지하는가?
+
+M-Q2.
+Job 1:1은 macro root candidate인가,
+opening unit onset일 뿐인가?
+
+M-Q3.
+3:1, 32:1/32:2, 38:1, 42:7 등의 major transitions/onsets는
+어떤 top-level relation candidate를 형성하는가?
+
+M-Q4.
+Opening and final narrative raw correspondence가
+one higher whole-book frame을 지지하는가?
+
+M-Q5.
+현재 evidence로 unique macro root를 정할 필요가 있는가?
+
+모두 UNREVIEWED.
+
+==================================================
+27. Scope root vs corpus root
+==================================================
+
+반드시 문서화:
+
+BOOK_SCOPE_ROOT
+=
+현재 Job 분석 범위 안에서의 최상위 표현.
+
+CORPUS_ABSOLUTE_ROOT
+=
+더 큰 문헌/canonical corpus까지 고려한 절대 관계.
+
+이번 단계는:
+BOOK_SCOPE만 분석한다.
+
+그러나 첫 clause라는 이유로
+BOOK_SCOPE_ROOT를 자동 결정하지 않는다.
+
+Corpus-level question:
+OUT_OF_SCOPE_FUTURE_RESEARCH
+
+==================================================
+28. Root가 없어도 audit FAIL이 아니다
+==================================================
+
+정상 결과로 허용:
+
+INSUFFICIENT_EVIDENCE_FOR_UNIQUE_ROOT
+
+MULTIPLE_TOP_LEVEL_PARATACTIC_CANDIDATES
+
+TOP_LEVEL_CONFIGURATION_UNRESOLVED
+
+즉 root 하나를 만들어내는 것이 성공 조건이 아니다.
+
+==================================================
+29. No full-tree synthesis
+==================================================
+
+이번 단계에서:
+
+- 전체 2938 clause tree 생성 금지
+- unresolved strict relations 자동 연결 금지
+- 220 scope rows 해결 금지
+
+최상위 configuration만 감사한다.
+
+==================================================
+30. Open-scope 220과의 관계
+==================================================
+
+이번 stage는 220개를 전부 판정하지 않는다.
+
+TOP_LEVEL_ROOT_OPEN 2개만 직접 대상으로 한다.
+
+STRICT 209 / MACRO 9는:
+top-level 판단에 필요한 경우 contextual evidence로만 사용.
+
+Audit 후:
+어떤 open-scope cases가 top-level 판정으로
+후속 review에서 불필요/필수해지는지
+영향도만 보고한다.
+
+No automatic resolution.
+
+==================================================
+31. Neutral top-level candidate IDs
+==================================================
+
+blind phase에서는 human-semantic names 금지.
+
+예:
+
+STC0001
+STC0002
+
+MTC0001
+MTC0002
+
+Post-blind에서만 references/HSA IDs와 crosswalk.
+
+==================================================
+32. Candidate configuration evidence
+==================================================
+
+각 top-level candidate에:
+
+candidate_id
+reference
+clause_id / anchor
+candidate_kind
+
+opening_features
+formal_family
+participant_features
+domain_features
+temporal_features
+locative_features
+
+hypotaxis_candidate_count
+parataxis_candidate_count
+
+possible_containing_candidates
+possible_peer_candidates
+
+coverage_evidence
+closure_correspondence
+
+limitations
+
+를 기록한다.
+
+No score.
+
+==================================================
+33. No ranking
+==================================================
+
+금지:
+
+root_score
+top_level_score
+hierarchical_force_score
+best_root
+rank
+
+“candidate coverage word count” 등의 수치는
+descriptive evidence로만 허용.
+
+==================================================
+34. Jin hierarchical force
+==================================================
+
+진규상의 hierarchical force는
+이미 구성된/판정된 hierarchy 내에서
+pattern coverage와 textual level을 논하는 데 사용된다.
+
+따라서 이번 blind audit에서:
+
+longer span = stronger force = root
+
+라는 자동 rule을 만들지 않는다.
+
+다만:
+formula expansion
++
+distribution
++
+coverage
++
+repetition
+을 separate evidence fields로 보존한다.
+
+==================================================
+35. 필수 real controls — Strict
+==================================================
+
+Blind strict stage에서 최소:
+
+- explicit subordinate control(s)
+- same-level main-clause possibilities
+- narrative→speech clauses
+- clause-internal dependencies
+
+를 포함한다.
+
+Post-blind에서:
+
+1:13
+3:1/3:2
+40:1
+
+strict unresolved fixtures와 비교.
+
+==================================================
+36. 필수 real controls — Macro
+==================================================
+
+Blind macro stage에서 최소 다음 raw loci가
+candidate universe에 자연스럽게 나타나는지 검사한다.
+
+- 1:1
+- 1:6
+- 1:13
+- 2:1
+- 2:11
+- 3:1
+- 27:1
+- 29:1
+- 31:40
+- 32:1
+- 32:2
+- 32:6
+- 34:1
+- 35:1
+- 36:1
+- 37:24
+- 38:1
+- 40:1
+- 40:3
+- 40:6
+- 42:1
+- 42:7
+- 42:16
+
+중요:
+이 list는 validation controls로만 사용.
+discovery candidate를 hard-code하는 seed로 쓰지 않는다.
+
+==================================================
+37. Historical macro groups post-blind comparison
+==================================================
+
+POST-BLIND에서 다음과 비교:
+
+OPENING_NARRATIVE_COMPLEX
+JOB_FRIENDS_DISPUTE_COMPLEX
+32:1 transition
+ELIHU region
+YHWH_JOB_RESPONSE_SEQUENCE
+FINAL_NARRATIVE_COMPLEX
+
+질문:
+blind candidate configuration이
+이 그룹들을 support/partially support/not recover하는가?
+
+Composition groups themselves:
+not root candidates.
+
+==================================================
+38. Synthetic fixtures
+==================================================
+
+최소:
+
+S1.
+one unique strict root with daughters
+
+S2.
+multiple strict top-level paratactic main clauses
+
+S3.
+scope-initial clause but not linguistically unique root
+
+S4.
+strict explicit daughter + one mother
+
+S5.
+strict ambiguous multiple mother candidates
+
+M1.
+one higher macro frame with several nested units
+
+M2.
+multiple macro top-level peers
+
+M3.
+macro paratactic units + internal hypotactic daughter
+
+M4.
+opening and closing correspondence but insufficient root evidence
+
+M5.
+technical root present but prohibited
+
+M6.
+composition group cannot become root/mother
+
+M7.
+longest coverage candidate does not automatically win
+
+==================================================
+39. Outputs
+==================================================
+
+최소:
+
+STRICT:
+
+01_strict_clause_inventory.csv
+02_strict_relation_candidates.csv
+03_strict_top_level_candidates.csv
+04_strict_top_level_configuration_hypotheses.csv
+05_strict_candidate_evidence.csv
+06_strict_blind_source_audit.csv
+07_strict_blind_manifest.csv
+
+MACRO:
+
+08_macro_marker_inventory.csv
+09_macro_onset_candidates.csv
+10_macro_closure_candidates.csv
+11_macro_relation_candidate_families.csv
+12_macro_top_level_candidates.csv
+13_macro_top_level_configuration_hypotheses.csv
+14_macro_candidate_evidence.csv
+15_macro_blind_source_audit.csv
+16_macro_blind_manifest.csv
+
+POST-BLIND:
+
+17_strict_postblind_comparison.csv
+18_macro_postblind_comparison.csv
+19_existing_groups_postblind_comparison.csv
+20_top_level_cross_layer_comparison.csv
+
+REVIEW:
+
+21_top_level_human_review_cases.csv
+22_top_level_human_review_packet.md
+23_open_scope_impact.csv
+24_method_compliance_report.md
+25_next_scope.md
+
+26_gates.csv
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+40. strict/macro cross-layer comparison
+==================================================
+
+S/M blind freeze 후에만 cross-layer comparison.
+
+질문:
+
+- strict top-level 후보와 macro top-level 후보가 같은 locus를 공유하는가?
+- 서로 다른가?
+- strict root와 macro root를 동일시할 근거가 있는가?
+
+중요:
+same anchor
+≠
+same relation layer
+≠
+same root status.
+
+No automatic unification.
+
+==================================================
+41. Review-case 규모
+==================================================
+
+연구자에게 2938 clauses를 모두 넘기지 않는다.
+
+최종 human review에는:
+
+- strict top-level candidates
+- strict configuration hypotheses
+- macro top-level candidates
+- macro configuration hypotheses
+- materially competing alternatives
+
+만 제시한다.
+
+Raw clause inventory는 appendix/source.
+
+==================================================
+42. Readiness
+==================================================
+
+성공 시:
+
+READY_FOR_TOP_LEVEL_HUMAN_ADJUDICATION
+
+실패/ambiguous implementation 문제 시:
+
+BLOCKED_BY_TOP_LEVEL_AUDIT_ISSUES
+
+절대:
+READY_FOR_R4_4_IMPLEMENTATION
+
+으로 선언하지 않는다.
+
+==================================================
+43. New judgments / relations
+==================================================
+
+new_human_judgment = 0
+new_parent_edge = 0
+new_macro_relation = 0
+new_strict_relation = 0
+new_root = 0
+relation_migration = 0
+
+모든 결과:
+candidate/audit only.
+
+==================================================
+44. Tests / gates
+==================================================
+
+최소:
+
+1. baseline exact
+2. JIN.0.8 frozen contract verified
+3. historical 250 relations unchanged
+4. no relation migration
+5. no root selected
+
+STRICT:
+6. all Job clauses inventoried
+7. S human source count 0
+8. S human-label leakage 0
+9. S native hierarchy input 0
+10. explicit hypotaxis control recovered
+11. parataxis possibility preserved
+12. no all-clause-one-mother assumption
+13. scope-initial != root enforced
+14. S outputs frozen before postblind
+
+MACRO:
+15. M human source count 0
+16. M human-label leakage 0
+17. M composition-label input 0
+18. M technical-navigation input 0
+19. macro onset discovery generic
+20. macro closure discovery generic
+21. repeated configuration families produced
+22. no traditional outline used
+23. no longest-coverage winner
+24. M outputs frozen before postblind
+
+POST-BLIND:
+25. human relations loaded only after S/M freeze
+26. existing groups loaded only postblind
+27. no blind output mutated
+28. cross-layer comparison generated
+29. same anchor not auto-unified
+
+ROOT:
+30. technical JOB_BOOK not candidate
+31. composition groups not root candidates
+32. Job 1:1 not hard-coded root
+33. no unique-root preassumption
+34. multiple-top-level outcome supported by schema
+35. insufficient-evidence outcome supported
+
+SCOPE:
+36. only ROOT:STRICT / ROOT:MACRO directly reviewed
+37. remaining 218 not automatically resolved
+38. 2:11 unchanged
+39. 32:1 unchanged
+
+OTHER:
+40. participant arc untouched
+41. R4.4 consumer absent
+42. manifest PASS
+43. deterministic rerun byte-identical
+44. full regression PASS, skip 0
+
+==================================================
+45. Methodological report
+==================================================
+
+반드시 다음을 명시한다.
+
+“Top-level/root cardinality is discovered rather than assumed.”
+
+“The first clause in the analysis scope is not automatically the
+linguistic root.”
+
+“Strict clause top-level structure and macro textual top-level structure
+are separately investigated.”
+
+“Paratactic top-level units are a valid possible hierarchy outcome.”
+
+“A technical root is not an analytical root.”
+
+“A non-textual composition group is not a textual root.”
+
+“Absence of a supported mother candidate does not by itself establish
+root status.”
+
+“Coverage and formula elaboration are evidence of hierarchical force,
+not automatic root-selection rules.”
+
+==================================================
+46. Implementation
+==================================================
+
+repository architecture를 먼저 확인하고
+JIN.0.2–0.8 helper를 재사용한다.
+
+권장:
+
+src/milal_jin_strict_top_level_audit.py
+src/milal_jin_macro_top_level_audit.py
+src/milal_jin_top_level_postblind.py
+src/milal_jin_top_level_common.py
+
+config:
+config/r4_4_contract_jin_0_9_job.json
+
+tests:
+tests/test_r4_4_contract_jin_0_9.py
+
+Windows:
+scripts/run_milal_r4_4_contract_jin_0_9_windows.ps1
+
+Termux:
+기존 convention이 있다면
+scripts/run_milal_r4_4_contract_jin_0_9_termux.sh
+
+docs:
+docs/R4_4_CONTRACT_JIN_0_9_SPEC.md
+docs/R4_4_CONTRACT_JIN_0_9_VALIDATION_REPORT.md
+
+HANDOFF.md update
+
+==================================================
+47. Termux documentation
+==================================================
+
+실제 실행 가능한 명령만 기록.
+
+최소 흐름:
+
+cd ~/MILAL
+git pull --ff-only
+
+BHSA 2021 경로 확인:
+~/text-fabric-data/github/ETCBC/bhsa/tf/2021
+
+actual runner 실행
+
+결과 ZIP 생성
+
+Windows와 Termux의 expected schema/output이 동일해야 한다.
+
+Termux 실측 실행은 사용자가 결과를 제공한 경우에만
+실행 검증 완료라고 보고한다.
+
+==================================================
+48. Validation order
+==================================================
+
+1. syntax
+2. stage unit tests
+3. full regression
+4. synthetic strict
+5. synthetic macro
+6. real strict blind
+7. strict freeze/hash
+8. real macro blind
+9. macro freeze/hash
+10. source leakage audit
+11. postblind historical comparison
+12. cross-layer comparison
+13. human-review packet generation
+14. deterministic independent rerun
+15. manifest verification
+16. manual inspection of top-level candidates
+
+==================================================
+49. Commit / push
+==================================================
+
+모든 tests/gates PASS 후:
+
+Suggested commit:
+
+Audit strict and macro top-level structures
+
+commit 후 origin/main push.
+
+추가 authorization 필요 시 우회하지 않는다.
+
+==================================================
+50. Final report
+==================================================
+
+보고:
+
+1. start/end commit
+2. commit
+3. push
+4. working tree
+
+STRICT:
+5. total clauses
+6. strict retained relation candidates
+7. explicit/local hypotaxis count
+8. strict parataxis candidate count
+9. strict top-level candidate count
+10. strict top-level candidate refs
+11. strict configuration hypotheses
+
+MACRO:
+12. raw marker count
+13. macro onset candidate count
+14. macro closure candidate count
+15. repeated configuration family count
+16. macro top-level candidate count
+17. macro top-level candidate refs
+18. macro configuration hypotheses
+
+POST-BLIND:
+19. strict historical comparison
+20. macro historical comparison
+21. composition-group comparison
+22. strict/macro cross-layer comparison
+
+ROOT:
+23. whether Job 1:1 emerged as candidate
+24. if so, why
+25. whether it is unique
+26. competing top-level candidates
+
+SCOPE:
+27. ROOT:STRICT status
+28. ROOT:MACRO status
+29. impact on remaining 218 scope records
+
+INTEGRITY:
+30. human source leakage counts
+31. new human judgments = 0
+32. new roots = 0
+33. new parent edges = 0
+34. migration = 0
+35. participant arc unchanged
+36. R4.4 consumer absent
+
+VALIDATION:
+37. tests
+38. gates
+39. deterministic rerun
+40. ZIP
+41. SHA256
+
+42. final strict human-review questions
+43. final macro human-review questions
+
+44. readiness:
+READY_FOR_TOP_LEVEL_HUMAN_ADJUDICATION
+or
+BLOCKED_BY_TOP_LEVEL_AUDIT_ISSUES
