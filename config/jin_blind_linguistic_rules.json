@@ -1,0 +1,33 @@
+{
+  "book": "Job",
+  "bhsa_book_feature": "Iob",
+  "relative_markers": [
+    ">CR"
+  ],
+  "conditional_causal_markers": [
+    ">M",
+    "KJ",
+    "LM<N"
+  ],
+  "formula_context_clauses": 3,
+  "local_dependency_clause_window": 3,
+  "formula_patterns": {
+    "ANSWER_SAY": [
+      "<NH[",
+      ">MR["
+    ],
+    "ADD_PROVERB_SAY": [
+      "JSP[",
+      "MCL/",
+      ">MR["
+    ],
+    "OPEN_MOUTH": [
+      "PTX[",
+      "PH/"
+    ],
+    "WAYHI_DAY": [
+      "HJH[",
+      "JWM/"
+    ]
+  }
+}

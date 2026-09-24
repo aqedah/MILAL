@@ -1,6 +1,73 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.1 single-mother compatibility audit, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.2 independent blind relation audit, 2026-09-24
+
+Active specification: [R4_4_CONTRACT_JIN_0_2_SPEC.md](R4_4_CONTRACT_JIN_0_2_SPEC.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_2_RESEARCHER_SOURCE.txt);
+execution: [Windows and Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_2.md);
+results and limitations: [validation report](R4_4_CONTRACT_JIN_0_2_VALIDATION_REPORT.md).
+Starting HEAD: `178bea7fd73634c00a68828eb533c91991a3d69e`.
+The researcher authorizes isolated linguistic discovery, post-freeze human/native
+comparison, synthetic/real validation, deterministic rerun and commit. Push follows
+the repository authorization workflow. No new relation or mother is adjudicated.
+
+Current readiness: **BLOCKED_PENDING_BLIND_RELATION_HUMAN_REVIEW**.
+Every HYPOTACTIC daughter ultimately requires one mother; this does not mean every
+textual locus must be a hypotactic daughter. Parataxis is independently possible.
+Prior human judgments are comparison data only after blind discovery is frozen.
+Historical Q1–Q9 remain unchanged; new RQ1–RQ7 and all case fields are UNREVIEWED.
+New human judgments, accepted relations, structural relations and parent edges = 0.
+Root remains unselected; participant arc UNADJUDICATED; R4.4 consumer NOT IMPLEMENTED.
+
+Phase A uses 23 explicit raw BHSA 2021 features plus neutral target/rule JSON and
+three discovery code files for hashes. Exact read allowlist/import controls are
+enforced in a fresh process. Human source count = 0; native source count = 0;
+human-label leakage = 0. Phase B loads historical/native data after the freeze and
+cannot modify the blind output. All 278 upstream members and 188 frozen pins are
+preserved. Physical source paths are in the external per-run log.
+
+Real population: 49 loci, 2,938 clauses, 163,470 scans (163,207 preceding + 263
+forward context), 13,355 eligible pairs. Parataxis 80; hypotaxis 147 plus 2 explicit
+subordination; BOTH 0; insufficient 13,126; no-trigger scans 150,115.
+Historical SAME_LEVEL 98: support 34, partial 64. Existing mother 3: 1:13→1:6 and
+40:1→38:1 conflict with paratactic candidates; 3:1 above 3:2 has insufficient
+evidence. These comparisons do not overturn the historical macro judgments.
+JP1/JP2/JP3/JP4/JP5/JP6/JP7 = 0/0/17/19/4/1/8, all UNREVIEWED.
+Job 2:11 has four hypotactic candidates; 32:1 has two; no mother is assigned.
+Native comparison: 2 agree, 13,353 not comparable; no blind hypothesis overwritten.
+
+Real ZIP: `results/r4_4_contract_jin_0_2_blind_relation_audit_final_20260924_e_results.zip`.
+SHA256: `837e34f552a63e9143eeaf0fe747b466f80c8d6868e8bb904519a47732fe3abd`.
+Independent `_f` rerun is byte-identical. 304 members, 18 recursive manifests plus
+the separate blind manifest verify. Official Text-Fabric 13.1.0 independently
+matches all 2,938 clauses, 152,768 word-feature values, 8,286 phrases and 510 native
+nodes. Final test/release receipts are recorded in the validation report.
+Validation: **73 new / 1,461 total tests PASS, skip 0**; synthetic and both real
+runs **48/48 gates PASS**; external release gates **2/2 PASS**.
+
+Next human work: **13,344 distinct ordered clause-pair cases** in
+`results/r4_4_contract_jin_0_2_blind_relation_audit_final_20260924_e/21_relation_review_cases.csv`.
+All 13,355 target-specific occurrences remain linked; no ranking or automatic
+winner exists. Review packet: `14_revised_contract_review_packet.md` in the same
+directory. It also presents 101 historical comparisons and 49 projections.
+RQ1–RQ7 ask about support/discrepancies, two relation types, hypotactic-only mother
+cardinality, separate macro projection and root audit. Do not proceed to a consumer
+or invent accepted relations before the researcher adjudicates these questions.
+
+Termux commands (not empirically run on Termux; restore the exact pinned ZIP first):
+
+```bash
+cd ~/MILAL
+git pull --ff-only
+bash scripts/run_milal_jin_blind_audit_termux.sh --self-test --out "results/jin_0_2_synthetic_$(date +%Y%m%d_%H%M%S)"
+# After successful synthetic validation and packet inspection:
+bash scripts/run_milal_jin_blind_audit_termux.sh --tf-data "$HOME/text-fabric-data/github/etcbc/bhsa/tf/2021" --out "results/jin_0_2_real_$(date +%Y%m%d_%H%M%S)"
+```
+
+The runner generates `<out>_results.zip` automatically. See README for tests,
+path overrides and SHA256 verification.
+
+## Previous completed task — R4.4-CONTRACT.JIN.0.1 single-mother compatibility audit, 2026-09-24
 
 Active specification: [R4_4_CONTRACT_JIN_0_1_SPEC.md](R4_4_CONTRACT_JIN_0_1_SPEC.md);
 methodology: [addendum](R4_4_CONTRACT_JIN_0_1_ADDENDUM.md);

@@ -1,0 +1,1345 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.2
+— Independent Parataxis / Hypotaxis Linguistic Audit
+— Blind Linguistic Discovery Before Human Adjudication
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  178bea7fd73634c00a68828eb533c91991a3d69e
+
+현재 상태:
+- R4.4-CONTRACT.JIN.0.1 완료 및 origin/main push 완료
+- HSA3 A–G = FROZEN
+- historical direct_parent UNRESOLVED = 57
+- canonical nodes = 75
+- JIN.0.1에서 actual textual loci = 49
+- accepted direct-mother relations reported = 3
+- zero-direct-mother textual loci = 46
+- Q1–Q9 = UNREVIEWED
+- R4.4 consumer = NOT IMPLEMENTED
+- participant arc = UNADJUDICATED
+
+==================================================
+0. 이번 단계의 핵심 수정
+==================================================
+
+이전 단계에서 다음 원칙을 채택했다.
+
+“Every HYPOTACTIC daughter ultimately has one mother.”
+
+그러나 다음 명제는 아직 승인되지 않았다.
+
+“Every textual node must have one mother.”
+
+진규상의 실제 절차는:
+
+1. preceding clause candidate(s)를 찾는다.
+2. 문법적·형태론적·본문통사적 대응을 조사한다.
+3. 관계가 PARATACTIC인지 HYPOTACTIC인지 판단한다.
+4. HYPOTACTIC daughter라면 최종적으로 one mother를 선택한다.
+5. main clauses는 같은 textual level에서 PARATACTIC일 수도 있다.
+
+따라서 이번 단계의 연구 절차는 반드시:
+
+LINGUISTIC DISCOVERY
+        ↓
+RELATION CANDIDATE DETECTION
+        ↓
+HUMAN COMPARISON
+        ↓
+LATER HUMAN ADJUDICATION
+
+순서여야 한다.
+
+중요:
+
+기존 human judgment는
+DISCOVERY 단계의 input이 아니다.
+
+기존 human judgment는
+blind discovery 완료 이후 comparison 단계에서만 읽는다.
+
+==================================================
+1. 가장 중요한 원칙: BLIND DISCOVERY
+==================================================
+
+이번 audit은 두 개의 명확히 분리된 phase로 구현한다.
+
+--------------------------------------------------
+PHASE A — BLIND LINGUISTIC DISCOVERY
+--------------------------------------------------
+
+사용 가능:
+
+- BHSA 2021 raw linguistic features
+- raw clause / clause_atom
+- word / phrase morphology
+- clause type
+- phrase function
+- constituent order
+- verb morphology
+- subject/object
+- explicit/implicit participant evidence
+- suffix / pronominal reference
+- lexical recurrence
+- direct-speech morphology
+- temporal / locative phrases
+- conjunction / relative / infinitive markers
+- raw surface formula
+- neutral textual references
+- neutral audit-target identifiers
+
+사용 금지:
+
+- HSA human relation labels
+- SAME_LEVEL_SIBLING judgment
+- CHILD_OF judgment
+- HIERARCHICALLY_ABOVE judgment
+- cycle membership judgment
+- cycle onset judgment
+- POST_DIALOGUE_JOB label
+- ELIHU_SPEECH_SEQUENCE label
+- response-complex group labels
+- seam A–G decisions
+- parentage-necessity judgment
+- composition groups
+- transition judgment
+- overlay judgment
+- commentary/traditional outline
+- accepted human structural function
+- R4.3/HSA parent edges
+- BHSA mother/tab/pargr/rela/code as discovery input
+
+BHSA mother/tab/pargr/rela/code may be used ONLY
+after blind candidate generation as a separate validation/corroboration layer.
+
+--------------------------------------------------
+PHASE B — POST-BLIND HUMAN COMPARISON
+--------------------------------------------------
+
+Only after Phase A outputs are finalized and hashed may the code load:
+
+- HSA1
+- HSA2
+- HSA2-F
+- HSA3
+- JIN.0.1
+- accepted textual relations
+
+Purpose:
+
+compare blind linguistic candidates
+with historical human judgments.
+
+Phase B must NOT mutate Phase A output.
+
+==================================================
+2. Process-level leakage prevention
+==================================================
+
+가능하면 두 개의 별도 executable/module로 구현한다.
+
+예:
+
+src/milal_jin_blind_linguistic_audit.py
+
+src/milal_jin_postblind_human_comparison.py
+
+첫 번째 module은 human registry를 import/load할 수 없어야 한다.
+
+Blind discovery input schema에는 다음 같은 필드를 금지한다.
+
+- relation_type
+- human_judgment
+- structural_function
+- same_level
+- child_of
+- cycle
+- seam
+- composition_group
+- accepted_relation
+- parent_id
+- necessity_status
+
+neutral target inventory는 최소한:
+
+audit_target_id
+book
+chapter
+verse
+clause_id
+clause_atom_id
+anchor_start
+anchor_end
+
+정도만 허용한다.
+
+target inventory 자체가 canonical node에서 파생될 수는 있으나
+human structural labels는 strip한다.
+
+==================================================
+3. blind target inventory
+==================================================
+
+JIN.0.1이 identified한 actual textual loci를 다시 검증한다.
+
+보고값:
+49 textual loci
+
+하지만 실제 artifact를 source-of-truth로 사용한다.
+
+각 target은 human relation 정보 없이
+neutral audit ID를 부여한다.
+
+예:
+
+JT0001
+JT0002
+...
+
+Phase A에서
+H:HSAxxx 등의 human-semantic ID를 사용하지 않는 것이 이상적이다.
+
+Post-blind crosswalk에서만:
+
+JTxxxx ↔ canonical/HSA ID
+
+를 연결한다.
+
+==================================================
+4. Jin의 관계 판정 원칙을 코드에 정확히 반영
+==================================================
+
+절대로 다음 단순 규칙을 구현하지 않는다.
+
+same clause type => PARATAXIS
+different clause type => HYPOTAXIS
+
+진규상 방법에서는:
+
+- same clause type + HYPOTAXIS 가능
+- different clause type + HYPOTAXIS 가능
+- same clause type + PARATAXIS 가능
+- different clause type + PARATAXIS 가능
+
+하다.
+
+따라서 clause type은 evidence field 중 하나일 뿐
+결정 규칙이 아니다.
+
+==================================================
+5. Phase A — raw linguistic feature extraction
+==================================================
+
+각 target 및 candidate clause에 대해 최소:
+
+IDENTITY
+- reference
+- clause ID
+- clause_atom ID
+- surface Hebrew
+- word span
+
+CLAUSE
+- clause type
+- verbal / nonverbal
+- domain
+- text type if raw BHSA feature available
+- main/subordinate morphological indicators
+- conjunction
+- relative marker
+- infinitive construction
+- participial construction
+
+VERB
+- lexeme
+- stem
+- tense/aspect form
+- person
+- number
+- gender
+
+CONSTITUENT
+- constituent order
+- phrase-function signature
+- Subject position
+- Predicate position
+- Object
+- Complement
+- Adjunct
+- Time
+- Location
+
+PARTICIPANT / REFERENCE
+- explicit subject surface
+- explicit subject lexeme/name
+- implicit subject
+- pronominal suffix
+- suffix PNG
+- repeated participant surface
+- participant continuity evidence
+- participant-change evidence
+
+LEXICAL / FORMAL
+- repeated lexeme
+- repeated formula atoms
+- CSF-like surface pattern
+- Wayhi + temporal pattern
+- temporal expression
+- locative expression
+- repeated constituent configuration
+
+를 추출한다.
+
+Participant “identity”를 human judgment로 강제하지 않는다.
+raw explicit/referential evidence와 inferred link를 구별한다.
+
+==================================================
+6. candidate universe
+==================================================
+
+각 target에 대해 가능한 preceding clause candidates를
+언어학적으로 탐색한다.
+
+중요:
+nearest preceding clause만 검색하지 않는다.
+
+가능한 candidate generation sources:
+
+A.
+local explicit syntactic dependency candidate
+
+B.
+formal-correspondence candidate
+- same clause type
+- same constituent configuration
+- same verb morphology
+- same formula family
+
+C.
+participant/reference candidate
+- repeated explicit subject
+- suffix/pronominal continuity
+- explicit participant recurrence
+
+D.
+frame candidate
+- WayX
+- WXQt
+- Wayhi+Time
+- temporal/locative correspondence
+
+E.
+lexical/formula candidate
+
+가능하면 Job 전체 preceding clause space를 검사하고,
+최소 하나의 linguistically observable candidate-trigger가 있는 pair를
+candidate pool에 보존한다.
+
+candidate filtering criterion 자체도
+machine-readable reason code로 기록한다.
+
+금지:
+
+- chapter proximity alone
+- nearest-opening heuristic
+- human group membership
+- human cycle membership
+- current composition membership
+
+==================================================
+7. evidence dimensions
+==================================================
+
+각 candidate pair에 대해 다음 독립 evidence flags를 기록한다.
+
+FORMAL:
+
+F_CLAUSE_TYPE_SAME
+F_CLAUSE_TYPE_DIFFERENT
+F_VERB_FORM_CORRESPONDENCE
+F_PNG_CORRESPONDENCE
+F_CONSTITUENT_ORDER_CORRESPONDENCE
+F_PHRASE_FUNCTION_CORRESPONDENCE
+F_FORMULA_CORRESPONDENCE
+
+REFERENCE:
+
+R_EXPLICIT_PARTICIPANT_RECURRENCE
+R_PRONOMINAL_CONTINUITY
+R_SUFFIX_CONTINUITY
+R_PARTICIPANT_SET_CONTINUITY
+R_PARTICIPANT_SET_CHANGE
+
+SUBORDINATION:
+
+S_EXPLICIT_SUBORDINATION_MARKER
+S_RELATIVE_CONSTRUCTION
+S_INFINITIVE_DEPENDENCY
+S_CAUSAL_CONDITIONAL_PURPOSE_MARKER
+S_ANAPHORIC_DEPENDENCY
+S_BACKGROUND_DEPENDENCY_CANDIDATE
+
+FRAME:
+
+D_SAME_DOMAIN
+D_DOMAIN_SHIFT
+D_TEMPORAL_FRAME_CORRESPONDENCE
+D_LOCATIVE_FRAME_CORRESPONDENCE
+D_MAIN_LINE_CORRESPONDENCE_CANDIDATE
+D_EMBEDDED_LINE_CANDIDATE
+
+LEXICAL:
+
+L_LEXEME_RECURRENCE
+L_KEY_FORMULA_RECURRENCE
+
+실제 BHSA에서 구현 가능한 항목만 사용한다.
+
+추론이 필요한 field와
+직접 raw feature를 구분한다.
+
+==================================================
+8. code-level relation hypotheses
+==================================================
+
+Phase A에서 생성 가능한 label:
+
+PARATAXIS_SUPPORTED
+
+HYPOTAXIS_SUPPORTED
+
+PARATAXIS_AND_HYPOTAXIS_SUPPORTED
+
+HYPOTAXIS_EXPLICIT_SUBORDINATION_SUPPORTED
+
+RELATION_CANDIDATE_INSUFFICIENT
+
+NO_LINGUISTIC_SUPPORT
+
+중요:
+이것들은 accepted relations가 아니다.
+
+relation_candidate_status =
+UNADJUDICATED
+
+automatic_resolution =
+false
+
+==================================================
+9. PARATAXIS candidate logic
+==================================================
+
+PARATAXIS_SUPPORTED를
+same-clause-type 하나만으로 생성하지 않는다.
+
+최소한 여러 독립 evidence dimension의 결합을 요구한다.
+
+그러나 임의 점수/weight는 만들지 않는다.
+
+예를 들어 rule bundle은:
+
+- both main-clause compatible
+AND
+- formal correspondence observable
+AND
+- no explicit subordination marker
+AND
+- discourse/reference evidence does not require embedding
+
+같이 rule-based evidence bundle로 표현할 수 있다.
+
+중요:
+정확한 rule은 source-grounded하게 구현하고
+문서화한다.
+
+같은 clause type도 hypotactic일 수 있으므로
+same type은 sufficient condition이 아니다.
+
+다른 clause type도 paratactic일 수 있으므로
+different type은 exclusion condition이 아니다.
+
+==================================================
+10. HYPOTAXIS candidate logic
+==================================================
+
+다음은 strong candidate evidence가 될 수 있다.
+
+- explicit subordinate marker
+- infinitive dependency
+- relative construction
+- pronominal/anaphoric dependency
+- participant introduced in candidate and continued dependently
+- background/antecedent information dependent on candidate
+- embedded narrative-line configuration
+
+그러나:
+
+HYPOTAXIS_SUPPORTED
+≠
+accepted mother edge
+
+최종 mother는 human adjudication을 거쳐야 한다.
+
+==================================================
+11. ambiguity 보존
+==================================================
+
+진규상 §3.2.9.5의 핵심을 반영한다.
+
+같은 linguistic evidence가
+둘 이상의 hierarchy arrangement를 허용할 수 있다.
+
+따라서:
+
+PARATAXIS_AND_HYPOTAXIS_SUPPORTED
+
+를 정상 상태로 허용한다.
+
+또한 하나의 target에 여러 mother candidates가 있어도 정상이다.
+
+Phase A가 one mother를 자동 선택하지 않는다.
+
+No candidate ranking.
+
+No weighted score.
+
+No “best candidate” automatic winner.
+
+후보와 evidence bundle만 제시한다.
+
+==================================================
+12. 기존 human judgment는 Phase A 이후에만 비교
+==================================================
+
+Blind output을 완료한 뒤:
+
+- output SHA256 freeze
+- manifest 생성
+- discovery metadata 저장
+
+그 뒤에만 Phase B를 실행한다.
+
+Phase B에서는 기존 human textual judgments를
+blind candidates와 crosswalk한다.
+
+비교 결과 category:
+
+LINGUISTIC_SUPPORT_FOUND
+
+LINGUISTIC_SUPPORT_WITH_COMPETING_ALTERNATIVE
+
+PARTIAL_LINGUISTIC_SUPPORT
+
+LINGUISTIC_EVIDENCE_INSUFFICIENT
+
+HUMAN_RELATION_NOT_RECOVERED
+
+BLIND_CANDIDATE_CONFLICTS_WITH_HUMAN_RELATION
+
+HUMAN_RELATION_OUTSIDE_CURRENT_AUDIT_SCOPE
+
+이 category 자체도
+human judgment를 변경하지 않는다.
+
+==================================================
+13. 반드시 back-audit할 기존 textual judgments
+==================================================
+
+최소 다음을 post-blind comparison에서 확인한다.
+
+A.
+1:6 ↔ 2:1
+historical human:
+SAME_LEVEL
+
+B.
+1:13 → 1:6
+historical human:
+CHILD_OF
+
+C.
+3:1 / 3:2
+historical:
+3:1 HIERARCHICALLY_ABOVE 3:2
+
+D.
+Dialogue Cycle 1:
+4:1
+6:1
+8:1
+9:1
+11:1
+12:1
+
+historical:
+SAME_LEVEL
+
+E.
+Cycle 2:
+15:1
+16:1
+18:1
+19:1
+20:1
+21:1
+
+F.
+Cycle 3:
+22:1
+23:1
+25:1
+26:1
+
+G.
+27:1 ↔ 29:1
+historical SAME_LEVEL
+
+H.
+32:6 / 34:1 / 35:1 / 36:1
+historical SAME_LEVEL
+
+I.
+38:1 ↔ 40:6
+historical SAME_LEVEL
+
+J.
+40:3 ↔ 42:1
+historical SAME_LEVEL
+
+K.
+40:1 → 38:1
+historical CHILD_OF
+
+L.
+2:11
+historical parent unresolved /
+later necessity-not-required /
+JIN.0.1 reopened
+
+M.
+32:1
+TRANSITION_COMPONENT
+
+중요:
+이 목록의 human labels는
+Phase B에서만 로드한다.
+
+==================================================
+14. 기존 direct-mother 3건도 blind audit 대상
+==================================================
+
+JIN.0.1에서 direct mother로 계산된 3건을
+discovery truth로 사용하지 않는다.
+
+Phase A에는 숨긴다.
+
+Phase B에서만:
+
+- blind evidence가 hypotaxis를 지지하는지
+- alternative parataxis 후보가 있는지
+- evidence insufficient인지
+
+비교한다.
+
+즉 accepted relation도 독립적으로 검증한다.
+
+==================================================
+15. existing SAME_LEVEL judgments도 blind audit 대상
+==================================================
+
+기존 SAME_LEVEL은
+Phase A candidate generation에 절대 사용하지 않는다.
+
+Phase B에서만:
+
+human SAME_LEVEL
+vs
+blind PARATAXIS candidate
+
+를 비교한다.
+
+결과가 일치하지 않아도
+기존 human relation을 자동 삭제하지 않는다.
+
+REOPEN_FOR_HUMAN_REVIEW packet에 넣는다.
+
+==================================================
+16. strict clause audit vs macro-unit audit 분리
+==================================================
+
+두 결과를 구분한다.
+
+LEVEL A:
+STRICT_CLAUSE_RELATION_AUDIT
+
+BHSA clause/clause_atom 간
+parataxis/hypotaxis evidence.
+
+LEVEL B:
+MACRO_TEXTUAL_UNIT_PROJECTION_AUDIT
+
+기존 textual macro node가
+어떤 clause/clause_atom anchor evidence에 의해
+paratactic/hypotactic 후보가 되는지 projection.
+
+중요:
+
+LEVEL A result
+≠
+automatic LEVEL B relation.
+
+Macro relation은 이후 human adjudication에서 결정한다.
+
+==================================================
+17. placement proposal은 blind audit 이후 생성
+==================================================
+
+Blind discovery 결과를 토대로만
+각 49 textual locus에 대한 provisional placement proposal을 생성한다.
+
+허용:
+
+JP1_ROOT_REVIEW_REQUIRED
+
+JP2_HYPOTACTIC_DAUGHTER_ALREADY_MOTHERED_BY_HUMAN
+- post-blind comparison label only
+- Phase A에서 사용 금지
+
+JP3_HYPOTACTIC_DAUGHTER_CANDIDATE
+
+JP4_PARATACTIC_PLACEMENT_CANDIDATE
+
+JP5_PARATAXIS_AND_HYPOTAXIS_COMPETE
+
+JP6_TRANSITION_PLACEMENT_REVIEW
+
+JP7_INSUFFICIENT_LINGUISTIC_EVIDENCE
+
+중요:
+proposal_status = UNREVIEWED
+
+Codex가 final placement를 선택하지 않는다.
+
+==================================================
+18. 2:11과 32:1
+==================================================
+
+Job 2:11:
+
+기존 judgment를 Phase A에서 숨긴다.
+
+Blind linguistic audit 후에만
+그 후보 관계를 출력한다.
+
+Phase B에서:
+
+- FRIENDS_ARRIVAL
+- historical parent unresolved
+- previous necessity status
+
+와 비교한다.
+
+No mother assigned.
+
+Job 32:1:
+
+TRANSITION_COMPONENT label도 Phase A에서 숨긴다.
+
+Blind surface evidence만으로
+preceding/following relation candidates를 생성한다.
+
+Phase B에서만 existing transition judgment와 비교한다.
+
+==================================================
+19. root
+==================================================
+
+Root를 자동 선택하지 않는다.
+
+Blind linguistic audit 결과에서
+top-level candidate characteristics는 제시할 수 있다.
+
+하지만:
+
+Job 1:1 = root
+
+를 자동 판정하지 않는다.
+
+ROOT_CANDIDATE evidence only.
+
+==================================================
+20. BHSA native hierarchy validation
+==================================================
+
+BHSA mother/tab/pargr/rela/code는
+Phase A candidate classification이 완료된 뒤에만 로드한다.
+
+별도 output:
+
+BHSA_NATIVE_AGREES
+BHSA_NATIVE_DIFFERS
+BHSA_NATIVE_NO_DATA
+BHSA_NATIVE_NOT_COMPARABLE
+
+BHSA native relation은
+MILAL candidate를 overwrite하지 않는다.
+
+==================================================
+21. no scoring / no ranking
+==================================================
+
+금지:
+
+PARATAXIS_SCORE
+HYPOTAXIS_SCORE
+MOTHER_SCORE
+BEST_CANDIDATE_RANK
+weighted evidence
+
+Evidence feature count를 QA 통계로 집계하는 것은 가능하지만
+candidate selection 기준으로 쓰지 않는다.
+
+여러 후보는 병렬로 보존한다.
+
+==================================================
+22. source leakage audit
+==================================================
+
+반드시 실행 로그에:
+
+Phase A loaded source files
+Phase B loaded source files
+
+를 기록한다.
+
+Gate:
+
+PHASE_A_HUMAN_SOURCE_COUNT == 0
+
+Phase A가 human relation registry를 읽었다면 FAIL.
+
+가능하면 filesystem access trace 또는 loader-level source registry로 검증한다.
+
+==================================================
+23. synthetic fixtures
+==================================================
+
+반드시 최소 다음 synthetic cases를 만든다.
+
+S1.
+same clause type + PARATAXIS
+
+S2.
+same clause type + HYPOTAXIS
+
+S3.
+different clause type + PARATAXIS
+
+S4.
+different clause type + HYPOTAXIS
+
+S5.
+explicit subordinate marker + HYPOTAXIS candidate
+
+S6.
+strong formal correspondence but competing embedding evidence
+→ BOTH_SUPPORTED
+
+S7.
+multiple mother candidates
+→ preserve all, no winner
+
+S8.
+same speaker only
+→ insufficient
+
+S9.
+adjacency only
+→ insufficient
+
+S10.
+composition membership only
+→ must not enter Phase A
+
+이 10개는 필수 negative/positive controls이다.
+
+==================================================
+24. actual Job controls
+==================================================
+
+실제 BHSA Job에서 최소 다음 observable facts를 확인한다.
+
+1:6 / 2:1:
+repeated multi-clause/formal configuration
+
+1:13:
+similar ויהי היום but different surrounding configuration
+
+3:1 / 3:2:
+paragraph/open-mouth frame + formal speech onset
+
+27:1 / 29:1:
+same ויסף איוב שאת משלו ויאמר formula
+
+32:6 / 34:1 / 35:1 / 36:1:
+formula variation and repeated Elihu speaker evidence
+
+38:1 / 40:6:
+storm-answer formula correspondence
+
+40:3 / 42:1:
+Job answer formula correspondence
+
+40:1:
+internal YHWH answer formula context
+
+이것들은 Phase A에서는
+human structural label 없이 raw evidence로만 출력한다.
+
+==================================================
+25. prior human relation comparison report
+==================================================
+
+Post-blind output에는 최소:
+
+human_relation_id
+human_source_stage
+source_ref
+target_ref
+historical_relation_type
+
+blind_candidate_found
+blind_relation_hypothesis
+blind_evidence_ids
+competing_candidates
+comparison_status
+
+를 기록한다.
+
+그리고 연구자에게:
+
+KEEP_FOR_NOW
+REVIEW_REQUIRED
+
+같은 자동 directive도 만들지 않는다.
+
+오직 comparison facts만 출력한다.
+
+==================================================
+26. researcher review packet
+==================================================
+
+최종 packet은
+코드 결과를 사람이 판정할 수 있도록 구성한다.
+
+각 case에:
+
+A. raw Hebrew
+B. clause/clause_atom
+C. linguistic feature correspondence
+D. parataxis-support evidence
+E. hypotaxis-support evidence
+F. competing candidates
+G. BHSA native comparison
+H. historical human judgment
+I. difference between blind evidence and human judgment
+
+를 보여준다.
+
+연구자 입력란:
+
+review_status
+relation_decision
+selected_mother_if_hypotactic
+paratactic_peer_if_applicable
+evidence_sufficient
+additional_information_needed
+reviewer_notes
+
+모두 blank / UNREVIEWED.
+
+==================================================
+27. JIN contract questions는 아직 승인하지 않는다
+==================================================
+
+JIN.0.1 Q1–Q9은 historical UNREVIEWED로 보존한다.
+
+이번 audit 결과를 반영한 revised questions를 새로 생성한다.
+
+최소:
+
+RQ1.
+Blind linguistic evidence가 기존 human PARATACTIC judgments를 지지하는가?
+
+RQ2.
+Blind linguistic evidence가 기존 human HYPOTACTIC judgments를 지지하는가?
+
+RQ3.
+기존 판단과 충돌하는 case를 reopen할 것인가?
+
+RQ4.
+TEXTUAL_HIERARCHY에서
+PARATACTIC placement와 HYPOTACTIC mother-daughter placement를
+동등한 기본 관계 유형으로 채택할 것인가?
+
+RQ5.
+HYPOTACTIC daughter에만 exactly-one-mother invariant를 적용할 것인가?
+
+RQ6.
+Clause-level result를 macro textual unit으로 투사하는 절차를
+별도 human adjudication으로 유지할 것인가?
+
+RQ7.
+Root selection을 별도 audit으로 남길 것인가?
+
+==================================================
+28. 이번 단계에서는 새 human judgment = 0
+==================================================
+
+new_human_judgment_count = 0
+
+new_accepted_paratactic_relation_count = 0
+
+new_accepted_hypotactic_relation_count = 0
+
+new_parent_edge_count = 0
+
+new_structural_relation_count = 0
+
+Phase A candidate records는 analytical candidate일 뿐이다.
+
+==================================================
+29. 구현 파일
+==================================================
+
+repository convention을 먼저 확인하되
+권장:
+
+src/milal_jin_blind_linguistic_audit.py
+
+src/milal_jin_postblind_human_comparison.py
+
+src/milal_jin_relation_rules.py
+
+config/r4_4_contract_jin_0_2_job.json
+
+tests/test_r4_4_contract_jin_0_2.py
+
+scripts/run_milal_r4_4_contract_jin_0_2_windows.ps1
+
+Termux runner convention이 존재하면:
+
+scripts/run_milal_r4_4_contract_jin_0_2_termux.sh
+
+문서:
+
+docs/R4_4_CONTRACT_JIN_0_2_SPEC.md
+docs/R4_4_CONTRACT_JIN_0_2_VALIDATION_REPORT.md
+
+HANDOFF.md update
+
+기존 architecture/helper를 최대한 재사용한다.
+
+==================================================
+30. 결과 산출물
+==================================================
+
+최소:
+
+01_blind_target_inventory.csv
+
+02_blind_linguistic_features.csv
+
+03_blind_candidate_pairs.csv
+
+04_blind_relation_hypotheses.csv
+
+05_blind_hypotaxis_mother_candidates.csv
+
+06_blind_discovery_source_audit.csv
+
+07_blind_discovery_manifest.csv
+
+08_postblind_human_relation_crosswalk.csv
+
+09_parataxis_back_audit.csv
+
+10_hypotaxis_back_audit.csv
+
+11_relation_discrepancies.csv
+
+12_bhsa_native_postblind_validation.csv
+
+13_textual_placement_proposals.csv
+
+14_revised_contract_review_packet.md
+
+15_jin_method_compliance_report.md
+
+16_next_human_adjudication_scope.md
+
+17_gates.csv
+
+90_run_metadata.json
+
+99_manifest_sha256.csv
+
+==================================================
+31. 핵심 출력 통계
+==================================================
+
+최종 보고에서 반드시:
+
+A. targets
+- blind textual target count
+
+B. candidate universe
+- scanned predecessor-pair count
+- linguistically eligible pair count
+
+C. relation hypotheses
+- PARATAXIS_SUPPORTED
+- HYPOTAXIS_SUPPORTED
+- BOTH_SUPPORTED
+- INSUFFICIENT
+- NO_SUPPORT
+
+D. historical human relations
+- paratactic human relation count audited
+- hypotactic human relation count audited
+
+E. comparison
+- LINGUISTIC_SUPPORT_FOUND
+- SUPPORT_WITH_COMPETING_ALTERNATIVE
+- PARTIAL_SUPPORT
+- INSUFFICIENT
+- NOT_RECOVERED
+- CONFLICT
+
+F. placement proposals
+- root review
+- hypotactic candidate
+- paratactic candidate
+- competing
+- transition review
+- insufficient
+
+를 보고한다.
+
+==================================================
+32. 가장 중요한 gate
+==================================================
+
+다음은 반드시 PASS해야 한다.
+
+BLIND_PHASE_HUMAN_LABEL_LEAKAGE = 0
+
+PHASE_A_HUMAN_SOURCE_COUNT = 0
+
+NO_EXISTING_HUMAN_RELATION_USED_AS_DISCOVERY_FEATURE
+
+NO_COMPOSITION_MEMBERSHIP_USED_AS_DISCOVERY_FEATURE
+
+NO_CYCLE_MEMBERSHIP_USED_AS_DISCOVERY_FEATURE
+
+NO_SEAM_DECISION_USED_AS_DISCOVERY_FEATURE
+
+NO_BHSA_NATIVE_MOTHER_USED_BEFORE_BLIND_FREEZE
+
+==================================================
+33. 추가 gates
+==================================================
+
+최소:
+
+- BASELINE_COMMIT_VERIFIED
+- JIN_0_1_FROZEN_PRESERVED
+- BLIND_TARGET_SCHEMA_NEUTRAL
+- BLIND_DISCOVERY_COMPLETE_BEFORE_HUMAN_LOAD
+- SAME_TYPE_PARATAXIS_CONTROL_PASS
+- SAME_TYPE_HYPOTAXIS_CONTROL_PASS
+- DIFFERENT_TYPE_PARATAXIS_CONTROL_PASS
+- DIFFERENT_TYPE_HYPOTAXIS_CONTROL_PASS
+- AMBIGUOUS_RELATION_PRESERVED
+- MULTIPLE_MOTHER_CANDIDATES_PRESERVED
+- NO_AUTOMATIC_WINNER
+- NO_WEIGHTED_SCORE
+- ADJACENCY_ALONE_INSUFFICIENT
+- SPEAKER_ALONE_INSUFFICIENT
+- SAME_LEVEL_NOT_USED_AS_DISCOVERY_INPUT
+- CHILD_OF_NOT_USED_AS_DISCOVERY_INPUT
+- EXISTING_PARENT_3_BLINDLY_BACK_AUDITED
+- EXISTING_SAME_LEVEL_BLINDLY_BACK_AUDITED
+- JOB_2_11_NO_MOTHER_ASSIGNED
+- JOB_32_1_NO_PARENT_ASSIGNED
+- ROOT_NOT_SELECTED
+- BHSA_NATIVE_POSTBLIND_ONLY
+- NO_NEW_ACCEPTED_RELATION
+- NO_NEW_PARENT_EDGE
+- Q1_Q9_REMAIN_HISTORICAL_UNREVIEWED
+- PARTICIPANT_ARC_UNADJUDICATED
+- R4_4_CONSUMER_NOT_IMPLEMENTED
+- HISTORICAL_ARTIFACTS_UNCHANGED
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+
+==================================================
+34. regression
+==================================================
+
+Run:
+
+1. syntax validation
+2. new unit tests
+3. full existing regression suite
+4. synthetic blind discovery
+5. real BHSA 2021 blind discovery
+6. blind-output freeze/hash
+7. post-blind human comparison
+8. BHSA-native post-blind validation
+9. deterministic independent rerun
+10. manifest verification
+11. source leakage audit
+
+skip = 0 required.
+
+==================================================
+35. 결과 ZIP
+==================================================
+
+권장:
+
+r4_4_contract_jin_0_2_blind_relation_audit_final_<timestamp>_results.zip
+
+독립 rerun과 byte-identical 여부 확인.
+
+SHA256 보고.
+
+==================================================
+36. Termux 실행 문서
+==================================================
+
+README/HANDOFF에 실제 repository convention에 맞추어
+Termux 실행 명령도 기록한다.
+
+최소:
+
+cd ~/MILAL
+git pull --ff-only
+python <actual runner/module> --config <actual config>
+
+또는 repository의 기존 Termux runner convention을 재사용한다.
+
+결과 ZIP 생성 명령도 실제 산출 경로에 맞게 기록한다.
+
+가짜 명령을 문서화하지 않는다.
+
+==================================================
+37. commit / push
+==================================================
+
+모든 tests/gates PASS한 경우:
+
+git status
+git diff
+git diff --check
+
+Suggested commit message:
+
+Blind-audit Jin parataxis and hypotaxis relations
+
+commit.
+
+origin/main push는 현재 repository authorization workflow를 따른다.
+자동 승인 시스템이 추가 explicit approval을 요구하면
+우회하지 말고 commit까지만 완료한 후 정확히 보고한다.
+
+==================================================
+38. 최종 보고
+==================================================
+
+완료 후 반드시 보고:
+
+1. start commit
+2. end commit
+3. commit message
+4. push status
+5. working tree status
+
+6. Phase A 실제 input sources
+7. Phase A human-source count
+8. blind target count
+9. candidate pair scan count
+10. eligible candidate count
+
+11. parataxis-supported count
+12. hypotaxis-supported count
+13. both-supported count
+14. insufficient/no-support count
+
+15. 기존 human SAME_LEVEL 관계 back-audit 결과
+16. 기존 human CHILD_OF/HIERARCHICALLY_ABOVE back-audit 결과
+
+17. human judgment와 blind result가 일치한 수
+18. competing alternative가 있는 수
+19. partial support 수
+20. insufficient 수
+21. not-recovered 수
+22. conflict 수
+
+23. Job 2:11 blind result
+24. Job 32:1 blind result
+
+25. existing mother 3 cases의 independent result
+
+26. placement proposal distribution
+
+27. revised Q1–Q7/RQ packet summary
+
+28. new human judgment = 0
+29. new accepted structural relation = 0
+30. new parent edge = 0
+
+31. tests
+32. gates
+33. source leakage gates
+34. deterministic rerun
+35. ZIP
+36. SHA256
+
+37. 다음 human adjudication에서
+실제로 검토해야 할 relation case 수와 목록
+
+==================================================
+39. 방법론 문서의 핵심 문장
+==================================================
+
+반드시 다음 의미를 명시한다.
+
+“MILAL does not use prior researcher judgments to discover the
+paratactic or hypotactic relation that those judgments are supposed to
+establish.”
+
+“Linguistic evidence is extracted first, relation candidates are generated
+second, and human adjudication follows third.”
+
+“Human judgments are used after blind discovery for comparison,
+validation, and final adjudication, not as discovery features.”
+
+“Parataxis and hypotaxis are both possible between clauses of the same
+type and between clauses of different types; clause-type identity alone
+does not determine the relation.”
+
+“A hypotactic daughter ultimately requires one mother, but the code does
+not select that mother automatically when multiple linguistically supported
+candidates remain.”
+
+중요:
+이번 단계의 목표는 기존 human judgment를 입증하는 것이 아니다.
+기존 판단과 무관하게 언어학적 관계 후보를 먼저 검출하는 것이다.
+결과가 기존 판단과 다르면 그대로 보존하고 다음 human review로 넘긴다.
