@@ -1,6 +1,47 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.6 relation-layer typing audit, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.7 human relation-layer freeze, 2026-09-24
+
+Active specification: [JIN.0.7 spec](R4_4_CONTRACT_JIN_0_7_SPEC.md);
+authority: [exact researcher request](R4_4_CONTRACT_JIN_0_7_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_7.md);
+results/limits: [validation report](R4_4_CONTRACT_JIN_0_7_VALIDATION_REPORT.md).
+Start HEAD `148d741e63986c2a209ed770e6682fe8925b4e66`.
+
+Readiness: **READY_FOR_REVISED_R4_4_CONTRACT_REVIEW**.
+Q-A–Q-F ACCEPTED: exactly six explicit primary researcher decisions.
+111 derived typing applications (not 111 new human judgments): CHILD_OF 2,
+HIERARCHICALLY_ABOVE 1, CONTINUES_WITHIN 10, SAME_LEVEL_SIBLING 98.
+3:2→3:1 is one application citing both Q-B and Q-D. No historical graph migration.
+New relations/parent edges/accepted strict edges/migrations: 0. Previous cores unchanged.
+
+1:13→1:6, 3:1/3:2 and 40:1→38:1: macro interpretation accepted; strict mother
+UNRESOLVED_UNPROVEN. Historical IDs/types and prior review records remain exact.
+Continuation: 1 speech-frame, 7 PROVISIONAL_CURRENT_AUDIT macro continuations,
+2 NO_NEW_BOUNDARY placements (28:1→27:1, 42:16→42:7). No new strict dependency.
+98 SAME_LEVEL records: MACRO_TEXTUAL_PARATAXIS typing overlay, never strict parataxis.
+Q-F freezes separate required relation_type/relation_layer and nine conceptual values;
+I1–I6 prohibit silent cross-layer inference. No BOUNDARY_PLACEMENT enum added.
+
+Next task: R1–R10 revised contract review, all UNREVIEWED / answers blank.
+Q1–Q9 remain UNAPPROVED with exact-source crosswalk. Conceptual layered-graph approval
+is separate from the explicitly requested operational adoption/scope questions.
+2:11 / 32:1 remain NO_MACRO_MOTHER_FOUND; no mother search. Participant arc
+UNADJUDICATED; no R4.4 consumer, root selection or registry migration.
+
+Validation: 44 new tests; full **1,721 PASS / skip0**; synthetic packet inspected;
+**38 run gates + 2 release gates PASS**, negative-tested. Independent real ZIP rerun
+byte-identical. 465 members, 449 upstream files preserved, 253 frozen repository hashes
+unchanged, 23 recursive manifests valid. Windows runner tested; no raw BHSA reload
+or Termux empirical claim.
+
+Local-only ZIP: `results/jin07_real_final_20260924_a_results.zip`.
+SHA256 `0f8d9e785a97421abe2184b29e0c257c2aa0ed43f36f088ba6229a3cbc04bbc4`.
+Independent `_b` ZIP identical. Primary decisions: 01; derived crosswalk: 03;
+review packet: 09; open R1–R10 fields: 10; approved conceptual contract: 12.
+Commit/push authorized by request §23 after tests/gates PASS.
+
+## Previous task — R4.4-CONTRACT.JIN.0.6 relation-layer typing audit, 2026-09-24
 
 Active specification: [JIN.0.6 spec](R4_4_CONTRACT_JIN_0_6_SPEC.md);
 authority: [exact request](R4_4_CONTRACT_JIN_0_6_RESEARCHER_SOURCE.txt);

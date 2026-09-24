@@ -1,0 +1,775 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.7
+— Human Relation-Layer Adjudication Freeze
+— Strict-Clause / Macro-Hierarchy Contract Decision
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  148d741e63986c2a209ed770e6682fe8925b4e66
+
+현재 상태:
+- JIN.0.6 relation-layer audit 완료
+- Q-A–Q-F = UNREVIEWED
+- historical relation rows immutable
+- no relation migration yet
+- no R4.4 consumer
+- participant arc UNADJUDICATED
+
+이번 단계에서는 연구자가 명시적으로 승인한
+Q-A–Q-F만 append-only human adjudication layer로 기록한다.
+
+기존 relation row를 rewrite하지 않는다.
+relation migration을 수행하지 않는다.
+새 parent edge를 생성하지 않는다.
+R4.4 consumer를 구현하지 않는다.
+
+==================================================
+1. Q-A — Job 1:13 → 1:6
+==================================================
+
+Q-A = ACCEPTED
+
+Historical relation:
+1:13 CHILD_OF 1:6
+
+Human relation-layer adjudication:
+
+relation_layer =
+MACRO_TEXTUAL_HIERARCHY
+
+macro semantic interpretation:
+1:13 is contained within the first testing frame opened at 1:6.
+
+strict_clause_dependency_status =
+UNRESOLVED / UNPROVEN
+
+Important:
+
+- preserve historical CHILD_OF row
+- do not claim strict syntactic mother
+- do not create new STRICT_MOTHER_OF edge
+- do not delete pairwise parataxis evidence
+- do not mark historical relation rejected
+
+active interpretation:
+MACRO containment accepted
+STRICT mother unresolved
+
+==================================================
+2. Q-B — Job 3:1 / 3:2
+==================================================
+
+Q-B = ACCEPTED
+
+Historical relations:
+
+3:1 HIERARCHICALLY_ABOVE 3:2
+
+3:2 CONTINUES_WITHIN 3:1
+
+Human layer adjudication:
+
+relation_layer =
+MACRO_TEXTUAL_HIERARCHY
+
+semantic interpretation:
+3:1 opens the Job speech-event frame;
+3:2 is the formal CSF located within/continuing that macro speech event.
+
+strict_clause_dependency_status =
+UNRESOLVED / UNPROVEN
+
+Do NOT assert:
+3:1 is strict syntactic mother of 3:2.
+
+Do NOT delete historical relation.
+
+Record:
+
+HIERARCHICALLY_ABOVE =
+MACRO_TEXTUAL_HIERARCHY
+
+CONTINUES_WITHIN =
+MACRO_TEXTUAL_CONTINUATION / SPEECH_FRAME_CONTINUATION
+
+strict dependency remains unresolved.
+
+==================================================
+3. Q-C — Job 40:1 → 38:1
+==================================================
+
+Q-C = ACCEPTED
+
+Historical:
+40:1 CHILD_OF 38:1
+
+Researcher judgment:
+
+relation_layer =
+MACRO_TEXTUAL_HIERARCHY
+
+macro relation:
+40:1 is contained within the first YHWH speech/response complex
+opened at 38:1.
+
+Evidence:
+- 38:1 / 40:6 expanded storm formula correspondence
+- 38:3 / 40:7 repeated challenge
+- 40:1 uses less elaborated YHWH answer formula
+- distributional position within first YHWH complex
+
+strict_clause_dependency_status =
+UNRESOLVED / UNPROVEN
+
+Important:
+
+macro CHILD_OF remains accepted.
+
+Do NOT create strict mother edge.
+
+Historical pairwise parataxis candidate remains as lower-level formal evidence.
+
+==================================================
+4. Q-D — CONTINUES_WITHIN semantics
+==================================================
+
+Q-D = ACCEPTED
+
+The historical label CONTINUES_WITHIN is semantically overloaded.
+
+Future contract must distinguish at least:
+
+A.
+STRICT_SYNTACTIC_CONTINUATION
+- only when independently supported by strict clause-level evidence
+
+B.
+MACRO_TEXTUAL_CONTINUATION
+- a textual unit continues within a larger macro textual frame
+
+C.
+NO_NEW_BOUNDARY
+- the locus does not initiate a new textual unit;
+  this is placement/boundary judgment, not mother-daughter dependency
+
+Existing current examples:
+
+3:2 → 3:1
+=
+MACRO_TEXTUAL_CONTINUATION / speech-frame continuation
+
+1:14 → 1:13
+1:16 → 1:13
+1:17 → 1:13
+1:18 → 1:13
+2:9 → 2:1–2:10
+11:4 → 11:1
+1:5 → 1:1–1:5
+
+=
+provisionally MACRO_TEXTUAL_CONTINUATION
+according to current JIN.0.6 audit,
+not strict syntax unless separately established.
+
+28:1 → 27:1
+42:16 → 42:7
+
+=
+NO_NEW_BOUNDARY placement
+
+Do NOT migrate rows yet.
+
+Store human-approved future typing rule.
+
+==================================================
+5. Q-E — SAME_LEVEL_SIBLING semantics
+==================================================
+
+Q-E = ACCEPTED
+
+Future contract must distinguish:
+
+STRICT_CLAUSE_PARATAXIS
+
+from
+
+MACRO_TEXTUAL_PARATAXIS
+
+Historical SAME_LEVEL_SIBLING rows currently audited in JIN.0.6 are:
+
+MACRO_TEXTUAL_PARATAXIS
+
+unless a separate strict clause audit later establishes strict parataxis.
+
+Examples:
+
+1:6 ↔ 2:1
+dialogue speech-unit peers
+27:1 ↔ 29:1
+32:6 / 34:1 / 35:1 / 36:1
+38:1 ↔ 40:6
+40:3 ↔ 42:1
+
+are macro textual parataxis judgments.
+
+Important:
+
+- do not convert them into strict clause relations
+- do not create mother edges
+- do not rewrite historical SAME_LEVEL IDs
+
+==================================================
+6. Q-F — relation_type vs relation_layer
+==================================================
+
+Q-F = ACCEPTED
+
+Future R4.4 contract MUST store:
+
+relation_type
+
+and
+
+relation_layer
+
+as separate mandatory analytical fields
+for active analytical relations.
+
+relation_type answers:
+WHAT kind of relation is represented?
+
+relation_layer answers:
+AT WHAT analytical layer is that relation asserted?
+
+Examples:
+
+relation_type = CHILD_OF
+relation_layer = MACRO_TEXTUAL_HIERARCHY
+
+relation_type = SAME_LEVEL_SIBLING
+relation_layer = MACRO_TEXTUAL_PARATAXIS
+
+relation_type = CONTINUES_WITHIN
+relation_layer = MACRO_TEXTUAL_HIERARCHY
+
+semantic_subtype =
+SPEECH_FRAME_CONTINUATION
+
+or:
+
+relation_type = CONTINUES_WITHIN
+relation_layer = MACRO_TEXTUAL_HIERARCHY
+semantic_subtype = NO_NEW_BOUNDARY
+
+When strict clause relations are later established:
+
+relation_layer =
+STRICT_CLAUSE_HIERARCHY
+
+Do not infer layer only from relation_type.
+
+==================================================
+7. Approved core distinction
+==================================================
+
+Record this methodological decision explicitly.
+
+MILAL overall representation:
+LAYERED_TYPED_GRAPH
+
+Within it:
+
+STRICT_CLAUSE_HIERARCHY
+and
+MACRO_TEXTUAL_HIERARCHY
+
+are distinct but related layers.
+
+STRICT CLAUSE:
+- form-to-function clause relation
+- hypotactic daughter requires one mother
+- parataxis is clause-level same-line relation
+
+MACRO TEXTUAL:
+- paragraph / scene / speech-unit / discourse-unit relation
+- may be supported by clause-level evidence
+- requires separate macro projection/adjudication
+- does not automatically imply strict syntactic mother
+
+==================================================
+8. No silent inference between layers
+==================================================
+
+Freeze the following invariants.
+
+I1.
+MACRO CHILD_OF
+does not entail
+STRICT MOTHER_OF.
+
+I2.
+STRICT clause correspondence
+does not automatically entail
+MACRO relation.
+
+I3.
+CLAUSE_ATOM anchor
+does not determine relation layer.
+
+I4.
+MACRO SAME_LEVEL
+does not imply strict clause parataxis.
+
+I5.
+NO_NEW_BOUNDARY
+does not imply mother-daughter relation.
+
+I6.
+Historical relation label must be interpreted together with relation_layer.
+
+==================================================
+9. Historical artifact preservation
+==================================================
+
+Do not alter:
+
+- HSA1
+- HSA2
+- HSA2-F
+- HSA3
+- JIN.0.1–0.6
+
+Historical relation IDs/types remain exact.
+
+Create append-only layer:
+
+relation_layer_human_adjudication
+
+Minimum fields:
+
+decision_id
+historical_relation_id
+historical_relation_type
+human_decision
+approved_relation_layer
+approved_semantic_subtype
+strict_status
+macro_status
+source_judgment
+rationale
+limitations
+supersedes_interpretation_only
+rewrites_historical_record = false
+timestamp/version provenance
+
+==================================================
+10. Existing relation counts
+==================================================
+
+Verify JIN.0.6 baseline:
+
+primary hierarchy-like = 13
+
+CHILD_OF = 2
+- proposed macro = 2
+
+HIERARCHICALLY_ABOVE = 1
+- proposed macro = 1
+
+CONTINUES_WITHIN = 10
+- non-parent placement = 10
+
+SAME_LEVEL_SIBLING = 98
+- proposed macro parataxis = 98
+
+No strict accepted relation is created in this step.
+
+==================================================
+11. Strict positive controls remain controls
+==================================================
+
+JIN.0.6 strict positive controls remain
+linguistic controls only.
+
+Do not human-promote them to macro edges.
+
+They demonstrate that:
+
+STRICT_CLAUSE_HIERARCHY
+is a real distinct layer.
+
+But current historical macro relations
+are not thereby reclassified as strict.
+
+==================================================
+12. Relation contract vocabulary
+==================================================
+
+Freeze approved contract vocabulary conceptually:
+
+relation_layer values:
+
+STRICT_CLAUSE_HIERARCHY
+STRICT_CLAUSE_PARATAXIS
+MACRO_TEXTUAL_HIERARCHY
+MACRO_TEXTUAL_PARATAXIS
+COMPOSITION
+TRANSITION
+OVERLAY_RESPONSIO
+NEGATIVE_CONSTRAINT
+TECHNICAL_NAVIGATION
+
+Possible future refinement:
+BOUNDARY_PLACEMENT
+may be proposed separately,
+but do not add unless current schema review requires it.
+
+For current NO_NEW_BOUNDARY,
+semantic_subtype is sufficient.
+
+==================================================
+13. No migration yet
+==================================================
+
+Important:
+
+This step approves the typing model.
+
+It does NOT migrate the full 250-relation registry.
+
+new_relation_migration_count = 0
+
+new_relation_count = 0
+
+new_parent_edge_count = 0
+
+Only new human relation-layer decisions are stored.
+
+==================================================
+14. Q1–Q9 contract status
+==================================================
+
+Do NOT automatically approve historical Q1–Q9.
+
+Instead create crosswalk:
+
+historical question
+effect of Q-A–Q-F decision
+still open?
+recommended revised wording
+
+Particularly:
+
+old Q1/Q2 must be revised because
+the relation model now distinguishes strict and macro hierarchy.
+
+==================================================
+15. Next contract review questions
+==================================================
+
+After Q-A–Q-F freeze,
+generate a reduced/revised contract packet.
+
+At minimum:
+
+R1.
+Adopt LAYERED_TYPED_GRAPH as canonical overall representation,
+with STRICT_CLAUSE_HIERARCHY and MACRO_TEXTUAL_HIERARCHY
+as distinct analytical layers?
+
+R2.
+Apply Jin single-mother invariant ONLY to units adjudicated
+as strict hypotactic daughters?
+
+R3.
+Require every MACRO textual unit to have a mother,
+or allow macro paratactic/root/transition placements without mother?
+
+R4.
+Preserve historical unresolved strict-parent questions independently
+from accepted macro hierarchy?
+
+R5.
+Keep non-textual composition groups outside both strict and macro
+mother-daughter hierarchy?
+
+R6.
+Keep technical navigation separate?
+
+R7.
+Keep negative constraints first-class?
+
+R8.
+Allow future overlays append-only?
+
+R9.
+Validate cycles/invariants per relation-layer semantics?
+
+R10.
+Should whole-Job textual root be defined separately
+for strict and macro hierarchy?
+
+All UNREVIEWED.
+
+==================================================
+16. 2:11 / 32:1 remain unresolved
+==================================================
+
+Preserve:
+
+Job 2:11:
+NO_MACRO_MOTHER_FOUND
+
+Job 32:1:
+NO_MACRO_MOTHER_FOUND
+
+Do not assign mother.
+
+Current relation layers such as:
+participant introduction
+transition
+composition
+may be preserved,
+but are not textual mother substitutes.
+
+==================================================
+17. Outputs
+==================================================
+
+At minimum:
+
+01_relation_layer_human_decisions.csv
+
+02_relation_layer_human_provenance.csv
+
+03_relation_layer_historical_crosswalk.csv
+
+04_continues_within_typing_decisions.csv
+
+05_same_level_typing_decisions.csv
+
+06_hierarchy_layer_contract_decision.md
+
+07_relation_layer_invariants.md
+
+08_historical_contract_question_crosswalk.csv
+
+09_revised_contract_review_packet.md
+
+10_remaining_strict_macro_questions.csv
+
+11_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+18. Expected human decision count
+==================================================
+
+Researcher decisions:
+
+Q-A
+Q-B
+Q-C
+Q-D
+Q-E
+Q-F
+
+= 6 methodological/relation-layer decisions
+
+Do not count all 98 SAME_LEVEL rows as
+98 new human decisions unless repository accounting requires
+per-row derived application records.
+
+If per-row records are produced:
+derived_from_human_rule = true
+
+and distinguish them from six primary researcher decisions.
+
+==================================================
+19. Tests / gates
+==================================================
+
+At minimum:
+
+1. baseline commit exact
+2. JIN.0.6 artifact verified
+3. Q-A accepted
+4. Q-B accepted
+5. Q-C accepted
+6. Q-D accepted
+7. Q-E accepted
+8. Q-F accepted
+
+9. 1:13 historical edge preserved
+10. 1:13 macro layer approved
+11. 1:13 strict mother unresolved
+
+12. 3:1/3:2 historical edges preserved
+13. macro speech-frame interpretation approved
+14. strict dependency unresolved
+
+15. 40:1 historical edge preserved
+16. macro hierarchy approved
+17. strict mother unproven
+
+18. CONTINUES_WITHIN typing model approved
+19. 28:1 classified NO_NEW_BOUNDARY semantics
+20. 42:16 classified NO_NEW_BOUNDARY semantics
+
+21. SAME_LEVEL typing model approved
+22. 98 historical SAME_LEVEL rows not rewritten
+23. no strict parataxis automatically created
+
+24. relation_type and relation_layer mandatory proposal frozen
+
+25. clause_atom anchor does not auto-determine layer
+26. macro child does not imply strict mother
+27. macro sibling does not imply strict parataxis
+
+28. no relation migration
+29. no new parent edge
+30. no historical rewrite
+
+31. 2:11 mother unresolved
+32. 32:1 mother unresolved
+
+33. historical Q1–Q9 not silently approved
+34. revised R1–R10 generated and unreviewed
+
+35. R4.4 consumer absent
+36. participant arc unadjudicated
+
+37. full regression PASS, skip 0
+38. manifest PASS
+39. deterministic rerun byte-identical
+
+==================================================
+20. Gates
+==================================================
+
+Include at minimum:
+
+- BASELINE_COMMIT_VERIFIED
+- JIN_0_6_FROZEN_VERIFIED
+
+- QA_MACRO_1_13_ACCEPTED
+- QA_STRICT_1_13_UNRESOLVED
+
+- QB_MACRO_SPEECH_FRAME_ACCEPTED
+- QB_STRICT_3_1_2_UNRESOLVED
+
+- QC_MACRO_40_1_ACCEPTED
+- QC_STRICT_40_1_UNPROVEN
+
+- QD_CONTINUES_WITHIN_SPLIT_ACCEPTED
+- QE_SAME_LEVEL_LAYER_SPLIT_ACCEPTED
+- QF_TYPE_LAYER_SEPARATION_ACCEPTED
+
+- HISTORICAL_RELATIONS_UNCHANGED
+- NO_RELATION_MIGRATION
+- NO_NEW_PARENT
+
+- MACRO_NOT_EQUAL_STRICT
+- CLAUSE_ATOM_NOT_EQUAL_STRICT
+- NO_BOUNDARY_NOT_EQUAL_MOTHER
+
+- JOB_2_11_UNRESOLVED
+- JOB_32_1_UNRESOLVED
+
+- HISTORICAL_Q1_Q9_NOT_AUTO_APPROVED
+- REVISED_R1_R10_UNREVIEWED
+
+- NO_R4_4_CONSUMER
+- PARTICIPANT_ARC_UNADJUDICATED
+
+- MANIFEST_VALID
+- DETERMINISTIC_RERUN
+- REGRESSION_PASS
+
+==================================================
+21. Methodological wording
+==================================================
+
+Report must state:
+
+“MILAL distinguishes strict clause hierarchy from macro textual hierarchy.”
+
+“Historical macro relations may remain valid even where strict syntactic
+motherhood is unproven.”
+
+“Jin’s one-mother principle governs strict hypotactic daughterhood,
+not every macro containment relation.”
+
+“Macro parataxis and strict clause parataxis are distinct analytical claims.”
+
+“Relation type alone is insufficient; every active analytical relation
+must be interpreted together with its relation layer.”
+
+“CONTINUES_WITHIN may encode macro continuation or no-new-boundary
+placement and therefore requires semantic subtype information.”
+
+==================================================
+22. Readiness
+==================================================
+
+After successful freeze:
+
+READY_FOR_REVISED_R4_4_CONTRACT_REVIEW
+
+Do NOT declare:
+READY_FOR_R4_4_IMPLEMENTATION.
+
+==================================================
+23. Commit / push
+==================================================
+
+All tests/gates PASS 후:
+
+Suggested commit:
+
+Freeze strict and macro relation-layer decisions
+
+push origin/main under normal authorization workflow.
+
+==================================================
+24. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. push status
+
+3. Q-A–Q-F final decisions
+
+4. primary human decision count
+5. derived typing application count
+
+6. 1:13 final layer status
+7. 3:1/3:2 final layer status
+8. 40:1 final layer status
+
+9. CONTINUES_WITHIN typing result
+10. SAME_LEVEL typing result
+11. relation_type/layer contract result
+
+12. historical relations unchanged confirmation
+13. migration count = 0
+14. new parent count = 0
+
+15. 2:11 / 32:1 status
+
+16. revised R1–R10 summary
+
+17. tests/gates
+18. deterministic rerun
+19. ZIP/SHA256
+
+20. readiness:
+READY_FOR_REVISED_R4_4_CONTRACT_REVIEW
