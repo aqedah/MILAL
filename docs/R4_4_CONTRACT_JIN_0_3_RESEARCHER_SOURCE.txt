@@ -1,0 +1,1784 @@
+현재 MILAL 저장소에서 다음 작업을 수행하세요.
+
+작업명:
+R4.4-CONTRACT.JIN.0.3
+— Contextual Relation Consolidation Audit
+— Multi-Clause Configuration Before Human Adjudication
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  4455716793eb6e015b309ccfa5106c6c19a5bf24
+
+현재 상태:
+- R4.4-CONTRACT.JIN.0.2 완료
+- Phase A blind linguistic discovery 완료
+- Phase A human-source leakage = 0
+- 49 textual loci
+- Job clauses = 2,938
+- scanned pairs = 163,470
+- eligible candidate pairs = 13,355
+- PARATAXIS_SUPPORTED = 80
+- HYPOTAXIS_SUPPORTED = 149
+- BOTH_SUPPORTED = 0
+- RELATION_CANDIDATE_INSUFFICIENT = 13,126
+- no-trigger = 150,115
+- historical SAME_LEVEL 98:
+  support 34 / partial 64
+- historical direct mother 3:
+  1:13 → 1:6 = pairwise parataxis conflict
+  3:1 → 3:2 = insufficient
+  40:1 → 38:1 = pairwise parataxis conflict
+- Job 2:11 = 4 hypotaxis candidates
+- Job 32:1 = 2 hypotaxis candidates
+- no mother assigned
+- R4.4 consumer NOT IMPLEMENTED
+- participant arc UNADJUDICATED
+- readiness:
+  BLOCKED_PENDING_BLIND_RELATION_HUMAN_REVIEW
+
+현재 실제 결과 artifact:
+r4_4_contract_jin_0_2_blind_relation_audit_final_20260924_e_results.zip
+
+현재 주요 upstream files:
+03_blind_candidate_pairs.csv
+04_blind_relation_hypotheses.csv
+08_postblind_human_relation_crosswalk.csv
+09_parataxis_back_audit.csv
+10_hypotaxis_back_audit.csv
+11_relation_discrepancies.csv
+12_bhsa_native_postblind_validation.csv
+13_textual_placement_proposals.csv
+14_revised_contract_review_packet.md
+21_relation_review_cases.csv
+
+==================================================
+0. 이번 단계의 목적
+==================================================
+
+JIN.0.2는 성공적으로 clause-pair 후보를 blind discovery했다.
+
+그러나:
+
+13,344개의 unique clause-pair review case를
+연구자가 하나씩 판정하도록 넘기는 것은 방법론적으로도,
+실행 가능성 측면에서도 부적절하다.
+
+또한 pairwise formal correspondence는
+macro/textual relation을 충분히 설명하지 못할 수 있다.
+
+대표적 사례:
+
+1:6 ↔ 1:13
+- 동일/유사한 ויהי היום opening
+- pairwise formal correspondence가 강할 수 있음
+BUT
+- 1:6 뒤에는 בני האלהים / להתיצב / השטן / divine dialogue 배열이 이어짐
+- 1:13에는 동일 후속 configuration이 없음
+
+38:1 ↔ 40:1
+- 둘 다 ויען יהוה את איוב ... ויאמר formula
+- pairwise formal correspondence가 강함
+BUT
+- surrounding speech-response configuration과 textual position은 다를 수 있음
+
+따라서 이번 단계의 핵심은:
+
+CLAUSE_PAIR_EVIDENCE
+        ↓
+CONTEXT_BUNDLE
+        ↓
+LOCUS_RELATION_CASE
+        ↓
+MACRO_PROJECTION_STATUS
+        ↓
+HUMAN_REVIEW_PACKET
+
+이다.
+
+중요:
+
+이번 단계도 human adjudication이 아니다.
+
+==================================================
+1. discovery / comparison 분리 유지
+==================================================
+
+이번 단계도 반드시 두 phase로 나눈다.
+
+--------------------------------------------------
+PHASE C1 — BLIND CONTEXTUAL CONSOLIDATION
+--------------------------------------------------
+
+허용 input:
+
+- JIN.0.2 Phase A blind outputs
+- raw BHSA 2021
+- neutral target inventory
+- neutral clause IDs / clause_atom IDs
+- neutral relation hypotheses:
+  PARATAXIS_SUPPORTED
+  HYPOTAXIS_SUPPORTED
+  RELATION_CANDIDATE_INSUFFICIENT
+- raw source/provenance
+
+금지 input:
+
+- human SAME_LEVEL labels
+- CHILD_OF labels
+- HIERARCHICALLY_ABOVE labels
+- cycle membership
+- HSA structural functions
+- seam judgments
+- composition groups
+- transition labels
+- parentage necessity labels
+- historical relation decisions
+- BHSA native mother/tab/pargr/rela/code before contextual freeze
+
+--------------------------------------------------
+PHASE C2 — POST-BLIND CONTEXT COMPARISON
+--------------------------------------------------
+
+C1 contextual outputs가 finalized + hashed 된 뒤에만:
+
+- historical HSA relations
+- JIN.0.2 postblind crosswalk
+- current HSA structural labels
+
+를 로드한다.
+
+C2는 C1 output을 수정하지 않는다.
+
+==================================================
+2. 13,126 insufficient pairs 처리
+==================================================
+
+13,126 RELATION_CANDIDATE_INSUFFICIENT rows를
+기본 human-review universe에서 제외한다.
+
+그러나 삭제하지 않는다.
+
+별도 archive를 유지한다.
+
+status:
+ARCHIVE_INSUFFICIENT_PAIR_EVIDENCE
+
+다음 경우에만 post-blind review packet으로 다시 surface 가능:
+
+A.
+historical human relation의 exact source/target evidence pair에 해당함
+
+B.
+supported candidate의 context bundle 안에서
+important contrasting control 역할을 함
+
+C.
+multi-clause configuration에서
+supported pair와 함께 설명되어야 하는 adjacent/context clause임
+
+즉:
+
+INSUFFICIENT
+≠ DROP
+
+하지만:
+
+INSUFFICIENT
+≠ DEFAULT_HUMAN_REVIEW
+
+==================================================
+3. supported pair 229건을 primary contextual pool로 사용
+==================================================
+
+Primary supported pool:
+
+80 PARATAXIS_SUPPORTED
++
+149 HYPOTAXIS_SUPPORTED
+=
+229 supported pair hypotheses
+
+actual upstream values를 먼저 재검증한다.
+
+이 229개를 단순 pair list로 제시하지 말고
+contextual relation case로 재구성한다.
+
+==================================================
+4. relation scope를 먼저 분류
+==================================================
+
+각 supported pair에 대해 blind하게 다음 scope를 판정한다.
+
+SCOPE_A_CLAUSE_INTERNAL
+
+두 clause가 동일 neutral textual locus 내부에 있고,
+후행 clause가 local syntactic dependency를 형성할 가능성이 높은 경우.
+
+예:
+- 동일 verse/unit 내부 InfC/relative/subordinate sequence
+- local speech formula의 ויאמר clause 등
+
+SCOPE_B_LOCAL_LOCUS_RELATION
+
+인접하거나 가까운 서로 다른 clause bundles 사이의 관계지만
+한 neutral textual locus의 내부/경계에 집중되는 경우.
+
+SCOPE_C_CROSS_LOCUS_RELATION
+
+서로 다른 neutral textual loci 사이의 candidate relation.
+
+SCOPE_D_MACRO_PROJECTION_CANDIDATE
+
+pairwise evidence 하나만이 아니라
+multi-clause context configuration까지 고려할 때
+macro textual relation의 human review에 의미 있는 candidate.
+
+SCOPE_E_EVIDENCE_ONLY_NOT_MACRO_PROJECTABLE
+
+실제 clause relation으로는 의미가 있으나
+macro textual unit relation으로 투사할 근거가 부족한 경우.
+
+중요:
+SCOPE_D를 자동 structural relation으로 생성하지 않는다.
+
+==================================================
+5. neutral locus membership
+==================================================
+
+C1에서는 HSA structural label을 사용하지 않는다.
+
+neutral locus membership은 JIN.0.2의
+audit_target_id / source-qualified span / raw clause anchor만 사용한다.
+
+예:
+
+JTxxxx
++
+raw clause IDs
++
+raw verse span
+
+을 사용한다.
+
+H:HSAxxx label 또는 historical structural function은
+C1에서 사용 금지.
+
+==================================================
+6. multi-clause context bundle 생성
+==================================================
+
+각 supported pair에 대해
+preceding-side와 later-side의 문맥 bundle을 만든다.
+
+최소:
+
+- focal clause
+- previous 3 clauses
+- following 3 clauses
+
+즉 기본 fixed window:
+
+[-3, focal, +3]
+
+단:
+book boundary를 넘지 않는다.
+raw domain/direct-speech boundary 정보를 보존한다.
+
+추가로 다음 adaptive window도 병행한다.
+
+A.
+same verse complete clause bundle
+
+B.
+same direct-speech / narrative raw-domain run
+단, human speech-unit judgment 사용 금지
+
+C.
+formula continuation window
+예:
+ויען X
+ויאמר
+등 실제 adjacent formula components
+
+D.
+up to next raw subject/participant configuration change
+가능하면 descriptive field로만
+
+fixed window와 adaptive window를 모두 보존하되
+한쪽이 다른 쪽을 overwrite하지 않는다.
+
+==================================================
+7. context signature
+==================================================
+
+각 side의 context bundle에 다음 ordered signature를 생성한다.
+
+CLAUSE_SEQUENCE:
+- clause type sequence
+
+VERB_SEQUENCE:
+- main verb lexeme sequence
+- stem/form sequence
+
+SUBJECT_SEQUENCE:
+- explicit subject lexeme/name sequence
+- implicit subject markers
+
+PHRASE_SEQUENCE:
+- constituent-order signatures
+- Time / Location presence
+- Subject / Predicate / Object / Complement layout
+
+DOMAIN_SEQUENCE:
+- raw BHSA domain sequence
+
+FORMULA_SEQUENCE:
+- CSF-like formula atoms
+- Wayhi/WayX/WXQt etc.
+- repeated speech formula components
+
+PARTICIPANT_SEQUENCE:
+- explicit participant surfaces
+- raw reference continuity flags
+- participant-set change flags
+
+TEMPORAL_LOCATIVE_SEQUENCE:
+- temporal expressions
+- locative expressions
+
+중요:
+이 signature는 human structure를 포함하지 않는다.
+
+==================================================
+8. contextual correspondence flags
+==================================================
+
+pairwise flags와 별도로
+multi-clause context correspondence를 계산한다.
+
+최소:
+
+C_FOCAL_FORM_CORRESPONDENCE
+
+C_PRECEDING_1_CORRESPONDENCE
+C_PRECEDING_2_CORRESPONDENCE
+C_PRECEDING_3_CORRESPONDENCE
+
+C_FOLLOWING_1_CORRESPONDENCE
+C_FOLLOWING_2_CORRESPONDENCE
+C_FOLLOWING_3_CORRESPONDENCE
+
+C_CLAUSE_SEQUENCE_CORRESPONDENCE
+
+C_VERB_SEQUENCE_CORRESPONDENCE
+
+C_SUBJECT_SEQUENCE_CORRESPONDENCE
+
+C_FORMULA_SEQUENCE_CORRESPONDENCE
+
+C_PARTICIPANT_SEQUENCE_CORRESPONDENCE
+
+C_TEMPORAL_LOCATIVE_SEQUENCE_CORRESPONDENCE
+
+C_DOMAIN_SEQUENCE_CORRESPONDENCE
+
+C_FOLLOWING_CONFIGURATION_DIVERGENCE
+
+C_PRECEDING_CONFIGURATION_DIVERGENCE
+
+C_PARTICIPANT_CONFIGURATION_DIVERGENCE
+
+C_DOMAIN_CONFIGURATION_DIVERGENCE
+
+중요:
+numeric similarity score 만들지 않는다.
+
+각 flag는:
+MATCH
+PARTIAL
+DIFFERENT
+NOT_AVAILABLE
+
+등의 categorical status를 사용한다.
+
+==================================================
+9. multi-clause pattern의 exact / partial correspondence
+==================================================
+
+정확한 rule bundle을 명문화한다.
+
+예:
+
+EXACT_CONFIGURATION_CORRESPONDENCE
+=
+focal + ordered following pattern이 모두 동일/호환
+
+PARTIAL_CONFIGURATION_CORRESPONDENCE
+=
+focal은 강하게 대응하지만
+후속 configuration 일부만 대응
+
+FOCAL_ONLY_CORRESPONDENCE
+=
+focal clause/formula만 대응하고
+surrounding configuration은 다름
+
+CONFIGURATION_CONTRAST
+=
+focal correspondence가 존재하지만
+후속/선행 배열이 구조적으로 뚜렷하게 다름
+
+NO_CONTEXTUAL_CORRESPONDENCE
+=
+pairwise candidate는 있었으나
+context bundle에서 반복 configuration을 찾지 못함
+
+이 label은 여전히 candidate evidence classification이다.
+
+human structural judgment 아님.
+
+==================================================
+10. 반드시 검증할 대표 case
+==================================================
+
+A. 1:6 vs 1:13
+
+기대:
+- focal ויהי היום correspondence
+- surrounding configuration divergence observable
+
+특히:
+1:6 이후
+בני האלהים
+להתיצב על יהוה
+השטן
+YHWH–Satan interaction
+
+1:13 이후
+sons/daughters eating context
+
+등 raw configuration difference를 보존한다.
+
+Codex가:
+“따라서 1:13 child”
+라고 판정하면 FAIL.
+
+--------------------------------------------------
+B. 1:6 vs 2:1
+
+기대:
+- focal correspondence
+- multi-clause repeated configuration correspondence
+
+하지만 human SAME_LEVEL label은 C1에서 보지 않는다.
+
+--------------------------------------------------
+C. 38:1 vs 40:1
+
+기대:
+- strong focal formula correspondence
+- surrounding configuration 차이 검사
+
+38:1 이후 long YHWH discourse onset context
+40:1 이후 local internal continuation / Job response proximity
+등 raw sequence 차이를 기술하되
+“internal” human label은 C1에서 사용 금지.
+
+--------------------------------------------------
+D. 38:1 vs 40:6
+
+focal storm formula + surrounding configuration 비교.
+
+--------------------------------------------------
+E. 3:1 vs 3:2
+
+single focal relation이 insufficient였던 이유를
+multi-clause context에서 다시 검사.
+
+--------------------------------------------------
+F. 2:11
+
+4 hypotaxis pair가:
+
+- 2:11 내부 clause relation인지
+- preceding macro locus relation인지
+- both인지
+
+반드시 구분한다.
+
+--------------------------------------------------
+G. 32:1
+
+2 hypotaxis pair도 동일하게:
+
+clause-internal/local vs cross-locus/macro
+
+를 구분한다.
+
+==================================================
+11. clause-internal relation과 macro parentage를 분리
+==================================================
+
+이번 단계의 핵심 gate이다.
+
+예를 들어 Job 2:11의
+hypotaxis 후보 4개 가운데 일부가:
+
+2:11 main clause
+→ relative / infinitive / subordinate clause
+
+관계라면,
+
+이는:
+
+STRICT_CLAUSE_HYPOTAXIS
+
+이지,
+
+2:11 TEXTUAL UNIT의 macro mother candidate가 아니다.
+
+따라서 각 candidate에:
+
+clause_relation_scope
+macro_projection_status
+
+를 별도 필드로 둔다.
+
+macro_projection_status:
+
+NOT_PROJECTABLE_CLAUSE_INTERNAL
+
+POSSIBLE_LOCAL_UNIT_PROJECTION
+
+POSSIBLE_CROSS_LOCUS_PROJECTION
+
+POSSIBLE_MACRO_PROJECTION
+
+INSUFFICIENT_FOR_PROJECTION
+
+==================================================
+12. locus-level case consolidation
+==================================================
+
+supported pair를
+human-review 가능한 LOCUS_RELATION_CASE로 묶는다.
+
+case key는 최소:
+
+earlier_neutral_locus
+later_neutral_locus
+relation_family
+projection_scope
+
+를 사용한다.
+
+같은 locus-pair를 지지하는 여러 clause-pair는
+하나의 contextual case 아래 evidence members로 묶는다.
+
+그러나 원래 pair IDs는 모두 보존한다.
+
+예:
+
+CASE X
+locus JT00xx ↔ JT00yy
+relation family: PARATAXIS
+member pair IDs:
+- JP...
+- JP...
+- JP...
+
+이렇게 축약한다.
+
+==================================================
+13. symmetric / duplicate pair consolidation
+==================================================
+
+동일 neutral locus pair에 대해
+실질적으로 같은 evidence가 반복되는 경우
+human-review case는 하나로 consolidate한다.
+
+단:
+원 source rows를 삭제하지 않는다.
+
+fields:
+
+member_pair_count
+member_pair_ids
+member_evidence_ids
+member_hypotheses
+
+를 보존한다.
+
+directionality가 실제 의미가 있는 hypotaxis는
+방향을 유지한다.
+
+parataxis candidate는 canonical locus ordering을 사용하되
+원 방향 pair 기록을 보존한다.
+
+==================================================
+14. contextual relation case type
+==================================================
+
+blind consolidated case에 다음 candidate type을 허용한다.
+
+CTX_PARATAXIS_SUPPORTED
+
+CTX_HYPOTAXIS_SUPPORTED
+
+CTX_PARATAXIS_WITH_CONFIGURATION_CONTRAST
+
+CTX_HYPOTAXIS_WITH_COMPETING_LOCAL_EXPLANATION
+
+CTX_CLAUSE_INTERNAL_HYPOTAXIS_ONLY
+
+CTX_CROSS_LOCUS_PARATAXIS_CANDIDATE
+
+CTX_CROSS_LOCUS_HYPOTAXIS_CANDIDATE
+
+CTX_MACRO_PROJECTION_CANDIDATE
+
+CTX_CONTEXT_INSUFFICIENT
+
+모두:
+UNADJUDICATED
+automatic_resolution=false
+
+==================================================
+15. pairwise hypothesis를 context가 뒤집지 않는다
+==================================================
+
+C1 contextual layer는 JIN.0.2 pairwise result를
+overwrite하지 않는다.
+
+예:
+
+pairwise:
+PARATAXIS_SUPPORTED
+
+context:
+FOCAL_ONLY_CORRESPONDENCE /
+CONFIGURATION_CONTRAST
+
+두 기록을 함께 보존한다.
+
+즉:
+PAIRWISE_PARATAXIS_SUPPORT
++
+CONTEXT_CONFIGURATION_CONTRAST
+
+가 동시에 가능하다.
+
+이것이 1:6 vs 1:13과 38:1 vs 40:1 같은 사례에서 중요하다.
+
+==================================================
+16. context-based automatic structural verdict 금지
+==================================================
+
+다음 자동 결론 금지:
+
+CONFIGURATION_CONTRAST
+=> HYPOTAXIS
+
+EXACT_CONFIGURATION
+=> PARATAXIS
+
+FOCAL_ONLY
+=> CHILD_OF
+
+즉 context는 evidence enrichment이지
+automatic adjudication이 아니다.
+
+==================================================
+17. human review universe 재구성
+==================================================
+
+기존:
+
+21_relation_review_cases.csv
+13,344 unique clause-pair cases
+
+를 historical artifact로 보존한다.
+
+새 human review universe는
+contextual locus-level cases로 구성한다.
+
+우선 포함:
+
+A.
+all supported contextual locus cases
+originating from 80 parataxis / 149 hypotaxis pairs
+
+B.
+historical human relation과 연결되지만
+blind pair evidence가:
+- partial
+- insufficient
+- conflict
+였던 cases
+단, 이들은 C2에서만 추가
+
+C.
+Job 2:11
+D.
+Job 32:1
+E.
+existing mother 3 cases
+
+제외 기본값:
+
+pure insufficient pair archive 13,126
+unless historical comparison / contextual control requirement applies.
+
+==================================================
+18. review universe에 arbitrary cap 금지
+==================================================
+
+“50개 이하로 줄여라”
+같은 임의 숫자 제한을 사용하지 않는다.
+
+실제 evidence consolidation 결과로
+case 수가 결정되게 한다.
+
+그러나 반드시:
+
+13,344 pair cases보다 적어야 한다.
+
+그렇지 않으면 consolidation design FAIL.
+
+그리고 최종 보고에 reduction ratio를 기술한다.
+
+numeric ratio는 QA/reporting용이며
+relation 판정 점수로 사용하지 않는다.
+
+==================================================
+19. Phase C1 freeze
+==================================================
+
+C1 완료 후:
+
+- contextual cases
+- context bundles
+- mapping
+- archive
+
+를 모두 hash/freeze한다.
+
+그 뒤에만 C2 historical human data를 로드한다.
+
+Gate:
+
+C1_HUMAN_SOURCE_COUNT == 0
+
+C1_HUMAN_LABEL_LEAKAGE == 0
+
+==================================================
+20. Phase C2 historical comparison
+==================================================
+
+C1 freeze 후 다음을 로드한다.
+
+- 08_postblind_human_relation_crosswalk.csv
+- HSA accepted relations
+- existing mother judgments
+- existing SAME_LEVEL judgments
+
+목적:
+
+contextual evidence가
+historical human relation을:
+
+CONTEXT_SUPPORTS_HUMAN_RELATION
+
+CONTEXT_SUPPORTS_WITH_ALTERNATIVE
+
+PAIRWISE_CONFLICT_CONTEXT_SOFTENS_CONFLICT
+
+PAIRWISE_CONFLICT_CONTEXT_PRESERVES_CONFLICT
+
+CONTEXT_PARTIAL_SUPPORT
+
+CONTEXT_INSUFFICIENT
+
+CONTEXT_NOT_RECOVERED
+
+중 무엇으로 보이게 하는지 기술한다.
+
+중요:
+기존 relation을 수정하지 않는다.
+
+==================================================
+21. 1:13 → 1:6 conflict 재평가
+==================================================
+
+JIN.0.2:
+pairwise PARATAXIS conflict.
+
+JIN.0.3에서는 반드시:
+
+- focal formula
+- preceding context
+- following 1/2/3 clause configuration
+- participant sequence
+- domain sequence
+
+를 보여준다.
+
+가능한 comparison output:
+
+PAIRWISE_CONFLICT_CONTEXT_SOFTENS_CONFLICT
+
+또는
+PAIRWISE_CONFLICT_CONTEXT_PRESERVES_CONFLICT
+
+Codex가 human relation을 ACCEPT/REJECT하지 않는다.
+
+==================================================
+22. 40:1 → 38:1 conflict 재평가
+==================================================
+
+동일 절차.
+
+특히:
+
+38:1 focal
+40:1 focal
+40:6 focal
+
+을 삼자 비교 panel로도 생성한다.
+
+질문:
+
+40:1이 pairwise로 38:1과 유사하지만
+context configuration에서는
+38:1보다 40:6과 어떤 점이 같고 다른지
+raw evidence로 보여준다.
+
+단:
+기존:
+38:1 ↔ 40:6 SAME_LEVEL
+40:1 CHILD_OF 38:1
+
+를 C1에서 로드하지 않는다.
+
+C2 comparison에서만 표시한다.
+
+==================================================
+23. 3:1 → 3:2 insufficient 재평가
+==================================================
+
+3:1 / 3:2의 fixed + adaptive context bundle 생성.
+
+다음 raw facts를 표시:
+
+3:1 אחרי כן פתח איוב...
+3:1 following clause(s)
+3:2 ויען איוב...
+3:2 ויאמר...
+
+관계가 여전히 context-insufficient인지
+혹은 stronger local configuration을 보이는지
+candidate evidence만 출력한다.
+
+==================================================
+24. human SAME_LEVEL 98건 재평가
+==================================================
+
+98건 각각을 pairwise raw case로 보여주지 않는다.
+
+locus-level contextual grouping으로 묶는다.
+
+예:
+
+cycle speech formula groups
+27:1 / 29:1
+Elihu onsets
+YHWH onsets
+Job responses
+
+하지만 이 human semantic grouping은 C2에서만 사용한다.
+
+각 historical relation에 대해:
+
+pairwise result
+context result
+comparison result
+
+을 한 row로 만든다.
+
+==================================================
+25. repeated configuration detector
+==================================================
+
+특히 동일 formula onset 뒤의 multi-clause sequence를
+탐지하는 generic helper를 구현한다.
+
+input:
+two focal clauses
+window length 1–3
+
+output:
+ordered configuration correspondence.
+
+사용 가능한 요소:
+- clause type
+- main verb lexeme
+- subject lexeme
+- domain
+- constituent signature
+- Time/Location
+- formula atoms
+
+금지:
+- human structural label
+- cycle/group membership
+
+이 helper는
+1:6 / 2:1뿐 아니라
+전권 후보에 generic하게 적용되어야 한다.
+
+hard-coded Job loci만 처리하는 함수 금지.
+
+==================================================
+26. local dependency detector 보완
+==================================================
+
+hypotaxis pair가
+macro mother 후보로 오인되지 않도록:
+
+local_dependency_type:
+
+EXPLICIT_SUBORDINATE
+
+RELATIVE_DEPENDENCY
+
+INFINITIVE_DEPENDENCY
+
+FORMULA_INTERNAL
+
+SAME_VERSE_LOCAL_EMBEDDING
+
+CROSS_VERSE_LOCAL_DEPENDENCY
+
+CROSS_LOCUS_CANDIDATE
+
+를 생성한다.
+
+특히:
+CSF의 ויען...ויאמר 내부 관계와
+macro speech-unit onset 관계를 구분한다.
+
+==================================================
+27. candidate mother pool 재작성
+==================================================
+
+JIN.0.2의 05_blind_hypotaxis_mother_candidates.csv는 보존한다.
+
+이번에는:
+
+contextual_macro_mother_candidate_pool
+
+을 별도로 만든다.
+
+포함 조건:
+
+- HYPOTAXIS_SUPPORTED pair
+AND
+- NOT clause-internal only
+AND
+- macro_projection_status in:
+  POSSIBLE_CROSS_LOCUS_PROJECTION
+  POSSIBLE_MACRO_PROJECTION
+
+여전히:
+UNADJUDICATED
+
+No automatic mother selection.
+
+==================================================
+28. relation evidence tiers
+==================================================
+
+점수 대신 evidence tier를 사용한다.
+
+이는 ranking이 아니라 evidence scope 분류이다.
+
+TIER_1_PAIRWISE_ONLY
+
+TIER_2_PAIRWISE_PLUS_LOCAL_CONTEXT
+
+TIER_3_REPEATED_MULTI_CLAUSE_CONFIGURATION
+
+TIER_4_EXPLICIT_SUBORDINATION
+
+TIER_5_MACRO_PROJECTION_REQUIRES_HUMAN_JUDGMENT
+
+한 case가 여러 tier tag를 가질 수 있다.
+
+TIER 번호를 strength score로 사용하지 않는다.
+
+==================================================
+29. contextual review priority는 상태 기반으로만
+==================================================
+
+숫자 ranking 금지.
+
+human review bucket:
+
+REVIEW_A_CONFLICT_OR_REOPEN
+
+- historical conflict
+- historical insufficient direct mother case
+- context changes pairwise interpretation
+
+REVIEW_B_SUPPORTED_CROSS_LOCUS
+
+- supported parataxis/hypotaxis
+- cross-locus
+- macro projection possible
+
+REVIEW_C_CLAUSE_INTERNAL_CONFIRMATION
+
+- linguistically valid
+- macro structure에는 직접 영향 없음
+
+REVIEW_D_ARCHIVE_ONLY
+
+- insufficient pair evidence
+- human review 불필요
+
+이 bucket은 priority score가 아니다.
+
+==================================================
+30. placement proposal은 contextual 결과 기반으로 재생성
+==================================================
+
+JIN.0.2의 13_textual_placement_proposals.csv는
+pairwise-only historical proposal로 보존한다.
+
+새:
+
+contextual_placement_proposals.csv
+
+에서는 다음을 사용한다.
+
+CP1_HYPOTAXIS_MACRO_CANDIDATE
+
+CP2_PARATAXIS_MACRO_CANDIDATE
+
+CP3_PARATAXIS_WITH_CONTEXT_CONTRAST
+
+CP4_CLAUSE_INTERNAL_ONLY
+
+CP5_TRANSITIONAL_REVIEW
+
+CP6_INSUFFICIENT_FOR_MACRO_PLACEMENT
+
+CP7_COMPETING_CONTEXTUAL_CANDIDATES
+
+모두:
+UNREVIEWED
+
+==================================================
+31. Job 2:11 특별 panel
+==================================================
+
+별도 markdown + CSV panel 생성.
+
+반드시:
+
+- 4 hypotaxis pair IDs
+- exact clauses
+- local_dependency_type
+- context bundles
+- clause-internal 여부
+- cross-locus 여부
+- macro projection 가능성
+
+을 보여준다.
+
+핵심 질문:
+
+“이 4개 hypotaxis 후보 중
+실제로 Job 2:11 textual locus의 mother 후보가 되는 것이 있는가,
+아니면 대부분/전부 2:11 내부 clause dependency인가?”
+
+Codex는 답을 확정하지 않는다.
+
+==================================================
+32. Job 32:1 특별 panel
+==================================================
+
+동일하게:
+
+- 2 hypotaxis pair
+- exact clauses
+- context bundles
+- local/cross-locus scope
+- macro projection status
+
+질문:
+
+“32:1 transition locus의 textual placement를 설명할
+cross-locus hypotaxis evidence가 있는가,
+아니면 pair는 local clause relation인가?”
+
+human decision blank.
+
+==================================================
+33. existing direct-mother 3-case panel
+==================================================
+
+세 case를 별도 panel로 만든다.
+
+Case M1:
+1:13 → 1:6
+
+Case M2:
+3:2 → 3:1
+(저장 방향/semantic direction을 canonical하게 명시)
+
+Case M3:
+40:1 → 38:1
+
+각 case에:
+
+- pairwise blind result
+- contextual configuration result
+- competing candidates
+- local_dependency_type
+- macro projection
+- historical human relation
+- human review fields
+
+를 제공한다.
+
+==================================================
+34. human review packet의 규모
+==================================================
+
+최종 review packet은:
+
+13,344 pair rows를 그대로 나열하지 않는다.
+
+구성:
+
+SECTION A
+Methodological conflicts/reopen cases
+
+SECTION B
+Supported cross-locus contextual cases
+
+SECTION C
+Existing SAME_LEVEL back-audit grouped cases
+
+SECTION D
+Job 2:11 / 32:1
+
+SECTION E
+Clause-internal cases summary only
+필요하면 별도 appendix CSV 링크
+
+SECTION F
+Archive insufficient summary
+
+연구자에게 실제로 판정 요청하는 것은
+A/B/C/D의 locus-level contextual cases만이다.
+
+==================================================
+35. review fields
+==================================================
+
+각 human-review case에:
+
+review_status = UNREVIEWED
+
+relation_decision:
+
+가능 값 설명:
+PARATACTIC
+HYPOTACTIC
+INSUFFICIENT_EVIDENCE
+REQUIRES_ADDITIONAL_CONTEXT
+
+selected_mother_if_hypotactic:
+
+paratactic_peer_if_applicable:
+
+macro_projection_decision:
+
+가능:
+CLAUSE_ONLY
+LOCAL_TEXTUAL
+MACRO_TEXTUAL
+NO_MACRO_PROJECTION
+UNRESOLVED
+
+evidence_sufficient:
+
+additional_information_needed:
+
+reviewer_notes:
+
+Codex는 채우지 않는다.
+
+==================================================
+36. important methodological statement
+==================================================
+
+문서에 반드시:
+
+“Pairwise correspondence is evidence, not textual hierarchy.”
+
+“A clause pair may be formally parallel while its wider configurations
+occupy different textual levels.”
+
+“Macro projection requires contextual evidence beyond a single matching
+formula where such evidence is available.”
+
+“Clause-internal hypotaxis must not be mistaken for a macro textual
+mother relation.”
+
+“Human adjudication operates on consolidated contextual cases, not on
+every mechanically eligible clause pair.”
+
+를 포함한다.
+
+==================================================
+37. source leakage rules
+==================================================
+
+C1 input-source audit를 별도로 기록한다.
+
+C1_HUMAN_SOURCE_COUNT = 0
+
+C1_HUMAN_LABEL_LEAKAGE = 0
+
+C1_COMPOSITION_SOURCE_COUNT = 0
+
+C1_BHSA_NATIVE_HIERARCHY_SOURCE_COUNT = 0
+
+C1 may read:
+- JIN.0.2 Phase-A blind files
+- raw BHSA
+- neutral config
+
+C2부터 human sources 허용.
+
+==================================================
+38. synthetic tests
+==================================================
+
+최소 다음 synthetic fixtures:
+
+S1.
+same focal formula + same following 3-clause configuration
+→ repeated configuration observed
+
+S2.
+same focal formula + different following configuration
+→ FOCAL_ONLY / CONFIGURATION_CONTRAST
+
+S3.
+different focal clause + same wider configuration
+→ contextual correspondence possible
+
+S4.
+explicit subordinate clause inside same locus
+→ CLAUSE_INTERNAL_HYPOTAXIS_ONLY
+
+S5.
+hypotaxis pair crossing neutral loci
+→ macro projection candidate allowed
+
+S6.
+multiple pair evidence collapsing into one locus case
+
+S7.
+same locus pair with parataxis + insufficient auxiliary pairs
+→ one consolidated case + auxiliary evidence
+
+S8.
+historical relation must not enter C1
+
+S9.
+insufficient archive must not enter default review universe
+
+S10.
+contextual divergence must not automatically flip parataxis to hypotaxis
+
+S11.
+contextual exact match must not automatically create accepted parataxis
+
+S12.
+human label added only after C1 hash freeze
+
+==================================================
+39. real-data gates
+==================================================
+
+최소:
+
+1.
+baseline exact
+
+2.
+JIN.0.2 artifact verified
+
+3.
+supported pair counts preserved:
+80 / 149
+
+4.
+insufficient 13,126 preserved
+
+5.
+all 13,355 pair records preserved losslessly
+
+6.
+context bundle generated for all 229 supported pairs
+
+7.
+supported pair → contextual case mapping complete
+
+8.
+contextual case count < 13,344
+
+9.
+no supported pair dropped
+
+10.
+all pair IDs traceable from contextual cases
+
+11.
+1:6 / 1:13 context divergence captured
+
+12.
+1:6 / 2:1 repeated configuration captured
+
+13.
+38:1 / 40:1 context comparison generated
+
+14.
+38:1 / 40:6 context comparison generated
+
+15.
+3:1 / 3:2 context generated
+
+16.
+Job 2:11 four candidates classified by scope
+
+17.
+Job 32:1 two candidates classified by scope
+
+18.
+clause-internal hypotaxis excluded from macro-mother pool
+
+19.
+macro mother pool only contains cross-locus/projectable cases
+
+20.
+no mother selected
+
+21.
+no new accepted parataxis
+
+22.
+no new accepted hypotaxis
+
+23.
+C1 human source count = 0
+
+24.
+C1 human label leakage = 0
+
+25.
+C1 BHSA native hierarchy input = 0
+
+26.
+C1 output hash frozen before C2
+
+27.
+C2 cannot mutate C1 files
+
+28.
+historical SAME_LEVEL loaded only C2
+
+29.
+historical mother judgments loaded only C2
+
+30.
+pairwise conflict and contextual interpretation both preserved
+
+31.
+no numeric relation score
+
+32.
+no candidate ranking
+
+33.
+no arbitrary review-case cap
+
+34.
+participant arc untouched
+
+35.
+R4.4 consumer absent
+
+36.
+historical artifacts unchanged
+
+37.
+manifest valid
+
+38.
+full regression PASS, skip 0
+
+39.
+deterministic rerun byte-identical
+
+==================================================
+40. expected output files
+==================================================
+
+최소:
+
+01_context_supported_pair_inventory.csv
+
+02_context_windows.csv
+
+03_context_signatures.csv
+
+04_context_correspondence.csv
+
+05_relation_scope_classification.csv
+
+06_contextual_relation_cases.csv
+
+07_contextual_case_membership.csv
+
+08_insufficient_pair_archive.csv
+
+09_clause_internal_hypotaxis.csv
+
+10_contextual_macro_mother_candidates.csv
+
+11_pairwise_to_contextual_crosswalk.csv
+
+12_contextual_placement_proposals.csv
+
+13_context_blind_source_audit.csv
+
+14_context_blind_manifest.csv
+
+15_postcontext_human_comparison.csv
+
+16_historical_same_level_context_audit.csv
+
+17_historical_mother_context_audit.csv
+
+18_relation_reopen_cases.csv
+
+19_job_2_11_context_panel.csv
+20_job_2_11_context_panel.md
+
+21_job_32_1_context_panel.csv
+22_job_32_1_context_panel.md
+
+23_existing_mother_cases_panel.md
+
+24_contextual_human_review_cases.csv
+
+25_contextual_human_review_packet.md
+
+26_method_compliance_report.md
+
+27_next_adjudication_scope.md
+
+28_gates.csv
+
+90_run_metadata.json
+
+99_manifest_sha256.csv
+
+필요한 provenance/source-link 파일 추가 가능.
+
+==================================================
+41. contextual case identity
+==================================================
+
+stable deterministic case ID 사용.
+
+예:
+
+JC:<earlier_neutral_locus>:<later_neutral_locus>:<relation_family>:<scope>
+
+human/HSA semantic label을 case ID에 넣지 않는다.
+
+정렬:
+- canonical textual order
+- earlier locus
+- later locus
+- relation family
+- case ID
+
+deterministic output 보장.
+
+==================================================
+42. review case reduction report
+==================================================
+
+반드시 다음을 보고한다.
+
+original pair review cases:
+13,344
+
+new contextual human-review cases:
+N
+
+reduction:
+13,344 → N
+
+또한:
+
+- clause-internal only
+- supported cross-locus
+- historical conflict/reopen
+- insufficient archive
+- macro projection candidates
+
+수를 각각 보고한다.
+
+Reduction ratio는 QA용일 뿐
+candidate ranking에 쓰지 않는다.
+
+==================================================
+43. relationship to JIN.0.2 placement proposals
+==================================================
+
+JIN.0.2 JP1–JP7를 삭제하지 않는다.
+
+하지만 보고서에:
+
+PAIRWISE_ONLY_PLACEMENT_PROPOSAL
+
+로 historical status를 명시한다.
+
+JIN.0.3 contextual placement proposal이
+그 뒤에 append된다.
+
+둘이 다를 경우:
+CONTEXT_REFINEMENT_DIFFERENCE
+
+로 표시한다.
+
+자동 supersede하지 않는다.
+
+==================================================
+44. readiness outcome
+==================================================
+
+이번 단계의 readiness는 다음 중 하나:
+
+READY_FOR_CONTEXTUAL_HUMAN_RELATION_REVIEW
+
+또는
+
+BLOCKED_BY_CONTEXT_CONSOLIDATION_ISSUES
+
+Codex가:
+READY_FOR_R4_4_IMPLEMENTATION
+이라고 선언하면 FAIL.
+
+==================================================
+45. implementation
+==================================================
+
+repository architecture를 먼저 읽고
+기존 JIN.0.2 module/helper를 재사용한다.
+
+권장:
+
+src/milal_jin_contextual_relation_audit.py
+src/milal_jin_context_configuration.py
+src/milal_jin_postcontext_comparison.py
+
+config/r4_4_contract_jin_0_3_job.json
+
+tests/test_r4_4_contract_jin_0_3.py
+
+scripts/run_milal_r4_4_contract_jin_0_3_windows.ps1
+
+Termux runner convention이 이미 있으면:
+scripts/run_milal_r4_4_contract_jin_0_3_termux.sh
+
+docs:
+R4_4_CONTRACT_JIN_0_3_SPEC.md
+R4_4_CONTRACT_JIN_0_3_VALIDATION_REPORT.md
+
+HANDOFF.md update
+
+==================================================
+46. Termux 문서
+==================================================
+
+실제 repository convention에 맞는 명령을 문서화한다.
+
+예상 흐름:
+
+cd ~/MILAL
+git pull --ff-only
+
+python 또는 shell runner 실행
+
+결과 ZIP 생성
+
+그러나 실제 파일명/runner entrypoint를 확인하여
+정확한 명령만 README/HANDOFF에 기록한다.
+
+가짜 명령 금지.
+
+==================================================
+47. validation order
+==================================================
+
+1. syntax validation
+
+2. JIN.0.3 unit tests
+
+3. full regression
+
+4. synthetic contextual audit
+
+5. real BHSA contextual C1 audit
+
+6. C1 source leakage audit
+
+7. C1 freeze + hash
+
+8. C2 historical comparison
+
+9. contextual review-case consolidation
+
+10. deterministic independent rerun
+
+11. manifest verification
+
+12. manual inspection:
+- 1:6/1:13
+- 1:6/2:1
+- 38:1/40:1
+- 38:1/40:6
+- 3:1/3:2
+- 2:11
+- 32:1
+
+skip 0 required.
+
+==================================================
+48. commit / push
+==================================================
+
+모든 tests/gates PASS한 경우:
+
+git status
+git diff
+git diff --check
+
+Suggested commit:
+
+Consolidate blind relations with multi-clause context
+
+commit 후 origin/main push.
+
+현재 repository authorization workflow를 따른다.
+
+push가 explicit user authorization을 추가 요구하면:
+- 우회 금지
+- commit까지만 완료
+- 정확한 commit hash와 push-needed 상태 보고
+
+==================================================
+49. 최종 보고
+==================================================
+
+완료 후 보고:
+
+1. start commit
+2. end commit
+3. commit message
+4. push status
+5. working tree status
+
+6. JIN.0.2 supported pair counts 재검증
+7. insufficient archive count
+
+8. context bundle count
+9. contextual locus-case count
+10. 13,344 → contextual review case reduction 결과
+
+11. clause-internal-only case count
+12. cross-locus supported case count
+13. macro-projection candidate count
+14. historical conflict/reopen case count
+
+15. 1:6 / 1:13 contextual result
+16. 1:6 / 2:1 contextual result
+17. 38:1 / 40:1 contextual result
+18. 38:1 / 40:6 contextual result
+19. 3:1 / 3:2 contextual result
+
+20. Job 2:11:
+- original 4 hypotaxis candidates
+- clause-internal count
+- cross-locus count
+- macro-projectable count
+
+21. Job 32:1:
+- original 2 hypotaxis candidates
+- clause-internal count
+- cross-locus count
+- macro-projectable count
+
+22. existing mother 3 cases contextual comparison
+
+23. historical SAME_LEVEL 98 contextual comparison summary
+
+24. new contextual placement proposal distribution
+
+25. C1 human-source count
+26. C1 human-label leakage count
+27. C1 BHSA-native hierarchy source count
+
+28. new human judgment = 0
+29. new accepted parataxis = 0
+30. new accepted hypotaxis = 0
+31. new parent edge = 0
+
+32. R4.4 consumer still absent
+33. participant arc still unadjudicated
+
+34. tests
+35. gates
+36. deterministic rerun
+37. ZIP
+38. SHA256
+
+39. final human-review case count
+40. human-review packet의 case categories
+
+41. readiness:
+READY_FOR_CONTEXTUAL_HUMAN_RELATION_REVIEW
+or
+BLOCKED_BY_CONTEXT_CONSOLIDATION_ISSUES
+
+중요:
+이번 단계는 인간 판정을 대신하는 단계가 아니다.
+pairwise evidence를 실제 문맥 구조 속에서 재구성하여
+연구자가 판정할 수 있는 단위로 축약하는 단계이다.
+
+특히:
+단일 공식의 유사성만으로 병렬/종속을 판정하지 않는다.
+주변 multi-clause configuration도 evidence로 제시한다.
+그러나 context correspondence조차 자동 구조 판정으로 승격하지 않는다.

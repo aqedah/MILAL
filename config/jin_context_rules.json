@@ -1,0 +1,16 @@
+{
+  "fixed_radius": 3,
+  "following_lengths": [
+    1,
+    2,
+    3
+  ],
+  "local_distance": 3,
+  "unknown_domain": [
+    "?",
+    "NA",
+    "",
+    null
+  ],
+  "version": "JIN.0.3-C1"
+}

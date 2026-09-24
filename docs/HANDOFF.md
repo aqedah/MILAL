@@ -1,6 +1,45 @@
 # MILAL Development Handoff
 
-## Current task — R4.4-CONTRACT.JIN.0.2 independent blind relation audit, 2026-09-24
+## Current task — R4.4-CONTRACT.JIN.0.3 contextual relation consolidation, 2026-09-24
+
+Active specification: [JIN.0.3 spec](R4_4_CONTRACT_JIN_0_3_SPEC.md);
+authority: [exact request](R4_4_CONTRACT_JIN_0_3_RESEARCHER_SOURCE.txt);
+execution: [Windows/Termux README](README_MILAL_R4_4_CONTRACT_JIN_0_3.md);
+results/limits: [validation report](R4_4_CONTRACT_JIN_0_3_VALIDATION_REPORT.md).
+Start HEAD `4455716793eb6e015b309ccfa5106c6c19a5bf24`.
+
+Readiness: **READY_FOR_CONTEXTUAL_HUMAN_RELATION_REVIEW**.
+Next task: researcher adjudication of **206** consolidated contextual cases, not the
+old 13,344-pair review queue. No R4.4 consumer implementation is authorized by this result.
+Participant arc UNADJUDICATED; root unselected; new judgments/accepted para/hypo/parent edges 0.
+
+C1 uses frozen JIN.0.2 blind outputs, neutral config and 23 raw BHSA 2021 features;
+human/composition/native source counts and label leakage all 0. C1 freezes before C2
+human comparison. Original 304 upstream members and 203 repository pins are unchanged.
+80 para +149 hypo supported pairs, all 13,126 insufficient rows and 13,355 original
+pairs remain lossless. 255 focal contexts yield 1,275 fixed/adaptive bundles, 190
+supported locus cases; 19 internal-only cases go to appendix. Default queue: A136/B70,
+206 total (98.456235% reduction); 36 historical reopen cases are included.
+75 literal cross-locus cases; 72 eligible cross/macro projection cases; 2 scope-D
+paratactic cases; 0 hypothetical macro-mother candidates. No relation accepted.
+2:11: four hypo pairs, internal3/cross1/macro0. 32:1: two, internal0/cross2/macro0.
+SAME_LEVEL98: context support2/partial96. Two old mother conflicts soften descriptively;
+3:1 above3:2 remains insufficient. CP1–7: 0/27/3/5/2/12/0, all UNREVIEWED.
+
+Validation: 68 stage tests; full regression **1,529 PASS / skip0**; S1–S12 PASS;
+52 run gates plus 2 external release gates PASS, all negative-tested. Final synthetic
+inspected before Windows real execution. Independent real rerun ZIP byte-identical;
+19 recursive manifests plus C1/blind manifests verify. No Termux empirical claim.
+
+Local artifact: `results/r4_4_contract_jin_0_3_contextual_audit_final_20260924_a_results.zip`
+SHA256 `5412da317a698cbc506114464d2c7ed328f5e65e1b3af9511cf1eff224070387`.
+Independent rerun uses suffix `_b`; identical hash. C1 freeze SHA256
+`673c3f5135e9268cae729c3d0b4d390a47ada3a6cfa75bedadc74ed796b896c5`.
+Review entry: extracted `25_contextual_human_review_packet.md` and
+`24_contextual_human_review_cases.csv`; detailed controls 19–23 and 33.
+Results are local-only, not committed. Commit/push explicitly authorized by request §48.
+
+## Previous task — R4.4-CONTRACT.JIN.0.2 independent blind relation audit, 2026-09-24
 
 Active specification: [R4_4_CONTRACT_JIN_0_2_SPEC.md](R4_4_CONTRACT_JIN_0_2_SPEC.md);
 authority: [exact researcher request](R4_4_CONTRACT_JIN_0_2_RESEARCHER_SOURCE.txt);
