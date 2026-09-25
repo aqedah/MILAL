@@ -1,0 +1,1339 @@
+현재 MILAL 저장소에서 다음 작업을 구현·실행·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.2R-H0
+— Human Review Universe Reduction
+— Preserve Exhaustive Candidate Universe, Extract Adjudication-Relevant Cases
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  3925b2b7a170dee2f2777941957a750248bfece8
+
+현재 상태:
+- MFR.0.2R 완료
+- PRIMARY_ANALYSIS_SCOPE = JOB
+- relation grammar / valency / corpus analogue /
+  participant / time / location / poetry-aware evidence architecture 완료
+- MFR.0.2A human judgments 13건 보존
+- new human judgment = 0
+- canonical mother = 0
+- canonical hierarchy = 0
+- frozen files = 422
+- MFR.0.2R stage tests = 251
+- full regression = 2,403
+- gates = 89/89 PASS
+
+MFR.0.2R의 핵심 결과:
+- exhaustive preceding candidate universe는 성공적으로 생성됨
+- 그러나 human review packet이 지나치게 큼
+- candidate universe와 human adjudication universe를 분리해야 함
+
+이번 stage의 핵심 원칙:
+
+CANDIDATE UNIVERSE
+≠
+HUMAN REVIEW UNIVERSE
+
+후보를 삭제하거나 pruning하지 않는다.
+
+대신 모든 후보를 보존하면서
+“이 후보가 실제 인간 판정 대상인가?”라는
+REVIEW ELIGIBILITY만 별도로 분류한다.
+
+==================================================
+0. 가장 중요한 금지사항
+==================================================
+
+이번 단계에서 하지 말 것:
+
+- 새로운 linguistic relation 판정
+- 새로운 human judgment
+- 기존 MFR.0.2A judgment 변경
+- canonical mother 생성
+- canonical hierarchy 생성
+- candidate 삭제
+- candidate score 계산
+- weighted ranking
+- top-N pruning
+- distance cutoff
+- nearest-candidate heuristic
+- automatic winner selection
+- relation grammar 수정
+- valency grammar 수정
+- Jin / Walton / Bosman / Oosting rule 수정
+- resumption adjudication
+- closure adjudication
+
+이번 단계는 오직:
+
+EXHAUSTIVE CANDIDATE UNIVERSE
+→ REVIEW ELIGIBILITY CLASSIFICATION
+→ COMPACT HUMAN REVIEW PACKET
+
+을 수행한다.
+
+==================================================
+1. Preserve the complete MFR.0.2R universe
+==================================================
+
+MFR.0.2R에서 생성된 모든 candidate pair를 그대로 보존한다.
+
+기존 raw/candidate outputs를 변경하거나 삭제하지 않는다.
+
+각 candidate에 새 필드만 추가하거나
+별도 crosswalk를 생성한다.
+
+Required:
+
+candidate_id
+target_id
+source_candidate_id
+existing_candidate_relation
+existing_rule_ids
+existing_evidence
+review_eligibility
+review_reason_codes
+
+The original MFR.0.2R candidate universe must remain
+byte-identifiable / provenance-traceable.
+
+==================================================
+2. Review eligibility classes
+==================================================
+
+모든 candidate를 다음 네 범주 가운데 하나로 분류한다.
+
+A. RELATION_ELIGIBLE
+
+실제 HYPOTACTIC / PARATACTIC / MULTIPLE relation candidate로
+인간의 판단이 필요한 후보.
+
+B. CONFIGURATION_ELIGIBLE
+
+개별 mother edge 여부와 별개로
+반복 configuration, global compatibility,
+variant hierarchy, blocking 또는 structural competition에
+직접 참여하는 후보.
+
+C. EVIDENCE_ONLY
+
+형식, 시간, 장소, 참여자, 참조, lexical,
+corpus analogue, prosodic correspondence 등의 증거는 있으나
+현재 relation grammar상 hierarchy relation 후보가 아닌 경우.
+
+D. INSUFFICIENT
+
+현재 자료에서 적극적인 relation/configuration competition이 없는 경우.
+
+Important:
+
+EVIDENCE_ONLY와 INSUFFICIENT도 삭제하지 않는다.
+단지 기본 human review packet에서는 제외한다.
+
+==================================================
+3. RELATION_ELIGIBLE criteria
+==================================================
+
+RELATION_ELIGIBLE은 다음 중 하나 이상을 충족해야 한다.
+
+R1.
+existing candidate_relation =
+HYPOTACTIC
+
+R2.
+existing candidate_relation =
+PARATACTIC
+
+R3.
+existing candidate_relation =
+MULTIPLE
+
+R4.
+둘 이상의 source family rule이
+같은 target/source pair에 대해
+서로 다른 hierarchy relation을 제안함
+
+예:
+Jin → HYPOTACTIC
+Walton → PARATACTIC prior
+
+R5.
+candidate mother competition에 직접 참여함
+
+즉:
+동일 target에 대해
+2개 이상의 plausible hierarchy candidate가 존재
+
+R6.
+relation이
+RELATION_DEFERRED_PENDING_CLAUSE_BINDING
+또는 equivalent unresolved structural status
+
+R7.
+candidate relation을 선택할 경우
+global hierarchy configuration이 달라짐
+
+Important:
+
+formal similarity alone
+→ RELATION_ELIGIBLE 아님
+
+lexical repetition alone
+→ RELATION_ELIGIBLE 아님
+
+time match alone
+→ RELATION_ELIGIBLE 아님
+
+participant match alone
+→ RELATION_ELIGIBLE 아님
+
+==================================================
+4. CONFIGURATION_ELIGIBLE criteria
+==================================================
+
+다음은 configuration-level review 대상으로 분류한다.
+
+C1.
+candidate가 existing repeated multi-clause configuration에 참여
+
+C2.
+candidate가 global compatibility conflict를 발생
+
+C3.
+candidate가 parallel chain의 형성 / 해체에 영향을 줌
+
+C4.
+candidate가 alternative hierarchy variant component에 포함
+
+C5.
+candidate가 blocking 관계의 원인이 됨
+
+C6.
+candidate를 선택하면
+다른 candidate의 mother assignment가 바뀜
+
+C7.
+candidate가 MFR.0.2A의 13개 configuration case와 직접 관련
+
+C8.
+same-pattern / different-level 판단에 영향을 줌
+
+==================================================
+5. EVIDENCE_ONLY criteria
+==================================================
+
+다음과 같은 후보는 보존하되
+기본 human review에서는 제외한다.
+
+- FORMAL_ONLY
+- lexical correspondence only
+- temporal correspondence only
+- location correspondence only
+- participant correspondence only
+- reference correspondence only
+- domain correspondence only
+- corpus analogue only
+- prosodic correspondence only
+
+단,
+위 증거가 relation rule 또는
+configuration competition과 결합되면
+RELATION_ELIGIBLE 또는 CONFIGURATION_ELIGIBLE로 승격한다.
+
+==================================================
+6. INSUFFICIENT handling
+==================================================
+
+INSUFFICIENT candidate는:
+
+- raw universe에 그대로 남긴다.
+- human packet에서는 기본 제외한다.
+- count / statistics / audit에는 포함한다.
+
+No deletion.
+No pruning.
+
+==================================================
+7. Target-level review eligibility
+==================================================
+
+candidate뿐 아니라 target도 분류한다.
+
+TARGET_REVIEW_REQUIRED
+TARGET_REVIEW_OPTIONAL
+TARGET_ARCHIVE_ONLY
+
+TARGET_REVIEW_REQUIRED if:
+
+T1.
+2개 이상의 RELATION_ELIGIBLE candidate가 있음
+
+T2.
+HYPOTACTIC vs PARATACTIC competition 존재
+
+T3.
+MULTIPLE relation candidate 존재
+
+T4.
+global configuration conflict 존재
+
+T5.
+variant component에 포함
+
+T6.
+MFR.0.2A 13건의 target 또는 직접 경쟁 후보
+
+T7.
+valency/clause-binding unresolved 상태
+
+T8.
+multi-source analytic conflict 존재
+
+T9.
+현재 provisional human decision의 재검증이 필요함
+
+==================================================
+8. No numeric ranking
+==================================================
+
+금지:
+
+review_score
+priority_score
+confidence_score
+weighted_score
+candidate_rank
+
+대신 qualitative reason codes 사용.
+
+Example:
+
+MULTIPLE_RELATION_RULES
+MOTHER_COMPETITION
+GLOBAL_CONFLICT
+VARIANT_COMPONENT
+MFR02A_REVALIDATION
+VALENCY_UNRESOLVED
+SOURCE_FAMILY_CONFLICT
+LONG_DISTANCE_STRONG_CORRESPONDENCE
+SAME_PATTERN_DIFFERENT_LEVEL
+
+A candidate may have multiple reason codes.
+
+==================================================
+9. Human review tiers
+==================================================
+
+review packet을 세 단계로 나눈다.
+
+TIER_1 — IMMEDIATE REVALIDATION
+
+포함:
+
+- MFR.0.2A의 13건
+- 그 target의 실제 RELATION_ELIGIBLE competing candidates
+- direct global conflict / variant cases
+- current provisional judgment와 충돌하는 새 candidate
+
+TIER_2 — STRUCTURAL COMPETITION
+
+포함:
+
+- 2+ plausible mother candidates
+- HYPOTACTIC/PARATACTIC competition
+- multi-source conflict
+- valency-related deferred relation
+- hierarchy variant component
+
+TIER_3 — LATER REVIEW
+
+포함:
+
+- relation candidate는 있으나
+  현재 major configuration에 직접 영향을 주지 않는 경우
+
+EVIDENCE_ONLY / INSUFFICIENT는
+기본적으로 human review tier에 넣지 않는다.
+
+==================================================
+10. MFR.0.2A 13-case special packet
+==================================================
+
+최우선 human packet을 별도로 생성한다.
+
+각 MFR.0.2A case마다:
+
+case_id
+target
+current_provisional_decision
+
+original configuration
+original evidence
+
+new RELATION_ELIGIBLE candidates
+new CONFIGURATION_ELIGIBLE candidates
+
+excluded EVIDENCE_ONLY count
+excluded INSUFFICIENT count
+
+competing candidate A
+competing candidate B
+competing candidate C
+...
+
+For each competing candidate:
+
+source
+target
+Hebrew text
+clause type
+construction signature
+distance
+
+matched Jin rules
+matched Walton rules
+Bosman evidence
+Oosting evidence
+MILAL extension evidence
+
+FORM
+TIME
+LOCATION
+PARTICIPANT
+REFERENCE
+DOMAIN
+LEXICAL
+VALENCY
+CORPUS_ANALOGUE
+POETIC_PROSODIC
+
+candidate relation
+global compatibility
+hard conflicts
+soft conflicts
+variant effect
+
+No automatic conclusion.
+
+Blank human fields:
+
+human_selected_candidate
+human_selected_relation
+
+CONFIRM_CURRENT
+REVISE_CURRENT
+MULTIPLE_PLAUSIBLE
+INSUFFICIENT
+
+mother_if_hypotactic
+parallel_peer_if_paratactic
+alternative_retained
+rationale
+additional_context_needed
+reviewer_notes
+
+==================================================
+11. Compact candidate presentation
+==================================================
+
+Human packet에서 수백 개 후보를 그대로 출력하지 않는다.
+
+기본 표시:
+
+RELATION_ELIGIBLE
++
+CONFIGURATION_ELIGIBLE
+
+만 full detail로 보여준다.
+
+그리고 하단 summary:
+
+EVIDENCE_ONLY candidates: N
+INSUFFICIENT candidates: N
+
+필요한 경우 별도 raw file에서 candidate_id로 추적 가능해야 한다.
+
+==================================================
+12. Candidate deduplication for presentation only
+==================================================
+
+동일 source-target pair가
+여러 rule에 걸린 경우:
+
+raw candidate를 삭제하지 않는다.
+
+Human packet에서는 하나의 candidate card로 묶고:
+
+matched_rule_ids = [...]
+
+candidate_relations = [...]
+
+evidence_sources = [...]
+
+로 표시한다.
+
+이것은 DISPLAY CONSOLIDATION이지
+data deletion이 아니다.
+
+==================================================
+13. Relation competition sets
+==================================================
+
+각 target에 대해:
+
+RELATION_COMPETITION_SET
+
+을 생성한다.
+
+fields:
+
+target_id
+competition_set_id
+candidate_ids
+relation_types_present
+mother_candidate_count
+parallel_candidate_count
+multiple_candidate_count
+variant_component_ids
+global_conflict_count
+
+Only relation/configuration eligible candidates participate.
+
+==================================================
+14. Mother candidate set
+==================================================
+
+각 target에 대해 별도:
+
+MOTHER_CANDIDATE_SET
+
+생성.
+
+Hypotactic candidate만 포함.
+
+Do not choose mother.
+
+Output:
+
+target
+mother_candidate_ids
+mother_candidate_count
+
+If count = 0:
+NO_HYPOTACTIC_MOTHER_CANDIDATE
+
+If count = 1:
+SINGLE_HYPOTACTIC_CANDIDATE
+
+If count >= 2:
+MOTHER_COMPETITION
+
+SINGLE_HYPOTACTIC_CANDIDATE
+≠
+accepted mother
+
+==================================================
+15. Parallel candidate set
+==================================================
+
+각 target에 대해:
+
+PARALLEL_CANDIDATE_SET
+
+생성.
+
+Do not select winner.
+
+==================================================
+16. Relation disagreement matrix
+==================================================
+
+Create:
+
+RELATION_DISAGREEMENT_MATRIX
+
+For each target/source pair show:
+
+Jin
+Walton
+Bosman
+Oosting
+MILAL extension
+
+relation/evidence contributions.
+
+Important:
+
+Bosman and Oosting may provide evidence
+without directly supplying relation grammar.
+
+Do not force every source family
+to output HYPOTACTIC/PARATACTIC.
+
+==================================================
+17. Global-impact filter
+==================================================
+
+Human-review relevance를 높이기 위해
+global impact를 qualitative하게 분류한다.
+
+GLOBAL_IMPACT:
+
+NONE
+LOCAL_ONLY
+AFFECTS_MOTHER_COMPETITION
+AFFECTS_PARALLEL_CHAIN
+AFFECTS_VARIANT_COMPONENT
+AFFECTS_TEXTUAL_LEVEL
+AFFECTS_MULTIPLE_EXISTING_RELATIONS
+
+No numeric impact score.
+
+==================================================
+18. Long-distance candidates
+==================================================
+
+Long-distance라는 이유만으로 제외하지 않는다.
+
+그러나 long-distance candidate가:
+
+- relation rule 없음
+- configuration relation 없음
+- evidence only
+
+이면 기본 review packet에서는 제외한다.
+
+반대로:
+
+long-distance
++
+relation grammar
+또는
+strong participant/reference/configuration evidence
+또는
+global effect
+
+이면 review eligible로 유지한다.
+
+==================================================
+19. Valency unresolved cases
+==================================================
+
+Oosting layer에서:
+
+RELATION_DEFERRED_PENDING_CLAUSE_BINDING
+
+등으로 표시된 경우
+별도 review queue 생성:
+
+VALENCY_BINDING_REVIEW
+
+이 단계에서 해결하지 않는다.
+
+Human에게:
+
+raw atoms
+proposed clause construction
+valency signature
+intervening material
+corpus analogues
+relation consequences
+
+를 보여준다.
+
+==================================================
+20. Poetry-aware cases
+==================================================
+
+Bosman layer에서:
+
+POETRY_AWARE_EXCEPTION_CANDIDATE
+POETIC_STRUCTURE_CAN_DIVERGE_FROM_SYNTAX
+또는 equivalent conflict
+
+가 발생한 경우 별도 queue:
+
+POETRY_SYNTAX_CONFLICT_REVIEW
+
+No automatic resolution.
+
+==================================================
+21. Temporal/participant structural cases
+==================================================
+
+TIME 또는 PARTICIPANT가 실제 relation competition에
+기여하는 cases를 별도 flag:
+
+TIME_STRUCTURAL_COMPETITION
+PARTICIPANT_STRUCTURAL_COMPETITION
+REFERENCE_STRUCTURAL_COMPETITION
+
+단순 evidence occurrence가 아니라
+competing relation에 영향을 줄 때만 flag한다.
+
+==================================================
+22. Chapter/book boundaries
+==================================================
+
+No change.
+
+PRIMARY_ANALYSIS_SCOPE = JOB
+
+chapter boundary
+≠ review boundary
+
+book boundary
+≠ textual hierarchy rule
+
+Pentateuch / Qohelet / Lamentations / Isaiah controls remain
+fixture-only.
+
+No full external-book analysis.
+
+==================================================
+23. Control fixtures
+==================================================
+
+MFR.0.2R control fixtures는 유지한다.
+
+이번 H0에서는 control data의 역할은:
+
+“review sieve가 진짜 competing candidates를
+보존하는가?”
+
+만 확인한다.
+
+Do not rerun full external analyses.
+
+At minimum:
+
+Lev 25–26
+Num 26
+Pentateuch EDSF
+Qohelet control
+Lamentations control
+Isaiah valency control
+
+에서 known competing candidates가
+RELATION/CONFIGURATION_ELIGIBLE로 살아남는지 확인.
+
+==================================================
+24. Review reduction metrics
+==================================================
+
+반드시 다음을 보고한다.
+
+candidate universe total
+
+RELATION_ELIGIBLE count
+CONFIGURATION_ELIGIBLE count
+EVIDENCE_ONLY count
+INSUFFICIENT count
+
+human-review candidate count
+
+candidate reduction percentage
+단, 이 비율은 단순 통계이며 scoring에 사용하지 않는다.
+
+target total
+
+TARGET_REVIEW_REQUIRED
+TARGET_REVIEW_OPTIONAL
+TARGET_ARCHIVE_ONLY
+
+Tier 1 target count
+Tier 2 target count
+Tier 3 target count
+
+median candidates per target:
+BEFORE sieve
+AFTER sieve
+
+max candidates per target:
+BEFORE sieve
+AFTER sieve
+
+Goal:
+human packet이 실제 사람이 읽을 수 있는 규모로 감소했는지 확인.
+
+No predetermined numeric pass threshold.
+
+==================================================
+25. Sanity check
+==================================================
+
+H0 결과가 여전히 거의 모든 Job target을
+REVIEW_REQUIRED로 분류한다면:
+
+DO NOT silently accept result.
+
+Generate gate warning:
+
+REVIEW_SIEVE_NOT_SELECTIVE
+
+and report why.
+
+Likewise,
+RELATION_ELIGIBLE이 지나치게 적어
+known controls 또는 MFR.0.2A competition을 잃는 경우:
+
+REVIEW_SIEVE_OVERPRUNED
+
+Remember:
+data itself is not deleted,
+but the review sieve must be useful.
+
+==================================================
+26. Special Job checks
+==================================================
+
+Post-freeze inspect at minimum:
+
+Job 1:6
+Job 1:13
+Job 2:1
+
+Job 27:1
+Job 29:1
+Job 31:40
+
+Job 32:1
+Job 32:2
+
+Job 37:24
+Job 38:1
+
+Job 40:1
+Job 40:3
+Job 40:6
+
+Job 42:1
+Job 42:7
+
+These are validation-only refs.
+
+Do not encode their expected decisions.
+
+Question:
+
+Does H0 preserve the genuinely competing candidates
+while moving irrelevant candidates into
+EVIDENCE_ONLY / INSUFFICIENT archive?
+
+==================================================
+27. Historical judgment isolation
+==================================================
+
+Historical HSA/JIN/MFR human decisions
+must not generate eligibility by themselves,
+
+except:
+
+MFR.0.2A 13 cases are explicitly Tier 1
+because this stage exists to revalidate them.
+
+Historical decisions may be DISPLAYED only after
+candidate eligibility was generated from current evidence.
+
+==================================================
+28. Outputs
+==================================================
+
+Required minimum:
+
+01_h0_candidate_review_eligibility.csv
+
+02_h0_target_review_eligibility.csv
+
+03_h0_relation_competition_sets.csv
+
+04_h0_mother_candidate_sets.csv
+
+05_h0_parallel_candidate_sets.csv
+
+06_h0_relation_disagreement_matrix.csv
+
+07_h0_global_impact.csv
+
+08_h0_valency_binding_review.csv
+
+09_h0_poetry_syntax_conflict_review.csv
+
+10_h0_mfr02a_13_case_packet.csv
+
+11_h0_mfr02a_13_case_packet.md
+
+12_h0_tier1_review_cases.csv
+13_h0_tier1_review_packet.md
+
+14_h0_tier2_review_cases.csv
+15_h0_tier3_review_cases.csv
+
+16_h0_archive_summary.csv
+
+17_h0_review_reduction_metrics.json
+
+18_h0_control_fixture_validation.csv
+
+19_h0_method_report.md
+
+20_h0_next_scope.md
+
+21_h0_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+Do not duplicate large raw MFR.0.2R tables inside this stage ZIP
+if manifest/provenance can safely reference immutable originals.
+
+==================================================
+29. Human packet readability
+==================================================
+
+Tier 1 markdown packet must be readable by a scholar.
+
+For each case:
+
+CASE
+TARGET
+
+CURRENT PROVISIONAL STATUS
+
+RELEVANT CONTEXT
+
+ACTUAL COMPETING CANDIDATES ONLY
+
+Candidate A
+Candidate B
+Candidate C
+
+For each:
+
+WHY THIS IS A REAL CANDIDATE
+
+- relation rule
+- formal evidence
+- time
+- location
+- participant
+- reference
+- domain
+- lexical
+- valency
+- corpus analogue
+- poetic evidence
+- global effect
+
+Then:
+
+WHAT WOULD CHANGE IF SELECTED?
+
+No full 100+ candidate dumps.
+
+Link by candidate_id to raw CSV instead.
+
+==================================================
+30. No automatic best candidate
+==================================================
+
+Do not write:
+
+best candidate
+winner
+highest candidate
+preferred candidate
+
+unless those terms refer explicitly to
+an existing historical human judgment.
+
+Engine output should say:
+
+candidate A supported by ...
+candidate B supported by ...
+candidate C supported by ...
+
+Human decides later.
+
+==================================================
+31. Synthetic tests
+==================================================
+
+H0-S1
+100 candidates:
+95 INSUFFICIENT
+3 EVIDENCE_ONLY
+2 HYPOTACTIC
+→ human packet shows 2 relation candidates
+→ all 100 preserved in raw universe
+
+H0-S2
+same source-target pair matches
+3 Jin/Walton rules
+→ one display card
+→ all rule provenance preserved
+
+H0-S3
+formal-only long-distance match
+→ EVIDENCE_ONLY
+→ not Tier 1
+
+H0-S4
+long-distance hypotactic candidate
+with participant/reference support
+→ RELATION_ELIGIBLE
+
+H0-S5
+two mother candidates
+→ TARGET_REVIEW_REQUIRED
+
+H0-S6
+single hypotactic candidate
+→ no automatic mother acceptance
+
+H0-S7
+HYPOTACTIC and PARATACTIC candidates
+for same target
+→ structural competition preserved
+
+H0-S8
+candidate changes variant component
+→ CONFIGURATION_ELIGIBLE
+
+H0-S9
+INSUFFICIENT candidate
+→ archive only
+→ still traceable
+
+H0-S10
+MFR.0.2A case
+→ Tier 1
+→ current judgment preserved
+
+H0-S11
+historical judgment alone
+without current evidence
+→ does not create relation eligibility
+
+H0-S12
+valency unresolved candidate
+→ VALENCY_BINDING_REVIEW
+
+H0-S13
+poetry/syntax conflict
+→ POETRY_SYNTAX_CONFLICT_REVIEW
+
+H0-S14
+no numeric ranking field exists
+
+H0-S15
+candidate universe row count unchanged
+
+==================================================
+32. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+MFR_0_2R_FROZEN
+
+CANDIDATE_UNIVERSE_ROW_COUNT_UNCHANGED
+
+NO_CANDIDATE_DELETED
+
+NO_NEW_RELATION_GRAMMAR
+
+NO_NEW_HUMAN_JUDGMENT
+
+NO_CANONICAL_MOTHER
+
+NO_CANONICAL_HIERARCHY
+
+REVIEW_ELIGIBILITY_CLASSES_COMPLETE
+
+RELATION_ELIGIBLE_IMPLEMENTED
+
+CONFIGURATION_ELIGIBLE_IMPLEMENTED
+
+EVIDENCE_ONLY_IMPLEMENTED
+
+INSUFFICIENT_ARCHIVED_NOT_DELETED
+
+TARGET_LEVEL_REVIEW_CLASSIFICATION_ACTIVE
+
+NO_NUMERIC_RANKING
+
+NO_DISTANCE_CUTOFF
+
+NO_TOP_N_PRUNING
+
+RELATION_COMPETITION_SET_CREATED
+
+MOTHER_CANDIDATE_SET_CREATED
+
+PARALLEL_CANDIDATE_SET_CREATED
+
+GLOBAL_IMPACT_CLASSIFICATION_CREATED
+
+MFR02A_13_ALL_TIER1
+
+MFR02A_HUMAN_DECISIONS_UNCHANGED
+
+VALENCY_REVIEW_QUEUE_CREATED
+
+POETRY_SYNTAX_REVIEW_QUEUE_CREATED
+
+HISTORICAL_JUDGMENT_NO_LEAKAGE
+
+PENTATEUCH_FULL_ANALYSIS_ABSENT
+
+CONTROL_FIXTURES_ONLY
+
+HUMAN_PACKET_COMPACT
+
+RAW_TRACEABILITY_COMPLETE
+
+FULL_REGRESSION_PASS
+
+SKIP_ZERO
+
+DETERMINISTIC_RERUN
+
+MANIFEST_VALID
+
+==================================================
+33. Frozen layers
+==================================================
+
+All prior frozen layers remain unchanged.
+
+Especially:
+
+MFR.0.1
+MFR.0.1a
+MFR.0.1b
+MFR.0.2A
+MFR.0.2R
+
+No rewrite.
+
+H0 outputs are additive.
+
+==================================================
+34. Implementation suggestion
+==================================================
+
+Prefer extending existing MFR.0.2R architecture.
+
+Possible modules:
+
+src/milal_review_eligibility.py
+src/milal_relation_competition.py
+src/milal_review_packet.py
+
+Possible config:
+
+config/mfr_0_2r_h0_job.json
+
+Tests:
+
+tests/test_review_eligibility.py
+tests/test_relation_competition.py
+tests/test_mfr_0_2r_h0.py
+
+Runner:
+
+scripts/run_milal_mfr_0_2r_h0_windows.ps1
+scripts/run_milal_mfr_0_2r_h0_termux.sh
+
+Docs:
+
+docs/MFR_0_2R_H0_SPEC.md
+docs/MFR_0_2R_H0_VALIDATION_REPORT.md
+
+Update HANDOFF.md.
+
+==================================================
+35. Validation order
+==================================================
+
+1. verify baseline commit
+
+2. verify MFR.0.2R frozen hashes
+
+3. load immutable MFR.0.2R candidate universe
+
+4. classify candidate review eligibility
+
+5. verify raw candidate count unchanged
+
+6. construct target-level review status
+
+7. construct relation competition sets
+
+8. construct mother candidate sets
+
+9. construct parallel candidate sets
+
+10. calculate qualitative global impact
+
+11. construct valency review queue
+
+12. construct poetry/syntax conflict queue
+
+13. build MFR.0.2A 13-case Tier 1 packet
+
+14. build Tier 2 / Tier 3 queues
+
+15. build archive summary
+
+16. run external control fixtures only
+
+17. run Job validation refs post-freeze
+
+18. calculate review-reduction metrics
+
+19. generate human-readable packets
+
+20. stage tests
+
+21. full regression
+
+22. independent rerun
+
+23. byte comparison
+
+24. manifest verification
+
+==================================================
+36. Success criterion
+==================================================
+
+Success is NOT:
+
+“find the correct hierarchy.”
+
+Success is NOT:
+
+“reduce candidate count in the database.”
+
+Success is:
+
+“keep the exhaustive MFR.0.2R candidate universe intact,
+while presenting to the human reviewer only candidates that
+actually compete for a textual relation or structural configuration.”
+
+The system must make it possible to move from:
+
+hundreds of candidates per target
+
+to:
+
+a small, linguistically justified competition set
+
+without hiding or deleting the remaining evidence.
+
+==================================================
+37. Next stage
+==================================================
+
+If all gates PASS:
+
+READY_FOR_MFR_0_2R_H
+
+MFR.0.2R-H will be:
+
+Human Revalidation of Relation Competition Sets
+
+Its first scope will be:
+
+MFR.0.2A 13 provisional cases
+
+Do NOT proceed automatically into H.
+
+==================================================
+38. Commit / push
+==================================================
+
+After all validation succeeds:
+
+Suggested commit:
+
+Build human review eligibility sieve
+
+Push origin/main through normal authorization workflow.
+
+==================================================
+39. Final report
+==================================================
+
+Report:
+
+GIT
+1. start commit
+2. end commit
+3. push status
+4. working tree
+
+INTEGRITY
+5. original candidate universe rows
+6. H0 candidate crosswalk rows
+7. deleted candidates = 0
+8. frozen file changes
+
+ELIGIBILITY
+9. RELATION_ELIGIBLE
+10. CONFIGURATION_ELIGIBLE
+11. EVIDENCE_ONLY
+12. INSUFFICIENT
+
+TARGETS
+13. total targets
+14. REVIEW_REQUIRED
+15. REVIEW_OPTIONAL
+16. ARCHIVE_ONLY
+
+TIERS
+17. Tier 1
+18. Tier 2
+19. Tier 3
+
+REDUCTION
+20. median candidates before
+21. median candidates after
+22. max candidates before
+23. max candidates after
+24. human-review candidate total
+25. reduction percentage
+
+COMPETITION
+26. targets with multiple mothers
+27. hypotactic/paratactic conflicts
+28. multi-source conflicts
+29. global-conflict cases
+30. variant-component cases
+
+SPECIAL
+31. MFR.0.2A 13 preserved
+32. all 13 Tier 1?
+33. valency review cases
+34. poetry/syntax conflict cases
+
+CONTROLS
+35. external fixture results
+36. full Pentateuch analysis absent
+
+VALIDATION
+37. stage tests
+38. full regression
+39. gates
+40. deterministic rerun
+41. ZIP
+42. SHA256
+
+READINESS
+43. REVIEW_UNIVERSE_REDUCED_WITHOUT_DATA_LOSS
+44. READY_FOR_MFR_0_2R_H

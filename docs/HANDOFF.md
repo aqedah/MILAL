@@ -1,6 +1,63 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R technically validated, 2026-09-25
+## Current task — MFR.0.2R-H0 technically validated; selectivity warning
+
+Active specification: [H0](MFR_0_2R_H0_SPEC.md); authority:
+[researcher request](MFR_0_2R_H0_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_H0.md); [validation report](MFR_0_2R_H0_VALIDATION_REPORT.md).
+Baseline `3925b2b7a170dee2f2777941957a750248bfece8`.
+
+**REVIEW_UNIVERSE_REDUCED_WITHOUT_DATA_LOSS**.
+**REVIEW_SIEVE_NOT_SELECTIVE** warning remains.
+**REVIEW_SIEVE_SELECTIVITY_REQUIRES_HUMAN_REVIEW**;
+unconditional READY_FOR_MFR_0_2R_H is withheld.
+
+All 1,049,504 original Job pairs remain traceable and unchanged. H0 class counts:
+RELATION_ELIGIBLE 95,929; CONFIGURATION_ELIGIBLE 0 (exclusive precedence, with
+configuration reasons preserved); EVIDENCE_ONLY 849,918; INSUFFICIENT 103,657.
+Default candidate count decreases 90.86%; median 126.5 to 5, maximum 2,922 to 1,136.
+
+Target selectivity is unresolved: required 2,719/2,938 (92.55%), optional 0,
+archive 219. Variant membership affects 2,717 targets; 404 required targets have
+no eligible incoming candidate. Do not change frozen grammar to conceal this.
+Tier 1/2/3 targets: 30/2,689/0. All 13 provisional human cases are preserved and
+in Tier 1, with 290 eligible pairs. Binding queue 39; poetry queue 1; unresolved.
+No new human judgments, canonical mothers or canonical whole hierarchy.
+
+Validation: 62 H0 tests, 2,465 full regression tests, no failures/errors/skips;
+34/34 technical gates pass with negative coverage. Independent A/B files and
+ZIP bytes match; CRC and all 13,875 ZIP member hashes verify. 451 frozen pins,
+including the prior 422, are unchanged. External controls are fixture-only:
+628 existing relation candidates retained. No full external-book analysis run.
+
+Final computer-A paths (not Git-tracked):
+
+- `D:\MILAL_runs\mfr02r_h0_20260925\release_a` and
+  `F:\MILAL_runs\mfr02r_h0_20260925\release_b`.
+- `D:\MILAL_runs\mfr02r_h0_20260925\release_a_results.zip` and
+  `F:\MILAL_runs\mfr02r_h0_20260925\release_b_results.zip`.
+- ZIP SHA256: `d21c171798f02bd46f38fd8d84b2e9d60c3ae626f73d1a8ee384a8a1017af290`.
+- Release receipt: `D:\MILAL_runs\mfr02r_h0_20260925\release_a_verification.json`.
+- Final full regression: `D:\MILAL_runs\mfr02r_h0_20260925\regression_final.json`.
+- Start inspection with `11_h0_mfr02a_13_case_packet.md`; follow complete paged
+  cards, and use blank human fields in tier CSVs. The upstream MFR.0.2R ZIP is
+  required separately for raw provenance; large raw tables are not duplicated.
+
+Final code/config/test fingerprint:
+`ce70590e3707f5833507958521cd6cc26bfd9af0a97ec88b485322ad9d7a59ab`.
+The first `real_a/b` runs predate the diagnostic/presentation correction and are
+not releases. The initial and final eligibility crosswalk bytes are identical;
+no candidate was reclassified to improve the statistics. Final warning threshold
+90% is diagnostic only and is not a numeric pass threshold or review score.
+Four user research PDFs remain untracked local inputs.
+
+Next unresolved question: distinguish mere variant-component participation from
+target-level adjudication necessity. Obtain methodological review of this warning
+before declaring a whole-book human-review universe ready. MFR.0.2R-H's proposed
+first scope remains the 13 provisional cases; do not start H, resumption/closure
+adjudication or canonical hierarchy construction automatically.
+
+## Previous task — MFR.0.2R technically validated, 2026-09-25
 
 Active specification: [MFR.0.2R](MFR_0_2R_SPEC.md); architecture:
 [Clause relation grammar](CLAUSE_RELATION_GRAMMAR.md); execution:

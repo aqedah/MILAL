@@ -65,3 +65,5 @@ docs/MFR_0_2R_OOSTING_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,spac
 # Preserve empirically validated MFR.0.2R configuration bytes for raw fingerprints.
 config/mfr_0_2r_job.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 config/mfr_0_2r_required_gates.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+docs/MFR_0_2R_H0_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
