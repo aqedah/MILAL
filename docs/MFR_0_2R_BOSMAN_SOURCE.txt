@@ -1,0 +1,1114 @@
+[추가 지시 — Bosman integration / poetry-aware evidence architecture]
+
+현재 진행 중인 MFR.0.2R 작업을 중단하거나 처음부터 재시작하지 마세요.
+기존 MFR.0.2R 본지시와 Walton 추가 지시를 유지한 상태에서
+아래 요구사항을 현재 relation-engine 및 evidence architecture에 추가 통합하세요.
+
+참고 연구:
+
+Hendrik-Jan Bosman,
+Prosodic Influence on the Text Syntax of Lamentations
+(PhD dissertation, Vrije Universiteit Amsterdam, 2019).
+
+주요 참조 부분:
+
+- Chapter 9, especially §9.1
+  Participant References and Syntactic Units
+- Chapter 12, especially §12.1
+  Conclusions from the Research
+- Chapter 13
+  Proposal for an Approach
+- §13.1 General Outline
+- §13.2 Organize Observations into Categories
+- §13.3 Expand the Database
+- §13.4 Add Linguistic Features to the Data
+- §13.5 From Labels to Linguistic Rules
+- Appendix A implementation discussion
+
+중요:
+
+MILAL은 Bosman의 애가 분석 전체를 구현하지 않습니다.
+
+특히 다음을 그대로 일반화하지 마세요:
+
+- Lamentations-specific acrostic rules
+- specific colon / verseline / strophe judgments
+- qinah assumptions
+- Bosman의 개별 애가 hierarchy
+- 특정 prosodic 분석을 Job에 hard-code하는 것
+
+Bosman에게서 선택적으로 수용할 것은:
+
+1. clause pair만이 아니라 larger textual-unit context를 고려하는 원칙
+2. syntactic / participant-reference / prosodic evidence를 별도 layer로 관리하는 원칙
+3. participant-reference structure가 syntactic hierarchy와 일치하지 않을 수 있다는 원칙
+4. poetic/prosodic structure가 일부 clause relations에 실제 영향을 줄 가능성을 검증하는 원칙
+5. program proposal과 human acceptance/rejection을 모두 보존하는 원칙
+6. accepted뿐 아니라 rejected candidate도 linguistic-rule discovery에 사용하는 원칙
+7. expandable, human-readable descriptive labels
+8. multiple evidence categories의 결합을 숨기지 않고 보존하는 원칙
+9. hypothesis → computation → human correction → revised rule의 iterative workflow
+
+==================================================
+B1. Source provenance
+==================================================
+
+Bosman-derived elements에는 반드시 별도 provenance를 기록하세요.
+
+Minimum:
+
+source_author = BOSMAN
+source_work = PROSODIC_INFLUENCE_ON_TEXT_SYNTAX_OF_LAMENTATIONS
+source_section
+source_page_if_verified
+adoption_status
+
+Allowed adoption_status:
+
+DIRECTLY_ADOPTED
+SELECTIVELY_ADOPTED
+GENERALIZED_FOR_MILAL
+JOB_SPECIFIC_EXTENSION
+NOT_APPLICABLE_TO_JOB
+NOT_USED_AS_HARD_RULE
+
+Jin / Walton / Bosman / MILAL 자체 확장을 절대 한 출처처럼 섞지 마세요.
+
+==================================================
+B2. Multi-layer architecture
+==================================================
+
+Bosman의 중요한 제안을 반영하여
+다음 구조들을 개념적으로 분리하세요.
+
+A. TEXTUAL_SYNTACTIC_LAYER
+
+- clause / clause_atom relations
+- HYPOTACTIC
+- PARATACTIC
+- hierarchy candidate
+- textual-unit containment
+
+B. PARTICIPANT_REFERENCE_LAYER
+
+- participant introductions
+- reintroductions
+- continuations
+- pronouns
+- suffixes
+- implicit subject references
+- participant sets
+- speaker / addressee
+- communication-domain continuity/change
+- antecedent relations
+
+C. POETIC_PROSODIC_LAYER
+
+Job에서 BHSA 및 현재 자료로 관찰 가능한 범위만:
+
+- poetic line / parallel configuration if available
+- lexical parallelism
+- syntactic parallelism
+- repeated phrase configuration
+- cola / verse-line information only if a reliable source is available
+- closure/opening correspondence
+- poetic arrangement evidence
+
+중요:
+
+이 세 layer는 서로 비교할 수 있어야 하지만
+처음부터 하나의 hierarchy로 합치지 마세요.
+
+==================================================
+B3. Textual hierarchy remains distinct
+==================================================
+
+TEXTUAL_SYNTACTIC_LAYER의 mother-daughter hierarchy와
+
+PARTICIPANT_REFERENCE_LAYER의 reference relation,
+
+POETIC_PROSODIC_LAYER의 parallel / correspondence relation
+
+을 동일한 edge type으로 처리하지 마세요.
+
+Example:
+
+Clause B may be syntactically dependent on Clause A
+
+while a suffix in Clause B refers to a participant introduced
+inside the larger unit opened by Clause X.
+
+이 경우:
+
+syntactic mother = A
+
+reference antecedent/context = X 또는 X-unit 내부 participant
+
+가 동시에 가능해야 합니다.
+
+==================================================
+B4. Larger-unit-aware candidate context
+==================================================
+
+Bosman이 지적한 핵심 문제를 구현하세요:
+
+participant reference의 antecedent가
+candidate mother clause 자체에 나타나지 않고,
+그 mother가 여는 더 큰 syntactic unit 내부에
+나타날 수 있습니다.
+
+따라서 candidate evaluation을:
+
+SOURCE_CLAUSE
+↔
+TARGET_CLAUSE
+
+pair만으로 제한하지 마세요.
+
+추가 context:
+
+SOURCE_CONTAINING_UNIT
+TARGET_CONTAINING_UNIT
+INTERVENING_UNIT
+PARTICIPANT_REFERENTS_WITHIN_SOURCE_UNIT
+
+를 사용할 수 있어야 합니다.
+
+Minimum fields:
+
+source_clause_id
+target_clause_id
+
+source_unit_candidate_id
+target_unit_candidate_id
+
+direct_reference_match
+unit_internal_reference_match
+
+antecedent_clause_id
+antecedent_unit_id
+
+reference_depth
+
+reference_hidden_in_larger_unit = true/false
+
+==================================================
+B5. Unit-aware participant evidence
+==================================================
+
+PARTICIPANT evidence를 다음 두 단계로 분리하세요.
+
+DIRECT_PAIR_EVIDENCE
+
+- source clause participant
+- target clause participant
+- direct suffix/pronoun antecedent
+
+LARGER_UNIT_EVIDENCE
+
+- participant introduced elsewhere inside source unit
+- participant set active in source unit
+- participant reintroduced in target
+- reference path crossing internal clauses
+
+따라서:
+
+NO_PARTICIPANT_MATCH_AT_MOTHER_CLAUSE
+
+가 곧
+
+NO_PARTICIPANT_RELATION
+
+을 의미하지 않도록 하세요.
+
+==================================================
+B6. Intermediate textual units
+==================================================
+
+Bosman은 clause hierarchy가
+clause / sentence / paragraph 사이에 존재하는
+중간 textual units를 암시한다고 봅니다.
+
+MILAL에서는 이를 provisional하게 표현하세요.
+
+Possible object:
+
+TEXTUAL_UNIT_CANDIDATE
+
+fields:
+
+unit_id
+opening_clause
+closing_clause_candidate
+member_clauses
+hierarchy_depth_candidate
+parent_unit_candidate
+derivation_source
+
+derivation_source:
+
+HIERARCHY_DERIVED
+RELATION_COMPONENT_DERIVED
+HUMAN_DEFINED
+
+Do NOT invent literary paragraphs at this stage.
+
+These are syntactically derived candidate units.
+
+==================================================
+B7. Poetry-aware analysis
+==================================================
+
+Job 3–42 contains extensive poetic discourse.
+
+Therefore relation grammar developed mainly from prose examples
+must not be assumed to explain every Job relation without residue.
+
+Introduce:
+
+POETRY_AWARE_EXCEPTION_CANDIDATE
+
+when:
+
+- normal syntactic rule generates an implausible relation
+- strong poetic correspondence crosses the expected short-range relation
+- parallel clause configuration conflicts with ordinary prose expectation
+- constituent order may plausibly be affected by poetic arrangement
+- repeated poetic structure provides competing evidence
+
+However:
+
+POETRY_AWARE_EXCEPTION_CANDIDATE
+≠
+automatic override of syntax
+
+The evidence must be formally observable.
+
+==================================================
+B8. Syntax first, but not syntax only
+==================================================
+
+Maintain methodological order:
+
+PASS 1
+syntactic / morphological / participant / reference / time / location / domain
+
+PASS 2
+poetic/prosodic observations where relevant
+
+PASS 3
+human comparison of competing structures
+
+Do not use:
+
+theme
+literary impression
+assumed stanza
+commentary outline
+
+to pre-generate textual hierarchy.
+
+But do not suppress formally observable poetic/prosodic evidence
+when it genuinely conflicts with ordinary syntactic expectations.
+
+==================================================
+B9. Prosodic evidence status
+==================================================
+
+For every poetic/prosodic observation use one of:
+
+PROSODIC_SUPPORT
+PROSODIC_COUNTEREVIDENCE
+PROSODIC_ALTERNATIVE
+PROSODIC_NOT_AVAILABLE
+PROSODIC_NOT_VERIFIED
+
+No automatic:
+
+prosodic boundary = syntactic boundary
+
+No automatic:
+
+parallelism = parataxis
+
+No automatic:
+
+line boundary = mother change
+
+==================================================
+B10. Job-specific prosody restriction
+==================================================
+
+Do NOT import Bosman’s Lamentations-specific phenomena such as:
+
+ACROSTIC_OVERRIDE
+E_STROPHE_BEHAVIOR
+LAM_STROPHE_RULE
+LAM_COLON_RULE
+
+into Job relation grammar.
+
+If such concepts are useful only abstractly,
+generalize them as:
+
+POETIC_FORM_CONSTRAINT
+POETIC_BOUNDARY_EVIDENCE
+POETIC_WORD_ORDER_EFFECT
+
+with:
+
+source = BOSMAN
+adoption_status = GENERALIZED_FOR_MILAL
+
+==================================================
+B11. Separate evidence categories
+==================================================
+
+Extend current evidence architecture so every candidate relation can expose:
+
+SYNTACTIC_LABELS
+
+PARTICIPANT_LABELS
+
+TEMPORAL_LABELS
+
+LOCATIVE_LABELS
+
+DOMAIN_LABELS
+
+LEXICAL_LABELS
+
+POETIC_PROSODIC_LABELS
+
+Do not collapse them into one scalar score.
+
+The same observable phenomenon may legitimately participate
+in more than one category.
+
+Example:
+
+lexical repetition may function as:
+
+LEXICAL_CORRESPONDENCE
+
+and, in a poetic configuration:
+
+POETIC_PARALLELISM_EVIDENCE
+
+Preserve both provenance paths.
+
+==================================================
+B12. Expandable descriptive labels
+==================================================
+
+Following Bosman’s §13.4 proposal,
+descriptive labels must be:
+
+- human-readable
+- machine-readable
+- externally configurable where practical
+- extensible without editing core engine logic
+
+Do not hard-code every label in procedural code
+if configuration files can express them.
+
+Recommended:
+
+config/evidence_labels_syntax.json
+config/evidence_labels_participant.json
+config/evidence_labels_poetic.json
+
+or equivalent existing architecture.
+
+==================================================
+B13. Label pattern provenance
+==================================================
+
+Each label definition should record:
+
+label_id
+category
+description
+observable_pattern
+object_type
+source_author
+source_section
+implementation_status
+
+object_type may include:
+
+WORD
+PHRASE
+CLAUSE_ATOM
+CLAUSE
+CLAUSE_PAIR
+TEXTUAL_UNIT
+RELATION
+VARIANT_COMPONENT
+
+==================================================
+B14. Program / human decision matrix
+==================================================
+
+Bosman explicitly distinguishes four logical outcomes
+for a clause connection.
+
+MILAL must preserve equivalent states.
+
+Minimum:
+
+PROGRAM_PROPOSED_HUMAN_ACCEPTED
+
+PROGRAM_PROPOSED_HUMAN_REJECTED
+
+PROGRAM_NOT_PROPOSED_HUMAN_ACCEPTED
+
+PROGRAM_NOT_PROPOSED_HUMAN_REJECTED
+
+Because MILAL may preserve multiple candidates,
+also allow:
+
+PROGRAM_PROPOSED_HUMAN_UNDECIDED
+
+PROGRAM_PROPOSED_HUMAN_ALTERNATIVE_RETAINED
+
+Never overwrite the program proposal after human review.
+
+==================================================
+B15. Rejected candidates are research data
+==================================================
+
+Do not discard rejected relation candidates.
+
+For each rejected candidate preserve:
+
+candidate relation
+rule IDs
+evidence labels
+human decision
+human rationale
+competing accepted candidate
+global conflict
+later revision history
+
+Reason:
+
+accepted and rejected combinations of evidence
+can later be used to refine relation rules.
+
+==================================================
+B16. Rule-discovery dataset
+==================================================
+
+Create a derived dataset suitable for future
+rule refinement.
+
+Suggested output:
+
+relation_decision_learning_table.csv
+
+Each row:
+
+target
+candidate_source
+candidate_relation
+
+Jin rule IDs
+Walton rule IDs
+Bosman-derived labels
+MILAL extension labels
+
+syntactic labels
+participant labels
+time labels
+location labels
+reference labels
+domain labels
+lexical labels
+poetic/prosodic labels
+
+program decision
+human decision
+final status
+
+No machine-learning model is required in this stage.
+
+The purpose is transparent rule discovery,
+not opaque prediction.
+
+==================================================
+B17. No automatic learning in this stage
+==================================================
+
+Do NOT train:
+
+classifier
+ranking model
+black-box relation predictor
+
+in MFR.0.2R.
+
+This stage only prepares transparent evidence
+that later may reveal which label combinations
+correspond with accepted/rejected relations.
+
+==================================================
+B18. Hierarchy is hypothetical and revisable
+==================================================
+
+Bosman treats ETCBC clause hierarchies as hypotheses,
+not untouchable ground truth.
+
+MILAL must do the same.
+
+Status terminology should distinguish:
+
+DATABASE_EXISTING_RELATION
+
+ENGINE_PROPOSED_RELATION
+
+PROVISIONAL_HUMAN_RELATION
+
+REVISED_HUMAN_RELATION
+
+CANONICAL_FOR_CURRENT_ANALYSIS
+
+Do not call BHSA/ETCBC inherited hierarchy:
+
+GROUND_TRUTH
+
+==================================================
+B19. Participant structure may diverge from syntax
+==================================================
+
+Add explicit gate:
+
+PARTICIPANT_STRUCTURE_CAN_DIVERGE_FROM_SYNTAX
+
+Example allowed:
+
+syntactic hierarchy:
+A → B
+
+participant reference:
+X(unit containing A) → B
+
+No forced collapse.
+
+==================================================
+B20. Poetic structure may diverge from syntax
+==================================================
+
+Add explicit gate:
+
+POETIC_STRUCTURE_CAN_DIVERGE_FROM_SYNTAX
+
+A poetic correspondence may connect:
+
+A ↔ C
+
+while the syntactic hierarchy is:
+
+A → B → C
+
+or another structure.
+
+Both relations must survive as different typed edges.
+
+==================================================
+B21. Tree limitation awareness
+==================================================
+
+Do not abandon the textual-hierarchy tree.
+
+For accepted HYPOTACTIC hierarchy:
+one mother remains the final constraint.
+
+However, allow non-tree typed relations:
+
+PARTICIPANT_REFERENCE
+LEXICAL_CORRESPONDENCE
+TEMPORAL_RELATION
+LOCATIVE_RELATION
+POETIC_PARALLELISM
+CLOSURE
+RESUMPTION
+
+Thus:
+
+TEXTUAL_HIERARCHY = tree-like constrained dimension
+
+FULL_MILAL_RELATION_MODEL = typed graph
+
+==================================================
+B22. Short-range relation and poetic boundaries
+==================================================
+
+Where reliable poetic-unit data are available,
+record whether a candidate relation:
+
+WITHIN_SAME_POETIC_UNIT
+
+CROSSES_POETIC_UNIT_BOUNDARY
+
+UNKNOWN_POETIC_BOUNDARY
+
+Do not make boundary crossing an automatic rejection.
+
+It is evidence only.
+
+==================================================
+B23. Job poetry data availability
+==================================================
+
+Before using colon / verseline / strophe evidence in Job,
+verify that the underlying dataset actually supplies
+a reliable annotation.
+
+If unavailable:
+
+status = PROSODIC_NOT_AVAILABLE
+
+Do not invent poetic divisions.
+
+Do not derive strophes from verse numbers.
+
+Do not use modern commentary sectioning as raw data.
+
+==================================================
+B24. Structural repetition
+==================================================
+
+Bosman’s concern with poetic structure supports
+preserving formal repetition at multiple levels.
+
+Continue to track:
+
+lexical repetition
+phrase repetition
+clause-type repetition
+constituent-order repetition
+multi-clause configuration repetition
+
+But distinguish:
+
+SYNTACTIC_CORRESPONDENCE
+
+from
+
+POETIC_STRUCTURAL_CORRESPONDENCE
+
+even where both are triggered by the same raw observations.
+
+==================================================
+B25. Wider-context queries
+==================================================
+
+Candidate-label rules must be allowed to inspect
+wider context rather than only the two clauses.
+
+At minimum support:
+
+previous clause
+next clause
+source containing unit
+target containing unit
+intervening clauses
+participant occurrences within units
+preceding/following frame candidates
+
+This does NOT mean unlimited literary interpretation.
+
+All context labels must remain tied to observable data.
+
+==================================================
+B26. Relation history
+==================================================
+
+Integrate Bosman with the Walton iterative-revision requirement.
+
+For each relation preserve:
+
+generation_stage
+engine_version
+candidate_status
+human_status
+revision_event
+evidence_added
+evidence_removed
+reason
+
+Append-only where practical.
+
+==================================================
+B27. Bosman-specific validation cases
+==================================================
+
+Do not hard-code Bosman’s conclusions in the core engine.
+
+After blind freeze,
+run methodological controls from Lamentations where feasible.
+
+Control goals:
+
+1. demonstrate that participant antecedent may be hidden
+   inside a larger source unit
+
+2. demonstrate that direct mother-clause comparison alone
+   can miss participant evidence
+
+3. demonstrate that syntactic and participant structures
+   can diverge
+
+4. demonstrate that a poetic boundary can provide
+   additional evidence without automatically overriding syntax
+
+Use exact Lamentations cases only in post-freeze test fixtures.
+
+==================================================
+B28. Job validation cases
+==================================================
+
+After blind Job freeze,
+identify cases where:
+
+- syntactic candidate relation is clear
+- participant structure suggests a different long-range connection
+
+and cases where:
+
+- repeated poetic configuration creates a relation
+  not reducible to direct mother-daughter hierarchy
+
+Do not preload specific Job outcomes.
+
+==================================================
+B29. Additional outputs
+==================================================
+
+Add or extend outputs equivalent to:
+
+bosman_source_crosswalk.csv
+
+participant_unit_reference_evidence.csv
+
+textual_unit_candidates.csv
+
+poetic_prosodic_evidence.csv
+
+relation_multilayer_edges.csv
+
+program_human_decision_matrix.csv
+
+relation_decision_learning_table.csv
+
+bosman_method_control_report.md
+
+If an existing MFR.0.2R output already covers the same data,
+extend it instead of duplicating files unnecessarily.
+
+==================================================
+B30. Additional synthetic tests
+==================================================
+
+B-S1
+daughter suffix refers not to direct mother clause
+but to participant inside mother’s containing unit
+→ unit-aware reference evidence recovered
+
+B-S2
+direct clause pair has no participant match
+but containing unit does
+→ candidate remains plausible
+
+B-S3
+syntactic mother relation and participant-reference relation differ
+→ both typed edges preserved
+
+B-S4
+syntactic relation and poetic parallel relation differ
+→ both preserved
+
+B-S5
+prosodic boundary present
+→ evidence recorded
+→ no automatic hierarchy break
+
+B-S6
+same raw lexical repetition supports both
+LEXICAL and POETIC categories
+→ provenance preserved separately
+
+B-S7
+program proposes candidate, human rejects
+→ candidate retained in historical dataset
+
+B-S8
+program fails to propose relation, human later selects it
+→ status preserved
+
+B-S9
+rejected candidates remain available
+for transparent rule-analysis dataset
+
+B-S10
+Lamentations-specific acrostic rule
+→ not activated in Job
+
+B-S11
+poetic unit annotation unavailable
+→ PROSODIC_NOT_AVAILABLE
+→ no invented boundary
+
+B-S12
+larger-unit context changes candidate interpretation
+→ revision history records cause
+
+==================================================
+B31. Additional gates
+==================================================
+
+BOSMAN_SOURCE_PROVENANCE_COMPLETE
+
+MULTILAYER_EVIDENCE_ARCHITECTURE_ACTIVE
+
+TEXTUAL_PARTICIPANT_POETIC_LAYERS_SEPARATE
+
+LARGER_UNIT_CONTEXT_AVAILABLE
+
+HIDDEN_PARTICIPANT_REFERENCE_RECOVERABLE
+
+PARTICIPANT_STRUCTURE_CAN_DIVERGE_FROM_SYNTAX
+
+POETIC_STRUCTURE_CAN_DIVERGE_FROM_SYNTAX
+
+TEXTUAL_HIERARCHY_REMAINS_TREE_DIMENSION
+
+FULL_RELATION_MODEL_SUPPORTS_TYPED_GRAPH
+
+PROGRAM_HUMAN_DECISION_MATRIX_PRESERVED
+
+REJECTED_CANDIDATES_PRESERVED
+
+RULE_DISCOVERY_DATASET_CREATED
+
+NO_BLACK_BOX_LEARNING
+
+NO_ACROSTIC_RULE_IMPORTED_TO_JOB
+
+NO_INVENTED_JOB_STROPHE
+
+PROSODY_NOT_AUTOMATIC_BOUNDARY
+
+POETRY_AWARE_EXCEPTION_REPRESENTABLE
+
+==================================================
+B32. Methodological source families
+==================================================
+
+Update docs/CLAUSE_RELATION_GRAMMAR.md
+or the relevant methodology document.
+
+Use four distinct source families:
+
+SOURCE FAMILY A
+ETCBC / Talstra
+- form-to-function
+- bottom-up / text-syntactic hierarchy
+
+SOURCE FAMILY B
+Walton
+- clause connection procedures
+- explicit subordination
+- participant continuity
+- time/place
+- iterative hierarchy construction
+
+SOURCE FAMILY C
+Jin
+- expanded paratactic/hypotactic relation grammar
+- candidate mother comparison
+- long-distance correspondence
+- hierarchy-level function
+- alternative/global structures
+
+SOURCE FAMILY D
+Bosman
+- multi-layer evidence architecture
+- larger-unit-aware participant reference
+- poetry/prosody-sensitive correction
+- program/human proposal matrix
+- accepted/rejected candidate retention
+- expandable descriptive labels
+
+SOURCE FAMILY E
+MILAL
+- exhaustive candidate generation
+- evidence provenance
+- typed relation graph
+- ambiguity components
+- deterministic runs
+- historical decision tracking
+- cross-source rule comparison
+
+Do not state:
+
+MILAL is based on Jin.
+MILAL is based on Walton.
+MILAL is based on Bosman.
+
+Preferred wording:
+
+MILAL selectively incorporates relevant procedures
+and observations from the ETCBC text-linguistic tradition,
+including Walton, Jin, and Bosman,
+while implementing them in a reproducible
+candidate/evidence/adjudication architecture.
+
+==================================================
+B33. Conflict handling
+==================================================
+
+Where:
+
+Jin relation grammar
+Walton clause-connection procedure
+Bosman larger-unit or poetry-aware evidence
+
+support different analyses,
+
+do not set source priority.
+
+Output:
+
+MULTI_SOURCE_ANALYTIC_CONFLICT
+
+fields:
+
+jin_support
+walton_support
+bosman_support
+shared_observations
+conflicting_observations
+affected_relation
+affected_variant
+
+Human adjudication later.
+
+==================================================
+B34. No current human judgment changes
+==================================================
+
+This Bosman integration must NOT:
+
+- change MFR.0.2A human decisions automatically
+- create a new canonical Job hierarchy
+- accept a new mother automatically
+- adjudicate poetic structure
+- adjudicate resumption
+- adjudicate closure
+
+It only enlarges and clarifies
+the evidence architecture and validation machinery.
+
+==================================================
+B35. Integration with current work
+==================================================
+
+Do not rollback current MFR.0.2R.
+
+If current implementation already has equivalent concepts:
+
+- typed graph
+- evidence dimensions
+- human decision provenance
+- variant components
+- participant reference
+
+reuse and extend them.
+
+Do not create redundant parallel frameworks.
+
+Record in validation report:
+
+BOSMAN_INTEGRATION
+
+with:
+
+1. directly adopted concepts
+2. generalized concepts
+3. concepts not applicable to Job
+4. schema changes
+5. new outputs
+6. new tests
+7. new gates
+8. any conflicts with existing implementation
+
+==================================================
+B36. Final methodological goal
+==================================================
+
+The purpose of Bosman integration is NOT:
+
+“make Job look like Lamentations.”
+
+The purpose is:
+
+prevent a prose-oriented pairwise clause-relation engine
+from mistaking the limits of its own model
+for properties of a poetic Biblical Hebrew text.
+
+MILAL must therefore be able to say:
+
+- syntax suggests relation A
+- participant-reference structure suggests relation B
+- poetic/prosodic structure supplies relation/evidence C
+- all three are formally observable
+- their disagreement is preserved
+- textual hierarchy is adjudicated only after the disagreement is visible
+
+==================================================
+B37. Final report addition
+==================================================
+
+Add to the MFR.0.2R final report:
+
+BOSMAN INTEGRATION
+
+1. Bosman source sections verified
+2. selectively adopted concepts
+3. rejected/non-applicable Lamentations-specific concepts
+4. larger-unit-aware reference cases
+5. participant/syntax divergence cases
+6. poetic/syntax divergence cases
+7. multi-category labels generated
+8. program/human decision states
+9. rejected candidates retained
+10. rule-discovery rows
+11. synthetic tests
+12. control tests
+13. gates
+14. frozen-layer changes
+15. confirmation that no canonical hierarchy was automatically changed
+
+==================================================
+B38. Do not reset current task
+==================================================
+
+다시 강조:
+
+현재 진행 중인 MFR.0.2R 작업을 중단하거나 재시작하지 마세요.
+
+기존 MFR.0.2R
++
+Walton integration
++
+이번 Bosman integration
+
+을 하나의 일관된 relation-engine architecture로 통합하세요.
+
+이미 구현된 것과 중복되는 요구사항은
+새 모듈을 만들기보다 기존 구조를 확장하세요.
+
+모든 source provenance와 methodological distinction은
+최종 validation report에 명시하세요.

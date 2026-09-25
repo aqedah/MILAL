@@ -1,0 +1,1046 @@
+[추가 지시 — Oosting integration / valency & corpus-analogue layer]
+
+현재 진행 중인 MFR.0.2R 작업을 중단하거나 처음부터 재시작하지 마세요.
+기존 MFR.0.2R 본지시,
+Walton integration,
+Bosman integration을 유지한 상태에서
+아래 요구사항을 현재 relation-engine architecture에 추가 통합하세요.
+
+참고 연구:
+
+Reinoud Henri Oosting,
+Walls of Zion and Ruins of Jerusalem:
+A Corpus-Linguistic View on the Participant Zion/Jerusalem in Isaiah 40–55
+(PhD dissertation, Vrije Universiteit Amsterdam, 2011).
+
+주요 참조 부분:
+
+- Chapter 1: On Method
+- §1.1.4 From Syntax up to Participants
+- §1.2 Valency Patterns in Isa 40–55
+- §1.2.3 Valency and Clause Structure
+- §1.2.4 Valency and Clause Connections
+- §1.3 Describing the Syntactic Features of Isa 40–55
+- §1.3.6 Masoretic Accents
+- §1.4 Summary
+
+중요:
+
+MILAL은 Oosting의 이사야 40–55 분석 전체를 구현하지 않습니다.
+
+Oosting에게서 선택적으로 수용할 것은:
+
+1. clause relation 판정 전에 clause-internal valency structure를 검토하는 원칙
+2. 분리된 clause_atoms가 하나의 valency pattern을 이루는지 검증하는 원칙
+3. 동일/유사한 구문을 히브리 성서 전체 corpus에서 검색하여 linguistic regularity를 검증하는 원칙
+4. 관찰된 syntactic pattern을 성급하게 일반화하지 않고 실제 형식대로 우선 등록하는 원칙
+5. syntax → discourse structure → participant analysis라는 단계적 해석 순서
+6. Masoretic accentuation을 primary structure signal이 아니라 secondary adjudication evidence로 사용하는 원칙
+7. text as it stands를 먼저 기술하고, reconstruction을 분석 시작점으로 삼지 않는 원칙
+
+다음은 그대로 가져오지 않습니다:
+
+- Isaiah 40–55 specific valency conclusions
+- Zion/Jerusalem participant conclusions
+- Isaiah-specific textual hierarchy
+- 특정 Masoretic accent decision
+- 특정 본문 emendation 판단
+- 특정 participle interpretation
+
+==================================================
+O1. Source provenance
+==================================================
+
+Oosting-derived rule/evidence에는 반드시 별도 provenance를 기록하세요.
+
+Minimum fields:
+
+source_author = OOSTING
+source_work = WALLS_OF_ZION_AND_RUINS_OF_JERUSALEM
+source_section
+source_page_if_verified
+adoption_status
+
+Allowed:
+
+DIRECTLY_ADOPTED
+SELECTIVELY_ADOPTED
+GENERALIZED_FOR_MILAL
+JOB_SPECIFIC_EXTENSION
+NOT_APPLICABLE_TO_JOB
+NOT_USED_AS_HARD_RULE
+
+Jin / Walton / Bosman / Oosting / MILAL extension을
+절대 하나의 source family로 섞지 마세요.
+
+==================================================
+O2. Critical architecture correction:
+VALENCY before CLAUSE RELATION
+==================================================
+
+현재 central engine 순서를 다음과 같이 수정하세요:
+
+RAW BHSA FEATURES
+→ CLAUSE_ATOM INVENTORY
+→ CLAUSE-INTERNAL VALENCY / BINDING ANALYSIS
+→ CLAUSE CONSTRUCTION / CONSTITUTION CANDIDATES
+→ EXACT CONSTRUCTION SIGNATURE
+→ PRECEDING CLAUSE CANDIDATES
+→ RELATION GRAMMAR
+→ PROVISIONAL HIERARCHY
+
+핵심 원칙:
+
+두 clause_atoms가 서로 떨어져 있다고 해서
+자동으로 서로 다른 clause relations를 이루는 것은 아닙니다.
+
+먼저 다음을 물어야 합니다:
+
+DO THESE CLAUSE ATOMS BELONG TO ONE CLAUSE
+BECAUSE THEY COMPLETE ONE VALENCY PATTERN?
+
+이 검사를 relation grammar보다 먼저 수행하세요.
+
+==================================================
+O3. Clause atom binding
+==================================================
+
+새 evidence / candidate type:
+
+CLAUSE_INTERNAL_BINDING_CANDIDATE
+
+Possible reasons:
+
+VALENCY_COMPLETION
+VOCATIVE_INTERRUPTION
+INSERTED_CLAUSE_INTERRUPTION
+SPLIT_COMPLEMENT
+SPLIT_OBJECT
+SPLIT_PREDICATE_COMPLEMENT
+RECURSIVE_VALENCY_PATTERN
+OTHER_SYNTACTIC_BINDING
+
+Each candidate must record:
+
+clause_atom_a
+clause_atom_b
+intervening_atoms
+predicate_lexeme
+verbal_stem
+valency_slots
+realized_arguments
+missing_arguments
+binding_evidence
+corpus_analogues
+status
+
+Do NOT automatically merge clause_atoms.
+Preserve as candidate until rule/evidence is sufficient.
+
+==================================================
+O4. Valency signature
+==================================================
+
+For verbal and relevant nominal constructions create:
+
+VALENCY_SIGNATURE
+
+Minimum:
+
+predicate_lexeme
+stem
+voice_if_available
+predicate_type
+argument_slots
+complement_types
+prepositions
+phrase_functions
+participant_role_slots
+constituent_arrangement
+
+Example abstractly:
+
+VERB + OBJECT + מן-COMPLEMENT
+
+must remain distinct from:
+
+VERB + LOCATIVE
+
+or:
+
+VERB + INDIRECT_OBJECT
+
+Do not reduce all to generic clause type.
+
+==================================================
+O5. Exact construction signature
+==================================================
+
+Each clause / reconstructed clause candidate must preserve:
+
+CLAUSE_TYPE
+VALENCY_SIGNATURE
+CONSTITUENT_SIGNATURE
+PHRASE_FUNCTION_SEQUENCE
+MORPHOLOGICAL_SIGNATURE
+
+Important:
+
+similar-looking constructions must not be merged
+merely because they share a lexeme or clause type.
+
+Use exact observed form first.
+
+Generalization happens only after distributional comparison.
+
+==================================================
+O6. Corpus analogue search
+==================================================
+
+Introduce first-class evidence:
+
+CORPUS_ANALOGUE_EVIDENCE
+
+For each relevant construction, search the permitted corpus
+for same or closely comparable constructions.
+
+Comparison dimensions:
+
+predicate lexeme
+stem
+valency pattern
+prepositions
+phrase functions
+clause type
+constituent order
+morphology
+participant-reference behavior
+domain if relevant
+
+Possible statuses:
+
+EXACT_ANALOGUE
+CLOSE_ANALOGUE
+PARTIAL_ANALOGUE
+NO_ANALOGUE_FOUND
+OUTSIDE_SCOPE_NOT_TESTED
+
+Important:
+
+corpus analogue
+≠ automatic proof of hierarchy relation
+
+It is validation evidence for:
+
+- clause constitution
+- valency interpretation
+- syntactic plausibility
+- construction function
+
+==================================================
+O7. Cross-book corpus evidence
+==================================================
+
+Do not require same book.
+
+Corpus search may include the entire Hebrew Bible
+when configured for validation.
+
+For Job run:
+
+primary hierarchy scope = Job
+
+but corpus analogue scope may be:
+
+HB_CORPUS
+
+if BHSA coverage is available.
+
+Keep two fields separate:
+
+analysis_scope
+corpus_comparison_scope
+
+Never confuse:
+
+OUTSIDE_HIERARCHY_SCOPE
+
+with
+
+OUTSIDE_CORPUS_EVIDENCE_SCOPE
+
+==================================================
+O8. No nearest-atom assumption
+==================================================
+
+A clause-internal valency relation may span:
+
+- vocative
+- inserted clause
+- multiple intervening clauses
+- poetic interruption
+
+Distance is metadata, not rejection criterion.
+
+Add gate:
+
+VALENCY_BINDING_CAN_CROSS_INTERVENING_CLAUSES
+
+==================================================
+O9. Relation grammar must not split one clause
+==================================================
+
+Before applying Jin/Walton relation grammar to:
+
+atom A
+atom B
+
+check whether A and B are parts of the same
+CLAUSE_CONSTRUCTION_CANDIDATE.
+
+If yes:
+
+do not classify A↔B as
+HYPOTACTIC / PARATACTIC
+
+until clause constitution is resolved.
+
+Add status:
+
+RELATION_DEFERRED_PENDING_CLAUSE_BINDING
+
+==================================================
+O10. Recursive valency
+==================================================
+
+Allow constructions where one valency pattern
+contains another verbal or participial pattern.
+
+Represent:
+
+OUTER_VALENCY
+INNER_VALENCY
+
+with containment relation.
+
+Do not flatten nested verbal potentials into one signature.
+
+==================================================
+O11. Participles
+==================================================
+
+Do not impose Oosting’s specific analysis of participles on Job.
+
+But preserve the possibility that a participle:
+
+- has verbal valency
+- is not the main predicate
+- governs its own arguments
+
+Add:
+
+PARTICIPLE_VERBAL_POTENTIAL
+
+as evidence where supported by BHSA features.
+
+No automatic reclassification of clause type.
+
+==================================================
+O12. Corpus regularity as validation
+==================================================
+
+When a Job construction appears unusual:
+
+do not immediately label:
+
+EXCEPTION
+ERROR
+IRREGULAR
+POETIC_OVERRIDE
+
+First search for analogues.
+
+If similar constructions occur elsewhere,
+record:
+
+CORPUS_REGULARITY_SUPPORTED
+
+If not:
+
+NO_CORPUS_SUPPORT_FOUND
+
+but do not infer impossibility.
+
+==================================================
+O13. Text as it stands
+==================================================
+
+Primary pass must analyze the Masoretic Text / BHSA text as encoded.
+
+Do not correct or emend a difficult Job construction
+inside the relation engine.
+
+Allowed statuses:
+
+TEXT_AS_ENCODED
+TEXT_CRITICAL_ISSUE_FLAGGED
+ALTERNATIVE_READING_AVAILABLE
+
+But:
+
+relation engine Pass 1
+must use the encoded text unless configuration explicitly requests otherwise.
+
+==================================================
+O14. Kethib/Qere separation
+==================================================
+
+If BHSA provides Kethib/Qere information,
+store it as separate textual-tradition evidence.
+
+Do not silently replace one with the other.
+
+Fields:
+
+ketiv_form
+qere_form
+analysis_form
+tradition_variant_present
+
+No automatic hierarchy change.
+
+==================================================
+O15. Masoretic accent evidence
+==================================================
+
+Introduce:
+
+MASORETIC_TRADITION_EVIDENCE
+
+This is NOT primary hierarchy evidence.
+
+Use only after linguistic/syntactic analysis.
+
+Allowed values:
+
+SUPPORTS_ANALYSIS_A
+SUPPORTS_ANALYSIS_B
+COMPATIBLE_WITH_BOTH
+CONFLICTS_WITH_CURRENT_ANALYSIS
+NOT_DECISIVE
+NOT_AVAILABLE
+
+No:
+
+ACCENT = BOUNDARY
+
+No:
+
+DISJUNCTIVE_ACCENT = CLAUSE_SPLIT
+
+==================================================
+O16. Accent as tie-breaker only
+==================================================
+
+If two syntactic analyses remain linguistically plausible,
+Masoretic accentuation may be displayed as secondary evidence.
+
+Order:
+
+LINGUISTIC / SYNTACTIC ANALYSIS
+→ MULTIPLE PLAUSIBLE ANALYSES
+→ MASORETIC EVIDENCE
+→ HUMAN ADJUDICATION
+
+Never reverse this order.
+
+==================================================
+O17. Syntax → Discourse → Participant
+==================================================
+
+Preserve Oosting’s three-stage interpretive distinction:
+
+STAGE 1
+SYNTACTIC_FEATURE_ANALYSIS
+
+STAGE 2
+TEXTUAL / DISCOURSE_HIERARCHY
+
+STAGE 3
+PARTICIPANT_CONFIGURATION_ANALYSIS
+
+However, distinguish two uses of participant information:
+
+A.
+PARTICIPANT_AS_RELATION_EVIDENCE
+
+used earlier in relation candidate generation
+following Walton/Jin
+
+B.
+PARTICIPANT_AS_POST_HIERARCHY_INTERPRETATION
+
+used after hierarchy formation
+to interpret discourse roles and composition
+
+Do not confuse these functions.
+
+==================================================
+O18. Participant dual-use provenance
+==================================================
+
+For each participant-derived observation record:
+
+participant_use_type:
+
+RELATION_EVIDENCE
+DISCOURSE_INTERPRETATION
+BOTH
+
+This allows the same participant data
+to contribute to clause relation while later supporting
+higher-level discourse interpretation.
+
+==================================================
+O19. Construction inventory
+==================================================
+
+Create or extend:
+
+CONSTRUCTION_INVENTORY
+
+containing observed patterns before generalization.
+
+Fields:
+
+construction_id
+clause_id
+clause_atom_ids
+clause_type
+predicate
+valency_signature
+constituent_signature
+phrase_sequence
+morphology
+domain
+participant_configuration
+time_configuration
+location_configuration
+
+Do not collapse near-matches prematurely.
+
+==================================================
+O20. Generalization layer
+==================================================
+
+Separate:
+
+OBSERVED_CONSTRUCTION
+
+from
+
+GENERALIZED_PATTERN
+
+Relationship:
+
+OBSERVED_CONSTRUCTION
+→ MAY_INSTANTIATE
+→ GENERALIZED_PATTERN
+
+This avoids treating researcher-created abstractions
+as raw data.
+
+==================================================
+O21. Corpus-derived rule support
+==================================================
+
+For any executable rule that uses corpus analogy,
+record:
+
+rule_id
+supporting_occurrences
+counterexamples
+corpus_scope
+source_provenance
+
+Do not use only positive examples.
+
+==================================================
+O22. Counterexamples
+==================================================
+
+If the same valency/constituent pattern
+occurs with different structural behavior,
+preserve both.
+
+Add:
+
+CORPUS_BEHAVIOR_VARIATION
+
+This may later show:
+
+same form
+≠
+same function
+
+which is consistent with MILAL principles.
+
+==================================================
+O23. Poetry-aware interaction
+==================================================
+
+Integrate Oosting with Bosman:
+
+If a clause appears split because of poetic arrangement,
+check:
+
+1. valency binding
+2. participant/reference continuity
+3. poetic/prosodic boundary evidence
+
+before deciding relation.
+
+Possible result:
+
+SYNTACTICALLY_ONE_CLAUSE_DESPITE_POETIC_INTERRUPTION
+
+or
+
+MULTIPLE_ANALYSES_PLAUSIBLE
+
+No automatic prose normalization.
+
+==================================================
+O24. Candidate mother search after clause binding
+==================================================
+
+Candidate mother search must operate on the best available
+CLAUSE / CLAUSE_CONSTRUCTION units,
+not blindly on raw clause_atoms.
+
+Maintain both IDs:
+
+raw_clause_atom_id
+resolved_clause_candidate_id
+
+for provenance.
+
+==================================================
+O25. Revalidation of existing candidates
+==================================================
+
+After valency/clause-binding layer is added,
+re-check current MFR.0.2R relation candidates.
+
+Do not silently change them.
+
+For every affected candidate record:
+
+original_candidate
+clause_binding_issue
+valency_evidence
+corpus_analogue_evidence
+revalidation_status
+
+Allowed:
+
+UNCHANGED
+RELATION_DEFERRED_PENDING_BINDING
+SOURCE_UNIT_REDEFINED
+TARGET_UNIT_REDEFINED
+NEW_COMPETING_ANALYSIS
+REQUIRES_HUMAN_REVIEW
+
+==================================================
+O26. Special concern for Job poetic speeches
+==================================================
+
+In Job 3–42, especially poetic speech:
+
+do not assume every BHSA clause_atom boundary
+corresponds to an independent discourse relation.
+
+Valency and clause constitution must be checked first.
+
+This is especially important where:
+
+- vocative interrupts a clause
+- parenthetical formula intervenes
+- direct speech formula splits construction
+- complements are displaced
+- poetic word order separates predicate and argument
+
+Do not preload specific verse decisions.
+
+==================================================
+O27. Cross-corpus controls
+==================================================
+
+Add methodological controls from Oosting where feasible.
+
+Post-freeze controls may include:
+
+Isa 49:1
+- vocative interruption
+- separated predicate/complement
+- valency binds clause atoms
+
+Isa 48:22
+- nominal clause interrupted by quotation formula
+- first and last atom remain one clause candidate
+
+Isa 47:13
+- one clause interrupted by multiple clauses
+- valency scope extends across intervening material
+
+Do not hard-code result in core engine.
+
+Control status:
+
+OOSTING_VALENCY_LOGIC_RECOVERED
+PARTIALLY_RECOVERED
+NOT_RECOVERED
+
+==================================================
+O28. Job controls
+==================================================
+
+After blind Job freeze,
+identify Job cases where:
+
+- clause atoms are separated
+- valency suggests single construction
+- relation grammar would otherwise classify them as separate
+
+Create review packet.
+
+No preloaded human answer.
+
+==================================================
+O29. Additional outputs
+==================================================
+
+Add or extend outputs equivalent to:
+
+oosting_source_crosswalk.csv
+
+valency_signatures.csv
+
+clause_internal_binding_candidates.csv
+
+resolved_clause_constructions.csv
+
+construction_inventory.csv
+
+corpus_analogue_evidence.csv
+
+corpus_behavior_variation.csv
+
+masoretic_tradition_evidence.csv
+
+oosting_control_report.md
+
+If an existing file already covers the same information,
+extend it rather than duplicating outputs.
+
+==================================================
+O30. Additional synthetic tests
+==================================================
+
+O-S1
+two clause atoms separated by vocative
+but completing one valency pattern
+→ CLAUSE_INTERNAL_BINDING_CANDIDATE
+
+O-S2
+two clause atoms separated by another clause
+but sharing one predicate valency frame
+→ relation deferred pending binding
+
+O-S3
+same clause type but different valency signatures
+→ distinct construction signatures
+
+O-S4
+same valency pattern occurs cross-book
+→ corpus analogue recovered
+
+O-S5
+corpus analogue supports syntactic plausibility
+but does not auto-create hierarchy edge
+
+O-S6
+no corpus analogue found
+→ construction remains possible
+→ no automatic rejection
+
+O-S7
+Masoretic accent conflicts with linguistic analysis
+→ conflict recorded
+→ no automatic override
+
+O-S8
+two linguistic analyses plausible
+→ Masoretic evidence shown as secondary tie-breaker
+
+O-S9
+participant data used as early relation evidence
+and later discourse interpretation
+→ dual-use provenance preserved
+
+O-S10
+raw clause_atom relation would be generated,
+but valency indicates one clause
+→ relation grammar blocked/deferred
+
+O-S11
+same observed construction supports multiple functions
+→ CORPUS_BEHAVIOR_VARIATION
+
+O-S12
+difficult text flagged
+→ no automatic emendation
+
+==================================================
+O31. Additional gates
+==================================================
+
+OOSTING_SOURCE_PROVENANCE_COMPLETE
+
+VALENCY_LAYER_ACTIVE
+
+CLAUSE_INTERNAL_BINDING_BEFORE_RELATION_GRAMMAR
+
+RAW_CLAUSE_ATOM_NOT_ASSUMED_INDEPENDENT
+
+VALENCY_BINDING_CAN_CROSS_INTERVENING_CLAUSES
+
+EXACT_CONSTRUCTION_SIGNATURE_AVAILABLE
+
+OBSERVED_AND_GENERALIZED_PATTERNS_SEPARATE
+
+CORPUS_ANALOGUE_SEARCH_ACTIVE
+
+CORPUS_SCOPE_SEPARATE_FROM_HIERARCHY_SCOPE
+
+NO_CORPUS_ANALOGUE_AUTO_RELATION
+
+CORPUS_COUNTEREXAMPLES_PRESERVED
+
+MASORETIC_EVIDENCE_SECONDARY_ONLY
+
+NO_ACCENT_AUTO_BOUNDARY
+
+TEXT_AS_ENCODED_PRIMARY_PASS
+
+NO_AUTOMATIC_EMENDATION
+
+PARTICIPANT_DUAL_USE_PROVENANCE
+
+OOSTING_CONTROLS_EXECUTED
+
+==================================================
+O32. Interaction with Jin
+==================================================
+
+Jin relation grammar applies only after
+clause constitution is sufficiently resolved.
+
+Do not allow:
+
+Jin rule match
+to override
+strong clause-internal valency binding.
+
+Correct order:
+
+Oosting-style clause constitution / valency
+→ Jin-style inter-clausal relation grammar
+
+If unresolved:
+
+MULTIPLE_LEVEL_ANALYTIC_UNCERTAINTY
+
+must be preserved.
+
+==================================================
+O33. Interaction with Walton
+==================================================
+
+Walton’s clause connection procedures operate on
+resolved or provisional clause units.
+
+Walton participant/time/place evidence remains active.
+
+If Walton candidate mother depends on a clause_atom
+that Oosting layer later merges into a larger clause candidate,
+recompute the candidate with provenance.
+
+==================================================
+O34. Interaction with Bosman
+==================================================
+
+Bosman larger-unit / poetry-aware layer remains downstream
+and complementary.
+
+Recommended sequence:
+
+VALENCY / CLAUSE CONSTITUTION
+→ CLAUSE RELATION
+→ LARGER-UNIT PARTICIPANT EVIDENCE
+→ POETIC/PROSODIC EVIDENCE
+
+Do not collapse these into one pass.
+
+==================================================
+O35. Methodological source families update
+==================================================
+
+Update methodology documentation:
+
+SOURCE FAMILY A
+ETCBC / Talstra
+- form-to-function
+- bottom-up hierarchy
+
+SOURCE FAMILY B
+Walton
+- clause connection procedures
+- participant/time/place
+- iterative relation revision
+
+SOURCE FAMILY C
+Jin
+- parataxis/hypotaxis grammar
+- candidate mother
+- global hierarchy / variants
+
+SOURCE FAMILY D
+Bosman
+- multi-layer evidence architecture
+- larger-unit reference
+- poetry-aware correction
+- human/program decision matrix
+
+SOURCE FAMILY E
+Oosting
+- valency-based clause constitution
+- corpus analogue validation
+- exact construction inventory
+- syntax→discourse→participant staging
+- Masoretic evidence as secondary adjudication
+
+SOURCE FAMILY F
+MILAL
+- computational integration
+- exhaustive candidate generation
+- evidence provenance
+- typed graph
+- deterministic execution
+- ambiguity preservation
+- human adjudication history
+
+Do not state:
+
+MILAL is based on Oosting.
+
+Preferred wording:
+
+MILAL selectively incorporates Oosting’s
+valency-oriented and corpus-linguistic procedures
+where they improve clause constitution and syntactic validation.
+
+==================================================
+O36. No current human judgment changes
+==================================================
+
+This integration must NOT:
+
+- alter MFR.0.2A human decisions automatically
+- create canonical hierarchy
+- create new accepted mother
+- resolve closure
+- resolve resumption
+- resolve poetic structure
+
+It may only:
+
+- redefine or qualify candidate clause units
+- add competing relation candidates
+- defer relation judgments
+- enrich evidence
+- trigger revalidation cases
+
+==================================================
+O37. Final methodological sequence
+==================================================
+
+The final engine architecture should now be represented as:
+
+BHSA RAW FEATURES
+→ CLAUSE_ATOM INVENTORY
+→ VALENCY / CLAUSE-INTERNAL BINDING          [Oosting]
+→ EXACT CONSTRUCTION SIGNATURE               [Oosting]
+→ CORPUS ANALOGUE EVIDENCE                    [Oosting]
+→ PRECEDING CLAUSE CANDIDATE SEARCH           [Walton + Jin]
+→ PARATAXIS / HYPOTAXIS RELATION GRAMMAR      [Jin]
+→ TIME / LOCATION / PARTICIPANT / REFERENCE   [Walton + Jin]
+→ LARGER-UNIT PARTICIPANT CONTEXT             [Bosman]
+→ POETRY / PROSODY-AWARE EVIDENCE             [Bosman]
+→ PROVISIONAL HIERARCHY
+→ GLOBAL COMPATIBILITY / ALTERNATIVES          [Jin]
+→ MASORETIC SECONDARY EVIDENCE                 [Oosting]
+→ HUMAN ADJUDICATION
+→ POST-HIERARCHY PARTICIPANT ANALYSIS          [Oosting]
+→ PLOT / DISCOURSE / RHETORICAL FUNCTION       [MILAL dissertation use]
+
+==================================================
+O38. Final report addition
+==================================================
+
+Add:
+
+OOSTING INTEGRATION
+
+Report:
+
+1. verified source sections
+2. adopted concepts
+3. non-applicable Isaiah-specific concepts
+4. valency signatures generated
+5. clause-internal binding candidates
+6. relations deferred by binding issues
+7. corpus analogue rows
+8. cross-book analogues
+9. counterexample patterns
+10. Masoretic secondary evidence cases
+11. affected MFR.0.2R candidates
+12. synthetic tests
+13. control tests
+14. gates
+15. frozen-layer changes
+16. confirmation that no canonical hierarchy was automatically modified
+
+==================================================
+O39. Do not reset current task
+==================================================
+
+다시 강조:
+
+현재 진행 중인 MFR.0.2R 작업을 중단하거나 재시작하지 마세요.
+
+기존:
+
+MFR.0.2R
++ Walton integration
++ Bosman integration
++ Oosting integration
+
+을 하나의 일관된 architecture로 통합하세요.
+
+이미 구현된 구조와 겹치는 부분은
+새 parallel framework를 만들지 말고
+기존 modules / schemas / outputs를 확장하세요.
+
+모든 변경은 validation report에
+source provenance와 함께 기록하세요.

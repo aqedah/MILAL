@@ -1,0 +1,621 @@
+[추가 지시 — Walton integration]
+
+현재 진행 중인 MFR.0.2R 작업을 중단하거나 처음부터 재시작하지 마세요.
+기존 지시와 구현을 유지한 상태에서 아래 요구사항을 현재 relation-engine 설계에 추가 통합하세요.
+
+이 추가 지시는 Timothy Lee Walton,
+Experimenting with Qohelet: A Text-linguistic Approach to Reading Qohelet as Discourse
+(Vrije Universiteit Amsterdam, 2006)의 clause-hierarchy 절차 중
+MILAL에 필요한 부분을 선택적으로 수용하기 위한 것입니다.
+
+중요:
+MILAL은 Walton의 방법론 전체를 그대로 구현하지 않습니다.
+
+Walton에서:
+- explicit subordination 처리
+- formal / text-syntactic / lexical correspondence
+- participant introduction / reintroduction / continuation
+- time / place change
+- semantic correspondence
+- iterative hierarchy revision
+
+을 선택적으로 수용합니다.
+
+반면:
+“same clause type → parallel”
+규칙은 HARD RULE로 구현하지 않습니다.
+
+Walton 자신의 예외 규칙과 Jin의 same-type hypotaxis 사례 때문에
+이 규칙은 candidate-generating prior일 뿐입니다.
+
+==================================================
+W1. Source provenance
+==================================================
+
+Walton-derived rules/evidence에는 반드시 source provenance를 기록하세요.
+
+최소 fields:
+
+source_author = WALTON
+source_work = EXPERIMENTING_WITH_QOHELET
+source_section
+source_page
+adoption_status
+
+adoption_status allowed:
+
+DIRECTLY_ADOPTED
+ADOPTED_AS_CANDIDATE_RULE
+GENERALIZED_FOR_MILAL
+NOT_USED_AS_HARD_RULE
+
+Jin-derived rules과 Walton-derived rules을 한 출처처럼 섞지 마세요.
+
+각 rule/evidence가 어디에서 왔는지 machine-readable하게 구분하세요.
+
+==================================================
+W2. Walton §2.1.1.1
+Clauses with Explicit Subordinating Features
+==================================================
+
+Walton:
+relative pronouns, conjunctions, infinitives 등
+명시적 subordinating feature를 가진 절은
+일반적으로 preceding clause에 연결됩니다.
+
+단:
+context가 더 syntactically logical한 다른 연결을 요구하면
+단순 adjacency보다 그 관계를 고려합니다.
+
+MILAL implementation:
+
+EXPLICIT_SUBORDINATION_CANDIDATE
+
+를 생성하되:
+
+nearest_preceding_clause_is_automatic_mother = false
+
+반드시:
+- candidate mother
+- explicit subordinate feature
+- competing syntactically plausible mother
+를 함께 기록하세요.
+
+source:
+Walton §2.1.1.1
+
+==================================================
+W3. Walton §2.1.1.2
+Continuation of Subordination
+==================================================
+
+Walton:
+subordinate clause에는
+그 subordinate relation을 계속하는 경우에만
+다음 절을 연결합니다.
+
+예:
+relative pronoun / conjunction 등의 continuation.
+
+MILAL implementation:
+
+SUBORDINATION_CONTINUATION_CANDIDATE
+
+fields:
+
+preceding_relation
+continuing_subordinate_marker
+reference_continuity
+candidate_mother
+
+단:
+자동 accepted edge 생성 금지.
+
+source:
+Walton §2.1.1.2
+
+==================================================
+W4. Walton §2.1.1.3
+No Explicit Subordinating Feature
+==================================================
+
+명시적 종속표지가 없는 경우
+Walton은 connecting features의:
+
+TYPE
++
+NUMBER
+
+를 비교합니다.
+
+그는 formal correspondence와
+unmarked/semantic correspondence를 구별합니다.
+
+MILAL에서는 이를 점수 하나로 합치지 마세요.
+
+다음 evidence dimensions로 분리:
+
+GRAMMATICAL_CORRESPONDENCE
+TEXT_SYNTACTIC_CORRESPONDENCE
+LEXICAL_CORRESPONDENCE
+SEMANTIC_CORRESPONDENCE
+
+그리고 각 dimension의 실제 관찰값을 보존하세요.
+
+No composite score.
+
+source:
+Walton §2.1.1.3
+
+==================================================
+W5. Participant evidence
+==================================================
+
+Walton의 participant 분석을 relation engine의
+FIRST-CLASS EVIDENCE로 통합하세요.
+
+각 clause에서 최소:
+
+participant_id
+participant_surface
+
+participant_status:
+NEW
+REINTRODUCED
+CONTINUED
+ABSENT
+
+participant_reference_type:
+EXPLICIT_NP
+INDEPENDENT_PRONOUN
+DEMONSTRATIVE
+PRONOMINAL_SUFFIX
+INFLECTIONAL_AFFIX
+OTHER
+
+participant_set_id
+
+speaker
+addressee
+agent
+patient
+
+를 가능한 범위에서 기록하세요.
+
+중요:
+
+participant evidence
+≠ support-only metadata
+
+relation candidate를 생성하거나
+candidate mother를 구별할 수 있는 핵심 text-syntactic evidence입니다.
+
+==================================================
+W6. Time and Place
+==================================================
+
+Walton은 clause-level element가 나타내는:
+
+CHANGE OF TIME
+CHANGE OF PLACE
+
+를 text-syntactic feature로 명시합니다.
+
+따라서 기존 MFR.0.2R의:
+
+TIME
+LOCATION
+
+first-class evidence 원칙을 유지하고 강화하세요.
+
+TIME fields minimum:
+
+time_phrase
+time_reference_type
+temporal_continuity
+temporal_change
+temporal_succession
+temporal_resumption
+temporal_frame_candidate
+
+LOCATION fields minimum:
+
+location_phrase
+location_reference_type
+locative_continuity
+locative_change
+single_or_multiple_locative
+location_frame_candidate
+
+특히 TIME은 Job narrative analysis에서
+핵심 structural evidence dimension으로 보존합니다.
+
+No:
+time phrase = automatic boundary
+
+No:
+location change = automatic boundary
+
+source:
+Walton linguistic feature inventory
+
+==================================================
+W7. Same clause type
+==================================================
+
+Walton §2.1.2.1의 기본 procedure:
+
+same clause type
+→ parallel
+
+을 그대로 HARD RULE로 구현하지 마세요.
+
+MILAL에서는:
+
+SAME_CLAUSE_TYPE_PARATAXIS_PRIOR
+
+또는 equivalent candidate rule로만 사용하세요.
+
+이 rule은 다음 evidence에 의해 override / compete될 수 있습니다:
+
+participant continuation
+reference dependency
+time relation
+location relation
+domain relation
+embedded narrative configuration
+Jin same-type hypotaxis rules
+
+adoption_status:
+NOT_USED_AS_HARD_RULE
+
+==================================================
+W8. Walton §2.1.2.2
+Exception by Secondary Participant Continuation
+==================================================
+
+Walton은 같은 clause type이라도
+이미 도입된 secondary participant를 계속하면
+앞 절 아래에 indent될 수 있다고 봅니다.
+
+MILAL implementation:
+
+SAME_TYPE_PARTICIPANT_CONTINUATION_HYPOTAXIS_CANDIDATE
+
+required evidence:
+
+same_or_highly_corresponding_clause_type
++
+continued_secondary_participant
+
+support evidence:
+
+participant_reference_continuity
+lexical_recurrence
+domain_continuity
+
+이 rule은 Jin의 same-clause-type hypotaxis와
+별개 source provenance를 유지하세요.
+
+source:
+Walton §2.1.2.2
+
+==================================================
+W9. Semantic correspondence
+==================================================
+
+Walton §2.1.2.3:
+
+formal marker가 충분하지 않고
+짧은 clause string과 semantic correspondence만 있는 경우
+해당 concept를 처음 도입한 clause가
+candidate connection이 될 수 있습니다.
+
+MILAL implementation:
+
+SEMANTIC_CORRESPONDENCE_CANDIDATE
+
+단:
+
+RHETORICAL / SEMANTIC evidence는
+formal linguistic evidence보다 먼저 hierarchy를 결정하지 않습니다.
+
+Use:
+SECONDARY_CANDIDATE_EVIDENCE
+
+No auto mother.
+
+source:
+Walton §2.1.2.3
+
+==================================================
+W10. Lack of Correspondence
+==================================================
+
+Walton §2.1.2.4에서는
+적절한 formal/unmarked corresponding clause가 없으면
+level 0에서 새 major division을 시작합니다.
+
+MILAL에서는 이것을 자동 rule로 사용하지 않습니다.
+
+Implement only:
+
+NO_PLAUSIBLE_PRECEDING_CANDIDATE
+
+→ NEW_HIGHER_LEVEL_CANDIDATE
+
+Do NOT automatically create:
+
+ROOT
+LEVEL_0
+MAJOR_DIVISION
+
+Human adjudication required.
+
+adoption_status:
+GENERALIZED_FOR_MILAL
+
+source:
+Walton §2.1.2.4
+
+==================================================
+W11. Iterative Revision
+==================================================
+
+Walton은 hierarchy가:
+
+one clause at a time
+
+순차적으로 형성되며,
+뒤의 절을 읽으면서 이전 placement가 수정될 수 있다고 설명합니다.
+
+MILAL은 이 점을 반드시 명시적으로 구현하세요.
+
+Required statuses:
+
+INITIAL_CANDIDATE
+PROVISIONAL_RELATION
+RECONSIDERED_AFTER_LATER_EVIDENCE
+REVISED_RELATION
+RETAINED_RELATION
+
+Required provenance:
+
+original_relation
+new_evidence
+trigger_clause
+revised_relation
+revision_reason
+
+기존 relation을 overwrite하지 말고
+append-only history로 보존하세요.
+
+==================================================
+W12. Long-distance correspondence
+==================================================
+
+Walton의 Qohelet 사례에서는
+lexical repetition과 participant reintroduction이 강할 경우
+상당한 거리를 넘어 earlier clause와 연결할 수 있습니다.
+
+따라서:
+
+distance
+≠ automatic rejection
+
+기존 MFR.0.2R의 long-distance candidate 허용을 유지하세요.
+
+Candidate search index에 추가:
+
+PARTICIPANT_REINTRODUCTION_INDEX
+LEXICAL_REINTRODUCTION_INDEX
+
+==================================================
+W13. Whole constellation
+==================================================
+
+Walton은 clause type 하나만 보지 않고
+전체 formally marked / unmarked textual features의
+constellation을 고려해야 한다고 설명합니다.
+
+MILAL 구현에서도:
+
+CLAUSE_TYPE_ONLY_DECISION
+
+금지.
+
+Candidate comparison packet에는 최소:
+
+clause type
+morphology
+phrase arrangement
+lexical correspondence
+participant
+participant reference
+time
+location
+domain
+semantic relation
+
+을 함께 보여주세요.
+
+==================================================
+W14. Jin + Walton conflict handling
+==================================================
+
+Jin rule과 Walton rule이 같은 candidate pair에
+서로 다른 relation을 생성할 수 있습니다.
+
+이 경우 어느 한 rule을 우선시하지 마세요.
+
+Example:
+
+Walton same-type parataxis prior
+vs
+Jin same-type hypotaxis configuration
+
+Output:
+
+MULTIPLE_RULE_SUPPORTED_RELATIONS
+
+with:
+
+jin_rule_ids
+walton_rule_ids
+
+jin_supporting_evidence
+walton_supporting_evidence
+
+shared_evidence
+conflicting_evidence
+
+No automatic winner.
+
+==================================================
+W15. Source classification
+==================================================
+
+docs/CLAUSE_RELATION_GRAMMAR.md에
+Jin과 Walton을 별도 subsection으로 작성하세요.
+
+Example:
+
+SOURCE FAMILY A
+JIN — selected clause-relation grammar
+
+SOURCE FAMILY B
+WALTON — selected clause-connection procedures
+
+SOURCE FAMILY C
+MILAL — computational extensions
+
+각 rule은 반드시 셋 중 하나의 provenance를 가져야 합니다.
+
+==================================================
+W16. Walton control cases
+==================================================
+
+가능하다면 Qohelet control을 추가하세요.
+
+단:
+Walton의 결론을 hard-code하지 않습니다.
+
+Blind control 후 inspect:
+
+Qoh 2:11
+Qoh 2:12
+
+Validation questions:
+
+- 2:11에 multiple preceding candidates가 생성되는가?
+- lexical recurrence가 candidate evidence로 드러나는가?
+- 2:12에서 participant reintroduction이
+  장거리 candidate를 만들 수 있는가?
+- same clause type correspondence와
+  participant-based embedding possibility를
+  동시에 표현할 수 있는가?
+- later evidence가 provisional placement를
+  재검토하게 만들 수 있는가?
+
+Known refs는 post-freeze validation에서만 사용.
+
+==================================================
+W17. New tests
+==================================================
+
+추가 synthetic tests:
+
+W-S1
+explicit subordinate marker
+→ preceding clause hypotactic candidate
+
+W-S2
+explicit subordinate marker but stronger contextual mother exists
+→ alternative mother representable
+
+W-S3
+same clause type
+→ parataxis prior candidate
+
+W-S4
+same clause type + secondary participant continuation
+→ hypotaxis candidate also generated
+
+W-S5
+new participant vs reintroduced participant
+→ different candidate evidence profiles
+
+W-S6
+time change
+→ structural evidence recorded, no automatic boundary
+
+W-S7
+location change
+→ structural evidence recorded, no automatic boundary
+
+W-S8
+strong lexical + participant reintroduction over long distance
+→ distant candidate survives
+
+W-S9
+later clause evidence revises provisional relation
+→ append-only revision history preserved
+
+W-S10
+Jin and Walton rules conflict
+→ both candidate relations preserved
+
+==================================================
+W18. Additional gates
+==================================================
+
+WALTON_SOURCE_PROVENANCE_COMPLETE
+
+PARTICIPANT_NEW_REINTRODUCED_CONTINUED_AVAILABLE
+
+TIME_PLACE_FIRST_CLASS_EVIDENCE
+
+SAME_TYPE_PARALLEL_NOT_HARD_RULE
+
+WALTON_PARTICIPANT_EXCEPTION_ACTIVE
+
+SEMANTIC_CORRESPONDENCE_SECONDARY_ONLY
+
+NO_CORRESPONDENCE_NOT_AUTO_ROOT
+
+ITERATIVE_REVISION_HISTORY_SUPPORTED
+
+LONG_DISTANCE_PARTICIPANT_REINTRODUCTION_SUPPORTED
+
+JIN_WALTON_CONFLICT_PRESERVED
+
+NO_WALTON_CONCLUSION_HARDCODED
+
+==================================================
+W19. Do not reset current task
+==================================================
+
+다시 강조:
+
+현재 진행 중인 MFR.0.2R 구현을 rollback하거나
+처음부터 다시 시작하지 마세요.
+
+이미 구현된 부분 중 이 추가 지시와 양립하는 것은 유지하세요.
+
+충돌하는 부분만 수정하고,
+변경 이유를 validation report에 별도 기록하세요.
+
+최종 보고서에:
+
+WALTON_INTEGRATION
+
+항목을 추가하여:
+
+- adopted rules
+- modified rules
+- candidate-only rules
+- tests
+- controls
+- Jin/Wallton conflicts
+
+를 보고하세요.

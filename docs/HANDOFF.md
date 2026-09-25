@@ -1,6 +1,59 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2A human configuration adjudication, 2026-09-25
+## Current task — MFR.0.2R technically validated, 2026-09-25
+
+Active specification: [MFR.0.2R](MFR_0_2R_SPEC.md); architecture:
+[Clause relation grammar](CLAUSE_RELATION_GRAMMAR.md); execution:
+[README](README_MILAL_MFR_0_2R.md); scope authority:
+[Job-only correction](MFR_0_2R_SCOPE_CORRECTION.md).
+Baseline `2ff2536f50998beec585b8cb187abbf2086d97e0`.
+
+**CLAUSE_RELATION_GRAMMAR_ENGINE_ESTABLISHED**;
+**READY_FOR_CANDIDATE_SET_HUMAN_REVALIDATION**.
+
+Primary analysis, candidate generation, provisional hierarchy and human review
+are JOB only. Non-Job references are post-freeze explicit fixtures with one
+preceding verse of minimum context; HB_CORPUS is construction search only.
+Mistaken full-Pentateuch workers were stopped and all partial results excluded.
+Completed independent Job outputs were preserved without rerunning the engine.
+
+Job: 2,938 clauses, 2,977 atoms, 1,049,504 candidate pairs. All 13 previous human
+decisions and their provisional status remain unchanged: 12 computationally
+not yet decidable, 1 insufficient confirmed. New review packet: 2,528 cases,
+blank human fields. New human judgments, canonical mothers and whole trees: 0.
+422 frozen-file pins unchanged. Jin/Walton/Bosman/Oosting layers preserve
+source provenance, competing relations, typed evidence and unresolved identity.
+
+Validation: 251 stage tests and 2,403 full regression tests passed, no failures,
+errors or skips; 89/89 computed gates passed with negative coverage. A/B final
+manifests (2,612 entries) and ZIP bytes are identical; CRC/member hashes verified.
+This is technical validation, not methodological acceptance or a cross-platform
+replication claim. Full details: [validation report](MFR_0_2R_VALIDATION_REPORT.md).
+
+External paths on computer A (not Git-tracked):
+
+- `D:\MILAL_runs\mfr02r_20260925\projection_job_only`: Job raw input and HB search index.
+- `D:\MILAL_runs\mfr02r_20260925\release_a`: final outputs and human review packet.
+- `F:\MILAL_runs\mfr02r_20260925\release_b`: independent final outputs.
+- `D:\MILAL_runs\mfr02r_20260925\release_a_results.zip` and
+  `F:\MILAL_runs\mfr02r_20260925\release_b_results.zip`:
+  SHA256 `93ff58ba3f1498e5e93a4aaf23e15ceb777d54ef2704edf3c15fcffad9f05b7d`.
+- `D:\MILAL_runs\mfr02r_20260925\release_a_verification.json`: release receipt.
+- `D:\MILAL_runs\mfr02r_20260925\regression_fixture_context.json`: final regression.
+- `D:\MILAL_runs\mfr02r_20260925\scope_interruption_receipt.json`: excluded-run audit.
+
+HB search: 88,131 exact clauses across 39 books; all 2,938 Job signatures match.
+Search supplements are separate from the immutable original Job analogue files.
+Code/config/test fingerprint:
+`44ec0c7bf7358896aeac710e8c97aba4c8a4ce865ad012bb760c929f8fb6534a`.
+The source commit is the commit containing this handoff; push verification is
+reported at finalization. Four user research PDFs remain untracked local inputs.
+
+Next task: **MFR.0.2R-H — Human Revalidation of Candidate-Set Relation Cases**.
+Do not automatically begin MFR.0.2B resumption/closure adjudication, assign
+canonical mothers/hierarchy, resolve prosody or start an R4.4 consumer.
+
+## Previous task — MFR.0.2A human configuration adjudication, 2026-09-25
 
 Active specification: [MFR.0.2A](MFR_0_2A_SPEC.md); authority:
 [researcher request](MFR_0_2A_RESEARCHER_SOURCE.txt); execution:

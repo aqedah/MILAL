@@ -1,0 +1,2276 @@
+{
+  "version": "MFR.0.2R-GRAMMAR-1",
+  "rules": [
+    {
+      "rule_id": "RG-A01",
+      "rule_family": "EXPLICIT_SUBORDINATE",
+      "source_clause_type": [
+        "MAIN"
+      ],
+      "target_clause_type": [
+        "InfC"
+      ],
+      "source_function_candidate": "MAIN_CLAUSE",
+      "target_function_candidate": "INFINITIVAL_SUBORDINATE",
+      "required_features": [
+        [
+          "native_subordinate"
+        ],
+        [
+          "infinitive_preposition",
+          "adjacent",
+          "source_finite"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 5,
+        "jin_section": "3.2.9.2",
+        "printed_page_range": [
+          25,
+          26
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone. Main-type scope extends the directly attested WayX example under researcher section 5 authorization; scope extension is GENERALIZED_FOR_MILAL.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL",
+        "source_clause_type": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "InfC"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.2",
+      "source_page": [
+        25,
+        26
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-A02",
+      "rule_family": "EXPLICIT_SUBORDINATE",
+      "source_clause_type": [
+        "MAIN"
+      ],
+      "target_clause_type": [
+        "Ptcp"
+      ],
+      "source_function_candidate": "MAIN_CLAUSE",
+      "target_function_candidate": "PARTICIPIAL_SUBORDINATE",
+      "required_features": [
+        [
+          "native_subordinate"
+        ],
+        [
+          "explicit_subordinator",
+          "reference_continuity"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 5,
+        "jin_section": "3.2.9.2",
+        "printed_page_range": [
+          25,
+          26
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone. Main-type scope extends the directly attested WayX example under researcher section 5 authorization; scope extension is GENERALIZED_FOR_MILAL.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL",
+        "source_clause_type": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "Ptcp"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.2",
+      "source_page": [
+        25,
+        26
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-A03",
+      "rule_family": "EXPLICIT_SUBORDINATE",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "ZIm0",
+        "WQt0"
+      ],
+      "source_function_candidate": "NARRATIVE_CLAUSE",
+      "target_function_candidate": "DIRECT_SPEECH",
+      "required_features": [
+        [
+          "speech_domain_entry"
+        ],
+        [
+          "native_subordinate"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 5,
+        "jin_section": "3.2.9.2",
+        "printed_page_range": [
+          25,
+          26
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "ZIm0",
+          "WQt0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.2",
+      "source_page": [
+        25,
+        26
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-A04",
+      "rule_family": "EXPLICIT_SUBORDINATE",
+      "source_clause_type": [
+        "ZIm0"
+      ],
+      "target_clause_type": [
+        "xYq0"
+      ],
+      "source_function_candidate": "DIRECT_SPEECH",
+      "target_function_candidate": "EMBEDDED_DIRECT_SPEECH",
+      "required_features": [
+        [
+          "nested_speech_entry",
+          "prior_narrative_speech_anchor"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 5,
+        "jin_section": "3.2.9.2",
+        "printed_page_range": [
+          25,
+          26
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "ZIm0"
+        ],
+        "target_clause_type": [
+          "xYq0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.2",
+      "source_page": [
+        25,
+        26
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B01",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "Way0"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "Way0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B02",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "Wayhi+Time"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "frame_embedding"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "Wayhi+Time"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B03",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "NmCl"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "BACKGROUND_INFORMATION",
+      "required_features": [
+        [
+          "nominal_background"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "NmCl"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B04",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "WxQ0"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "BACKGROUND_INFORMATION",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "WxQ0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B05",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "Way0"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "PART_OF_MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Way0"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B06",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "Way0"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "EMBEDDED_PARTICIPANT_INTERPLAY",
+      "required_features": [
+        [
+          "participant_interplay"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Way0"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B07",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "NmCl"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "ANTECEDENT_INFORMATION",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "NmCl"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B08",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WXQt"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "ANTECEDENT_INFORMATION",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WXQt"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B09",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WXQt"
+      ],
+      "target_clause_type": [
+        "Way0"
+      ],
+      "source_function_candidate": "ANTECEDENT_INFORMATION",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WXQt"
+        ],
+        "target_clause_type": [
+          "Way0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-B10",
+      "rule_family": "DIFFERENT_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "CPen"
+      ],
+      "target_clause_type": [
+        "NmCl"
+      ],
+      "source_function_candidate": "DIRECT_SPEECH",
+      "target_function_candidate": "ANAPHORIC_SUMMARY",
+      "required_features": [
+        [
+          "anaphoric_summary"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 6,
+        "jin_section": "3.2.9.3.1",
+        "printed_page_range": [
+          27,
+          29
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "CPen"
+        ],
+        "target_clause_type": [
+          "NmCl"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.1",
+      "source_page": [
+        27,
+        29
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-C01",
+      "rule_family": "SAME_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "INTERPLAY_BETWEEN_PARTICIPANTS",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "participant_interplay"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 7,
+        "jin_section": "3.2.9.3.2",
+        "printed_page_range": [
+          30,
+          32
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.2",
+      "source_page": [
+        30,
+        32
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-C02",
+      "rule_family": "SAME_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "Way0"
+      ],
+      "target_clause_type": [
+        "Way0"
+      ],
+      "source_function_candidate": "INTERPLAY_BETWEEN_PARTICIPANTS",
+      "target_function_candidate": "EMBEDDED_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "embedded_reference"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 7,
+        "jin_section": "3.2.9.3.2",
+        "printed_page_range": [
+          30,
+          32
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Way0"
+        ],
+        "target_clause_type": [
+          "Way0"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.2",
+      "source_page": [
+        30,
+        32
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-C03",
+      "rule_family": "SAME_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "WQtX"
+      ],
+      "target_clause_type": [
+        "WQtX"
+      ],
+      "source_function_candidate": "ANTECEDENT_INFORMATION",
+      "target_function_candidate": "EMBEDDED_ANTECEDENT_INFORMATION",
+      "required_features": [
+        [
+          "antecedent_embedding"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 7,
+        "jin_section": "3.2.9.3.2",
+        "printed_page_range": [
+          30,
+          32
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WQtX"
+        ],
+        "target_clause_type": [
+          "WQtX"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.2",
+      "source_page": [
+        30,
+        32
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-C04",
+      "rule_family": "SAME_TYPE_HYPOTAXIS",
+      "source_clause_type": [
+        "NmCl"
+      ],
+      "target_clause_type": [
+        "NmCl"
+      ],
+      "source_function_candidate": "ANAPHORIC_CLOSURE",
+      "target_function_candidate": "EMBEDDED_ANAPHORIC_CLOSURE",
+      "required_features": [
+        [
+          "anaphoric_embedding"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 7,
+        "jin_section": "3.2.9.3.2",
+        "printed_page_range": [
+          30,
+          32
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "NmCl"
+        ],
+        "target_clause_type": [
+          "NmCl"
+        ],
+        "relation": "HYPOTACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.3.2",
+      "source_page": [
+        30,
+        32
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-D01",
+      "rule_family": "SAME_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "PARTICIPANT_INTERPLAY",
+      "target_function_candidate": "MAIN_NARRATIVE_LINE_OR_PARTICIPANT_INTERPLAY",
+      "required_features": [
+        [
+          "high_correspondence",
+          "same_line"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 8,
+        "jin_section": "3.2.9.4.1",
+        "printed_page_range": [
+          32,
+          33
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.1",
+      "source_page": [
+        32,
+        33
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-D02",
+      "rule_family": "SAME_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "Wayhi+Time"
+      ],
+      "target_clause_type": [
+        "Wayhi+Time"
+      ],
+      "source_function_candidate": "TEMPORAL_FRAME",
+      "target_function_candidate": "SAME_TEXTUAL_LINE",
+      "required_features": [
+        [
+          "same_line",
+          "temporal_connection"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 8,
+        "jin_section": "3.2.9.4.1",
+        "printed_page_range": [
+          32,
+          33
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Wayhi+Time"
+        ],
+        "target_clause_type": [
+          "Wayhi+Time"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.1",
+      "source_page": [
+        32,
+        33
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-E01",
+      "rule_family": "DIFFERENT_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "Wayhi+Time"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "SAME_MAIN_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "same_line",
+          "high_correspondence"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 9,
+        "jin_section": "3.2.9.4.2",
+        "printed_page_range": [
+          33,
+          35
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "Wayhi+Time"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.2",
+      "source_page": [
+        33,
+        35
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-E02",
+      "rule_family": "DIFFERENT_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "WayX"
+      ],
+      "target_clause_type": [
+        "Defc"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "SAME_MAIN_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "same_line",
+          "high_correspondence"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 9,
+        "jin_section": "3.2.9.4.2",
+        "printed_page_range": [
+          33,
+          35
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "WayX"
+        ],
+        "target_clause_type": [
+          "Defc"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.2",
+      "source_page": [
+        33,
+        35
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-E03",
+      "rule_family": "DIFFERENT_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "Way0"
+      ],
+      "target_clause_type": [
+        "WayX"
+      ],
+      "source_function_candidate": "MAIN_NARRATIVE_LINE",
+      "target_function_candidate": "SAME_MAIN_NARRATIVE_LINE",
+      "required_features": [
+        [
+          "same_line",
+          "high_correspondence"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 9,
+        "jin_section": "3.2.9.4.2",
+        "printed_page_range": [
+          33,
+          35
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Way0"
+        ],
+        "target_clause_type": [
+          "WayX"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.2",
+      "source_page": [
+        33,
+        35
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-E04",
+      "rule_family": "DIFFERENT_TYPE_PARATAXIS",
+      "source_clause_type": [
+        "Wayhi+Time"
+      ],
+      "target_clause_type": [
+        "NmCl"
+      ],
+      "source_function_candidate": "OPENING_TEMPORAL_FRAME",
+      "target_function_candidate": "ANAPHORIC_CLOSURE",
+      "required_features": [
+        [
+          "anaphoric_summary",
+          "temporal_connection"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 9,
+        "jin_section": "3.2.9.4.2",
+        "printed_page_range": [
+          33,
+          35
+        ],
+        "pdf_page_offset": 17,
+        "pdf_sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+        "verification": "LOCAL_PDF_TEXT_AND_SECTION_VERIFIED"
+      },
+      "adoption": "DIRECTLY_ADOPTED",
+      "notes": "Clause-type relation directly adopted from the cited section. Executable contextual predicates and function-candidate fields are MILAL generalizations, not verbatim Jin terminology. No function follows from type alone.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "adopted_clause_type_relation": {
+        "source_clause_type": [
+          "Wayhi+Time"
+        ],
+        "target_clause_type": [
+          "NmCl"
+        ],
+        "relation": "PARATACTIC"
+      },
+      "source_author": "JIN",
+      "source_work": "INVESTIGATING_THE_TEXT_HIERARCHICAL_STRUCTURES_AND_COMPOSITION_OF_NUMBERS",
+      "source_section": "3.2.9.4.2",
+      "source_page": [
+        33,
+        35
+      ],
+      "adoption_status": "DIRECTLY_ADOPTED"
+    },
+    {
+      "rule_id": "RG-M01",
+      "rule_family": "MILAL_CONFIGURATION",
+      "source_clause_type": [
+        "MAIN"
+      ],
+      "target_clause_type": [
+        "MAIN"
+      ],
+      "source_function_candidate": "REPEATED_CONFIGURATION",
+      "target_function_candidate": "SAME_TEXTUAL_LINE_CANDIDATE",
+      "required_features": [
+        [
+          "sequence_correspondence",
+          "same_line"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 13,
+        "jin_section": "UNKNOWN_NOT_VERIFIED"
+      },
+      "adoption": "UNKNOWN_NOT_VERIFIED",
+      "notes": "Unverified additional draft rule; disabled. No directly verified Jin source. Not counted among adopted rules.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "enabled": false,
+      "source_author": "MILAL",
+      "source_work": "COMPUTATIONAL_EXTENSIONS",
+      "source_section": "UNKNOWN_NOT_VERIFIED",
+      "source_page": "UNKNOWN_NOT_VERIFIED",
+      "adoption_status": "UNKNOWN_NOT_VERIFIED"
+    },
+    {
+      "rule_id": "RG-M02",
+      "rule_family": "MILAL_NATIVE_DEPENDENCY",
+      "source_clause_type": [
+        "ANY"
+      ],
+      "target_clause_type": [
+        "ANY"
+      ],
+      "source_function_candidate": "ANNOTATED_SOURCE",
+      "target_function_candidate": "ANNOTATED_DEPENDENT_CANDIDATE",
+      "required_features": [
+        [
+          "native_subordinate"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 19,
+        "jin_section": "UNKNOWN_NOT_VERIFIED"
+      },
+      "adoption": "UNKNOWN_NOT_VERIFIED",
+      "notes": "Unverified additional draft rule; disabled. No directly verified Jin source. Not counted among adopted rules.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "enabled": false,
+      "source_author": "MILAL",
+      "source_work": "COMPUTATIONAL_EXTENSIONS",
+      "source_section": "UNKNOWN_NOT_VERIFIED",
+      "source_page": "UNKNOWN_NOT_VERIFIED",
+      "adoption_status": "UNKNOWN_NOT_VERIFIED"
+    },
+    {
+      "rule_id": "RG-M03",
+      "rule_family": "MILAL_FRAME_ALTERNATIVE",
+      "source_clause_type": [
+        "MAIN"
+      ],
+      "target_clause_type": [
+        "MAIN"
+      ],
+      "source_function_candidate": "FRAME_CONFIGURATION",
+      "target_function_candidate": "EMBEDDED_FRAME_CANDIDATE",
+      "required_features": [
+        [
+          "frame_embedding"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "researcher_request_section": 25,
+        "jin_section": "UNKNOWN_NOT_VERIFIED"
+      },
+      "adoption": "UNKNOWN_NOT_VERIFIED",
+      "notes": "Unverified additional draft rule; disabled. No directly verified Jin source. Not counted among adopted rules.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "enabled": false,
+      "source_author": "MILAL",
+      "source_work": "COMPUTATIONAL_EXTENSIONS",
+      "source_section": "UNKNOWN_NOT_VERIFIED",
+      "source_page": "UNKNOWN_NOT_VERIFIED",
+      "adoption_status": "UNKNOWN_NOT_VERIFIED"
+    },
+    {
+      "rule_id": "RG-M04",
+      "rule_family": "MILAL_CONSTRUCTION",
+      "source_clause_type": [
+        "MAIN"
+      ],
+      "target_clause_type": [
+        "MAIN"
+      ],
+      "source_function_candidate": "CORRESPONDING_CONFIGURATION",
+      "target_function_candidate": "PARALLEL_CONFIGURATION_CANDIDATE",
+      "required_features": [
+        [
+          "high_correspondence",
+          "same_line",
+          "participant_continuity"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "SEQUENCE"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "researcher_request_section": 13,
+        "jin_section": "UNKNOWN_NOT_VERIFIED"
+      },
+      "adoption": "UNKNOWN_NOT_VERIFIED",
+      "notes": "Unverified additional draft rule; disabled. No directly verified Jin source. Not counted among adopted rules.",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "enabled": false,
+      "source_author": "MILAL",
+      "source_work": "COMPUTATIONAL_EXTENSIONS",
+      "source_section": "UNKNOWN_NOT_VERIFIED",
+      "source_page": "UNKNOWN_NOT_VERIFIED",
+      "adoption_status": "UNKNOWN_NOT_VERIFIED"
+    },
+    {
+      "rule_id": "W-A01",
+      "rule_family": "WALTON_EXPLICIT_SUBORDINATION_CANDIDATE",
+      "source_clause_type": [
+        "ANY"
+      ],
+      "target_clause_type": [
+        "ANY"
+      ],
+      "source_function_candidate": "CONTEXTUAL_CANDIDATE",
+      "target_function_candidate": "EXPLICIT_SUBORDINATION_CANDIDATE",
+      "required_features": [
+        [
+          "explicit_subordinator",
+          "native_subordinate"
+        ],
+        [
+          "explicit_subordinator",
+          "reference_continuity"
+        ],
+        [
+          "explicit_subordinator",
+          "adjacent"
+        ],
+        [
+          "infinitive_preposition",
+          "adjacent"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "LEXICAL"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "walton_section": "2.1.1.1",
+        "printed_page": 16,
+        "pdf_page": 25,
+        "pdf_sha256": "5e5e3d3aa9b0af1a93376c00e29bec63de3b84ff07d1ce7eddb85c9fef335061"
+      },
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.1.1",
+      "source_page": 16,
+      "adoption": "ADOPTED_AS_CANDIDATE_RULE",
+      "adoption_status": "ADOPTED_AS_CANDIDATE_RULE",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "notes": "Selected Walton procedure, candidate only; contextual predicates generalized for MILAL. No automatic mother or type-only accepted relation.",
+      "enabled": true
+    },
+    {
+      "rule_id": "W-A02",
+      "rule_family": "WALTON_SUBORDINATION_CONTINUATION_CANDIDATE",
+      "source_clause_type": [
+        "ANY"
+      ],
+      "target_clause_type": [
+        "ANY"
+      ],
+      "source_function_candidate": "CONTEXTUAL_CANDIDATE",
+      "target_function_candidate": "SUBORDINATION_CONTINUATION_CANDIDATE",
+      "required_features": [
+        [
+          "subordination_continuation",
+          "reference_continuity"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "LEXICAL"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "walton_section": "2.1.1.2",
+        "printed_page": 16,
+        "pdf_page": 25,
+        "pdf_sha256": "5e5e3d3aa9b0af1a93376c00e29bec63de3b84ff07d1ce7eddb85c9fef335061"
+      },
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.1.2",
+      "source_page": 16,
+      "adoption": "ADOPTED_AS_CANDIDATE_RULE",
+      "adoption_status": "ADOPTED_AS_CANDIDATE_RULE",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "notes": "Selected Walton procedure, candidate only; contextual predicates generalized for MILAL. No automatic mother or type-only accepted relation.",
+      "enabled": true
+    },
+    {
+      "rule_id": "W-P01",
+      "rule_family": "WALTON_SAME_CLAUSE_TYPE_PARATAXIS_PRIOR",
+      "source_clause_type": [
+        "ANY"
+      ],
+      "target_clause_type": [
+        "ANY"
+      ],
+      "source_function_candidate": "CONTEXTUAL_CANDIDATE",
+      "target_function_candidate": "SAME_CLAUSE_TYPE_PARATAXIS_PRIOR",
+      "required_features": [
+        [
+          "same_clause_type",
+          "independent_correspondence"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "LEXICAL"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "PARATACTIC",
+      "source_reference": {
+        "walton_section": "2.1.2.1",
+        "printed_page": 19,
+        "pdf_page": 28,
+        "pdf_sha256": "5e5e3d3aa9b0af1a93376c00e29bec63de3b84ff07d1ce7eddb85c9fef335061"
+      },
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.2.1",
+      "source_page": 19,
+      "adoption": "NOT_USED_AS_HARD_RULE",
+      "adoption_status": "NOT_USED_AS_HARD_RULE",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "notes": "Selected Walton procedure, candidate only; contextual predicates generalized for MILAL. No automatic mother or type-only accepted relation.",
+      "enabled": true
+    },
+    {
+      "rule_id": "W-H01",
+      "rule_family": "WALTON_SAME_TYPE_PARTICIPANT_CONTINUATION_HYPOTAXIS_CANDIDATE",
+      "source_clause_type": [
+        "ANY"
+      ],
+      "target_clause_type": [
+        "ANY"
+      ],
+      "source_function_candidate": "CONTEXTUAL_CANDIDATE",
+      "target_function_candidate": "SAME_TYPE_PARTICIPANT_CONTINUATION_HYPOTAXIS_CANDIDATE",
+      "required_features": [
+        [
+          "same_clause_type",
+          "continued_secondary_participant"
+        ]
+      ],
+      "supporting_features": [
+        "TIME",
+        "LOCATION",
+        "PARTICIPANT",
+        "REFERENCE",
+        "DOMAIN",
+        "LEXICAL"
+      ],
+      "counterevidence_features": [
+        "domain_contrast",
+        "participant_contrast",
+        "time_contrast",
+        "location_contrast"
+      ],
+      "candidate_relation": "HYPOTACTIC",
+      "source_reference": {
+        "walton_section": "2.1.2.2",
+        "printed_page": 19,
+        "pdf_page": 28,
+        "pdf_sha256": "5e5e3d3aa9b0af1a93376c00e29bec63de3b84ff07d1ce7eddb85c9fef335061"
+      },
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.2.2",
+      "source_page": 19,
+      "adoption": "ADOPTED_AS_CANDIDATE_RULE",
+      "adoption_status": "ADOPTED_AS_CANDIDATE_RULE",
+      "implementation_schema_adoption": "GENERALIZED_FOR_MILAL",
+      "field_provenance": {
+        "required_features": "GENERALIZED_FOR_MILAL",
+        "supporting_features": "GENERALIZED_FOR_MILAL",
+        "counterevidence_features": "GENERALIZED_FOR_MILAL",
+        "source_function_candidate": "GENERALIZED_FOR_MILAL",
+        "target_function_candidate": "GENERALIZED_FOR_MILAL"
+      },
+      "notes": "Selected Walton procedure, candidate only; contextual predicates generalized for MILAL. No automatic mother or type-only accepted relation.",
+      "enabled": true
+    }
+  ],
+  "lexicons": {
+    "temporal": [
+      "JWM/",
+      "CNH/",
+      "XDC/",
+      "<T/",
+      ">XR/",
+      "BQR/",
+      "<RB/"
+    ],
+    "relative_temporal": [
+      ">XR/",
+      "<TH",
+      ">Z",
+      "VREM",
+      "<WD"
+    ],
+    "speech": [
+      ">MR[",
+      "DBR[",
+      "<NH[",
+      "QR>["
+    ],
+    "cessation": [
+      "KLH[",
+      "TMM[",
+      "CBT["
+    ],
+    "speech_nouns": [
+      "DBR/",
+      "MLH/",
+      ">MR/",
+      "M<NH/"
+    ],
+    "subordinators": [
+      ">CR",
+      "KJ",
+      "K>CR"
+    ],
+    "deictic": [
+      "ZH",
+      "Z>T",
+      ">LH",
+      "HW>",
+      "HJ>"
+    ],
+    "subordinate_rela": [
+      "Adju",
+      "Cmpl",
+      "Objc",
+      "Subj",
+      "Attr",
+      "Rela",
+      "Spec"
+    ]
+  },
+  "excluded_main_types": [
+    "InfC",
+    "InfA",
+    "Ptcp"
+  ],
+  "context_sequence_lengths": [
+    2,
+    3
+  ],
+  "observed_context_radius": 3,
+  "source_document": {
+    "author": "Gyusang Jin",
+    "title": "Investigating the Text-hierarchical Structures and Composition of Numbers",
+    "sha256": "016b65cc66dad67e009709b1bad2efd5a3a9b92dfd5967c5d213bf05f19d0c0b",
+    "local_filename": "Investigating the Text-hierarchical Structures and Composition of Numbers.pdf"
+  },
+  "walton_evidence_provenance": {
+    "source_author": "WALTON",
+    "source_work": "EXPERIMENTING_WITH_QOHELET",
+    "source_section": "2.1.1.3",
+    "source_page": [
+      16,
+      17,
+      18
+    ],
+    "adoption_status": "GENERALIZED_FOR_MILAL"
+  },
+  "walton_procedures": [
+    {
+      "procedure_id": "W-SEM",
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.2.3",
+      "source_page": 19,
+      "adoption_status": "ADOPTED_AS_CANDIDATE_RULE",
+      "behavior": "SECONDARY_CANDIDATE_EVIDENCE; NOT_LOADED_IN_PASS1"
+    },
+    {
+      "procedure_id": "W-NONE",
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.2.4",
+      "source_page": 19,
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "behavior": "NEW_HIGHER_LEVEL_CANDIDATE; NO_AUTOMATIC_ROOT"
+    },
+    {
+      "procedure_id": "W-REV",
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.1.1.4 / 2.2.2.2",
+      "source_page": [
+        18,
+        19,
+        27
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "behavior": "APPEND_ONLY_RECONSIDERATION; NO_AUTOMATIC_ACCEPTANCE"
+    },
+    {
+      "procedure_id": "W-DIST",
+      "source_author": "WALTON",
+      "source_work": "EXPERIMENTING_WITH_QOHELET",
+      "source_section": "2.2.2.2",
+      "source_page": 28,
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "behavior": "LONG_DISTANCE_LEXICAL_AND_PARTICIPANT_REINTRODUCTION"
+    }
+  ]
+}

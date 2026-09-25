@@ -1,0 +1,280 @@
+{
+  "labels": [
+    {
+      "label_id": "SAME_TYPE",
+      "category": "SYNTACTIC_LABELS",
+      "description": "Same observed clause type, no relation decision",
+      "observable_pattern": {
+        "all": [
+          "same_clause_type"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "EXPLICIT_SUBORDINATION",
+      "category": "SYNTACTIC_LABELS",
+      "description": "Explicit source dependency annotation",
+      "observable_pattern": {
+        "all": [
+          "native_subordinate"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "FORMAL_CORRESPONDENCE",
+      "category": "SYNTACTIC_LABELS",
+      "description": "Same POS and phrase arrangement",
+      "observable_pattern": {
+        "all": [
+          "formal_correspondence"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "PARTICIPANT_CONTINUITY",
+      "category": "PARTICIPANT_LABELS",
+      "description": "Exact participant lexical recurrence, unresolved identity",
+      "observable_pattern": {
+        "all": [
+          "participant_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "REFERENCE_POTENTIAL",
+      "category": "REFERENCE_LABELS",
+      "description": "Potential PNG or lexical reference",
+      "observable_pattern": {
+        "all": [
+          "reference_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "TIME_CHANGE",
+      "category": "TEMPORAL_LABELS",
+      "description": "Observed temporal lexical configuration differs",
+      "observable_pattern": {
+        "all": [
+          "time_contrast"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "TIME_CONTINUITY",
+      "category": "TEMPORAL_LABELS",
+      "description": "Temporal lexical overlap",
+      "observable_pattern": {
+        "all": [
+          "time_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "PLACE_CHANGE",
+      "category": "LOCATIVE_LABELS",
+      "description": "Observed locative configuration differs",
+      "observable_pattern": {
+        "all": [
+          "location_contrast"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "PLACE_CONTINUITY",
+      "category": "LOCATIVE_LABELS",
+      "description": "Locative lexical overlap",
+      "observable_pattern": {
+        "all": [
+          "location_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "DOMAIN_CONTINUITY",
+      "category": "DOMAIN_LABELS",
+      "description": "Same raw BHSA domain value",
+      "observable_pattern": {
+        "all": [
+          "domain_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "LEXICAL_RECURRENCE",
+      "category": "LEXICAL_LABELS",
+      "description": "Shared observed lexical forms",
+      "observable_pattern": {
+        "all": [
+          "lexical_continuity"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS1",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "POETIC_CONFIGURATION",
+      "category": "POETIC_PROSODIC_LABELS",
+      "description": "Repeated clause configuration; poetic interpretation unverified",
+      "observable_pattern": {
+        "all": [
+          "sequence_correspondence"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS2_ONLY",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    },
+    {
+      "label_id": "POETIC_LEXICAL_PATTERN",
+      "category": "POETIC_PROSODIC_LABELS",
+      "description": "Lexical plus formal correspondence; poetic interpretation unverified",
+      "observable_pattern": {
+        "all": [
+          "lexical_and_formal_correspondence"
+        ]
+      },
+      "object_type": "CLAUSE_PAIR",
+      "source_author": "BOSMAN",
+      "source_section": "13.2 / 13.4",
+      "source_page_if_verified": [
+        252,
+        254,
+        255
+      ],
+      "adoption_status": "GENERALIZED_FOR_MILAL",
+      "implementation_status": "PASS2_ONLY",
+      "implementation_provenance": "MILAL_CONFIGURED_OBSERVABLE_PREDICATE"
+    }
+  ],
+  "source_work": "PROSODIC_INFLUENCE_ON_TEXT_SYNTAX_OF_LAMENTATIONS",
+  "source_pdf_sha256": "3d048a9163f945a2485200ea17bd55feafbd212d96fab63544ca36a4e051831d",
+  "prosodic_unit_annotation_status": "PROSODIC_NOT_AVAILABLE"
+}

@@ -1,0 +1,12 @@
+{
+  "phase": "POST_BLIND_FREEZE_ONLY",
+  "context_policy": "ONE_PRECEDING_VERSE_WITHIN_BOOK",
+  "leviticus": {"book": "Leviticus", "target": [26, 1], "sources": [[25, 2], [25, 3], [25, 36], [25, 53]], "parallel_chain": [[25, 35], [25, 39]]},
+  "numbers": {"book": "Numeri", "references": [[26, 1], [26, 3], [26, 52]]},
+  "pentateuch": {"book": "Numeri", "roots": [[1, 1], [9, 1]], "targets": [[20, 23], [33, 50], [35, 1]], "other": [["Numeri", 3, 14], ["Deuteronomium", 32, 48]]},
+  "same_pattern": [["Exodus", 4, 19], ["Exodus", 12, 1], ["Leviticus", 1, 1], ["Leviticus", 25, 1], ["Numeri", 3, 14]],
+  "job": [["Iob", 1, 6], ["Iob", 1, 13], ["Iob", 2, 1], ["Iob", 27, 1], ["Iob", 29, 1], ["Iob", 31, 40]],
+  "qohelet": [["Ecclesiastes", 2, 11], ["Ecclesiastes", 2, 12]],
+  "lamentations": [["Threni", 2, 8], ["Threni", 2, 9], ["Threni", 2, 10]],
+  "isaiah": [["Jesaia", 49, 1], ["Jesaia", 48, 22], ["Jesaia", 47, 13]]
+}
