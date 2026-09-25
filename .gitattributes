@@ -55,3 +55,4 @@ docs/R4_4_CONTRACT_JIN_0_9_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,b
 docs/MFR_0_1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 docs/MFR_0_1A_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/MFR_0_1B_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,1051 @@
+현재 MILAL 저장소에서 다음 작업을 구현·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.1b
+— Marker Role & Evidence-Independence Audit
+— Primary Formal Markers / Support Signals / Configuration-Level Review Cases
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  3afd37a08ca5e0745bd1e0c46c756c1f8004751b
+
+현재 frozen 상태:
+- MFR.0.1 marker-first discovery 완료
+- MFR.0.1a evidence consolidation 완료
+- MFR.0.1 raw marker/family/relation evidence immutable
+- MFR.0.1a bundle/crosswalk evidence immutable
+- historical HSA/JIN relations unchanged
+- new human judgment = 0
+- hierarchy assembly = 0
+- R4.4 consumer = NOT IMPLEMENTED
+
+중요:
+MFR.0.1a가 READY_FOR_MFR_0_2_HUMAN_ADJUDICATION으로 보고되었으나,
+실제 review packet 감사 결과 human adjudication 이전에
+marker-role 및 evidence-independence audit가 필요하다.
+
+이번 단계 역시 HUMAN ADJUDICATION이 아니다.
+
+==================================================
+1. 실제 MFR.0.1a 결과를 source-of-truth로 재검증
+==================================================
+
+실제 frozen outputs에서 수치를 다시 계산한다.
+
+현재 확인된 값:
+- markers = 1,120
+- raw families = 5,717
+- evidence bundles = 1,414
+- family default review = 1,400
+- raw relations = 2,435
+- relation default review = 1,182
+- closure raw candidates = 963
+- cessation-trigger markers = 14
+
+이 수치를 hard-code하지 말고 실제 입력에서 검증한다.
+
+특히 relation-review bucket 분포를 재계산하여 보고한다.
+
+현재 실제 package에서는 대략:
+- closure-only = 961
+- resumption-only = 176
+- hierarchy + resumption = 17
+- hierarchy-only = 13
+- hierarchy + resumption + closure = 2
+- formal-only review = 13
+
+그러나 실제 파일에서 다시 산출할 것.
+
+==================================================
+2. 핵심 방법론적 수정
+==================================================
+
+MARKER-FIRST는:
+
+“모든 linguistic feature를 동일한 종류의 marker로 취급한다”
+
+는 뜻이 아니다.
+
+다음을 구별한다.
+
+A.
+PRIMARY_FORMAL_MARKER_CANDIDATE
+
+본문에 실제 formal construction으로 나타나며
+text-structuring marker 가능성을 독립적으로 검토할 수 있는 것.
+
+B.
+SUPPORT_SIGNAL
+
+다른 marker의 계층력을 판단하는 데 쓰이는
+participant/domain/configuration 변화 신호.
+
+C.
+COMPOSITE_MARKER_CANDIDATE
+
+primary formal marker와 support signal이
+같은 locus에서 동시에 나타나는 경우.
+
+D.
+LEXICAL_EVENT_CANDIDATE_REQUIRES_ROLE_AUDIT
+
+특정 lexeme 때문에 marker 후보가 되었으나
+그 lexical event가 실제 discourse/textual function인지
+문맥적 역할을 더 판별해야 하는 경우.
+
+이 분류는 hierarchy decision이 아니다.
+
+==================================================
+3. Discovery-source semantic typing
+==================================================
+
+MFR.0.1 discovery_sources를 generic하게 role-typing한다.
+
+다음은 PRIMARY FORMAL TRIGGER 후보:
+
+- REPEATED_CLAUSE_FORMULA
+- REPEATED_SEQUENCE_CONFIGURATION
+- SPEECH_PREDICATE_CONSTRUCTION
+- REPORTED_SPEECH_FORMULA
+- TEMPORAL_FRAME
+- LOCATIVE_FRAME
+- EXPLICIT_CESSATION
+- BE_TEMPORAL_CONSTRUCTION
+- FORMULA_ADJUNCT_EXPANSION
+- DEATH_CONSTRUCTION
+- REVELATION_HEADING_CONFIGURATION
+- OPEN_MOUTH_CONSTRUCTION
+- ADD_PROVERB_SPEECH
+
+다음은 SUPPORT SIGNAL:
+
+- EXPLICIT_SUBJECT_CONFIGURATION_SHIFT
+- EXPLICIT_ADDRESSEE_COMPLEMENT_CONFIGURATION_SHIFT
+- DOMAIN_CONFIGURATION_CHANGE
+
+중요:
+
+SUPPORT_SIGNAL_ONLY marker row는 삭제하지 않는다.
+
+그것은:
+SUPPORT_SIGNAL_ONLY
+
+로 retype하여 force/context evidence로 보존한다.
+
+다른 primary trigger와 동시 발생하면:
+COMPOSITE_MARKER_CANDIDATE
+
+로 기록한다.
+
+No hierarchy inference.
+
+==================================================
+4. 실제 support-only 규모 감사
+==================================================
+
+현재 package를 직접 감사했을 때:
+
+- subject-shift only가 매우 많음
+- domain-change only가 매우 많음
+- 둘의 조합도 존재
+
+실제 frozen data에서 정확한 수치를 다시 산출한다.
+
+보고:
+
+primary-bearing marker count
+support-only marker count
+composite marker count
+
+그리고 bundle별로:
+
+PRIMARY_BEARING_BUNDLE
+SUPPORT_ONLY_BUNDLE
+MIXED_ROLE_BUNDLE
+
+를 출력한다.
+
+==================================================
+5. 매우 중요 — cessation trigger를 다시 감사
+==================================================
+
+현재 MFR.0.1의 EXPLICIT_CESSATION은
+“discourse ending”과 동일하지 않다.
+
+실제 Job 후보에는 다음과 같은 종류가 섞여 있다.
+
+예:
+כלה / תם / שבת 등의 completion/cessation lexemes.
+
+하지만:
+
+“cloud disappears”
+“eyes fail”
+“days end”
+“flesh wastes”
+“words are finished”
+“people cease answering”
+
+은 동일한 discourse function이 아니다.
+
+따라서 기존:
+
+EXPLICIT_CESSATION
+
+을 삭제하거나 rewrite하지 말고
+새 role audit를 추가한다.
+
+==================================================
+6. Cessation lexical-role audit
+==================================================
+
+모든 cessation-trigger marker에 대해 generic하게:
+
+predicate lexeme
+predicate morphology
+
+subject lexeme/surface
+object
+complement
+infinitive complement
+
+speech-act lexemes
+word/speech/answer lexical arguments
+
+participant configuration
+domain before/after
+surrounding clause configuration
+
+를 감사한다.
+
+새 descriptive labels:
+
+CESSATION_LEXEME_OCCURRENCE
+
+DISCOURSE_CESSATION_FORM_CANDIDATE
+
+SPEECH_ACTIVITY_CESSATION_CANDIDATE
+
+NON_DISCOURSE_CESSATION_USAGE_CANDIDATE
+
+CESSATION_ROLE_AMBIGUOUS
+
+중요:
+automatic human acceptance 없음.
+
+==================================================
+7. Cessation role generic criteria
+==================================================
+
+Reference-specific hard code 금지.
+
+예를 들어 다음과 같은 linguistic evidence는
+DISCOURSE/SPEECH cessation candidate를 지지할 수 있다.
+
+- cessation predicate의 subject/object가
+  word/speech/answer 관련 lexical item
+- cessation predicate가
+  answer/speak 행위의 infinitive/complement와 결합
+- explicit speaker configuration
+- preceding/following domain configuration이
+  speech activity 변화와 관련
+
+반대로 bodily/temporal/physical subject라고 해서
+자동 REJECT하지 않는다.
+
+단지:
+NON_DISCOURSE_CESSATION_USAGE_CANDIDATE
+
+로 분류 가능.
+
+Human validation later.
+
+==================================================
+8. Post-freeze Job controls for cessation
+==================================================
+
+Cessation role outputs freeze 후에만
+다음 known refs를 manual validation control로 확인한다.
+
+- Job 31:40
+- Job 32:1
+
+그리고 contrasting lexical usages:
+
+- Job 4:9
+- Job 7:9
+- Job 11:20
+- Job 17:5
+- Job 19:27
+
+이 refs를 discovery logic에 넣지 않는다.
+
+질문:
+
+Does the generic role audit distinguish
+speech/discourse cessation evidence
+from ordinary completion/exhaustion uses?
+
+Do NOT require a human structural conclusion.
+
+==================================================
+9. 핵심 문제 — closure evidence의 독립성
+==================================================
+
+현재 closure 963쌍은 모두 coverage end evidence를 가진다.
+
+그러나 MFR.0.1 coverage candidate가:
+
+“next explicit cessation”
+
+을 end candidate로 생성했다면,
+
+그 coverage가 cessation target을 끝점으로 가진다는 사실은
+독립적인 closure 증거가 아니다.
+
+또한 그 coverage span에서 생성된 terminal nested evidence도
+같은 upstream decision에서 파생되었다면
+독립 증거가 아니다.
+
+따라서:
+
+COVERAGE_END
++
+TERMINAL_NESTED
+
+를 두 개의 독립 link로 세지 않는다.
+
+==================================================
+10. Evidence provenance dependency graph
+==================================================
+
+각 relation evidence에 provenance family를 추가한다.
+
+At minimum:
+
+EVID_DIRECT_FORMAL
+- exact/formula/construction relation에서 직접 생성
+
+EVID_SEQUENCE_CONFIGURATION
+- repeated multi-clause sequence
+
+EVID_CONTEXTUAL
+- independently computed before/after context
+
+EVID_PARTICIPANT
+- participant configuration
+
+EVID_DOMAIN
+- domain configuration
+
+EVID_RESUMPTION
+- independently generated resumption relation
+
+EVID_COVERAGE_INDEPENDENT
+- cessation target을 전제로 하지 않고 만들어진 coverage
+
+EVID_COVERAGE_CESSATION_DERIVED
+- explicit cessation을 end basis로 생성한 coverage
+
+EVID_NESTED_INDEPENDENT
+
+EVID_NESTED_FROM_COVERAGE
+- 해당 coverage에서 파생
+
+EVID_CESSATION_TARGET_IDENTITY
+- target이 cessation candidate라는 사실 자체
+
+각 evidence row에:
+upstream_evidence_ids
+dependency_root_ids
+
+를 기록한다.
+
+==================================================
+11. Independent evidence rule
+==================================================
+
+두 evidence가 동일 dependency root에서 파생되었다면
+독립 증거 두 개로 취급하지 않는다.
+
+예:
+
+explicit cessation target
+→ coverage end candidate
+→ terminal nested evidence
+
+는 하나의 dependency chain이다.
+
+이를:
+
+THREE SUPPORT TYPES
+
+로 세면 FAIL.
+
+대신:
+
+ONE_CESSATION_DERIVED_CHAIN
+
+으로 기록한다.
+
+No score.
+
+==================================================
+12. Closure evidence 재분류
+==================================================
+
+기존 963 raw closure candidates 모두 보존.
+
+새 classification:
+
+CLOSURE_CESSATION_DERIVED_ONLY
+
+CLOSURE_WITH_INDEPENDENT_ONSET_EVIDENCE
+
+CLOSURE_WITH_INDEPENDENT_FORMAL_EVIDENCE
+
+CLOSURE_WITH_INDEPENDENT_SEQUENCE_EVIDENCE
+
+CLOSURE_WITH_INDEPENDENT_CONTEXT_EVIDENCE
+
+CLOSURE_WITH_INDEPENDENT_RESUMPTION_EVIDENCE
+
+CLOSURE_WITH_MULTIPLE_INDEPENDENT_EVIDENCE_FAMILIES
+
+CLOSURE_ROLE_TARGET_AMBIGUOUS
+
+No accepted closure.
+
+==================================================
+13. Closure human-review eligibility
+==================================================
+
+Default closure human-review queue에는:
+
+target cessation role가
+DISCOURSE_CESSATION_FORM_CANDIDATE
+or
+SPEECH_ACTIVITY_CESSATION_CANDIDATE
+or
+CESSATION_ROLE_AMBIGUOUS
+
+이면서,
+
+source-target 사이에 cessation-derived chain 이외의
+독립 evidence가 적어도 하나 존재하는 case를 넣는다.
+
+주의:
+이것은 relation acceptance 조건이 아니다.
+
+단지 HUMAN REVIEW ELIGIBILITY다.
+
+다음은 archive/reference:
+
+CLOSURE_CESSATION_DERIVED_ONLY
+
+단:
+raw relation은 절대 삭제하지 않는다.
+
+==================================================
+14. Marker eligibility와 relation eligibility를 구별
+==================================================
+
+SUPPORT_SIGNAL_ONLY marker도
+relation evidence의 일부가 될 수 있다.
+
+그러나 support signal만으로:
+
+independent marker family
+hierarchy onset
+closure source
+
+를 자동 생성하지 않는다.
+
+필요한 경우 primary formal marker에
+support evidence로 연결한다.
+
+==================================================
+15. MFR.0.1a family-review universe 재구성
+==================================================
+
+현재 1,414 bundles 중 1,400이 DEFAULT_REVIEW다.
+
+이것은 human review preparation으로 너무 넓다.
+
+새 review organization:
+
+FAM_A_PRIMARY_REPEATED
+- primary-bearing repeated formal bundles
+
+FAM_B_PRIMARY_SINGLETON_EXPLICIT
+- genuine formal construction singleton
+
+FAM_C_EXPANSION_COMPLEX
+- adjunct/form expansion chain에 참여
+
+FAM_D_RELATION_DEPENDENCY
+- actual relation review case를 해석하는 데 필요한 bundle
+
+FAM_E_SUPPORT_ONLY_REFERENCE
+- support signals only
+
+FAM_F_GENERIC_CONSTRUCTION_REFERENCE
+- generic construction correspondence with no independent
+  structural-relation evidence
+
+No score/rank.
+
+==================================================
+16. Generic construction ≠ structural marker
+==================================================
+
+예:
+동일한 clause-function order만 공유하는
+매우 일반적인 nominal/verbal clauses가 반복된다고 해서
+
+그 자체를 textual-structuring marker로
+human researcher에게 판정하게 하지 않는다.
+
+그 formal family는 보존한다.
+
+하지만:
+FORMAL_PATTERN_REFERENCE
+
+로 둘 수 있다.
+
+Structural-marker eligibility에는 별도 evidence가 필요하다.
+
+==================================================
+17. Configuration-level relation cases
+==================================================
+
+현재 relation case는 source-marker / target-marker pair 단위다.
+
+그러나 하나의 반복 multi-clause configuration이
+여러 pair row를 생성할 수 있다.
+
+Human researcher에게 pair를 하나씩 묻지 않는다.
+
+Generic하게:
+
+overlapping or adjacent source markers
++
+overlapping or adjacent target markers
++
+shared sequence/configuration family
+and/or strongly shared occurrence spans
+
+을 이용하여:
+
+CONFIGURATION_RELATION_CASE
+
+를 만든다.
+
+==================================================
+18. Configuration consolidation constraints
+==================================================
+
+Reference-specific grouping 금지.
+
+예:
+if ref == 1:6 and ref == 2:1
+같은 코드 금지.
+
+Allowed evidence:
+
+- source marker adjacency/overlap
+- target marker adjacency/overlap
+- shared multi-clause family
+- shared relation-label bundle
+- compatible source/target span
+- repeated sequence signature
+
+모든 underlying pair IDs 보존.
+
+==================================================
+19. Hierarchy-competing cases 우선 consolidation
+==================================================
+
+현재 MFR.0.1a에는
+REL_A_HIERARCHY_COMPETING raw cases가 32개 있다.
+
+이 32개를 전부 보존하되
+configuration-level case로 먼저 consolidate한다.
+
+실제 package상 여러 raw pairs가
+동일한 larger repeated configuration을 표현한다.
+
+반드시 보고:
+
+raw hierarchy-competing pair count
+→ configuration case count
+
+underlying markers
+underlying bundles
+underlying raw relation IDs
+
+No relation decision.
+
+==================================================
+20. Human review phase dependency sets
+==================================================
+
+MFR.0.2는 한 번에 1,400 family + 1,182 relation을
+사람에게 던지지 않는다.
+
+MFR.0.1b는 다음 phase-specific dependency set을 생성한다.
+
+H1_HIERARCHY_REVIEW_SET
+- hierarchy-competing configuration cases
+- 그 case를 이해하는 데 필요한 marker/bundle evidence만 포함
+
+R1_RESUMPTION_REVIEW_SET
+- resumption cases
+- required marker/bundle dependency closure
+
+C1_CLOSURE_REVIEW_SET
+- independent-evidence closure cases
+- required marker/bundle dependency closure
+
+F_REFERENCE_SET
+- formal-only / support-only reference material
+
+중요:
+H1/R1/C1은 priority score가 아니다.
+relation type에 따른 adjudication phase다.
+
+==================================================
+21. First human adjudication batch recommendation
+==================================================
+
+MFR.0.1b 성공 후
+첫 human batch는:
+
+MFR.0.2A
+— Hierarchy-Competing Configuration Adjudication
+
+이어야 한다.
+
+Raw 32 pairs가 아니라
+configuration-level cases를 판정한다.
+
+필요한 underlying pair evidence는 모두 첨부한다.
+
+MFR.0.2A에서 아직:
+- whole-book hierarchy assembly 금지
+- root 금지
+- literary labels 금지
+
+==================================================
+22. Resumption은 다음 batch
+==================================================
+
+MFR.0.2B:
+Resumption Relation Adjudication
+
+H1에서 확정된 marker-family understanding을
+새 discovery input으로 역주입하지 않는다.
+
+Human adjudication layer로만 사용.
+
+==================================================
+23. Closure는 evidence-independence audit 후 별도 batch
+==================================================
+
+MFR.0.2C:
+Closure Relation Adjudication
+
+이번 MFR.0.1b에서
+cessation role 및 independent evidence가 정리된
+case만 기본 queue로 전달.
+
+963 raw pair 전부를 사람이 읽게 하지 않는다.
+
+==================================================
+24. Cross-corpus methodological controls
+==================================================
+
+기존 MFR.0.1 / 0.1a control outputs를 그대로 사용.
+
+새 discovery 금지.
+
+검증할 것:
+
+PENTATEUCH EDSF:
+- formal markers remain primary
+- subject/domain changes remain support evidence
+- same formal family does not collapse textual level
+
+ISA / HOS:
+- superscription correspondence preserved
+
+DEATH / AFTER-DEATH:
+- death construction / temporal-resumption remain separate evidence dimensions
+
+DANIEL / EZRA:
+- formal + resumption + hypotaxis possibilities remain simultaneously representable
+
+BOOK BOUNDARY:
+- still never eligibility filter
+
+==================================================
+25. Job post-freeze validation controls
+==================================================
+
+Outputs freeze 후 manual inspection:
+
+1:6–2:3 repeated configuration family
+1:15–1:19 repeated messenger configuration
+27:1 / 29:1
+31:40
+32:1
+38:1 / 40:1 / 40:6
+42:7 / 42:16
+
+목적:
+configuration-level case와 marker-role typing이
+실제 Hebrew evidence를 읽을 수 있게 하는지 확인.
+
+No historical relation input.
+
+==================================================
+26. No structural vocabulary in blind eligibility
+==================================================
+
+금지:
+
+prologue
+dialogue cycle
+testing scene
+Elihu section
+divine speech
+epilogue
+macro root
+
+고유명사는 raw participant surface로 허용.
+
+==================================================
+27. Required outputs
+==================================================
+
+최소:
+
+01_marker_discovery_source_role_audit.csv
+
+02_marker_role_registry.csv
+03_bundle_role_registry.csv
+
+04_cessation_lexical_role_audit.csv
+
+05_relation_evidence_provenance.csv
+06_relation_evidence_dependency_graph.csv
+
+07_closure_independence_audit.csv
+08_closure_independent_review_cases.csv
+09_closure_derived_only_archive.csv
+
+10_family_review_role_reclassification.csv
+
+11_configuration_relation_cases.csv
+12_configuration_case_membership.csv
+
+13_h1_hierarchy_review_set.csv
+14_r1_resumption_review_set.csv
+15_c1_closure_review_set.csv
+16_reference_evidence_set.csv
+
+17_cross_corpus_role_validation.csv
+18_job_postfreeze_validation.csv
+
+19_human_review_scope_report.md
+
+20_mfr_0_2a_review_cases.csv
+21_mfr_0_2a_review_packet.md
+
+22_method_compliance_report.md
+23_next_scope.md
+
+24_gates.csv
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+28. MFR.0.2A packet
+==================================================
+
+Human packet is CONFIGURATION-CENTERED.
+
+For each case show:
+
+configuration_case_id
+
+source span
+target span
+
+Hebrew surfaces in sequence
+
+underlying markers
+marker roles
+
+underlying evidence bundles
+
+exact / construction / sequence correspondence
+
+adjunct variants
+
+context-before / context-after
+
+participant/domain evidence
+
+coverage evidence
+with provenance independence clearly shown
+
+resumption evidence
+
+competing candidate relations
+
+all underlying raw pair IDs
+
+limitations
+
+Blank human fields:
+
+configuration_validity
+
+formal_relationship
+
+PARATACTIC
+HYPOTACTIC
+EMBEDDING
+RESUMPTIVE
+FORMAL_ONLY
+INSUFFICIENT
+REQUIRES_MORE_CONTEXT
+
+selected_relation
+
+mother_if_hypotactic
+
+coverage_interpretation
+
+reviewer_notes
+
+No field auto-filled.
+
+==================================================
+29. Expected integrity counts
+==================================================
+
+new human judgment = 0
+new accepted family = 0
+new accepted relation = 0
+new parent = 0
+new hierarchy = 0
+
+raw marker/family/relation IDs changed = 0
+
+==================================================
+30. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+MFR_0_1_FROZEN_VERIFIED
+MFR_0_1A_FROZEN_VERIFIED
+
+MARKER_ROLE_AUDIT_COMPLETE
+
+PRIMARY_FORMAL_VS_SUPPORT_SIGNAL_DISTINGUISHED
+SUPPORT_ONLY_MARKERS_PRESERVED
+
+CESSATION_LEXEME_NOT_EQUAL_DISCOURSE_CESSATION
+CESSATION_ROLE_AUDIT_COMPLETE
+
+JOB_31_40_POSTFREEZE_CONTROL_PRESENT
+JOB_32_1_POSTFREEZE_CONTROL_PRESENT
+NONDISCOURSE_CESSATION_CONTROLS_PRESENT
+
+COVERAGE_CESSATION_DERIVATION_TRACKED
+NESTED_FROM_COVERAGE_DERIVATION_TRACKED
+
+DEPENDENT_EVIDENCE_NOT_DOUBLE_COUNTED
+
+RAW_963_CLOSURE_PAIRS_PRESERVED
+CESSATION_DERIVED_ONLY_ARCHIVE_SUPPORTED
+
+CONFIGURATION_LEVEL_CASES_CREATED
+RAW_PAIR_TRACEABILITY_COMPLETE
+
+HIERARCHY_32_RAW_PAIRS_PRESERVED
+HIERARCHY_CONFIGURATION_CASES_GENERATED
+
+PHASE_SPECIFIC_REVIEW_SETS_GENERATED
+
+NO_BOOK_BOUNDARY_FILTER
+NO_REFERENCE_HARDCODING_IN_DISCOVERY
+
+NO_HUMAN_JUDGMENT
+NO_ACCEPTED_RELATION
+NO_PARENT
+NO_HIERARCHY
+
+R4_4_CONSUMER_ABSENT
+PARTICIPANT_ARC_UNTOUCHED
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+MANIFEST_VALID
+DETERMINISTIC_RERUN
+
+==================================================
+31. Synthetic tests
+==================================================
+
+At minimum:
+
+S1
+subject-shift only
+→ SUPPORT_SIGNAL_ONLY
+
+S2
+domain-shift only
+→ SUPPORT_SIGNAL_ONLY
+
+S3
+repeated formula + subject shift
+→ COMPOSITE_MARKER_CANDIDATE
+
+S4
+cessation verb with bodily/physical subject
+→ cessation lexical occurrence,
+not automatic discourse cessation
+
+S5
+cessation predicate + speech/word argument
+→ DISCOURSE_CESSATION_FORM_CANDIDATE
+
+S6
+speaker ceases answering construction
+→ SPEECH_ACTIVITY_CESSATION_CANDIDATE
+
+S7
+cessation-derived coverage + nested evidence
+→ one dependency chain, not two independent supports
+
+S8
+independent repeated onset + cessation-derived coverage
+→ independent onset evidence preserved separately
+
+S9
+five clause-pair relations generated by one repeated
+multi-clause configuration
+→ one configuration case + five raw pair memberships
+
+S10
+same book / different book does not affect eligibility
+
+S11
+support signal remains usable as context evidence
+without becoming standalone structural marker
+
+S12
+all raw evidence remains traceable
+
+==================================================
+32. Readiness
+==================================================
+
+Success:
+
+MARKER_ROLE_AND_EVIDENCE_INDEPENDENCE_ESTABLISHED
+
+READY_FOR_MFR_0_2A_HIERARCHY_CONFIGURATION_ADJUDICATION
+
+Do NOT declare:
+
+READY_FOR_FULL_MFR_0_2
+READY_FOR_HIERARCHY_ASSEMBLY
+READY_FOR_R4_4_IMPLEMENTATION
+
+==================================================
+33. Commit
+==================================================
+
+Suggested commit:
+
+Refine marker roles and independent review evidence
+
+push origin/main after all tests/gates PASS.
+
+==================================================
+34. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. push / working tree
+
+MARKERS:
+3. total markers
+4. primary formal marker candidates
+5. composite markers
+6. support-signal-only markers
+
+BUNDLES:
+7. primary-bearing bundles
+8. support-only bundles
+9. revised review/reference counts
+
+CESSATION:
+10. cessation lexical candidates
+11. discourse-cessation-form candidates
+12. speech-activity-cessation candidates
+13. non-discourse candidates
+14. ambiguous
+
+CLOSURE:
+15. raw closure pairs = preserved count
+16. cessation-derived-only
+17. independent onset-linked
+18. independent formal/sequence-linked
+19. independent context/resumption-linked
+20. final closure review cases
+
+CONFIGURATION:
+21. raw hierarchy-competing pairs
+22. configuration relation cases
+23. markers involved
+24. bundles involved
+
+PHASE SETS:
+25. H1 cases
+26. R1 cases
+27. C1 cases
+28. reference cases
+
+CONTROLS:
+29. EDSF
+30. Isa/Hos
+31. death-resumption
+32. Dan/Ezra
+33. Job cessation contrast
+
+INTEGRITY:
+34. raw evidence loss
+35. new human judgment
+36. accepted relation
+37. hierarchy generated
+
+VALIDATION:
+38. tests
+39. regression
+40. gates
+41. deterministic rerun
+42. ZIP/SHA256
+
+READINESS:
+43. MARKER_ROLE_AND_EVIDENCE_INDEPENDENCE_ESTABLISHED
+44. READY_FOR_MFR_0_2A_HIERARCHY_CONFIGURATION_ADJUDICATION

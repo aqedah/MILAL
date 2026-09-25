@@ -1,0 +1,78 @@
+{
+  "primary_sources": [
+    "REPEATED_CLAUSE_FORMULA",
+    "REPEATED_SEQUENCE_CONFIGURATION",
+    "SPEECH_PREDICATE_CONSTRUCTION",
+    "REPORTED_SPEECH_FORMULA",
+    "TEMPORAL_FRAME",
+    "LOCATIVE_FRAME",
+    "EXPLICIT_CESSATION",
+    "BE_TEMPORAL_CONSTRUCTION",
+    "FORMULA_ADJUNCT_EXPANSION",
+    "DEATH_CONSTRUCTION",
+    "REVELATION_HEADING_CONFIGURATION",
+    "OPEN_MOUTH_CONSTRUCTION",
+    "ADD_PROVERB_SPEECH",
+    "DIVINE_SPEECH_ADDRESSEE_CONSTRUCTION",
+    "AFTER_DEATH_TEMPORAL_CONSTRUCTION",
+    "YEAR_ONE_CONFIGURATION"
+  ],
+  "support_sources": [
+    "EXPLICIT_SUBJECT_CONFIGURATION_SHIFT",
+    "EXPLICIT_ADDRESSEE_COMPLEMENT_CONFIGURATION_SHIFT",
+    "DOMAIN_CONFIGURATION_CHANGE"
+  ],
+  "cessation_predicates": [
+    "TMM[",
+    "KLH[",
+    "CBT["
+  ],
+  "speech_predicates": [
+    ">MR[",
+    "DBR[",
+    "QR>[",
+    "<NH["
+  ],
+  "speech_argument_nouns": [
+    "DBR/",
+    "MLH/",
+    ">MR/",
+    "M<NH/"
+  ],
+  "physical_temporal_argument_lexemes": [
+    "<JN/",
+    "BFR/",
+    "KLJH/",
+    "<YM/",
+    "DM/",
+    "JWM/",
+    "CNH/",
+    "<NN/",
+    "RWX/",
+    ">P/"
+  ],
+  "infinitive_introducers": [
+    "MN",
+    "L"
+  ],
+  "infinitive_forms": [
+    "infc",
+    "infa"
+  ],
+  "onset_sources": [
+    "REPEATED_CLAUSE_FORMULA",
+    "REPEATED_SEQUENCE_CONFIGURATION",
+    "SPEECH_PREDICATE_CONSTRUCTION",
+    "REPORTED_SPEECH_FORMULA",
+    "TEMPORAL_FRAME",
+    "LOCATIVE_FRAME",
+    "BE_TEMPORAL_CONSTRUCTION",
+    "OPEN_MOUTH_CONSTRUCTION",
+    "ADD_PROVERB_SPEECH",
+    "REVELATION_HEADING_CONFIGURATION",
+    "DIVINE_SPEECH_ADDRESSEE_CONSTRUCTION",
+    "AFTER_DEATH_TEMPORAL_CONSTRUCTION",
+    "YEAR_ONE_CONFIGURATION"
+  ],
+  "limitations": "LEXICAL_ROLE_CANDIDATES_ONLY; POLYSEMY_NOT_RESOLVED; ADJACENT_INFINITIVE_IS_NOT_A_RECOVERED_SYNTACTIC_EDGE"
+}

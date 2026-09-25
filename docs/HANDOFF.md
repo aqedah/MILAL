@@ -1,6 +1,54 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.1a evidence consolidation, 2026-09-25
+## Current task — MFR.0.1b role and evidence-independence audit, 2026-09-25
+
+Active specification: [MFR.0.1b](MFR_0_1B_SPEC.md); authority:
+[exact researcher request](MFR_0_1B_RESEARCHER_SOURCE.txt); execution:
+[Windows/Termux README](README_MILAL_MFR_0_1B.md); results:
+[validation report](MFR_0_1B_VALIDATION_REPORT.md).
+Start HEAD `3afd37a08ca5e0745bd1e0c46c756c1f8004751b`.
+
+**MARKER_ROLE_AND_EVIDENCE_INDEPENDENCE_ESTABLISHED**;
+**READY_FOR_MFR_0_2A_HIERARCHY_CONFIGURATION_ADJUDICATION**.
+This supersedes MFR.0.1a's immediate full MFR.0.2 review readiness.
+MFR.0.1 discovery and MFR.0.1a bundle/crosswalk evidence remain frozen.
+
+Job markers 1120: primary-bearing 517 (including
+composites); support-only 591;
+lexical-event role audit 12.
+All 1414 bundles and 2435 raw pairs preserved.
+Closure pairs 963: 69 eligible, 894 archived;
+derived-only 166. Archive also includes
+non-discourse targets/support-only sources with independently observed context.
+Cessation identity → coverage → nested evidence is one shared-root chain.
+No closure is accepted. Support-only rows never become standalone closure sources.
+
+Hierarchy-competing 32 pairs → 13 H1 configuration cases,
+with 55 marker and 76 bundle dependencies.
+R1 182, C1 69; phases can overlap and are not rankings.
+Job has full relation auditing; external corpora have complete role overlays plus
+unchanged frozen relation controls. Five role outputs and Job relation outputs
+freeze before known-reference inspection. All human fields are blank.
+
+Validation: 65 stage tests; full **2091 PASS / fail0 / error0 / skip0**;
+synthetic Windows runner 84 assertions PASS; real 84 assertions plus
+3 external checks PASS; 43 gate definitions negative-tested.
+Independent ZIPs byte-identical; source IDs, dependency inheritance and manifests
+verified. No Termux empirical claim. 384 frozen repository pins unchanged.
+No new human judgments, accepted relations, mothers, hierarchy, or R4.4 consumer.
+Participant arc UNADJUDICATED.
+
+Final ZIP: `results/mfr01b_real_20260925_a_results.zip`.
+SHA256 `47b1dff0d19556a6d467df00cf4e0e8b439d33f7f1028d1d52d3c48434023f81`.
+필수 업로드: complete result ZIP; optional validation report and H1 packet.
+Request section 33 authorizes commit/push after all gates pass.
+
+Next: **MFR.0.2A — Hierarchy-Competing Configuration Adjudication**.
+Review configurations with every underlying pair attached. MFR.0.2B resumption and
+MFR.0.2C closure follow separately. No full MFR.0.2 readiness, hierarchy assembly,
+root, literary labels or R4.4 implementation readiness. No discovery feedback.
+
+## Previous task — MFR.0.1a evidence consolidation, 2026-09-25
 
 Active specification: [MFR.0.1a](MFR_0_1A_SPEC.md); authority:
 [exact researcher request](MFR_0_1A_RESEARCHER_SOURCE.txt); execution:
