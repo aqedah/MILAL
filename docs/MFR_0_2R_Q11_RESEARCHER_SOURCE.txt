@@ -1,0 +1,412 @@
+MILAL MFR.0.2R — Q1.1 SOURCE-BINDING COVERAGE REVIEW
+
+BASELINE
+- Repository: C:\MILAL
+- Required baseline commit:
+  039284206418253d42f0998a6af05382dde511c8
+- Before doing anything:
+  1. git fetch origin
+  2. verify local HEAD == origin/main == the required baseline commit
+  3. verify tracked working tree is clean
+  4. leave all existing untracked PDFs untouched
+- Q1 release ZIP SHA256:
+  6398abb8113e6674d0697771acabe0f19e84ddaf3f927f8c761d86a29b3ab16f
+
+PURPOSE
+
+Do NOT start H0.1.
+
+Q1 produced a valid, deterministic qualified relation universe, but it raised
+QUALIFICATION_OVERRESTRICTIVE and explicitly marked readiness as
+QUALIFICATION_REQUIRES_METHODOLOGICAL_REVIEW.
+
+Q1.1 is therefore a diagnostic/methodological coverage review only.
+
+Its purpose is to determine WHY known controls and larger-unit evidence are not
+preserved by the current source-binding mechanisms, and WHICH source-binding
+mechanisms require principled implementation or revision before H0.1.
+
+Q1.1 MUST NOT relax qualification rules merely to increase counts.
+
+FROZEN CONTRACT
+
+Preserve without modification:
+
+1. the complete MFR.0.2R raw universe: 1,049,504 pairs
+2. Q1 qualified universe: exactly 185
+3. Q1 structural outcome groups: exactly 185
+4. Q1 variant pivots: exactly 2
+5. all Q1 source-binding witnesses
+6. all frozen lower-layer artifacts
+7. all existing human judgments, including MFR.0.2A 13 decisions
+8. all negative controls
+9. no canonical mother
+10. no canonical hierarchy
+11. no new human judgment
+12. no score
+13. no distance cutoff
+14. no top-N filtering
+15. no corpus similarity or prosody treated by itself as structural proof
+
+Q1.1 is diagnostic only.
+It must NOT create new qualified relations.
+
+============================================================
+TASK A — REPRODUCE AND FREEZE THE Q1 BASELINE
+============================================================
+
+Re-run or independently load Q1 and verify at minimum:
+
+- raw = 1,049,504
+- H0 relation-eligible original relations = 95,929
+- qualified = 185
+  - QUALIFIED_DIRECT = 173
+  - QUALIFIED_CONFIGURATION = 12
+  - QUALIFIED_UNIT_MEDIATED = 0
+- structural outcome groups = 185
+- variant pivots = 2
+- mother competitions = 0
+- parallel competitions = 2
+- MFR.0.2A preserved = 13
+- warning = QUALIFICATION_OVERRESTRICTIVE
+- readiness = QUALIFICATION_REQUIRES_METHODOLOGICAL_REVIEW
+
+The two Q1 pivots must remain:
+- target 497596
+- target 497608
+
+Do not reinterpret them.
+
+============================================================
+TASK B — AUDIT THE FIVE MISSING NUMBERS CONTROL RELATIONS
+============================================================
+
+Q1 reports five known Numbers relation alternatives as not preserved:
+
+1. P443836-443840 — HYPOTACTIC
+2. P443836-443840 — PARATACTIC
+3. P443836-443956 — PARATACTIC
+4. P443837-443841 — PARATACTIC
+5. P443837-443957 — PARATACTIC
+
+Note carefully:
+these are FIVE relation alternatives across FOUR source-target pairs.
+
+For each relation alternative, trace:
+
+A. exact external control identity
+B. exact underlying clause / clause_atom / phrase / word nodes
+C. original rule(s) that admitted it
+D. all source evidence currently available
+E. why Q1 classified it EVIDENCE_ONLY rather than qualified
+F. which exact source-binding requirement failed
+G. whether an already-defined but unsupported mechanism
+   (SB02, SB05, SB07, SB08, SB09, SB10, SB11, SB12)
+   was intended to handle this evidence
+H. whether recovery would require:
+   - implementation of an existing principled mechanism,
+   - revision of an overrestrictive operationalization,
+   - additional source evidence,
+   - or an illegitimate control-specific exception
+
+Do NOT recover these relations simply because they are known controls.
+
+No special-casing by candidate ID is allowed.
+
+A proposed mechanism is acceptable only if it can be stated independently
+of these Numbers cases and then applied corpus-wide.
+
+============================================================
+TASK C — BOSMAN LARGER-UNIT REFERENCE AUDIT
+============================================================
+
+Audit the two preserved Bosman control unit references:
+
+1.
+- source_clause_id: 504907
+- source_unit_candidate_id: UC-504907
+- target_clause_ids: [504911]
+
+2.
+- source_clause_id: 504910
+- source_unit_candidate_id: UC-504910
+- target_clause_ids: [504924]
+
+Current frozen status includes:
+
+- representation = EXACT_FACTORIZED_UNIT_REFERENCE_SET
+- evidence_level = LARGER_UNIT_EVIDENCE
+- candidate_status = UNIT_CONTEXT_REFERENCE_CANDIDATE
+- reference_identity_status = UNRESOLVED
+- reference_hidden_in_larger_unit = true
+- reference_depth = RESOLVED_BY_PATH_QUERY; ASSIGNMENT_DEPENDENT
+
+The audit must answer:
+
+1. What precisely is unresolved?
+2. Is the unresolved identity caused by:
+   - source identity,
+   - target/reference identity,
+   - larger-unit boundary,
+   - antecedent selection,
+   - dependence on a provisional hierarchy path,
+   - or more than one of these?
+3. Can a unit-mediated source-binding mechanism be defined using evidence
+   that is independent of the hierarchy assignment being tested?
+4. Would such a mechanism correspond to one of the existing SB mechanism IDs?
+5. If not, is the existing SB taxonomy incomplete?
+6. What minimum evidence would be necessary to turn this from
+   LARGER_UNIT_EVIDENCE into a source-bound relation witness?
+
+CRITICAL:
+Do not resolve Bosman identity by using a canonical hierarchy, because Q1
+deliberately has none.
+
+Do not turn assignment-dependent evidence into independent proof.
+
+If the circularity cannot be removed, retain UNRESOLVED.
+
+============================================================
+TASK D — SOURCE-BINDING MECHANISM COVERAGE MATRIX
+============================================================
+
+Create a complete matrix for SB01–SB12.
+
+For every mechanism record:
+
+- mechanism_id
+- formal definition already present in repository documentation/code
+- intended evidence type
+- current implementation status
+- whether it operates on:
+  - direct dependency
+  - constituent/path reference
+  - participant linkage
+  - repeated configuration
+  - larger textual unit
+  - another explicitly defined evidence type
+- whether it is available in Q1
+- count of Q1 witnesses, if implemented
+- affected known controls
+- missing prerequisites
+- risk of circularity
+- risk of converting similarity into relation proof
+- candidate next action
+
+Q1 currently implements/uses:
+- SB01
+- SB03
+- SB04
+- SB06
+
+Q1 currently reports unsupported/unavailable:
+- SB02
+- SB05
+- SB07
+- SB08
+- SB09
+- SB10
+- SB11
+- SB12
+
+Do not assume an unsupported mechanism is valid merely because it exists
+in the registry. Reconstruct its intended methodological basis first.
+
+============================================================
+TASK E — SB06 OVERRESTRICTION AUDIT
+============================================================
+
+Do NOT loosen SB06 yet.
+
+Current Q1 SB06 operational subset requires, among other things:
+
+- contiguous explicitly native-linked clauses
+- corresponding explicit lexical NP
+- corresponding grammatical position
+- non-speech predicate beyond a bare speech formula
+- identical multi-clause lexical/morphological/phrase signatures
+
+Audit the effect of EACH restriction separately.
+
+For each restriction:
+
+1. count candidates excluded solely because of that restriction
+2. count candidates excluded by that restriction plus others
+3. identify whether any known external positive/control case fails it
+4. distinguish:
+   - structurally necessary condition
+   - implementation convenience
+   - deliberately conservative Q1 restriction
+5. determine whether the condition is actually supported by the frozen
+   scholarly/methodological source contract
+
+IMPORTANT:
+This is a sensitivity/coverage audit, not a request to maximize recall.
+
+Do not report “more recovered relations” as sufficient justification.
+
+============================================================
+TASK F — CONTROL COVERAGE ANALYSIS
+============================================================
+
+Retain the existing external control scopes:
+
+- Pentateuch
+- Qohelet
+- Lamentations
+- Isaiah
+
+Report for each scope:
+
+- fixture count
+- original relation count
+- qualified relation count
+- source-binding mechanism responsible for each retained relation
+- known positive/control relations not retained
+- reason not retained
+- whether non-retention reflects:
+  A. correct rejection,
+  B. unresolved evidence,
+  C. unimplemented source-binding mechanism,
+  D. apparently overrestrictive implementation
+
+Do not collapse B/C/D into “false negative.”
+
+They are methodologically different.
+
+============================================================
+TASK G — DO NOT USE CONTROLS TO TRAIN THE RULE
+============================================================
+
+The control cases may diagnose coverage but may not determine the rule.
+
+Add explicit automated gates ensuring:
+
+- no candidate ID specific exceptions
+- no source/target ID whitelists
+- no book-specific recovery rule
+- no “known positive” flag used during qualification
+- no external control result read before blind diagnostic qualification
+- no threshold tuned to recover a fixed control count
+
+Controls must remain post-freeze validation material.
+
+============================================================
+TASK H — PRODUCE THREE METHOD OPTIONS, NOT A DECISION
+============================================================
+
+After the audit, produce up to three methodologically distinct next-step options.
+
+For each option state:
+
+- exact mechanism(s) affected
+- scholarly/linguistic basis already available in repository evidence
+- implementation change required
+- which unresolved controls it could in principle address
+- risk of overgeneration
+- risk of circularity
+- whether it changes Q1 qualification semantics
+- required new validation
+
+Do NOT choose a canonical hierarchy or adjudicate the controls.
+
+Do NOT start H0.1.
+
+The final readiness state must be one of:
+
+1. READY_FOR_Q1_2_MECHANISM_IMPLEMENTATION
+2. NEEDS_ADDITIONAL_SOURCE_REVIEW
+3. Q1_CURRENT_CONTRACT_SUFFICIENT_BUT_CONTROLS_REMAIN_UNRESOLVED
+
+Do not produce READY_FOR_H0_1 in Q1.1.
+
+============================================================
+REQUIRED OUTPUTS
+============================================================
+
+Create a deterministic Q1.1 result package containing at minimum:
+
+01_q1_1_baseline_reproduction.csv
+02_q1_1_numbers_missing_control_audit.csv
+03_q1_1_bosman_unit_reference_audit.csv
+04_q1_1_sb01_sb12_coverage_matrix.csv
+05_q1_1_sb06_restriction_sensitivity.csv
+06_q1_1_external_control_coverage.csv
+07_q1_1_control_blinding_audit.csv
+08_q1_1_method_options.md
+09_q1_1_methodological_findings.md
+10_q1_1_next_scope.md
+11_q1_1_gates.csv
+90_run_metadata.json
+99_manifest_sha256.csv
+
+Also preserve exact source receipts/provenance needed to reproduce every finding.
+
+============================================================
+REQUIRED GATES
+============================================================
+
+At minimum:
+
+- BASELINE_COMMIT_VERIFIED
+- Q1_RAW_UNIVERSE_BYTE_STABLE
+- Q1_QUALIFIED_185_UNCHANGED
+- Q1_OUTCOME_GROUPS_185_UNCHANGED
+- Q1_PIVOTS_2_UNCHANGED
+- MFR02A_13_UNCHANGED
+- NO_NEW_HUMAN_JUDGMENT
+- NO_CANONICAL_MOTHER
+- NO_CANONICAL_HIERARCHY
+- NO_NEW_QUALIFIED_RELATION
+- NO_ID_SPECIFIC_CONTROL_EXCEPTION
+- CONTROL_BLINDING_PRESERVED
+- NUMBERS_FIVE_RELATIONS_EXPLICITLY_AUDITED
+- BOSMAN_TWO_UNIT_REFERENCES_EXPLICITLY_AUDITED
+- SB01_TO_SB12_MATRIX_COMPLETE
+- SB06_RESTRICTIONS_INDEPENDENTLY_AUDITED
+- NO_SCORE
+- NO_DISTANCE_CUTOFF
+- NO_TOP_N
+- NO_SKIPS
+- FULL_REGRESSION_PASS
+- DETERMINISTIC_RERUN
+- MANIFEST_VALID
+
+============================================================
+TEST / RELEASE / GIT
+============================================================
+
+1. Add focused Q1.1 tests.
+2. Run the complete existing regression suite.
+3. Require zero skips.
+4. Run Q1.1 independently twice.
+5. Require deterministic file bytes for deterministic outputs.
+6. Build a release ZIP.
+7. Verify its SHA256.
+8. Write a full validation report under docs/.
+9. Commit only after every gate passes.
+10. Push to origin/main.
+11. Confirm:
+    local HEAD == origin/main.
+12. Leave the existing untracked PDFs untouched.
+
+FINAL RESPONSE TO USER
+
+Report:
+
+- commit hash
+- local/origin equality
+- tests passed / skipped
+- gates passed
+- Q1 frozen counts
+- exact diagnosis of the five Numbers relation alternatives
+- exact diagnosis of both Bosman unit references
+- SB01–SB12 coverage result
+- SB06 overrestriction result
+- final Q1.1 readiness state
+- release ZIP path
+- release ZIP SHA256
+- validation report path
+
+Do not state that H0.1 is ready unless a later, separately approved phase
+establishes that conclusion.

@@ -68,3 +68,4 @@ config/mfr_0_2r_required_gates.json -text whitespace=blank-at-eol,blank-at-eof,s
 
 docs/MFR_0_2R_H0_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/MFR_0_2R_Q1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/MFR_0_2R_Q11_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

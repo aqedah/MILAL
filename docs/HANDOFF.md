@@ -1,6 +1,66 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1 technically validated; coverage review required
+## Current task — MFR.0.2R-Q1.1 coverage review completed
+
+Active specification: [Q1.1](MFR_0_2R_Q11_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q11_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_Q11.md); [validation report](MFR_0_2R_Q11_VALIDATION_REPORT.md).
+Baseline `039284206418253d42f0998a6af05382dde511c8`.
+
+**NEEDS_ADDITIONAL_SOURCE_REVIEW**. Diagnostic review only; H0.1 is not started.
+No qualification rule was relaxed, no new qualified relation or human judgment
+was created, and no canonical mother/hierarchy was selected. All 473 frozen
+repository pins, upstream archives, Q1 witnesses and 13 human decisions verify.
+
+Frozen Job counts remain raw 1,049,504 / original 95,929 / qualified 185
+(173 direct, 12 configuration, 0 unit-mediated) / outcome groups 185.
+Pivots remain exactly 497596 and 497608. Mother/parallel competitions: 0/2.
+Q1's QUALIFICATION_OVERRESTRICTIVE warning remains; technical validation is
+not methodological acceptance of coverage.
+
+Five Numbers alternatives across four pairs remain EVIDENCE_ONLY. Hypotaxis
+lacks native/reference binding and the implemented SB04 active context. The
+parallel speech-opening pairs fail conservative SB06 predicates; the two
+לאמר pairs fail all five fixed-unit predicates. No ID-specific recovery was added.
+
+Both Bosman references remain referentially UNRESOLVED. Their exact antecedents
+are 504908 and 504911. The second has an independently native-supported
+intermediate edge 504910→504911 (Adju), but target 504924 supplies lexical
+recurrence, not a resolved directed reference. Do not flatten these distinct
+evidence gaps into a generic missing-source claim; see the validation report.
+
+SB01/SB03/SB04/SB06 are implemented; Job witnesses 176/0/1/12. Eight other
+mechanism IDs remain intent categories with missing operational prerequisites.
+SB06 sensitivity uses all original relation pairs and unchanged Q1 units;
+sole/joint failures are not hypothetical recovered relations. External fixtures
+remain bounded: 181 clauses, 3,834 raw pairs, 628 original relation pairs
+(778 alternatives), 37 qualified alternatives. No full external-book analysis.
+
+Validation: 42 focused tests; 2,562 full regression tests (840.545s), failures /
+errors / skips 0; 36 synthetic checks plus byte comparison; 23/23 gates with
+negative mutations; independent D/F outputs and ZIP bytes identical. 33 ZIP
+members / 32 manifest entries verified. A new diagnostic competition-count
+bug in the first attempt was fixed and regression-tested; frozen Q1 was correct.
+Only the final paths below are canonical Q1.1 releases.
+
+- `D:\MILAL_runs\mfr02r_q1_1_20260926\release_a_final`
+- `F:\MILAL_runs\mfr02r_q1_1_20260926\release_b_final`
+- Both directory names plus `_results.zip`
+- ZIP SHA256 `2925a1f241638e057cb919d2b8c5acae61995c91df31c32ef627d892210d0be5`
+- `D:\MILAL_runs\mfr02r_q1_1_20260926\release_a_final_verification.json`
+- `D:\MILAL_runs\mfr02r_q1_1_20260926\regression_corrected.json` and `.log`
+- Synthetic receipt: `C:\MILAL\results\q11_synthetic_02\receipt.json`
+
+Code/config/test fingerprint:
+`8348adebdfb532edf78090e36149240a9c6f37a7d38384689c3ee8e67aaaf65f`.
+Four user research PDFs remain untracked and untouched.
+
+Next pending task: researcher source review of independent configuration,
+reference/containing-unit and global-constraint witness contracts. Three options
+are documented; none is selected. Do not start Q1.2 mechanism implementation or
+H0.1 without a separately approved scope.
+
+## Previous task — MFR.0.2R-Q1 technically validated; coverage review required
 
 Active specification: [Q1](MFR_0_2R_Q1_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q1_RESEARCHER_SOURCE.txt); execution:
