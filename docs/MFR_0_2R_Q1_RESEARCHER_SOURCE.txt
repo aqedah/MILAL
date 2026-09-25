@@ -1,0 +1,1414 @@
+현재 MILAL 저장소에서 다음 작업을 구현·실행·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.2R-Q1
+— Relation Candidate Source-Binding Qualification
+— Distinguish Search Candidates from Structurally Plausible Relation Candidates
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  ca0abd320d073fd2bf31895b3a510f741317e08f
+
+현재 상태:
+- MFR.0.2R relation engine 완료
+- MFR.0.2R-H0 review sieve 완료
+- exhaustive candidate universe 보존
+- H0에서 human-review universe는 크게 감소했지만
+  TARGET_REVIEW_REQUIRED가 여전히 지나치게 넓음
+- REVIEW_SIEVE_NOT_SELECTIVE 경고 발생
+- 기존 human judgment 변경 없음
+- canonical mother/hierarchy 없음
+
+이번 단계의 목적:
+
+검색 후보(search candidate)가
+실제 relation candidate로 승격되기 위해서는
+“target에 어떤 특징이 있다”는 것만으로는 부족하다.
+
+반드시:
+
+SOURCE
+↔ TARGET
+
+사이의 구체적인 source-binding evidence가 있어야 한다.
+
+즉:
+
+SEARCH CANDIDATE
+≠
+RELATION CANDIDATE
+
+를 명시적으로 분리한다.
+
+==================================================
+0. 핵심 진단
+==================================================
+
+현재 일부 Walton-derived candidate rules는
+candidate discovery에는 적절하지만
+relation instantiation에는 너무 넓게 작동할 수 있다.
+
+특히 다음을 감사한다:
+
+W-A01
+Walton explicit subordination candidate
+
+W-P01
+Walton same-clause-type parataxis prior
+
+W-H01
+Walton same-type participant-continuation hypotaxis candidate
+
+중요:
+
+이 규칙들을 삭제하지 않는다.
+
+Walton source provenance도 유지한다.
+
+다만 이 규칙이:
+
+A.
+SEARCH / PRIOR EVIDENCE를 생성하는가
+
+또는
+
+B.
+특정 source-target pair의
+STRUCTURALLY PLAUSIBLE RELATION을 생성하는가
+
+를 분리한다.
+
+==================================================
+1. Three candidate stages
+==================================================
+
+모든 pair는 다음 단계를 구분할 수 있어야 한다.
+
+STAGE 1:
+SEARCH_CANDIDATE
+
+넓은 corpus/index search에서 발견된 source-target pair.
+
+STAGE 2:
+SOURCE_BOUND_RELATION_CANDIDATE
+
+source와 target 사이에
+실제 relation을 지지하는 source-binding evidence가 있음.
+
+STAGE 3:
+HUMAN_ADJUDICATION_CANDIDATE
+
+서로 다른 structural outcomes가 실제로 경쟁하여
+사람의 판단이 필요한 경우.
+
+이번 Q1은 주로 STAGE 1 → STAGE 2를 다룬다.
+
+H0.1은 이후 STAGE 2 → STAGE 3를 다룬다.
+
+==================================================
+2. Do not reduce raw search universe
+==================================================
+
+기존 1,049,504 candidate universe를 삭제하거나 수정하지 않는다.
+
+모든 기존 search candidate는 그대로 보존한다.
+
+새 crosswalk를 생성:
+
+candidate_id
+search_candidate_status
+relation_candidate_qualification
+qualification_reason
+disqualification_reason
+
+기존 candidate universe row count는 동일해야 한다.
+
+==================================================
+3. Source-binding principle
+==================================================
+
+relation candidate가 되려면:
+
+target feature
+
+뿐 아니라
+
+source-target 연결 증거
+
+가 있어야 한다.
+
+잘못된 예:
+
+Target이 explicit subordinate clause다.
+→ 모든 앞 절이 hypotactic mother candidate
+
+금지.
+
+Target이 source와 같은 clause type이다.
+→ 모든 앞의 same-type clause가 parallel candidate
+
+금지.
+
+같은 participant가 먼 곳에서 다시 나타난다.
+→ 해당 모든 절이 mother candidate
+
+금지.
+
+==================================================
+4. Source-binding evidence categories
+==================================================
+
+SOURCE_BOUND_RELATION_CANDIDATE가 되려면
+최소 하나 이상의 source-binding mechanism이 명시되어야 한다.
+
+Allowed mechanisms:
+
+SB01
+DIRECT_SYNTACTIC_DEPENDENCY
+
+SB02
+EXPLICIT_REFERENCE_TO_SOURCE
+
+SB03
+REFERENCE_TO_SOURCE_CONTAINING_UNIT
+
+SB04
+PARTICIPANT_CONTINUATION_FROM_ACTIVE_UNIT
+
+SB05
+VALENCY_DEPENDENCY
+
+SB06
+FORMAL_CONFIGURATION_CORRESPONDENCE
+
+SB07
+TEMPORAL_DEPENDENCY
+
+SB08
+LOCATIVE_FRAME_DEPENDENCY
+
+SB09
+DOMAIN_CONTINUATION_OR_EMBEDDING
+
+SB10
+LEXICAL_ANAPHORIC_DEPENDENCY
+
+SB11
+ESTABLISHED_PARALLEL_CONFIGURATION
+
+SB12
+GLOBAL_CONFIGURATION_CONSTRAINT
+
+중요:
+
+단순 occurrence similarity는 source binding이 아니다.
+
+==================================================
+5. Direct versus indirect binding
+==================================================
+
+각 source-binding mechanism은 구분한다.
+
+DIRECT_BINDING
+
+예:
+- subordinate marker가 바로 preceding finite clause에 의존
+- suffix/pronoun이 source constituent를 직접 참조
+- valency slot이 source-target 구조를 직접 묶음
+
+UNIT_MEDIATED_BINDING
+
+예:
+- target reference가 source clause 자체가 아니라
+  source가 여는 containing unit 내부 participant를 참조
+- Bosman larger-unit case
+
+CONFIGURATION_BINDING
+
+예:
+- repeated multi-clause configuration에서
+  source와 target이 대응 위치를 차지
+- Jin global structure example
+
+==================================================
+6. W-A01 qualification
+==================================================
+
+W-A01:
+Walton §2.1.1.1
+explicit subordinating features.
+
+현재 rule provenance는 보존한다.
+
+그러나:
+
+explicit subordinator가 target에 존재한다는 사실만으로
+arbitrary preceding source와 HYPOTACTIC relation을 만들지 않는다.
+
+W-A01은 기본적으로:
+
+EXPLICIT_SUBORDINATION_SEARCH_SIGNAL
+
+을 생성한다.
+
+HYPOTACTIC relation candidate로 승격하려면
+source가 다음 중 하나를 만족해야 한다.
+
+A.
+immediately preceding syntactically eligible clause
+
+B.
+current active mother candidate in dependency chain
+
+C.
+target subordinate element가 source의 predicate /
+constituent / participant를 직접 참조
+
+D.
+source containing unit에 대한
+unit-mediated syntactic/reference dependency
+
+E.
+명시적으로 검증 가능한 non-local dependency
+
+Important:
+
+nearest clause is not automatically mother.
+
+그러나:
+
+“nearest is automatic이 아니다”
+
+를
+
+“모든 과거 clause가 동등한 mother candidate다”
+
+로 해석하지 않는다.
+
+==================================================
+7. W-A01 intervening-context check
+==================================================
+
+non-adjacent W-A01 candidate는 반드시:
+
+intervening_context_status
+
+를 가진다.
+
+Possible:
+
+NO_STRUCTURAL_BREAK_DETECTED
+ACTIVE_DEPENDENCY_CONTINUES
+REFERENCE_CROSSES_INTERVENING_MATERIAL
+INTERVENING_MATERIAL_BLOCKS_RELATION
+UNKNOWN
+
+Non-local W-A01 candidate가 유지되려면
+장거리 연결을 설명하는 positive binding evidence가 필요하다.
+
+Distance 자체는 금지조건이 아니다.
+
+==================================================
+8. W-P01 qualification
+==================================================
+
+W-P01:
+Walton §2.1.2.1
+same clause type → parataxis prior.
+
+중요:
+
+W-P01은 HARD RELATION RULE이 아니다.
+
+따라서 기본 상태를:
+
+SAME_TYPE_PARATAXIS_PRIOR_EVIDENCE
+
+로 둔다.
+
+same clause type만으로:
+
+PARATACTIC relation candidate를 생성하지 않는다.
+
+PARATACTIC으로 승격하려면
+독립적인 correspondence가 더 필요하다.
+
+예:
+
+- same participant configuration
+- explicit participant reintroduction
+- lexical/formula correspondence
+- phrase arrangement correspondence
+- same discourse line
+- temporal/frame correspondence
+- repeated multi-clause configuration
+- shared higher-level structural function
+
+그리고:
+
+source-target가 실제 같은 textual line에 놓일
+positive evidence가 있어야 한다.
+
+==================================================
+9. W-P01 long-distance handling
+==================================================
+
+long-distance same-type clause는
+same type만으로 relation candidate가 아니다.
+
+Possible status:
+
+SEARCH_CANDIDATE_SAME_TYPE_ONLY
+
+추가 독립 증거가 있으면:
+
+SOURCE_BOUND_PARATACTIC_CANDIDATE
+
+중요:
+
+same-type relation을 너무 좁히지 않는다.
+
+Walton의 실제 장거리 correspondence 사례와
+Jin의 long-distance parallel relations은
+positive configuration evidence가 있으면 유지한다.
+
+==================================================
+10. W-H01 qualification
+==================================================
+
+W-H01:
+same clause type +
+continued secondary participant
+→ hypotaxis candidate.
+
+단순 participant recurrence와
+participant continuation을 구분한다.
+
+RECURRENCE:
+본문 어디선가 같은 participant가 다시 등장.
+
+CONTINUATION:
+현재 활성화된 participant configuration 또는
+source containing unit에서 이어짐.
+
+W-H01 relation candidate로 승격하려면:
+
+- participant is ACTIVE / CONTINUED
+or
+- participant is explicitly REINTRODUCED with source binding
+
+그리고 최소 하나:
+
+reference continuity
+domain continuity
+lexical continuity
+syntactic correspondence
+containing-unit continuity
+
+가 있어야 한다.
+
+본문 수십 장 전 동일 인물 등장만으로
+HYPOTACTIC relation을 만들지 않는다.
+
+==================================================
+11. Active participant context
+==================================================
+
+Create:
+
+ACTIVE_PARTICIPANT_CONTEXT
+
+For each target:
+
+active participants from:
+- immediate clause context
+- current containing-unit candidates
+- current speech/domain
+- unresolved reference chain
+
+Distinguish:
+
+ACTIVE
+CONTINUED
+REINTRODUCED
+HISTORICAL_RECURRENCE_ONLY
+
+HISTORICAL_RECURRENCE_ONLY alone
+does not source-bind a relation.
+
+==================================================
+12. Jin rules remain intact
+==================================================
+
+Do not weaken Jin RG-A–E rules merely because
+Walton rules were over-broad.
+
+Audit them separately.
+
+For each Jin rule match determine:
+
+JIN_RULE_SOURCE_BOUND = YES/NO
+
+Most explicit Jin examples contain
+source-target contextual evidence.
+
+If any Jin rule implementation also fires
+only because of target clause type without
+actual source relation,
+report it.
+
+Do not silently rewrite.
+Create audit.
+
+==================================================
+13. Rule role classification
+==================================================
+
+Each executable rule receives:
+
+rule_execution_role
+
+Allowed:
+
+SEARCH_INDEX_RULE
+EVIDENCE_RULE
+RELATION_CANDIDATE_RULE
+CONFIGURATION_RULE
+POST_HIERARCHY_RULE
+
+Examples expected:
+
+W-P01:
+normally EVIDENCE_RULE
+
+W-A01:
+SEARCH_INDEX_RULE + conditional RELATION_CANDIDATE_RULE
+
+W-H01:
+conditional RELATION_CANDIDATE_RULE
+
+Specific Jin rules:
+often RELATION_CANDIDATE_RULE
+when contextual conditions are satisfied.
+
+==================================================
+14. Required versus supporting features
+==================================================
+
+Audit current grammar configuration.
+
+For every relation rule distinguish:
+
+TARGET_FEATURE
+SOURCE_FEATURE
+PAIR_FEATURE
+CONTEXT_FEATURE
+
+A relation must not qualify when all required witnesses
+are TARGET_FEATURE only.
+
+At least one required condition must establish:
+
+PAIR_FEATURE
+or
+SOURCE/CONTEXT binding to target.
+
+Exception:
+truly adjacency-governed explicit syntax,
+where adjacency itself is part of the pair relation.
+
+==================================================
+15. Pair-qualified relation
+==================================================
+
+Create:
+
+PAIR_QUALIFICATION_STATUS
+
+Allowed:
+
+QUALIFIED_DIRECT
+QUALIFIED_UNIT_MEDIATED
+QUALIFIED_CONFIGURATION
+SEARCH_ONLY
+EVIDENCE_ONLY
+BLOCKED_BY_CONTEXT
+UNRESOLVED
+
+Only first three enter the structural relation universe.
+
+UNRESOLVED may enter a separate human diagnostic queue,
+but not automatically count as competing mother/parallel edge.
+
+==================================================
+16. Structural relation universe
+==================================================
+
+Create a new derived relation universe:
+
+QUALIFIED_RELATION_UNIVERSE
+
+containing only:
+
+QUALIFIED_DIRECT
+QUALIFIED_UNIT_MEDIATED
+QUALIFIED_CONFIGURATION
+
+Do not delete or alter original MFR.0.2R relation outputs.
+
+This is a derived qualified layer.
+
+==================================================
+17. Do not use numeric thresholds
+==================================================
+
+Forbidden:
+
+score
+confidence score
+distance threshold
+top N
+weighted correspondence
+
+Qualification must be rule-based and provenance-visible.
+
+==================================================
+18. Evidence independence
+==================================================
+
+Do not count derivative evidence twice.
+
+Example:
+
+explicit participant reference
+→ participant continuity
+→ domain continuity inferred from same fact
+
+must preserve dependency provenance.
+
+Qualification can use multiple evidence dimensions,
+but indicate dependent vs independent support.
+
+==================================================
+19. Structural outcome signature
+==================================================
+
+After relation qualification,
+prepare for H0.1 by generating:
+
+STRUCTURAL_OUTCOME_SIGNATURE
+
+For each qualified candidate:
+
+target
+relation_type
+source_or_peer
+mother_if_hypotactic
+parallel_peer_if_paratactic
+textual_level_effect_candidate
+variant_effect
+
+Do NOT adjudicate.
+
+==================================================
+20. Equivalent outcome grouping
+==================================================
+
+Candidates/rules that produce the same structural outcome
+must be groupable.
+
+Example:
+
+Jin rule A
+Walton evidence B
+participant evidence C
+
+all support:
+
+target T
+HYPOTACTIC under source S
+
+→ one structural outcome,
+multiple provenance paths.
+
+Create:
+
+STRUCTURAL_OUTCOME_GROUP_ID
+
+This is preparatory only.
+Human review happens later.
+
+==================================================
+21. Variant membership correction
+==================================================
+
+Do NOT classify relation as review-relevant merely because
+it belongs to a variant component.
+
+Distinguish:
+
+VARIANT_MEMBER
+
+from
+
+VARIANT_DECISION_PIVOT
+
+Definition:
+
+VARIANT_MEMBER:
+belongs to ambiguity component.
+
+VARIANT_DECISION_PIVOT:
+different coherent variants assign this target
+different structural outcomes.
+
+Only the latter is potentially human-review relevant.
+
+==================================================
+22. Variant pivot computation
+==================================================
+
+For each target compare coherent variants.
+
+If all variants produce the same:
+
+mother
+relation type
+parallel peer
+local textual placement
+
+then:
+
+VARIANT_MEMBER_NON_PIVOT
+
+If at least two coherent variants differ in structural outcome:
+
+VARIANT_DECISION_PIVOT
+
+Do not use component size as decision criterion.
+
+==================================================
+23. Giant component protection
+==================================================
+
+A huge connected ambiguity component must not cause
+all members to become review-required.
+
+Gate explicitly:
+
+GIANT_COMPONENT_MEMBERSHIP_NOT_REVIEW_TRIGGER
+
+Component membership = topology metadata only.
+
+==================================================
+24. Multiple candidate correction
+==================================================
+
+Likewise:
+
+MULTIPLE_CANDIDATES
+≠
+MULTIPLE_STRUCTURAL_OUTCOMES
+
+If many rules/candidates collapse into the same structural outcome:
+
+CORROBORATED_SINGLE_OUTCOME
+
+not human competition.
+
+Only:
+
+MULTIPLE_DISTINCT_STRUCTURAL_OUTCOMES
+
+creates structural competition.
+
+==================================================
+25. Source competition
+==================================================
+
+For a target:
+
+source A HYPOTACTIC
+source B HYPOTACTIC
+
+are different structural outcomes
+only if A and B are genuinely qualified mother alternatives.
+
+Do not retain source B merely because it shares
+a generic rule signature.
+
+==================================================
+26. Parallel competition
+==================================================
+
+Same principle:
+
+target T parallel with A
+target T parallel with B
+
+Only qualified source-bound parallel candidates count.
+
+==================================================
+27. Hard structural contradiction
+==================================================
+
+Preserve:
+
+one accepted hypotactic daughter → one mother
+
+but no accepted mother exists yet.
+
+Candidate stage may contain multiple qualified mothers.
+
+Flag:
+
+QUALIFIED_MOTHER_COMPETITION
+
+only after source-binding qualification.
+
+==================================================
+28. Historical decisions remain isolated
+==================================================
+
+Do not use HSA/MFR human judgments
+to qualify source binding.
+
+After qualification freeze,
+compare against:
+
+MFR.0.2A 13 cases
+
+Historical decisions are validation,
+not qualification input.
+
+==================================================
+29. MFR.0.2A revalidation
+==================================================
+
+Generate new 13-case audit.
+
+For each:
+
+original provisional decision
+
+original MFR.0.2R candidate count
+
+H0 relation-eligible count
+
+Q1 qualified relation count
+
+qualified structural outcomes
+
+variant pivot status
+
+candidate rules removed from structural competition
+because source binding was absent
+
+No human decision change.
+
+==================================================
+30. Special diagnostic: 27:1 / 29:1
+==================================================
+
+Post-freeze inspect 29:1.
+
+Do not hard-code answer.
+
+Show:
+
+all raw search candidates
+all relation-rule candidates
+all source-bound qualified candidates
+distinct structural outcomes
+
+For 27:1 candidate specifically show:
+
+formal configuration correspondence
+participant
+domain
+phrase/clause sequence
+intervening context
+whether source binding is direct/configurational
+
+Goal:
+
+demonstrate that a strong repeated configuration survives
+without depending on generic same-clause-type prior alone.
+
+==================================================
+31. Special diagnostic: 1:6 / 1:13 / 2:1
+==================================================
+
+Show difference between:
+
+temporal/formal similarity
+
+and
+
+actual source-bound structural relation.
+
+Do not hard-code final hierarchy.
+
+==================================================
+32. Special diagnostic: speech formulas
+==================================================
+
+Job dialogue contains many repeated:
+
+ANSWER + AMR
+
+configurations.
+
+Repeated speech formula alone must not connect
+every speech onset to every previous speech onset.
+
+Require configuration/context binding.
+
+However:
+cycle-level or repeated-position correspondence
+may remain CONFIGURATION relation evidence.
+
+Do not erase long-distance structural patterns.
+
+==================================================
+33. Explicit subordinate control
+==================================================
+
+Synthetic and real controls must verify:
+
+Target subordinate clause with explicit marker.
+
+Possible sources:
+A immediate governing clause
+B remote clause sharing participant
+C distant clause with similar type
+
+Expected:
+
+A can qualify if syntax supports it.
+
+B/C do not qualify solely from participant recurrence
+or target subordinate status.
+
+If explicit reference genuinely binds B,
+B may remain.
+
+==================================================
+34. Control fixtures
+==================================================
+
+Use only existing explicit fixtures.
+
+No full Pentateuch analysis.
+
+Controls must test:
+
+Walton Qohelet cases
+Jin Numbers/Leviticus cases
+Bosman Lamentations larger-unit case
+Oosting Isaiah valency cases
+
+Question:
+
+Does Q1 preserve the known plausible relation
+while rejecting arbitrary source pairings?
+
+==================================================
+35. Corpus analogue is not source binding
+==================================================
+
+Oosting corpus analogue evidence verifies
+construction plausibility.
+
+It does NOT by itself establish:
+
+this Job source clause
+→ this Job target clause.
+
+Therefore:
+
+CORPUS_ANALOGUE_ONLY
+cannot qualify inter-clausal relation.
+
+==================================================
+36. Prosodic evidence is not source binding by itself
+==================================================
+
+Bosman poetic/prosodic correspondence alone
+may create:
+
+POETIC_TYPED_RELATION
+
+but not automatically:
+
+TEXTUAL_HIERARCHY_EDGE
+
+unless combined with qualified syntactic/configurational relation.
+
+==================================================
+37. Outputs
+==================================================
+
+Required minimum:
+
+01_q1_rule_execution_roles.csv
+
+02_q1_source_binding_crosswalk.csv
+
+03_q1_pair_qualification.csv
+
+04_q1_active_participant_context.csv
+
+05_q1_walton_rule_audit.csv
+
+06_q1_jin_rule_audit.csv
+
+07_q1_qualified_relation_universe.csv
+
+08_q1_disqualified_relation_candidates.csv
+
+09_q1_structural_outcomes.csv
+
+10_q1_structural_outcome_groups.csv
+
+11_q1_variant_pivots.csv
+
+12_q1_mother_competition.csv
+
+13_q1_parallel_competition.csv
+
+14_q1_mfr02a_13_case_reaudit.csv
+
+15_q1_job_special_diagnostics.md
+
+16_q1_control_fixture_validation.csv
+
+17_q1_reduction_metrics.json
+
+18_q1_method_report.md
+
+19_q1_next_scope.md
+
+20_q1_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+38. Metrics
+==================================================
+
+Report:
+
+raw search candidates
+
+original MFR.0.2R relation candidates
+
+H0 relation eligible candidates
+
+Q1 qualified relation candidates
+
+SEARCH_ONLY
+EVIDENCE_ONLY
+BLOCKED_BY_CONTEXT
+UNRESOLVED
+
+qualified direct
+qualified unit-mediated
+qualified configuration
+
+targets with:
+0 qualified outcomes
+1 qualified outcome
+2+ distinct qualified outcomes
+
+variant members
+variant decision pivots
+
+mother competitions
+parallel competitions
+
+Important:
+
+No predetermined numerical target.
+
+The goal is methodological correctness,
+not arbitrary reduction.
+
+==================================================
+39. Warning conditions
+==================================================
+
+If most Job targets still have
+multiple distinct qualified structural outcomes,
+emit:
+
+QUALIFICATION_STILL_NONSELECTIVE
+
+If known controls disappear:
+emit:
+
+QUALIFICATION_OVERRESTRICTIVE
+
+If W-A01 still creates arbitrary book-long
+mother alternatives without direct/unit/configuration binding:
+FAIL.
+
+If W-P01 same-type alone still creates
+PARATACTIC relation candidates:
+FAIL.
+
+If simple historical participant recurrence
+still produces W-H01 hypotaxis:
+FAIL.
+
+==================================================
+40. Synthetic tests
+==================================================
+
+Q1-S1
+explicit subordinate target +
+adjacent governing finite clause
+→ QUALIFIED_DIRECT
+
+Q1-S2
+same target +
+remote unrelated clause
+→ SEARCH_ONLY or EVIDENCE_ONLY
+
+Q1-S3
+remote clause +
+explicit anaphoric source binding
+→ may QUALIFY
+
+Q1-S4
+same clause type only
+→ W-P01 evidence
+→ no paratactic structural relation
+
+Q1-S5
+same clause type +
+independent configuration correspondence
+→ qualified paratactic candidate possible
+
+Q1-S6
+same participant appears 100 clauses earlier
+but inactive
+→ historical recurrence only
+→ no W-H01 relation
+
+Q1-S7
+same participant continued in active unit
+→ W-H01 candidate may qualify
+
+Q1-S8
+multiple rules support same source-target-relation
+→ one structural outcome group
+
+Q1-S9
+variant component with same outcome across all variants
+→ NON_PIVOT
+
+Q1-S10
+variant component changes target mother
+→ DECISION_PIVOT
+
+Q1-S11
+100 candidate rules collapse to one outcome
+→ no structural competition
+
+Q1-S12
+two qualified mothers remain
+→ mother competition
+
+Q1-S13
+corpus analogue only
+→ no hierarchy relation qualification
+
+Q1-S14
+poetic correspondence only
+→ typed evidence, no hierarchy edge
+
+Q1-S15
+raw candidate universe unchanged
+
+==================================================
+41. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+MFR_0_2R_FROZEN
+MFR_0_2R_H0_FROZEN
+
+RAW_CANDIDATE_UNIVERSE_UNCHANGED
+
+SEARCH_AND_RELATION_CANDIDATES_SEPARATED
+
+SOURCE_BINDING_REQUIRED
+
+TARGET_FEATURE_ALONE_NOT_RELATION
+
+W_A01_SOURCE_BOUND
+
+W_P01_SAME_TYPE_NOT_RELATION_BY_ITSELF
+
+W_H01_ACTIVE_PARTICIPANT_REQUIRED
+
+JIN_RULE_SOURCE_BINDING_AUDITED
+
+VALENCY_BEFORE_RELATION_PRESERVED
+
+CORPUS_ANALOGUE_NOT_RELATION_BINDING
+
+PROSODY_NOT_HIERARCHY_EDGE_BY_ITSELF
+
+QUALIFIED_RELATION_UNIVERSE_CREATED
+
+STRUCTURAL_OUTCOME_GROUPS_CREATED
+
+MULTIPLE_CANDIDATES_NOT_EQUAL_MULTIPLE_OUTCOMES
+
+VARIANT_MEMBER_NOT_EQUAL_REVIEW_REQUIRED
+
+VARIANT_DECISION_PIVOT_IMPLEMENTED
+
+GIANT_COMPONENT_MEMBERSHIP_NOT_REVIEW_TRIGGER
+
+NO_NUMERIC_SCORE
+
+NO_DISTANCE_CUTOFF
+
+NO_TOP_N
+
+NO_NEW_HUMAN_JUDGMENT
+
+NO_CANONICAL_MOTHER
+
+NO_CANONICAL_HIERARCHY
+
+MFR02A_13_PRESERVED
+
+CONTROL_FIXTURES_ONLY
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+
+==================================================
+42. Frozen layers
+==================================================
+
+Do not rewrite:
+
+MFR.0.1
+MFR.0.1a
+MFR.0.1b
+MFR.0.2A
+MFR.0.2R
+MFR.0.2R-H0
+
+Q1 is additive.
+
+If relation implementation code itself must be corrected
+because a rule was being instantiated source-agnostically:
+
+do not rewrite frozen outputs.
+
+Instead:
+- document the implementation correction
+- create Q1-qualified derived outputs
+- preserve old outputs as historical provenance
+- add regression tests preventing recurrence
+
+==================================================
+43. Validation order
+==================================================
+
+1. verify baseline commit
+
+2. verify frozen layers
+
+3. load MFR.0.2R relation grammar registry
+
+4. classify rule execution roles
+
+5. audit W-A01 / W-P01 / W-H01
+
+6. audit Jin rules for source binding
+
+7. build active participant context
+
+8. evaluate source-target binding mechanisms
+
+9. assign pair qualification
+
+10. generate qualified relation universe
+
+11. group equivalent structural outcomes
+
+12. compute variant decision pivots
+
+13. recompute qualified mother competition
+
+14. recompute qualified parallel competition
+
+15. freeze blind Q1 result
+
+16. run controls
+
+17. post-freeze MFR.0.2A 13-case comparison
+
+18. Job special diagnostics
+
+19. metrics
+
+20. tests
+
+21. full regression
+
+22. independent rerun
+
+23. byte comparison
+
+24. manifest validation
+
+==================================================
+44. Success criterion
+==================================================
+
+Success is NOT:
+
+“make candidate numbers very small.”
+
+Success is:
+
+“a relation candidate exists only when
+the specific source-target pair has an observable,
+provenance-traceable reason to be structurally connected.”
+
+The system must distinguish:
+
+same form somewhere earlier
+
+from
+
+this specific earlier clause is a plausible
+mother or parallel peer.
+
+==================================================
+45. Next stage
+==================================================
+
+If Q1 succeeds:
+
+next stage:
+
+MFR.0.2R-H0.1
+— Structural Decision-Pivot Sieve
+
+H0.1 will operate only on:
+
+QUALIFIED_RELATION_UNIVERSE
+
+and will ask:
+
+“Do two or more distinct structural outcomes
+actually remain for this target?”
+
+Do NOT proceed automatically.
+
+==================================================
+46. Commit / push
+==================================================
+
+After all validation succeeds:
+
+Suggested commit:
+
+Qualify source-bound relation candidates
+
+Push origin/main through normal authorization workflow.
+
+==================================================
+47. Final report
+==================================================
+
+Report:
+
+GIT
+1. start commit
+2. end commit
+3. push status
+4. working tree
+
+UNIVERSE
+5. raw candidates
+6. original relation candidates
+7. Q1 qualified relations
+
+WALTON
+8. W-A01 original matches
+9. W-A01 qualified
+10. W-P01 original matches
+11. W-P01 qualified structural relations
+12. W-H01 original matches
+13. W-H01 qualified
+
+QUALIFICATION
+14. QUALIFIED_DIRECT
+15. QUALIFIED_UNIT_MEDIATED
+16. QUALIFIED_CONFIGURATION
+17. SEARCH_ONLY
+18. EVIDENCE_ONLY
+19. BLOCKED_BY_CONTEXT
+20. UNRESOLVED
+
+OUTCOMES
+21. structural outcome groups
+22. targets with 0 outcomes
+23. targets with 1 outcome
+24. targets with 2+ outcomes
+
+VARIANTS
+25. variant members
+26. non-pivots
+27. decision pivots
+
+COMPETITION
+28. qualified mother competitions
+29. qualified parallel competitions
+
+MFR.0.2A
+30. all 13 preserved
+31. qualified candidate counts per case
+32. changed evidence status only, no human revision
+
+CONTROLS
+33. Walton
+34. Jin
+35. Bosman
+36. Oosting
+37. full external-book analysis absent
+
+INTEGRITY
+38. frozen files changed = 0
+39. new human judgments = 0
+40. canonical mother = 0
+41. canonical hierarchy = 0
+
+VALIDATION
+42. stage tests
+43. full regression
+44. gates
+45. deterministic rerun
+46. ZIP
+47. SHA256
+
+READINESS
+48. SOURCE_BOUND_RELATION_UNIVERSE_ESTABLISHED
+49. READY_FOR_MFR_0_2R_H0_1

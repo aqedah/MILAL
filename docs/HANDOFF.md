@@ -1,6 +1,62 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-H0 technically validated; selectivity warning
+## Current task — MFR.0.2R-Q1 technically validated; coverage review required
+
+Active specification: [Q1](MFR_0_2R_Q1_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q1_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_Q1.md); [validation report](MFR_0_2R_Q1_VALIDATION_REPORT.md).
+Baseline `ca0abd320d073fd2bf31895b3a510f741317e08f`.
+
+**SOURCE_BOUND_RELATION_UNIVERSE_ESTABLISHED_WITH_COVERAGE_LIMITATIONS**.
+**QUALIFICATION_OVERRESTRICTIVE**.
+**QUALIFICATION_REQUIRES_METHODOLOGICAL_REVIEW; H0.1 NOT READY**.
+
+All 1,049,504 raw Job pairs remain traceable and unchanged. Original relation/H0
+eligible pairs: 95,929. Qualified: 185 (173 direct, 0 unit-mediated, 12 configuration).
+Other statuses: SEARCH_ONLY 944,244; EVIDENCE_ONLY 95,425; UNRESOLVED 9,650;
+BLOCKED_BY_CONTEXT 0. These are conservative source-binding results, not proof
+that other plausible relations do not exist. Eight permitted mechanism adapters
+remain unsupported/unresolved; no numerical reduction target was applied.
+
+185 structural outcome groups. Targets with 0/1/2+ outcomes: 2,756/180/2.
+Variant members/non-pivots/pivots: 2,717/2,715/2. Mother/parallel competitions: 0/2.
+UNSELECTED = UNDECIDED, not NO_RELATION. Only distinct positive assignments in
+coherent variants create target pivots; global differences elsewhere do not.
+W-A01 52,940→134; W-P01 46,815→12; W-H01 1,682→0.
+Job 27:1→29:1 survives with configuration evidence, without hard-coded detection.
+
+All 13 prior human judgments remain unchanged. New human judgments, canonical
+mothers and canonical hierarchies: 0. Existing external fixtures only: 3,834 raw
+pairs / 628 original relation pairs / 37 qualified. All 5 designated Num 26
+alternative edges are absent from the qualified layer; Bosman unit-reference
+identity remains unresolved. Both Bosman unit rows and Oosting binding rows are
+preserved. Do not introduce control-specific patches or declare coverage complete.
+
+Validation: 55 Q1 tests; S1–S15; 2,520 full regression tests (902.685s), failures/
+errors/skips 0; 32/32 gates with negative mutations; 461 frozen pins unchanged.
+Independent D/F outputs and ZIP bytes match; 30 ZIP members / 29 manifest entries,
+all hashes and CRC verified. Both exact upstream ZIPs/extractions and 24 BHSA
+feature/native source hashes verify. The C-drive disk-exhausted attempt is not
+a validation receipt; the complete successful run used D-drive TEMP/TMP.
+
+Final local artifacts:
+
+- `D:\MILAL_runs\mfr02r_q1_20260926\release_a`
+- `F:\MILAL_runs\mfr02r_q1_20260926\release_b`
+- Both directory names plus `_results.zip`
+- ZIP SHA256 `6398abb8113e6674d0697771acabe0f19e84ddaf3f927f8c761d86a29b3ab16f`
+- `D:\MILAL_runs\mfr02r_q1_20260926\release_a_verification.json`
+- `D:\MILAL_runs\mfr02r_q1_20260926\regression_final.json` and `.log`
+
+Code/config/test fingerprint:
+`3017420a5c344dc3a9e8b205903c22ea07b425b07e252ae4cfede40eef40a40c`.
+Four user research PDFs remain untracked inputs.
+
+Next pending task is researcher review of source-binding coverage, especially
+Num 26 configurations and unresolved larger-unit references. H0.1 is not started
+and must not start automatically. Previous analytical cores remain frozen.
+
+## Previous task — MFR.0.2R-H0 technically validated; selectivity warning
 
 Active specification: [H0](MFR_0_2R_H0_SPEC.md); authority:
 [researcher request](MFR_0_2R_H0_RESEARCHER_SOURCE.txt); execution:
