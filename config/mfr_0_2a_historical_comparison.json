@@ -1,0 +1,8 @@
+{
+  "archive": "results/jin08_real_recovered_20260924_a_results.zip",
+  "sha256": "0c23eeb732e7b94117fddf6705b164f5776893b619ef1f6a810923f343890ad1",
+  "member": "history/jin_0_7/03_relation_layer_historical_crosswalk.csv",
+  "member_sha256": "37556ab465575723c87f56e7e76c90e14edb25641c4be8ff2d6d9d1df337b87f",
+  "source_layer": "HSA historical relations with JIN.0.7 typing and review provenance",
+  "loaded_only_after": "HUMAN_DECISIONS_FROZEN"
+}

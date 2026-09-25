@@ -1,0 +1,192 @@
+{
+  "phase": "MFR_0_2A",
+  "authority_sha256": "1141e397cc824efbcb8c54edd8609f23afe460c2b8d07d4080adf47a913a8309",
+  "decisions": [
+    {
+      "configuration_case_id": "CFG000028",
+      "researcher_decision": "PARATACTIC",
+      "configuration_validity": "ACCEPTED",
+      "formal_relationship": "REPEATED_MULTI_CLAUSE_CONFIGURATION",
+      "verbatim_formal_relationship": "REPEATED_MULTI_CLAUSE_CONFIGURATION",
+      "rationale": "- focal ויהי היום correspondence\r\n- following multi-clause sequence correspondence\r\n- repeated participant/predicate configuration\r\n- independent sequence-family evidence exists\r\n- no independent linguistic evidence that either configuration\r\n  is a daughter of the other\r\n\r\nImportant:\r\n\r\nRESUMPTION evidence remains preserved,\r\nbut DO NOT human-adjudicate RESUMPTIVE in MFR.0.2A.\r\n\r\nThat belongs to MFR.0.2B.\r\n\r\nNo constituent-level sibling edges are automatically created.",
+      "source_section": 3,
+      "source_excerpt": "\r\nSource:\r\nJob 1:6\r\n\r\nוַיְהִי הַיּוֹם\r\nוַיָּבֹאוּ בְּנֵי הָאֱלֹהִים\r\nלְהִתְיַצֵּב עַל־יְהוָה\r\nוַיָּבֹא גַם־הַשָּׂטָן בְּתוֹכָם\r\n\r\nTarget:\r\nJob 2:1 corresponding first four clauses\r\n\r\nDECISION:\r\nPARATACTIC\r\n\r\nconfiguration_validity =\r\nACCEPTED\r\n\r\nformal_relationship =\r\nREPEATED_MULTI_CLAUSE_CONFIGURATION\r\n\r\nPARATACTIC = true\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\nINSUFFICIENT = false\r\n\r\nselected_relation =\r\nPARATACTIC\r\n\r\nmother_if_hypotactic =\r\nNONE\r\n\r\nRationale:\r\n\r\n- focal ויהי היום correspondence\r\n- following multi-clause sequence correspondence\r\n- repeated participant/predicate configuration\r\n- independent sequence-family evidence exists\r\n- no independent linguistic evidence that either configuration\r\n  is a daughter of the other\r\n\r\nImportant:\r\n\r\nRESUMPTION evidence remains preserved,\r\nbut DO NOT human-adjudicate RESUMPTIVE in MFR.0.2A.\r\n\r\nThat belongs to MFR.0.2B.\r\n\r\nNo constituent-level sibling edges are automatically created.\r\n\r\n",
+      "excerpt_sha256": "38da1f7e0ec56345d9e07b9cf31ce1ab732056553a868c75edd483a97212ba75",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000037",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "VALID_FORMAL_CORRESPONDENCE",
+      "formal_relationship": "EXACT_FORM_CORRESPONDENCE_WITH_POSITIONAL_DIFFERENCE",
+      "verbatim_formal_relationship": "EXACT_FORM_CORRESPONDENCE_WITH_POSITIONAL_DIFFERENCE",
+      "rationale": "The construction is formally repeated,\r\nbut this isolated InfC correspondence does not by itself establish\r\na direct hierarchy relation between the two clauses.\r\n\r\nThe target occurrence is also part of an expanded configuration\r\nwithin Job 2:1.\r\n\r\nDo NOT infer:\r\nPARATACTIC\r\nor\r\nHYPOTACTIC\r\n\r\nfrom exact formula identity alone.\r\n\r\nResumption dimension remains for MFR.0.2B.",
+      "source_section": 4,
+      "source_excerpt": "\r\nSource:\r\nJob 1:6\r\nלהתיצב על־יהוה\r\n\r\nTarget:\r\nJob 2:1 later repeated\r\nלהתיצב על־יהוה\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nconfiguration_validity =\r\nVALID_FORMAL_CORRESPONDENCE\r\n\r\nformal_relationship =\r\nEXACT_FORM_CORRESPONDENCE_WITH_POSITIONAL_DIFFERENCE\r\n\r\nPARATACTIC = false\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = true\r\nINSUFFICIENT = false\r\n\r\nselected_relation =\r\nFORMAL_ONLY\r\n\r\nRationale:\r\n\r\nThe construction is formally repeated,\r\nbut this isolated InfC correspondence does not by itself establish\r\na direct hierarchy relation between the two clauses.\r\n\r\nThe target occurrence is also part of an expanded configuration\r\nwithin Job 2:1.\r\n\r\nDo NOT infer:\r\nPARATACTIC\r\nor\r\nHYPOTACTIC\r\n\r\nfrom exact formula identity alone.\r\n\r\nResumption dimension remains for MFR.0.2B.\r\n\r\n",
+      "excerpt_sha256": "e98220a1d2246a2ae1342afb35d88d9ff4f6fb30fd20d94e89c640564a44e2d9",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000046",
+      "researcher_decision": "PARATACTIC",
+      "configuration_validity": "ACCEPTED",
+      "formal_relationship": "REPEATED_MULTI_CLAUSE_CONFIGURATION",
+      "verbatim_formal_relationship": "REPEATED_MULTI_CLAUSE_CONFIGURATION",
+      "rationale": "Multiple independent sequence witnesses recover\r\nthe same ordered discourse configuration.\r\n\r\nThe second occurrence contains textual variation,\r\nbut the recurring constructional configuration is sufficiently strong\r\nto adjudicate the two configurations as paratactic.\r\n\r\nResumption remains a separate future dimension.",
+      "source_section": 5,
+      "source_excerpt": "\r\nSource:\r\nJob 1:7–8\r\n\r\nTarget:\r\nJob 2:2–3\r\n\r\nThe packet recovers the repeated sequence including:\r\n\r\nYHWH → Satan speech\r\nquestion\r\nSatan answer\r\nויאמר\r\nמשוט בארץ\r\nומהתהלך בה\r\nYHWH → Satan speech\r\nהשמת לבך אל/על עבדי איוב\r\nכי אין כמוהו בארץ\r\nתם וישר ירא אלהים\r\nוסר מרע\r\n\r\nDECISION:\r\nPARATACTIC\r\n\r\nconfiguration_validity =\r\nACCEPTED\r\n\r\nformal_relationship =\r\nREPEATED_MULTI_CLAUSE_CONFIGURATION\r\n\r\nPARATACTIC = true\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\nINSUFFICIENT = false\r\n\r\nselected_relation =\r\nPARATACTIC\r\n\r\nmother_if_hypotactic =\r\nNONE\r\n\r\nRationale:\r\n\r\nMultiple independent sequence witnesses recover\r\nthe same ordered discourse configuration.\r\n\r\nThe second occurrence contains textual variation,\r\nbut the recurring constructional configuration is sufficiently strong\r\nto adjudicate the two configurations as paratactic.\r\n\r\nResumption remains a separate future dimension.\r\n\r\n",
+      "excerpt_sha256": "f2e8b41198e446f0c900f2e73a17984df49cfa452726e84d632037c003b62eba",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000227",
+      "researcher_decision": "PARATACTIC",
+      "configuration_validity": "ACCEPTED",
+      "formal_relationship": "REPEATED_TRANSITION_CONFIGURATION",
+      "verbatim_formal_relationship": "REPEATED_MESSENGER_TRANSITION_CONFIGURATION",
+      "rationale": "The repeated five-clause transition configuration is adjudicated PARATACTIC at configuration level only. Record the observable repeated formal configuration without a literary label.",
+      "source_section": 6,
+      "source_excerpt": "\r\nSource:\r\nJob 1:15–16 transition configuration\r\n\r\nTarget:\r\nJob 1:16–17 transition configuration\r\n\r\nRepeated pattern includes:\r\n\r\nואמלטה רק־אני לבדי\r\nלהגיד לך\r\nעוד זה מדבר\r\nוזה בא\r\nויאמר\r\n\r\nDECISION:\r\nPARATACTIC\r\n\r\nconfiguration_validity =\r\nACCEPTED\r\n\r\nformal_relationship =\r\nREPEATED_MESSENGER_TRANSITION_CONFIGURATION\r\n\r\nPARATACTIC = true\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\n\r\nselected_relation =\r\nPARATACTIC\r\n\r\nmother_if_hypotactic =\r\nNONE\r\n\r\nImportant:\r\n\r\nThis judgment is at configuration level.\r\n\r\nDo not infer:\r\n“messenger scene”\r\nor any literary label in the analytical record.\r\n\r\nRecord only the observable repeated formal configuration.\r\n\r\n",
+      "excerpt_sha256": "b83981fbbfb891131eeafe0c12f438a180a124fc6587d117b467e4bc576687e1",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000230",
+      "researcher_decision": "PARATACTIC",
+      "configuration_validity": "ACCEPTED",
+      "formal_relationship": "REPEATED_THREE_CLAUSE_CONFIGURATION",
+      "verbatim_formal_relationship": "REPEATED_THREE_CLAUSE_CONFIGURATION",
+      "rationale": "The three-clause sequence is formally repeated\r\nin equivalent configuration.\r\n\r\nNo daughter/mother asymmetry is supported.",
+      "source_section": 7,
+      "source_excerpt": "\r\nSource:\r\nJob 1:15 ending configuration\r\n\r\nTarget:\r\nJob 1:17 ending configuration\r\n\r\nRepeated sequence:\r\n\r\nואת־הנערים הכו לפי־חרב\r\nואמלטה רק־אני לבדי\r\nלהגיד לך\r\n\r\nDECISION:\r\nPARATACTIC\r\n\r\nconfiguration_validity =\r\nACCEPTED\r\n\r\nformal_relationship =\r\nREPEATED_THREE_CLAUSE_CONFIGURATION\r\n\r\nPARATACTIC = true\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\n\r\nselected_relation =\r\nPARATACTIC\r\n\r\nmother_if_hypotactic =\r\nNONE\r\n\r\nRationale:\r\n\r\nThe three-clause sequence is formally repeated\r\nin equivalent configuration.\r\n\r\nNo daughter/mother asymmetry is supported.\r\n\r\n",
+      "excerpt_sha256": "e92ee1e1e351b6151eb8cdc5564b0d559f18fdcf62d2e07faa71184d276b269b",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000231",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "",
+      "formal_relationship": "EXACT_FORM_CORRESPONDENCE",
+      "verbatim_formal_relationship": "EXACT_FORM_CORRESPONDENCE",
+      "rationale": "The repeated InfC clause occupies a recurrent formal slot,\r\nbut isolated identity of this clause does not establish\r\na direct hierarchy relation between the two occurrences.",
+      "source_section": 8,
+      "source_excerpt": "\r\nJob 1:15\r\nלהגיד לך\r\n\r\nJob 1:19\r\nלהגיד לך\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nformal_relationship =\r\nEXACT_FORM_CORRESPONDENCE\r\n\r\nFORMAL_ONLY = true\r\nall hierarchy booleans = false\r\n\r\nRationale:\r\n\r\nThe repeated InfC clause occupies a recurrent formal slot,\r\nbut isolated identity of this clause does not establish\r\na direct hierarchy relation between the two occurrences.\r\n\r\n",
+      "excerpt_sha256": "7d5fd3cfc1169877ad56f27e279bed29f83d92e275b63b88c65abb9a1ef15d91",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG000281",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "",
+      "formal_relationship": "EXACT_FORM_CORRESPONDENCE",
+      "verbatim_formal_relationship": "",
+      "rationale": "The repeated InfC clause occupies a recurrent formal slot,\r\nbut isolated identity of this clause does not establish\r\na direct hierarchy relation between the two occurrences.",
+      "source_section": 9,
+      "source_excerpt": "\r\nJob 1:16\r\nלהגיד לך\r\n\r\nJob 1:17\r\nלהגיד לך\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nSame rationale as CFG000231.\r\n\r\n",
+      "excerpt_sha256": "d06d38705248127191ddb008955363d32718e001e2eb7ad9a9f8909570cd9e24",
+      "inherited_rationale_from": "CFG000231"
+    },
+    {
+      "configuration_case_id": "CFG000282",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "",
+      "formal_relationship": "EXACT_FORM_CORRESPONDENCE",
+      "verbatim_formal_relationship": "",
+      "rationale": "The repeated InfC clause occupies a recurrent formal slot,\r\nbut isolated identity of this clause does not establish\r\na direct hierarchy relation between the two occurrences.",
+      "source_section": 10,
+      "source_excerpt": "\r\nJob 1:16\r\nלהגיד לך\r\n\r\nJob 1:19\r\nלהגיד לך\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nSame rationale.\r\n\r\n",
+      "excerpt_sha256": "52ee35b01cd7f7b3579928620ac2c82692e43a9c918c30856db561ce028325b0",
+      "inherited_rationale_from": "CFG000231"
+    },
+    {
+      "configuration_case_id": "CFG000333",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "",
+      "formal_relationship": "EXACT_FORM_CORRESPONDENCE",
+      "verbatim_formal_relationship": "",
+      "rationale": "The repeated InfC clause occupies a recurrent formal slot,\r\nbut isolated identity of this clause does not establish\r\na direct hierarchy relation between the two occurrences.",
+      "source_section": 11,
+      "source_excerpt": "\r\nJob 1:17\r\nלהגיד לך\r\n\r\nJob 1:19\r\nלהגיד לך\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nSame rationale.\r\n\r\nImportant for CFG000231/281/282/333:\r\n\r\nThe larger recurring configurations may have been adjudicated\r\nPARATACTIC elsewhere.\r\n\r\nThat DOES NOT automatically create direct parataxis\r\namong every homologous internal constituent.\r\n\r\n",
+      "excerpt_sha256": "5030ae9921968d367b9de7ce78f22e9cddcad57314743abf654aee22fe4c43a3",
+      "inherited_rationale_from": "CFG000231"
+    },
+    {
+      "configuration_case_id": "CFG000432",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "VALID_FORMAL_CORRESPONDENCE",
+      "formal_relationship": "REPEATED_LOCAL_INFINITIVE_CONSTRUCTION",
+      "verbatim_formal_relationship": "REPEATED_LOCAL_INFINITIVE_CONSTRUCTION",
+      "rationale": "Each InfC is locally associated with a different preceding\r\narrival construction.\r\n\r\nTheir identity establishes formal correspondence,\r\nnot a direct mother/daughter or same-level textual relation\r\nbetween the two infinitive clauses themselves.\r\n\r\nDo NOT use this judgment to decide the relation\r\nbetween their containing main clauses.",
+      "source_section": 12,
+      "source_excerpt": "\r\nWithin Job 2:1:\r\n\r\nלהתיצב על־יהוה\r\n\r\n...\r\n\r\nלהתיצב על־יהוה\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nconfiguration_validity =\r\nVALID_FORMAL_CORRESPONDENCE\r\n\r\nformal_relationship =\r\nREPEATED_LOCAL_INFINITIVE_CONSTRUCTION\r\n\r\nPARATACTIC = false\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = true\r\n\r\nselected_relation =\r\nFORMAL_ONLY\r\n\r\nRationale:\r\n\r\nEach InfC is locally associated with a different preceding\r\narrival construction.\r\n\r\nTheir identity establishes formal correspondence,\r\nnot a direct mother/daughter or same-level textual relation\r\nbetween the two infinitive clauses themselves.\r\n\r\nDo NOT use this judgment to decide the relation\r\nbetween their containing main clauses.\r\n\r\n",
+      "excerpt_sha256": "321b8aee3f5919db94f7bae6436feb5453dfdfbd2f497ea261c5410df196c24f",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG001053",
+      "researcher_decision": "INSUFFICIENT",
+      "configuration_validity": "INSUFFICIENT_FOR_HIERARCHY",
+      "formal_relationship": "LEXICAL_OVERLAP_ONLY",
+      "verbatim_formal_relationship": "LEXICAL_OVERLAP_ONLY",
+      "rationale": "- no exact-form correspondence\r\n- no construction correspondence\r\n- no context correspondence\r\n- shared כלה / רשע lexical material alone is insufficient\r\n  to establish a textual-hierarchy relation\r\n\r\nDo not delete the lexical/resumption evidence.\r\n\r\nPreserve it for MFR.0.2B or later rhetorical/lexical overlay review.\r\n\r\nAny closure candidate derived from cessation identity remains separate.",
+      "source_section": 13,
+      "source_excerpt": "\r\nSource:\r\nJob 9:22\r\nתם ורשע הוא מכלה\r\n\r\nTarget:\r\nJob 11:20\r\nועיני רשעים תכלינה\r\n\r\nDECISION:\r\nINSUFFICIENT\r\n\r\nconfiguration_validity =\r\nINSUFFICIENT_FOR_HIERARCHY\r\n\r\nformal_relationship =\r\nLEXICAL_OVERLAP_ONLY\r\n\r\nPARATACTIC = false\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\nINSUFFICIENT = true\r\n\r\nselected_relation =\r\nINSUFFICIENT\r\n\r\nRationale:\r\n\r\n- no exact-form correspondence\r\n- no construction correspondence\r\n- no context correspondence\r\n- shared כלה / רשע lexical material alone is insufficient\r\n  to establish a textual-hierarchy relation\r\n\r\nDo not delete the lexical/resumption evidence.\r\n\r\nPreserve it for MFR.0.2B or later rhetorical/lexical overlay review.\r\n\r\nAny closure candidate derived from cessation identity remains separate.\r\n\r\n",
+      "excerpt_sha256": "19a8aecfeeb62e7afed3cfe2998a8d4bf8c736aef752b16f9fbe2c31e5062b61",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG001192",
+      "researcher_decision": "FORMAL_ONLY",
+      "configuration_validity": "VALID_FORMAL_CORRESPONDENCE",
+      "formal_relationship": "PARALLEL_LEXICO_SYNTACTIC_CONSTRUCTION",
+      "verbatim_formal_relationship": "PARALLEL_LEXICO_SYNTACTIC_CONSTRUCTION",
+      "rationale": "The construction:\r\n\r\nעיני + genitive participant + תכלינה\r\n\r\nis formally recurrent.\r\n\r\nBut the long-distance formal correspondence does not establish\r\na direct textual hierarchy relation.\r\n\r\nResumption/rhetorical echo remains separately reviewable.\r\n\r\nClosure/cessation-derived evidence is not used for this decision.",
+      "source_section": 14,
+      "source_excerpt": "\r\nSource:\r\nJob 11:20\r\nועיני רשעים תכלינה\r\n\r\nTarget:\r\nJob 17:5\r\nועיני בניו תכלנה\r\n\r\nDECISION:\r\nFORMAL_ONLY\r\n\r\nconfiguration_validity =\r\nVALID_FORMAL_CORRESPONDENCE\r\n\r\nformal_relationship =\r\nPARALLEL_LEXICO_SYNTACTIC_CONSTRUCTION\r\n\r\nFORMAL_ONLY = true\r\nPARATACTIC = false\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nINSUFFICIENT = false\r\n\r\nselected_relation =\r\nFORMAL_ONLY\r\n\r\nRationale:\r\n\r\nThe construction:\r\n\r\nעיני + genitive participant + תכלינה\r\n\r\nis formally recurrent.\r\n\r\nBut the long-distance formal correspondence does not establish\r\na direct textual hierarchy relation.\r\n\r\nResumption/rhetorical echo remains separately reviewable.\r\n\r\nClosure/cessation-derived evidence is not used for this decision.\r\n\r\n",
+      "excerpt_sha256": "bcbf10d396f72aa2cd8fff37318178a245b66273b18074897e7a08891a2e5db6",
+      "inherited_rationale_from": null
+    },
+    {
+      "configuration_case_id": "CFG001981",
+      "researcher_decision": "PARATACTIC",
+      "configuration_validity": "ACCEPTED",
+      "formal_relationship": "EXACT_REPEATED_THREE_CLAUSE_ONSET_CONFIGURATION",
+      "verbatim_formal_relationship": "EXACT_REPEATED_THREE_CLAUSE_ONSET_CONFIGURATION",
+      "rationale": "- exact formal correspondence across all three clauses\r\n- same ordered sequence\r\n- repeated multi-clause sequence family independently recovered\r\n- same explicit participant in the opening construction\r\n- no subordinate marker between the two configurations\r\n- no independently established formal elaboration asymmetry\r\n  showing that one occurrence is a daughter of the other\r\n\r\nImportant:\r\n\r\nDo NOT use the cessation-derived coverage to Job 31:40\r\nas independent evidence for this judgment.\r\n\r\nThe PARATACTIC decision rests on the independently recovered\r\nformal/sequence evidence.\r\n\r\nResumption remains a separate dimension for MFR.0.2B.",
+      "source_section": 15,
+      "source_excerpt": "\r\nSource:\r\nJob 27:1\r\n\r\nויסף איוב\r\nשאת משלו\r\nויאמר\r\n\r\nTarget:\r\nJob 29:1\r\n\r\nויסף איוב\r\nשאת משלו\r\nויאמר\r\n\r\nDECISION:\r\nPARATACTIC\r\n\r\nconfiguration_validity =\r\nACCEPTED\r\n\r\nformal_relationship =\r\nEXACT_REPEATED_THREE_CLAUSE_ONSET_CONFIGURATION\r\n\r\nPARATACTIC = true\r\nHYPOTACTIC = false\r\nEMBEDDING = false\r\nFORMAL_ONLY = false\r\nINSUFFICIENT = false\r\n\r\nselected_relation =\r\nPARATACTIC\r\n\r\nmother_if_hypotactic =\r\nNONE\r\n\r\nRationale:\r\n\r\n- exact formal correspondence across all three clauses\r\n- same ordered sequence\r\n- repeated multi-clause sequence family independently recovered\r\n- same explicit participant in the opening construction\r\n- no subordinate marker between the two configurations\r\n- no independently established formal elaboration asymmetry\r\n  showing that one occurrence is a daughter of the other\r\n\r\nImportant:\r\n\r\nDo NOT use the cessation-derived coverage to Job 31:40\r\nas independent evidence for this judgment.\r\n\r\nThe PARATACTIC decision rests on the independently recovered\r\nformal/sequence evidence.\r\n\r\nResumption remains a separate dimension for MFR.0.2B.\r\n\r\n",
+      "excerpt_sha256": "a2c1f9cefcb2d2c25e51957605e6dc253ca1ee7b1b5694ef1fabf781ebaa6188",
+      "inherited_rationale_from": null
+    }
+  ],
+  "calibration_principles": [
+    {
+      "calibration_id": "CAL-H1-01",
+      "principle": "Repeated multi-clause configuration can support\r\nPARATACTIC adjudication."
+    },
+    {
+      "calibration_id": "CAL-H1-02",
+      "principle": "Exact repetition of an isolated internal clause does not\r\nautomatically establish a direct paratactic textual edge."
+    },
+    {
+      "calibration_id": "CAL-H1-03",
+      "principle": "Homologous constituents inside parallel configurations do not\r\nautomatically become direct siblings."
+    },
+    {
+      "calibration_id": "CAL-H1-04",
+      "principle": "Lexical recurrence alone is insufficient for hierarchy."
+    },
+    {
+      "calibration_id": "CAL-H1-05",
+      "principle": "A strong long-distance lexico-syntactic correspondence may remain\r\nFORMAL_ONLY without a hierarchy edge."
+    },
+    {
+      "calibration_id": "CAL-H1-06",
+      "principle": "Same repeated onset formula may support parataxis when\r\nmulti-clause configuration correspondence is independently recovered\r\nand no formal hypotactic asymmetry is established."
+    },
+    {
+      "calibration_id": "CAL-H1-07",
+      "principle": "Cessation-derived coverage is not independent evidence for\r\na hierarchy judgment."
+    }
+  ]
+}

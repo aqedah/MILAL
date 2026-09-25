@@ -1,6 +1,45 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.1b role and evidence-independence audit, 2026-09-25
+## Current task — MFR.0.2A human configuration adjudication, 2026-09-25
+
+Active specification: [MFR.0.2A](MFR_0_2A_SPEC.md); authority:
+[researcher request](MFR_0_2A_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2A.md); [validation report](MFR_0_2A_VALIDATION_REPORT.md).
+Baseline `9c005d862452709b4b53cf80de6185fd081d825b`. Human registry:
+`config/mfr_0_2a_human_decisions.json`.
+
+**MFR_H1_CONFIGURATION_ADJUDICATED**;
+**READY_FOR_MFR_0_2B_RESUMPTION_ADJUDICATION**.
+13 H1 decisions: PARATACTIC 5, FORMAL_ONLY 7, INSUFFICIENT 1;
+HYPOTACTIC 0, EMBEDDING 0. Accepted configuration relations 5.
+32 raw pairs remain evidence memberships. Constituent edges 0; new mothers 0.
+Seven human calibration principles frozen. No automatic sibling expansion.
+
+H1 resumption deferrals 8; H1 closure/coverage deferrals 13.
+Full future scopes: R1 182, C1 69, all future decisions blank.
+Historical comparison after decision freeze: exact agreement 1, partial scope
+agreement 1, no eligible comparison 11. CFG000028 target scope is narrower than
+the historical 2:1 record; CFG001981's endpoint sets agree exactly.
+Eight unresolved historical endpoint records remain non-joinable and preserved.
+Historical outcomes never entered the isolated human decision serializer.
+
+Validation: 61 stage tests; full 2152 PASS, fail0/error0/skip0;
+35 synthetic and 35 real gate assertions PASS; 4 external release gates PASS.
+39 gate definitions negative-tested. Independent A/B ZIPs byte-identical.
+405 frozen repository pins unchanged; prior MFR analytical cores unchanged.
+No hierarchy tree/root or R4.4 consumer. No B/C adjudication performed.
+
+Final ZIP: `results/mfr02a_release_20260925_a_results.zip`.
+SHA256 `6be4c760a07aaa18cfbdb8229dd575bf3ffb6fef2941bdb926ab4e351007d2cf`.
+Human freeze SHA256 `b74c367d3f0ea701d5aae3de4063b4e2485895d29524f459c956f138c516b699`.
+Upload the complete result ZIP and independent verification receipt; report optional.
+The researcher explicitly authorized commit/push after all gates passed.
+
+Next: **MFR.0.2B — Resumption Human Adjudication** using the full frozen scope.
+MFR.0.2C closure remains separate. Preserve this append-only human phase and all
+underlying evidence. No tree assembly or R4.4 implementation readiness is implied.
+
+## Previous task — MFR.0.1b role and evidence-independence audit, 2026-09-25
 
 Active specification: [MFR.0.1b](MFR_0_1B_SPEC.md); authority:
 [exact researcher request](MFR_0_1B_RESEARCHER_SOURCE.txt); execution:

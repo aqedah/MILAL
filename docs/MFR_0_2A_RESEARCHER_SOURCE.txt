@@ -1,0 +1,1026 @@
+현재 MILAL 저장소에서 다음 작업을 구현·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.2A
+— Human Adjudication of H1 Hierarchy-Competing Configurations
+— First Marker-First Relation Freeze
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  9c005d862452709b4b53cf80de6185fd081d825b
+
+현재 frozen 상태:
+- MFR.0.1 marker-first discovery frozen
+- MFR.0.1a consolidation frozen
+- MFR.0.1b marker-role/evidence-independence audit frozen
+- H1 review universe = 13 configuration cases
+- no accepted MFR hierarchy relation yet
+- historical HSA/JIN remains provenance only
+- R4.4 consumer NOT IMPLEMENTED
+
+이번 단계에서는 연구자가 직접 판정한
+H1 13 configuration cases만 append-only human layer에 기록한다.
+
+MFR.0.2B resumption,
+MFR.0.2C closure,
+whole-book hierarchy assembly는 수행하지 않는다.
+
+==================================================
+1. 가장 중요한 adjudication 원칙
+==================================================
+
+이번 human judgment는:
+
+MFR.0.1 blind marker discovery
+→ MFR.0.1a evidence consolidation
+→ MFR.0.1b marker-role/evidence-independence audit
+
+이후 처음 수행되는 marker-first relation adjudication이다.
+
+판정 단위:
+
+CONFIGURATION_RELATION_CASE
+
+이다.
+
+raw pair를 개별 hierarchy edge로 자동 승격하지 않는다.
+
+Configuration-level PARATACTIC judgment는:
+
+“이 반복 configuration들이 동일 textual level에서 병렬적인
+formal/textual configurations로 기능한다”
+
+는 뜻이다.
+
+그 아래 모든 constituent clause끼리
+각각 direct sibling edge를 생성한다는 뜻이 아니다.
+
+==================================================
+2. Human decision distribution
+==================================================
+
+총 cases = 13
+
+PARATACTIC = 5
+FORMAL_ONLY = 7
+INSUFFICIENT = 1
+
+HYPOTACTIC = 0
+EMBEDDING = 0
+
+이번 단계:
+new direct mother = 0
+
+==================================================
+3. CFG000028
+==================================================
+
+Source:
+Job 1:6
+
+וַיְהִי הַיּוֹם
+וַיָּבֹאוּ בְּנֵי הָאֱלֹהִים
+לְהִתְיַצֵּב עַל־יְהוָה
+וַיָּבֹא גַם־הַשָּׂטָן בְּתוֹכָם
+
+Target:
+Job 2:1 corresponding first four clauses
+
+DECISION:
+PARATACTIC
+
+configuration_validity =
+ACCEPTED
+
+formal_relationship =
+REPEATED_MULTI_CLAUSE_CONFIGURATION
+
+PARATACTIC = true
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+INSUFFICIENT = false
+
+selected_relation =
+PARATACTIC
+
+mother_if_hypotactic =
+NONE
+
+Rationale:
+
+- focal ויהי היום correspondence
+- following multi-clause sequence correspondence
+- repeated participant/predicate configuration
+- independent sequence-family evidence exists
+- no independent linguistic evidence that either configuration
+  is a daughter of the other
+
+Important:
+
+RESUMPTION evidence remains preserved,
+but DO NOT human-adjudicate RESUMPTIVE in MFR.0.2A.
+
+That belongs to MFR.0.2B.
+
+No constituent-level sibling edges are automatically created.
+
+==================================================
+4. CFG000037
+==================================================
+
+Source:
+Job 1:6
+להתיצב על־יהוה
+
+Target:
+Job 2:1 later repeated
+להתיצב על־יהוה
+
+DECISION:
+FORMAL_ONLY
+
+configuration_validity =
+VALID_FORMAL_CORRESPONDENCE
+
+formal_relationship =
+EXACT_FORM_CORRESPONDENCE_WITH_POSITIONAL_DIFFERENCE
+
+PARATACTIC = false
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = true
+INSUFFICIENT = false
+
+selected_relation =
+FORMAL_ONLY
+
+Rationale:
+
+The construction is formally repeated,
+but this isolated InfC correspondence does not by itself establish
+a direct hierarchy relation between the two clauses.
+
+The target occurrence is also part of an expanded configuration
+within Job 2:1.
+
+Do NOT infer:
+PARATACTIC
+or
+HYPOTACTIC
+
+from exact formula identity alone.
+
+Resumption dimension remains for MFR.0.2B.
+
+==================================================
+5. CFG000046
+==================================================
+
+Source:
+Job 1:7–8
+
+Target:
+Job 2:2–3
+
+The packet recovers the repeated sequence including:
+
+YHWH → Satan speech
+question
+Satan answer
+ויאמר
+משוט בארץ
+ומהתהלך בה
+YHWH → Satan speech
+השמת לבך אל/על עבדי איוב
+כי אין כמוהו בארץ
+תם וישר ירא אלהים
+וסר מרע
+
+DECISION:
+PARATACTIC
+
+configuration_validity =
+ACCEPTED
+
+formal_relationship =
+REPEATED_MULTI_CLAUSE_CONFIGURATION
+
+PARATACTIC = true
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+INSUFFICIENT = false
+
+selected_relation =
+PARATACTIC
+
+mother_if_hypotactic =
+NONE
+
+Rationale:
+
+Multiple independent sequence witnesses recover
+the same ordered discourse configuration.
+
+The second occurrence contains textual variation,
+but the recurring constructional configuration is sufficiently strong
+to adjudicate the two configurations as paratactic.
+
+Resumption remains a separate future dimension.
+
+==================================================
+6. CFG000227
+==================================================
+
+Source:
+Job 1:15–16 transition configuration
+
+Target:
+Job 1:16–17 transition configuration
+
+Repeated pattern includes:
+
+ואמלטה רק־אני לבדי
+להגיד לך
+עוד זה מדבר
+וזה בא
+ויאמר
+
+DECISION:
+PARATACTIC
+
+configuration_validity =
+ACCEPTED
+
+formal_relationship =
+REPEATED_MESSENGER_TRANSITION_CONFIGURATION
+
+PARATACTIC = true
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+
+selected_relation =
+PARATACTIC
+
+mother_if_hypotactic =
+NONE
+
+Important:
+
+This judgment is at configuration level.
+
+Do not infer:
+“messenger scene”
+or any literary label in the analytical record.
+
+Record only the observable repeated formal configuration.
+
+==================================================
+7. CFG000230
+==================================================
+
+Source:
+Job 1:15 ending configuration
+
+Target:
+Job 1:17 ending configuration
+
+Repeated sequence:
+
+ואת־הנערים הכו לפי־חרב
+ואמלטה רק־אני לבדי
+להגיד לך
+
+DECISION:
+PARATACTIC
+
+configuration_validity =
+ACCEPTED
+
+formal_relationship =
+REPEATED_THREE_CLAUSE_CONFIGURATION
+
+PARATACTIC = true
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+
+selected_relation =
+PARATACTIC
+
+mother_if_hypotactic =
+NONE
+
+Rationale:
+
+The three-clause sequence is formally repeated
+in equivalent configuration.
+
+No daughter/mother asymmetry is supported.
+
+==================================================
+8. CFG000231
+==================================================
+
+Job 1:15
+להגיד לך
+
+Job 1:19
+להגיד לך
+
+DECISION:
+FORMAL_ONLY
+
+formal_relationship =
+EXACT_FORM_CORRESPONDENCE
+
+FORMAL_ONLY = true
+all hierarchy booleans = false
+
+Rationale:
+
+The repeated InfC clause occupies a recurrent formal slot,
+but isolated identity of this clause does not establish
+a direct hierarchy relation between the two occurrences.
+
+==================================================
+9. CFG000281
+==================================================
+
+Job 1:16
+להגיד לך
+
+Job 1:17
+להגיד לך
+
+DECISION:
+FORMAL_ONLY
+
+Same rationale as CFG000231.
+
+==================================================
+10. CFG000282
+==================================================
+
+Job 1:16
+להגיד לך
+
+Job 1:19
+להגיד לך
+
+DECISION:
+FORMAL_ONLY
+
+Same rationale.
+
+==================================================
+11. CFG000333
+==================================================
+
+Job 1:17
+להגיד לך
+
+Job 1:19
+להגיד לך
+
+DECISION:
+FORMAL_ONLY
+
+Same rationale.
+
+Important for CFG000231/281/282/333:
+
+The larger recurring configurations may have been adjudicated
+PARATACTIC elsewhere.
+
+That DOES NOT automatically create direct parataxis
+among every homologous internal constituent.
+
+==================================================
+12. CFG000432
+==================================================
+
+Within Job 2:1:
+
+להתיצב על־יהוה
+
+...
+
+להתיצב על־יהוה
+
+DECISION:
+FORMAL_ONLY
+
+configuration_validity =
+VALID_FORMAL_CORRESPONDENCE
+
+formal_relationship =
+REPEATED_LOCAL_INFINITIVE_CONSTRUCTION
+
+PARATACTIC = false
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = true
+
+selected_relation =
+FORMAL_ONLY
+
+Rationale:
+
+Each InfC is locally associated with a different preceding
+arrival construction.
+
+Their identity establishes formal correspondence,
+not a direct mother/daughter or same-level textual relation
+between the two infinitive clauses themselves.
+
+Do NOT use this judgment to decide the relation
+between their containing main clauses.
+
+==================================================
+13. CFG001053
+==================================================
+
+Source:
+Job 9:22
+תם ורשע הוא מכלה
+
+Target:
+Job 11:20
+ועיני רשעים תכלינה
+
+DECISION:
+INSUFFICIENT
+
+configuration_validity =
+INSUFFICIENT_FOR_HIERARCHY
+
+formal_relationship =
+LEXICAL_OVERLAP_ONLY
+
+PARATACTIC = false
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+INSUFFICIENT = true
+
+selected_relation =
+INSUFFICIENT
+
+Rationale:
+
+- no exact-form correspondence
+- no construction correspondence
+- no context correspondence
+- shared כלה / רשע lexical material alone is insufficient
+  to establish a textual-hierarchy relation
+
+Do not delete the lexical/resumption evidence.
+
+Preserve it for MFR.0.2B or later rhetorical/lexical overlay review.
+
+Any closure candidate derived from cessation identity remains separate.
+
+==================================================
+14. CFG001192
+==================================================
+
+Source:
+Job 11:20
+ועיני רשעים תכלינה
+
+Target:
+Job 17:5
+ועיני בניו תכלנה
+
+DECISION:
+FORMAL_ONLY
+
+configuration_validity =
+VALID_FORMAL_CORRESPONDENCE
+
+formal_relationship =
+PARALLEL_LEXICO_SYNTACTIC_CONSTRUCTION
+
+FORMAL_ONLY = true
+PARATACTIC = false
+HYPOTACTIC = false
+EMBEDDING = false
+INSUFFICIENT = false
+
+selected_relation =
+FORMAL_ONLY
+
+Rationale:
+
+The construction:
+
+עיני + genitive participant + תכלינה
+
+is formally recurrent.
+
+But the long-distance formal correspondence does not establish
+a direct textual hierarchy relation.
+
+Resumption/rhetorical echo remains separately reviewable.
+
+Closure/cessation-derived evidence is not used for this decision.
+
+==================================================
+15. CFG001981
+==================================================
+
+Source:
+Job 27:1
+
+ויסף איוב
+שאת משלו
+ויאמר
+
+Target:
+Job 29:1
+
+ויסף איוב
+שאת משלו
+ויאמר
+
+DECISION:
+PARATACTIC
+
+configuration_validity =
+ACCEPTED
+
+formal_relationship =
+EXACT_REPEATED_THREE_CLAUSE_ONSET_CONFIGURATION
+
+PARATACTIC = true
+HYPOTACTIC = false
+EMBEDDING = false
+FORMAL_ONLY = false
+INSUFFICIENT = false
+
+selected_relation =
+PARATACTIC
+
+mother_if_hypotactic =
+NONE
+
+Rationale:
+
+- exact formal correspondence across all three clauses
+- same ordered sequence
+- repeated multi-clause sequence family independently recovered
+- same explicit participant in the opening construction
+- no subordinate marker between the two configurations
+- no independently established formal elaboration asymmetry
+  showing that one occurrence is a daughter of the other
+
+Important:
+
+Do NOT use the cessation-derived coverage to Job 31:40
+as independent evidence for this judgment.
+
+The PARATACTIC decision rests on the independently recovered
+formal/sequence evidence.
+
+Resumption remains a separate dimension for MFR.0.2B.
+
+==================================================
+16. Human adjudication semantics
+==================================================
+
+Freeze the distinction:
+
+PARATACTIC
+=
+a direct configuration-level textual relation is accepted.
+
+FORMAL_ONLY
+=
+a meaningful linguistic correspondence exists,
+but no direct textual-hierarchy relation is asserted.
+
+INSUFFICIENT
+=
+current evidence is insufficient even for a direct
+configuration-level hierarchy relation.
+
+Important:
+
+FORMAL_ONLY
+≠
+linguistically irrelevant
+
+INSUFFICIENT
+≠
+NO_RELATION in all analytical dimensions
+
+A FORMAL_ONLY or INSUFFICIENT hierarchy case
+may later participate in:
+
+- resumption
+- lexical/rhetorical overlay
+- local syntax
+- other relation dimensions
+
+==================================================
+17. Do not adjudicate resumption in this stage
+==================================================
+
+Many H1 cases contain:
+RESUMPTION_CANDIDATE
+
+MFR.0.2A does not decide it.
+
+Create:
+
+resumption_review_status =
+DEFERRED_TO_MFR_0_2B
+
+where applicable.
+
+Do not set:
+RESUMPTIVE = true/false
+
+as a final cross-dimensional human decision.
+
+If schema requires a value:
+UNREVIEWED_SEPARATE_DIMENSION
+
+==================================================
+18. Do not adjudicate closure
+==================================================
+
+Likewise any cessation/closure evidence appearing in H1
+is not adjudicated here.
+
+closure_review_status =
+DEFERRED_TO_MFR_0_2C
+
+Especially:
+CFG001053
+CFG001192
+
+must not inherit closure judgment from the H1 decision.
+
+==================================================
+19. Raw pair handling
+==================================================
+
+For PARATACTIC configuration cases:
+
+Do NOT automatically create one accepted PARATACTIC edge
+for every underlying raw pair.
+
+Instead create one accepted:
+
+CONFIGURATION_RELATION_DECISION
+
+linked to:
+configuration_case_id
+
+Underlying raw pairs remain evidence memberships.
+
+If future representation needs constituent-level edges,
+they require separate derivation/adjudication rules.
+
+==================================================
+20. Human decision registry
+==================================================
+
+Create append-only MFR human registry.
+
+Minimum fields:
+
+decision_id
+phase = MFR_0_2A
+configuration_case_id
+
+researcher_decision
+
+configuration_validity
+formal_relationship
+
+hierarchy_relation_decision
+
+mother_if_hypotactic
+
+resumption_review_status
+closure_review_status
+
+rationale
+limitations
+
+underlying_raw_pair_ids
+underlying_marker_ids
+underlying_bundle_ids
+
+source_stage
+researcher_supplied = true
+
+rewrites_history = false
+
+==================================================
+21. Expected primary decision counts
+==================================================
+
+Primary H1 human judgments = 13
+
+PARATACTIC = 5:
+- CFG000028
+- CFG000046
+- CFG000227
+- CFG000230
+- CFG001981
+
+FORMAL_ONLY = 7:
+- CFG000037
+- CFG000231
+- CFG000281
+- CFG000282
+- CFG000333
+- CFG000432
+- CFG001192
+
+INSUFFICIENT = 1:
+- CFG001053
+
+HYPOTACTIC = 0
+EMBEDDING = 0
+
+New direct mother = 0
+
+==================================================
+22. Methodological calibration outcomes
+==================================================
+
+Record these as human-approved calibration principles.
+
+CAL-H1-01
+Repeated multi-clause configuration can support
+PARATACTIC adjudication.
+
+CAL-H1-02
+Exact repetition of an isolated internal clause does not
+automatically establish a direct paratactic textual edge.
+
+CAL-H1-03
+Homologous constituents inside parallel configurations do not
+automatically become direct siblings.
+
+CAL-H1-04
+Lexical recurrence alone is insufficient for hierarchy.
+
+CAL-H1-05
+A strong long-distance lexico-syntactic correspondence may remain
+FORMAL_ONLY without a hierarchy edge.
+
+CAL-H1-06
+Same repeated onset formula may support parataxis when
+multi-clause configuration correspondence is independently recovered
+and no formal hypotactic asymmetry is established.
+
+CAL-H1-07
+Cessation-derived coverage is not independent evidence for
+a hierarchy judgment.
+
+==================================================
+23. Historical comparison only after decisions frozen
+==================================================
+
+After MFR.0.2A decisions are serialized and hashed,
+compare against historical HSA/JIN judgments.
+
+Do not modify MFR decisions.
+
+Report statuses:
+
+AGREES_WITH_HISTORICAL
+PARTIALLY_AGREES
+HISTORICAL_MORE_SPECIFIC
+MFR_MORE_CONSERVATIVE
+CONFLICTS
+NO_HISTORICAL_COMPARISON
+
+Important cases expected for comparison include:
+1:6/2:1
+27:1/29:1
+
+but known historical outcomes must not be loaded
+before MFR.0.2A human decision freeze.
+
+==================================================
+24. No literary naming
+==================================================
+
+MFR human registry should describe the evidence as:
+
+REPEATED_CONFIGURATION
+REPEATED_ONSET_CONFIGURATION
+REPEATED_TRANSITION_CONFIGURATION
+
+etc.
+
+Do not use as relation rationale:
+
+testing scene
+dialogue cycle
+post-dialogue speech
+prologue
+
+Those may be used later in literary interpretation.
+
+==================================================
+25. Outputs
+==================================================
+
+At minimum:
+
+01_mfr_0_2a_human_decisions.csv
+
+02_mfr_0_2a_decision_provenance.csv
+
+03_mfr_0_2a_configuration_crosswalk.csv
+
+04_mfr_0_2a_calibration_principles.csv
+
+05_mfr_0_2a_deferred_dimensions.csv
+
+06_mfr_0_2a_postfreeze_historical_comparison.csv
+
+07_mfr_0_2a_adjudication_report.md
+
+08_mfr_0_2b_resumption_scope.csv
+
+09_mfr_0_2c_closure_scope.csv
+
+10_next_scope.md
+
+11_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+26. Gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+MFR_0_1_FROZEN_VERIFIED
+MFR_0_1A_FROZEN_VERIFIED
+MFR_0_1B_FROZEN_VERIFIED
+
+H1_CASE_COUNT_13
+
+PARATACTIC_COUNT_5
+FORMAL_ONLY_COUNT_7
+INSUFFICIENT_COUNT_1
+
+HYPOTACTIC_COUNT_0
+EMBEDDING_COUNT_0
+
+CFG000028_PARATACTIC
+CFG000037_FORMAL_ONLY
+CFG000046_PARATACTIC
+
+CFG000227_PARATACTIC
+CFG000230_PARATACTIC
+CFG000231_FORMAL_ONLY
+CFG000281_FORMAL_ONLY
+CFG000282_FORMAL_ONLY
+CFG000333_FORMAL_ONLY
+
+CFG000432_FORMAL_ONLY
+
+CFG001053_INSUFFICIENT
+CFG001192_FORMAL_ONLY
+
+CFG001981_PARATACTIC
+
+NO_CONSTITUENT_EDGE_AUTO_EXPANSION
+NO_NEW_MOTHER
+
+RESUMPTION_NOT_ADJUDICATED
+CLOSURE_NOT_ADJUDICATED
+
+CESSATION_DERIVED_EVIDENCE_NOT_USED_AS_INDEPENDENT_HIERARCHY_SUPPORT
+
+HUMAN_DECISIONS_FROZEN_BEFORE_HISTORICAL_LOAD
+
+HISTORICAL_RELATIONS_UNCHANGED
+
+NO_TREE_ASSEMBLY
+NO_ROOT
+NO_R4_4_CONSUMER
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+MANIFEST_VALID
+DETERMINISTIC_RERUN
+
+==================================================
+27. Tests
+==================================================
+
+At minimum test:
+
+1.
+exact H1 case universe = 13
+
+2.
+decision distribution exact
+
+3.
+configuration PARATACTIC does not auto-create
+raw constituent PARATACTIC edges
+
+4.
+FORMAL_ONLY retains formal evidence
+
+5.
+INSUFFICIENT retains lexical/resumption evidence
+
+6.
+resumption field remains unreviewed/deferred
+
+7.
+closure field remains unreviewed/deferred
+
+8.
+historical HSA/JIN loaded post-freeze only
+
+9.
+no frozen MFR.0.1–0.1b file modified
+
+10.
+all regression PASS / skip 0
+
+==================================================
+28. Readiness
+==================================================
+
+Successful final status:
+
+MFR_H1_CONFIGURATION_ADJUDICATED
+
+READY_FOR_MFR_0_2B_RESUMPTION_ADJUDICATION
+
+Do NOT declare:
+
+HIERARCHY_ASSEMBLED
+READY_FOR_TREE_ASSEMBLY
+READY_FOR_R4_4_IMPLEMENTATION
+
+==================================================
+29. Commit / push
+==================================================
+
+After all tests/gates PASS:
+
+Suggested commit:
+
+Adjudicate marker-first hierarchy configurations
+
+Push origin/main according to normal authorization workflow.
+
+==================================================
+30. Final report
+==================================================
+
+Report:
+
+1. start/end commit
+2. push status
+3. working tree
+
+4. H1 cases = 13
+
+5. PARATACTIC = 5
+6. FORMAL_ONLY = 7
+7. INSUFFICIENT = 1
+8. HYPOTACTIC = 0
+9. EMBEDDING = 0
+
+10. accepted configuration relation count
+11. raw constituent edge creation count = 0
+12. new mother count = 0
+
+13. deferred resumption case count
+14. deferred closure case count
+
+15. historical comparison summary
+
+16. calibration principles frozen
+
+17. tests/regression/gates
+18. deterministic rerun
+19. ZIP/SHA256
+
+20. readiness:
+MFR_H1_CONFIGURATION_ADJUDICATED
+READY_FOR_MFR_0_2B_RESUMPTION_ADJUDICATION
