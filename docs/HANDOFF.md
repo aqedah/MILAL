@@ -1,6 +1,49 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-H0.1 technically validated
+## Current task — MFR.0.2R-H0.2 technically validated
+
+Active specification: [H0.2](MFR_0_2R_H02_SPEC.md); authority:
+[exact researcher request](MFR_0_2R_H02_RESEARCHER_SOURCE.txt).
+Start local HEAD, fetched origin/main and actual remote all match
+`f343a06dbb93e026d570eb5638316843d6c98724`. Four untracked PDFs are preserved.
+593 baseline files are pinned. The researcher authorizes an append-only human
+overlay, synthetic and real execution, independent A/B validation, full regression,
+and commit/push after all gates pass. H0.1 and prior analytical cores remain frozen.
+
+One supplied human decision packet has two dispositions: reject 500062 as direct
+mother and accept 500064 as local mother of 500065. Machine-qualified relations
+remain 273; no other relation is accepted by H0.2. Human conditional-construction
+rationale remains separate from W-A01; lexical semantics remain unresolved and
+KI_FUNCTION_CAUTION is explicit. No canonical whole-book hierarchy.
+Validation report: [H0.2 results](MFR_0_2R_H02_VALIDATION_REPORT.md).
+Registry: [CSV](HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.csv) and
+[human-readable authority](HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.md).
+Raw universe 1,049,504; qualified 273; mother/parallel/overlay 203/70/0 unchanged.
+Historical human entries 13; new decision packets 1; candidate dispositions 2;
+combined registry decision entries 14. One machine pivot is resolved in the human
+overlay; remaining unadjudicated true pivots 0. Other 271 qualified relations are
+NOT_ADJUDICATED_BY_H02; prior explicit human judgments remain separately preserved.
+All 30 H0.1 source files and all prior human registries remain unchanged.
+
+Validation: syntax 5 files; focused 57 PASS; synthetic 12/12; negative gate
+mutations 32/32; full regression 3,107 PASS in 781.701 seconds, failures/errors/
+skips 0; final gates 32/32. Independent A/B manifests and ZIP bytes identical;
+both 50-member ZIPs exist and pass CRC and manifest validation.
+Code fingerprint: `f4f3721dad1f8d83763c421c999a24a7cea17958b87b9124df3397c853117ceb`.
+ZIP A: `D:\MILAL_runs\mfr02r_h02_20260926\release_a_results.zip`
+ZIP B: `F:\MILAL_runs\mfr02r_h02_20260926\release_b_results.zip`
+SHA256: `4e58833a9da1160483333c0a04ac3f173d4e27e56cbe8032c4d3f6206d94aae2`.
+Regression log: `D:\MILAL_runs\mfr02r_h02_20260926\regression_verified.log`.
+Adjudication report:
+`D:\MILAL_runs\mfr02r_h02_20260926\release_a\07_h02_job_37_20_adjudication.md`.
+
+Readiness: **READY_FOR_MFR_0_2R_H1_0**. Next: explicit researcher authorization
+for provisional hierarchy assembly using frozen qualified relations, Q1.3
+compatibility semantics and the H0.2 overlay. Machine-qualified, human-accepted,
+human-rejected, provisionally instantiated and canonically accepted statuses
+must remain distinct. **Do not start H1.0 automatically.**
+
+## Previous task — MFR.0.2R-H0.1 technically validated
 
 Active specification: [H0.1](MFR_0_2R_H01_SPEC.md);
 [researcher authority](MFR_0_2R_H01_RESEARCHER_SOURCE.txt).

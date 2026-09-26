@@ -1,0 +1,1010 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 H0.2를 구현·실행·검증하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project.
+- H0.1 and all earlier analytical layers are frozen.
+- H0.2 is an APPEND-ONLY HUMAN ADJUDICATION layer.
+- Do NOT rewrite the H0.1 review packet.
+- Do NOT delete or mutate either qualified relation from the frozen Q1/H0.1 universe.
+- Record the researcher's adjudication as a separate overlay.
+- Do NOT create a canonical whole-book hierarchy in this stage.
+- Do NOT automatically accept any of the other 271 nondecision qualified relations.
+- qualified != accepted remains in force.
+
+작업명:
+
+MILAL MFR.0.2R-H0.2
+— Human Adjudication of the Single True Structural Decision Pivot
+— Job 37:20 Local Mother Resolution
+— Preserve Machine Evidence / Correct Human Structural Rationale
+
+repository:
+aqedah/MILAL
+
+branch:
+main
+
+required start commit:
+f343a06dbb93e026d570eb5638316843d6c98724
+
+Before work:
+
+fetch
+
+verify:
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+If tracked working tree has unexpected changes:
+STOP.
+
+Preserve the existing four untracked PDFs.
+
+==================================================
+1. Frozen H0.1 state
+==================================================
+
+Preserve exactly:
+
+raw relation universe:
+1,049,504
+
+qualified relations:
+273
+
+mother:
+203
+
+parallel:
+70
+
+overlay:
+0
+
+H0.1 true decision pivots:
+1
+
+H0.1 human review items:
+1
+
+historical human judgments:
+13
+
+H0.1 review packet target:
+500065
+
+Do NOT modify:
+
+01_h01_relation_disposition.csv
+02_h01_target_status.csv
+03_h01_structural_constraints.csv
+04_h01_relation_compatibility.csv
+05_h01_decision_components.csv
+06_h01_coherent_assignments.csv
+07_h01_true_decision_pivots.csv
+08_h01_human_review_universe.csv
+09_h01_evidence_gap_register.csv
+10_h01_nondecision_groups.csv
+11_h01_nondecision_representatives.csv
+12_h01_review_packets.csv
+13_h01_review_packets.md
+
+or any earlier frozen analytical output.
+
+==================================================
+2. Human authority for this stage
+==================================================
+
+The researcher has now reviewed the single H0.1 decision packet.
+
+Target:
+
+Job 37:20
+clause 500065
+atom 590199
+
+surface:
+
+כִּי יְבֻלָּע
+
+Competing machine-qualified mother candidates:
+
+Alternative 1:
+500062 → 500065
+HYPOTACTIC
+machine grammar: W-A01
+machine primary binding: SB03
+
+source surface:
+הַיְסֻפַּר־לֹו
+
+Alternative 2:
+500064 → 500065
+HYPOTACTIC
+machine grammar: W-A01
+machine primary binding: SB01 + SB02
+
+source surface:
+אִם־אָמַר אִישׁ
+
+==================================================
+3. Researcher reading of Job 37:19–24
+==================================================
+
+The researcher reads the local discourse approximately as:
+
+37:19
+"너는 우리가 그에게 무엇을 말해야 할지 알게 하라 //
+우리의 낯이 어두워서 고하지 못하겠노라"
+
+37:20
+"내가 말하려는 것을 그에게 아뢸 수 있으랴 //
+어떤 사람이 말하여서 삼켜지겠느냐"
+
+37:21
+"그러나 이제는 궁창의 밝은 빛을 볼 수 없도다 //
+바람이 지나가고 맑아지더라도"
+
+37:22
+"북쪽에서 금이 나오고 //
+하나님께 위엄이 있도다"
+
+37:23
+"권능이 지극히 크신 샤다이를 우리가 발견할 수 없도다 //
+심판과 무한한 공의를 억누르지 않으시도다"
+
+37:24
+"그러므로 사람들은 그를 경외하고 //
+마음에 지혜로운 모든 자를 그가 돌아보지 아니하시도다"
+
+For H0.2, the crucial local structural observation is:
+
+37:20 consists of two closely corresponding local cola:
+
+A:
+הַיְסֻפַּר־לֹו
+כִּי אֲדַבֵּר
+
+B:
+אִם־אָמַר אִישׁ
+כִּי יְבֻלָּע
+
+The second pair forms the immediate local construction relevant
+to target 500065.
+
+==================================================
+4. Human adjudication
+==================================================
+
+Record the following explicit human judgment.
+
+A.
+
+Machine candidate:
+
+500062 → 500065
+
+Human adjudication:
+
+REJECTED_AS_DIRECT_MOTHER
+
+More precisely:
+
+NO_DIRECT_STRICT_MOTHER_RELATION
+
+Reason:
+
+500062 belongs to the first colon/local construction,
+whereas 500065 belongs to the second colon/local construction.
+
+The possible rhetorical/poetic correspondence between the
+two cola is NOT denied.
+
+Therefore:
+
+DO NOT record:
+
+NO_RELATION_IN_ALL_LAYERS.
+
+Record only:
+
+REJECTED_AS_DIRECT_MOTHER.
+
+The frozen qualified candidate remains preserved historically.
+
+B.
+
+Machine candidate:
+
+500064 → 500065
+
+Human adjudication:
+
+ACCEPTED_AS_LOCAL_MOTHER
+
+Relation family:
+
+HYPOTACTIC
+
+Structural implication:
+
+500065 STRICTLY_BELOW 500064
+for the local clause hierarchy.
+
+The accepted mother is:
+
+500064
+
+==================================================
+5. Critical rationale correction
+==================================================
+
+Although the machine candidate 500064 → 500065 was generated
+under W-A01, the human adjudication does NOT adopt the simplistic
+rationale:
+
+"כי automatically means subordinate daughter of the preceding clause."
+
+The researcher accepts the EDGE,
+but the human rationale is the LOCAL CONDITIONAL CONSTRUCTION:
+
+אִם־אָמַר אִישׁ
+כִּי יְבֻלָּע
+
+Treat:
+
+500064
+
+as the local conditional/protasis-like structural frame
+
+and:
+
+500065
+
+as its locally dependent following assertion/result/apodosis-like
+component.
+
+Do NOT require a final lexical-semantic decision on יבלע
+to establish this local mother relation.
+
+Do NOT require that כי be assigned one universally fixed function.
+
+Record separately:
+
+machine_rule:
+W-A01
+
+machine_rule_provenance:
+PRESERVED
+
+human_edge_decision:
+ACCEPTED
+
+human_rationale:
+LOCAL_CONDITIONAL_PROTASIS_APODOSIS_CONFIGURATION
+
+machine_rule_rationale_adopted_by_human:
+false
+
+This distinction is important.
+
+==================================================
+6. כי caution
+==================================================
+
+Create an explicit methodological annotation:
+
+KI_FUNCTION_CAUTION
+
+The presence of כי is a formal surface feature.
+
+However:
+
+כי must not automatically be treated in all Job occurrences as
+a semantically identical subordinating conjunction.
+
+Its local function may require later lexical-semantic / discourse validation.
+
+For this H0.2 case:
+
+the accepted mother relation is grounded primarily in the
+local אם ... כי construction and the direct local structural connection,
+not in a universal semantic interpretation of כי.
+
+Do NOT modify W-A01 globally in H0.2.
+
+Do NOT reopen all כי cases.
+
+Do NOT create a new relation-discovery rule.
+
+Only preserve this as a human-adjudication methodological note.
+
+==================================================
+7. Why 500064 is accepted
+==================================================
+
+Record the human rationale descriptively:
+
+1.
+500064 is immediately local to 500065.
+
+2.
+500064 explicitly opens:
+
+אִם־אָמַר אִישׁ
+
+which provides the conditional frame for the following clause.
+
+3.
+500065 completes the local construction.
+
+4.
+The machine evidence already provides direct primary binding:
+
+SB01
+SB02
+
+for 500064 → 500065.
+
+5.
+500062 → 500065 depends instead on SB03 larger-unit mediation.
+
+6.
+The local poetic arrangement of 37:20 supports the grouping:
+
+500062 + 500063
+
+and
+
+500064 + 500065
+
+without requiring 500062 to be the direct mother of 500065.
+
+Do NOT convert these descriptive observations into numeric weights.
+
+==================================================
+8. Do not overclaim semantic certainty
+==================================================
+
+The lexical/semantic interpretation of:
+
+כִּי יְבֻלָּע
+
+is debated.
+
+Possible interpretations in scholarship include readings related to:
+
+- being swallowed / destroyed;
+- being confounded;
+- being informed / having something communicated.
+
+H0.2 does NOT adjudicate the lexical root or translation question.
+
+The structural decision is narrower:
+
+500064 is the local governing clause for 500065.
+
+Therefore record:
+
+LEXICAL_SEMANTIC_INTERPRETATION:
+UNRESOLVED_FOR_HIERARCHY_PURPOSES
+
+STRUCTURAL_MOTHER_DECISION:
+RESOLVED
+
+==================================================
+9. Do not invent a new rhetorical relation
+==================================================
+
+The apparent correspondence:
+
+500062–500063
+//
+500064–500065
+
+may be noted as:
+
+POST_RELATION_VALIDATION_CONTEXT
+
+or:
+
+POETIC_PARALLELISM_OBSERVATION
+
+but H0.2 must NOT create a new:
+
+500062 ↔ 500064
+
+PARATACTIC relation unless such a relation already exists in the
+qualified relation universe.
+
+No new relation qualification in H0.2.
+
+==================================================
+10. Append-only human adjudication registry
+==================================================
+
+Create a new H0.2 human registry.
+
+Suggested:
+
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.csv
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.md
+
+Do not overwrite HSA1/HSA2/HSA3 or any prior human registry.
+
+Fields should include at minimum:
+
+judgment_id
+stage
+target_clause_id
+target_atom_ids
+target_reference
+target_surface
+
+candidate_relation_id
+source_clause_id
+source_reference
+source_surface
+machine_relation_type
+machine_rule
+machine_binding
+
+human_decision
+human_relation_type
+human_structural_effect
+
+direct_mother_status
+human_rationale_code
+human_rationale_text
+
+machine_rule_rationale_adopted
+lexical_semantics_status
+
+historical_candidate_preserved
+canonical_whole_book_status
+
+researcher_authority
+adjudication_date
+provenance
+
+==================================================
+11. Required human records
+==================================================
+
+Create TWO disposition records for the one review packet.
+
+Record 1:
+
+target:
+500065
+
+source:
+500062
+
+machine relation:
+HYPOTACTIC
+
+human decision:
+REJECTED_AS_DIRECT_MOTHER
+
+direct_mother_status:
+REJECTED
+
+historical_candidate_preserved:
+true
+
+no_relation_all_layers:
+false
+
+Record 2:
+
+target:
+500065
+
+source:
+500064
+
+machine relation:
+HYPOTACTIC
+
+human decision:
+ACCEPTED_AS_LOCAL_MOTHER
+
+direct_mother_status:
+ACCEPTED
+
+human relation:
+HYPOTACTIC
+
+human structural effect:
+STRICTLY_BELOW
+
+historical_candidate_preserved:
+true
+
+==================================================
+12. Human judgment count
+==================================================
+
+Historical human judgments before H0.2:
+
+13
+
+H0.2 adds ONE structural adjudication decision packet,
+containing two candidate dispositions.
+
+Do not ambiguously count this as two independent human decisions.
+
+Report separately:
+
+new_human_decision_packets = 1
+
+new_candidate_dispositions = 2
+
+total_human_decision_packets / registry count
+according to the repository's existing counting contract.
+
+Do not silently change historical counts.
+
+==================================================
+13. H0.1 pivot resolution overlay
+==================================================
+
+Create an overlay showing:
+
+H0.1:
+
+target 500065
+TRUE_DECISION_PIVOT
+
+H0.2:
+
+HUMAN_ADJUDICATED
+
+selected local mother:
+500064
+
+rejected direct mother:
+500062
+
+pivot_status_after_human_adjudication:
+RESOLVED_BY_HUMAN
+
+Do NOT edit the frozen H0.1 pivot file.
+
+==================================================
+14. Qualified relation universe remains frozen
+==================================================
+
+Critical:
+
+qualified relations remain:
+273
+
+Do NOT reduce to 272.
+
+The relation:
+
+500062 → 500065
+
+remains a historically qualified machine candidate,
+now carrying a human-rejection overlay for direct motherhood.
+
+Thus distinguish:
+
+MACHINE_QUALIFIED
+
+from:
+
+HUMAN_ACCEPTED
+
+from:
+
+HUMAN_REJECTED_AS_DIRECT_MOTHER.
+
+==================================================
+15. Accepted relation scope
+==================================================
+
+Do NOT interpret the accepted 500064 → 500065 relation as:
+
+canonical whole-book hierarchy complete.
+
+It is only:
+
+HUMAN_ACCEPTED_LOCAL_MOTHER_RELATION.
+
+All other noncompeting qualified relations remain:
+
+QUALIFIED
+NOT_HUMAN_ACCEPTED
+NOT_CANONICAL
+
+unless already covered by earlier explicit human judgment.
+
+==================================================
+16. Review universe after adjudication
+==================================================
+
+Produce a post-H0.2 review status:
+
+true machine decision pivots before human review:
+1
+
+human-adjudicated pivots:
+1
+
+remaining unadjudicated true pivots:
+0
+
+This does NOT mean:
+
+all 273 relations are accepted.
+
+It means:
+
+no currently known mutually exclusive positive assignment
+remains awaiting human choice.
+
+==================================================
+17. Methodological comparison
+==================================================
+
+Create a short audit describing why this decision does NOT mean:
+
+"nearest clause wins."
+
+The accepted relation is not justified by proximity alone.
+
+It is supported by:
+
+- local conditional construction;
+- direct primary binding;
+- local structural completion;
+- the two-colon organization of 37:20.
+
+Add negative statement:
+
+If 500064 were merely nearer without these formal relations,
+proximity alone would be insufficient.
+
+==================================================
+18. Source packet preservation
+==================================================
+
+Link the H0.2 judgment back to:
+
+H0.1 review packet ID:
+
+HR-HD-0f03f7103f29e43daa1a42628ae0fd98384025b2f0a3ed5153bd4c6542738d3d
+
+Alternative 1:
+HA-40ce77033c7906b6bfb4ced56e3f18bc3cfa0a0b5003c647439c829b1aa67fc9
+
+Alternative 2:
+HA-7bdd373de96c006d336330af5ee703f5959e92bc7779478826d934263e98027f
+
+Preserve exact relation IDs:
+
+500062 → 500065:
+QO-0aa7db8fd123f185d7e43968b314d6c880ad4a14772cad5daa1076739fdf457c
+
+500064 → 500065:
+QO-38b23910f94e6f0879d52d1d2ca503e70e1ee4265df90e392e339795eb5786d9
+
+==================================================
+19. H0.2 outputs
+==================================================
+
+At minimum:
+
+01_h02_human_decision_packets.csv
+02_h02_candidate_dispositions.csv
+03_h02_human_accepted_relations.csv
+04_h02_human_rejected_direct_mothers.csv
+
+05_h02_pivot_resolution_overlay.csv
+06_h02_machine_vs_human_status.csv
+
+07_h02_job_37_20_adjudication.md
+08_h02_ki_function_caution.md
+
+09_h02_post_adjudication_review_status.csv
+10_h02_method_report.md
+11_h02_next_scope.md
+12_h02_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+Also create/update the append-only documentation registry:
+
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.csv
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.md
+
+Do not overwrite earlier registries.
+
+==================================================
+20. Required tests
+==================================================
+
+H02-S1
+
+machine-qualified 500062 → 500065
+
++
+human REJECTED_AS_DIRECT_MOTHER
+
+→ machine candidate remains preserved
+→ not used as accepted direct mother.
+
+H02-S2
+
+machine-qualified 500064 → 500065
+
++
+human ACCEPTED_AS_LOCAL_MOTHER
+
+→ human accepted overlay created.
+
+H02-S3
+
+reject direct motherhood
+
+!=
+
+NO_RELATION_ALL_LAYERS.
+
+H02-S4
+
+accepted edge under machine W-A01
+
+but human rationale differs from machine-rule rationale
+
+→ both provenances preserved.
+
+H02-S5
+
+כי semantic function unresolved
+
+→ accepted local mother remains representable.
+
+H02-S6
+
+qualified relation total remains 273.
+
+H02-S7
+
+human decision packet count increases by one,
+candidate dispositions = two.
+
+H02-S8
+
+remaining unreviewed true pivot count = 0.
+
+H02-S9
+
+no other qualified relation becomes human accepted.
+
+H02-S10
+
+no canonical hierarchy is produced.
+
+H02-S11
+
+poetic parallel observation does not create a new relation.
+
+H02-S12
+
+proximity alone cannot pass the human-rationale gate.
+
+==================================================
+21. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+H0_1_FROZEN
+
+RAW_UNIVERSE_UNCHANGED
+
+QUALIFIED_273_PRESERVED
+
+H0_1_REVIEW_PACKET_UNCHANGED
+
+ONE_HUMAN_DECISION_PACKET_ADDED
+
+TWO_CANDIDATE_DISPOSITIONS_RECORDED
+
+500062_DIRECT_MOTHER_REJECTED
+
+500062_MACHINE_CANDIDATE_PRESERVED
+
+500062_NOT_GLOBAL_NO_RELATION
+
+500064_LOCAL_MOTHER_ACCEPTED
+
+500064_HYPOTACTIC_ACCEPTED_LOCALLY
+
+MACHINE_RULE_PROVENANCE_PRESERVED
+
+HUMAN_RATIONALE_SEPARATE_FROM_MACHINE_RULE
+
+KI_FUNCTION_CAUTION_RECORDED
+
+LEXICAL_SEMANTICS_NOT_FORCED
+
+NO_NEW_RELATION_QUALIFICATION
+
+NO_PROXIMITY_HEURISTIC
+
+NO_OTHER_RELATION_AUTO_ACCEPTED
+
+NO_CANONICAL_WHOLE_BOOK_HIERARCHY
+
+NO_HISTORICAL_HUMAN_JUDGMENT_REWRITE
+
+REMAINING_TRUE_PIVOTS_ZERO_AFTER_OVERLAY
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+22. Stop conditions
+==================================================
+
+STOP if:
+
+A.
+the implementation deletes 500062 → 500065 from the
+machine-qualified universe;
+
+B.
+REJECTED_AS_DIRECT_MOTHER is converted into global NO_RELATION;
+
+C.
+500064 is accepted merely because it is nearest;
+
+D.
+the implementation claims that כי has one universal function;
+
+E.
+the lexical meaning of יבלע is artificially resolved in order
+to justify the structural decision;
+
+F.
+other noncompeting qualified relations are silently accepted;
+
+G.
+a canonical whole-book hierarchy is generated.
+
+==================================================
+23. Post-H0.2 readiness
+==================================================
+
+If validation succeeds, return:
+
+READY_FOR_MFR_0_2R_H1_0
+
+Suggested next stage:
+
+MFR.0.2R-H1.0
+— Provisional Hierarchy Assembly
+— Qualified Relations + Human Adjudication Overlay
+— No Automatic Canonical Acceptance
+
+Purpose:
+
+construct a PROVISIONAL structural graph using:
+
+- frozen qualified relations;
+- Q1.3 compatibility semantics;
+- H0.2 human pivot resolution;
+
+while keeping distinct:
+
+MACHINE_QUALIFIED
+HUMAN_ACCEPTED
+HUMAN_REJECTED
+PROVISIONALLY_INSTANTIATED
+CANONICAL_ACCEPTED.
+
+Do NOT begin H1.0 automatically.
+
+==================================================
+24. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+
+Record H0.2 Job 37:20 human adjudication
+
+Push origin/main.
+
+Generated release directories remain local unless repository
+policy explicitly requires otherwise.
+
+==================================================
+25. FINAL RESPONSE REQUIREMENT — DO NOT OMIT
+==================================================
+
+Print explicitly:
+
+GIT
+- start commit
+- end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree
+
+FROZEN INTEGRITY
+- raw universe
+- qualified relation total
+- H0.1 files changed?
+- prior human registries changed?
+
+HUMAN ADJUDICATION
+- review packet ID
+- target
+- candidate 500062 disposition
+- candidate 500064 disposition
+- accepted local mother
+- rejected direct mother
+- lexical semantics status
+- כי-function caution
+
+COUNTS
+- new human decision packets
+- candidate dispositions
+- remaining unreviewed true pivots
+- qualified relations preserved
+
+SCOPE
+- confirm no other relation accepted
+- confirm no canonical hierarchy
+
+VALIDATION
+- focused tests
+- synthetic tests
+- regression
+- gates
+- skip count
+- deterministic A/B
+- manifest
+- CRC
+
+FILES
+- validation report absolute path
+- H0.2 adjudication report
+- human registry paths
+- regression log
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+Explicitly state:
+- ZIP exists
+- CRC passed
+- manifest passed
+- A/B bytes identical
+
+READINESS:
+READY_FOR_MFR_0_2R_H1_0
+or
+NEEDS_H02_ADJUDICATION_REPAIR

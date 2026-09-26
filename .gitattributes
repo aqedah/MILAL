@@ -80,3 +80,7 @@ docs/MFR_0_2R_Q1_6_PREIMPLEMENTATION_AUDIT.json -text whitespace=blank-at-eol,bl
 docs/MFR_0_2R_Q16R_RESEARCHER_SOURCE.txt -text whitespace=cr-at-eol
 
 docs/MFR_0_2R_H01_RESEARCHER_SOURCE.txt -text whitespace=cr-at-eol
+
+docs/MFR_0_2R_H02_RESEARCHER_SOURCE.txt -text whitespace=cr-at-eol
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.csv text eol=lf
+docs/HUMAN_STRUCTURAL_ADJUDICATION_MFR_H02.md whitespace=-blank-at-eof
