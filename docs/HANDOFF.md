@@ -1,6 +1,53 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.3 technically validated
+## Current task — MFR.0.2R-Q1.4 technically validated
+
+Active specification: [Q1.4](MFR_0_2R_Q14_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q14_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_Q14.md);
+[validation report](MFR_0_2R_Q14_VALIDATION_REPORT.md).
+Required start `6afd569fb7b625a40e42232e99ff3202077362c4`, verified equal to
+fetched origin/main and actual remote HEAD. No tracked changes existed at start;
+the four untracked PDFs remain untouched.
+
+Q1.4 adds independent overlapping surface constructions, data-derived composite
+profiles/families and cross-family source binding through existing SB06/SB11.
+All new relations use frozen Q1.3 compatibility. No previous analytical core,
+reference identity, closure target or human judgment was changed. All 510 frozen
+pins, 1,049,504 raw candidates, 195 baseline relations and 13 judgments survive.
+
+Observed: 275 independent spans, 239 families, 3,415 cross-family correspondences,
+144 positive bindings; 48 new relations and 243 total (173 mother / 70 parallel /
+0 overlay). Compatibility conflicts and true pivots: 0. Bare-formula positives: 0.
+27:1/29:1 three-component constructions yield three new PARATACTIC pairs through
+generic native/lexical-role chains. 38:1/40:6 yield two through the preserved native
+Adju storm phrase; no Locative classification is invented. 40:1 comparisons remain
+support only. 1:13 still lacks an independent composite span under this adapter.
+Numbers five alternatives remain EVIDENCE_ONLY; Bosman membership does not resolve
+reference. All external controls were loaded only after Job blind freeze.
+
+Validation: syntax 8 files; focused 68 tests; synthetic S1–S12 plus determinism
+13/13; full regression 2,765 tests, 763.156 seconds, zero failures/errors/skips;
+34/34 gates with negative coverage. Independent D:/F: manifests and ZIP bytes match;
+both final ZIP CRCs and member manifests passed, and both archives exist.
+Synthetic receipt: `C:\MILAL\results\q14_synthetic_07\receipt.json`.
+Regression log: `D:\MILAL_runs\mfr02r_q14_20260926\regression_final.log`.
+Validated fingerprint:
+`ebab33dbe1cae357daaaab7bb82e66134fc03c72d114237c36dc9bc0b513fcce`.
+
+RESULT ZIP A: `D:\MILAL_runs\mfr02r_q14_20260926\release_a_results.zip`
+
+RESULT ZIP B: `F:\MILAL_runs\mfr02r_q14_20260926\release_b_results.zip`
+
+SHA256: `fdfe8b9dfb0839d35b54dc71501e1fe506fe3d658945534f351aef6f9da93349`.
+Receipt: `D:\MILAL_runs\mfr02r_q14_20260926\release_a_verification.json`.
+Generated outputs and preliminary drafts remain local-only.
+
+**READY_FOR_MFR_0_2R_Q1_5. Do not start Q1.5 automatically.**
+This is technical readiness, not human structural acceptance. Construction coverage,
+reference resolution and final textual constituency remain review questions.
+
+## Previous task — MFR.0.2R-Q1.3 technically validated
 
 Active specification: [Q1.3](MFR_0_2R_Q13_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q13_RESEARCHER_SOURCE.txt); execution:

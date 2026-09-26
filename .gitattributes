@@ -71,3 +71,4 @@ docs/MFR_0_2R_Q1_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eo
 docs/MFR_0_2R_Q11_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/MFR_0_2R_Q12_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/MFR_0_2R_Q13_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/MFR_0_2R_Q14_RESEARCHER_SOURCE.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

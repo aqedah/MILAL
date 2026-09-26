@@ -1,0 +1,1357 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 다음 단계를 구현·실행·검증하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project from an earlier stage.
+- Do NOT replace the existing Q1/Q1.1/Q1.2/Q1.3 architecture.
+- Integrate this stage additively with the current implementation.
+- Reuse existing schemas/modules/provenance infrastructure where possible.
+- Do NOT duplicate an already existing mechanism under a new name.
+- Q1.3 is frozen.
+
+작업명:
+
+MILAL MFR.0.2R-Q1.4
+— Independent Composite Surface Construction Adapter
+— Cross-Family Configuration Correspondence
+— Composite Source-Binding Qualification
+
+현재 기준선:
+repository: aqedah/MILAL
+branch: main
+
+required start commit:
+6afd569fb7b625a40e42232e99ff3202077362c4
+
+먼저 fetch 후 다음을 검증하세요:
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+tracked working tree가 예상 외로 dirty하면 STOP.
+
+기존 untracked PDF 4개는 삭제·이동·commit하지 마세요.
+
+==================================================
+0. Q1.3 frozen facts
+==================================================
+
+Preserve exactly:
+
+raw relation candidates:
+1,049,504
+
+Q1.2/Q1.3 qualified relations:
+195
+
+Q1.2 structural outcome groups:
+195
+
+mother relations:
+173
+
+parallel relations:
+22
+
+historical human judgments:
+13
+
+Q1.3 true decision pivots:
+0
+
+Q1.3 established:
+
+- mother relation and parallel relation are orthogonal dimensions;
+- multiple parallel peers may coexist;
+- unselected = undecided;
+- relation multiplicity alone is not a review pivot;
+- no canonical mother;
+- no canonical hierarchy.
+
+Do not rewrite Q1.3.
+
+==================================================
+1. Core problem
+==================================================
+
+Q1.2/Q1.3 currently profile clauses individually.
+
+But some formally meaningful constructions are realized by
+MULTIPLE ADJACENT CLAUSES / CLAUSE_ATOMS.
+
+Important example for post-freeze diagnosis:
+
+Job 27:1:
+
+A
+ויסף איוב
+
+B
+שאת משלו
+
+C
+ויאמר
+
+Job 29:1 repeats the same three-part surface construction.
+
+At present these are represented mainly as separate clause profiles.
+
+This can prevent a relation from qualifying even when the
+COMPOSITE SURFACE CONSTRUCTION supplies strong pair-specific
+source binding.
+
+Q1.4 must therefore distinguish:
+
+CLAUSE PROFILE
+
+from
+
+COMPOSITE SURFACE CONSTRUCTION PROFILE.
+
+==================================================
+2. Critical methodological rule
+==================================================
+
+A composite construction must be established
+INDEPENDENTLY OF THE RELATION EDGE BEING TESTED.
+
+Forbidden circular process:
+
+candidate edge A→B
+→ use A→B to define a composite unit
+→ use that composite unit to prove A→B.
+
+Required process:
+
+raw BHSA/MILAL surface data
+→ independently bounded local construction span
+→ composite profile
+→ correspondence between two composite profiles
+→ source-binding witness
+→ existing relation candidate may qualify.
+
+==================================================
+3. Terminology
+==================================================
+
+Do NOT call these final:
+
+TEXTUAL_UNITS
+SPEECH_UNITS
+PARAGRAPHS
+HIERARCHY_NODES
+
+Use:
+
+SURFACE_CONSTRUCTION_SPAN
+COMPOSITE_SURFACE_PROFILE
+COMPOSITE_CONFIGURATION_FAMILY
+
+These are observational/formal objects.
+
+They do NOT determine final textual extent.
+
+For example:
+
+the three clauses of Job 27:1 may form a
+SURFACE_CONSTRUCTION_SPAN
+
+without implying:
+
+Job 27:1–28:28 is already an accepted speech unit.
+
+==================================================
+4. Independent surface span generation
+==================================================
+
+Generate candidate composite spans from observable data only.
+
+Allowed evidence:
+
+A. contiguous clause / clause_atom sequence;
+
+B. native BHSA/ETCBC clause dependency
+where the dependency exists independently in the database;
+
+C. explicit subordinating construction;
+
+D. independently established valency binding;
+
+E. explicit direct-speech marker sequence;
+
+F. explicit formula continuation;
+
+G. shared grammatical construction whose components form
+a locally bounded sequence;
+
+H. clause-level construction in which a following clause is
+syntactically attached to an earlier clause inside the same
+local construction;
+
+I. independently observable closure of the local formula.
+
+Forbidden:
+
+- MILAL provisional mother relation under test;
+- Q1/Q1.2/Q1.3 inferred relation reachability;
+- historical HSA hierarchy;
+- chapter boundaries as structural evidence;
+- commentary/traditional outline;
+- semantic topic alone;
+- expected control answer.
+
+==================================================
+5. Overlapping spans are allowed
+==================================================
+
+Do NOT force one segmentation of Job.
+
+A clause may participate in:
+
+- a single-clause profile;
+- a two-clause construction;
+- a three-clause construction;
+
+if each span has independent surface justification.
+
+Therefore:
+
+SURFACE_CONSTRUCTION_SPAN
+is not an exclusive segmentation layer.
+
+Record overlap explicitly.
+
+==================================================
+6. Span boundary status
+==================================================
+
+For each candidate span record:
+
+span_id
+start_clause
+end_clause
+clause_ids
+clause_atom_ids
+
+boundary_start_status
+boundary_end_status
+
+boundary_witnesses
+
+construction_independence_status
+
+Allowed independence status:
+
+INDEPENDENT_NATIVE_BINDING
+INDEPENDENT_SURFACE_SEQUENCE
+INDEPENDENT_VALENCY
+INDEPENDENT_EXPLICIT_MARKER
+MULTIPLE_INDEPENDENT_WITNESSES
+UNRESOLVED
+DEPENDENT_ON_TESTED_RELATION
+
+Only independent statuses may provide positive
+composite source binding.
+
+DEPENDENT_ON_TESTED_RELATION must be blocked.
+
+==================================================
+7. Do not use arbitrary maximum span length
+==================================================
+
+Do NOT say:
+
+“composite = maximum 3 clauses”
+
+or:
+
+“look ahead 5 clauses.”
+
+Span extent must arise from surface evidence.
+
+Implementation may use traversal safeguards for runtime,
+but such safeguards must not define linguistic validity.
+
+If a computational safety limit is required,
+report it separately as an engineering guard,
+not a linguistic rule.
+
+==================================================
+8. Composite profile
+==================================================
+
+For every independently bounded span create:
+
+COMPOSITE_SURFACE_PROFILE
+
+including:
+
+- ordered clause types;
+- ordered predicate lexemes;
+- ordered verbal forms;
+- internal dependency pattern;
+- phrase-function patterns by component;
+- explicit subject configuration by component;
+- complement configuration;
+- speech predicate configuration;
+- subordinate construction;
+- participant grammatical roles;
+- lexical anchors by grammatical role;
+- time frame;
+- location frame;
+- direct-speech marking;
+- conjunction/syndesis pattern;
+- internal position structure;
+- component profile IDs;
+- provenance.
+
+Do not assign final discourse function.
+
+==================================================
+9. Internal surface positions
+==================================================
+
+Represent positions neutrally:
+
+POSITION_1
+POSITION_2
+POSITION_3
+...
+
+and, when formally observable:
+
+INITIAL_FINITE
+DEPENDENT_INFINITIVE
+FOLLOWING_SPEECH_PREDICATE
+TEMPORAL_FRAME_COMPONENT
+LOCATIVE_FRAME_COMPONENT
+EXPLICIT_SUBORDINATE_COMPONENT
+etc.
+
+Do NOT assign:
+
+SPEECH_UNIT_HEAD
+MACRO_LEVEL
+DIALOGUE_LEVEL
+
+at this stage.
+
+==================================================
+10. Composite family generation
+==================================================
+
+Generate COMPOSITE_CONFIGURATION_FAMILY from data.
+
+Do NOT hard-code families named:
+
+JOB_27_1
+JOB_29_1
+JOB_SPEECH_ONSET
+NUMBERS_DSF
+YHWH_SPEECH
+
+Family identity must arise from formal component organization.
+
+Store:
+
+composite_family_id
+component_count_or_structure
+ordered structural template
+required fields
+variant fields
+provenance
+
+Names/IDs must be generic/data-derived.
+
+==================================================
+11. Exact composite correspondence
+==================================================
+
+Two spans may have EXACT_COMPOSITE_CORRESPONDENCE
+when their independently observed component structures
+correspond at all defining positions.
+
+This does NOT require identical word nodes.
+
+Lexical identity may be represented separately.
+
+==================================================
+12. Cross-family correspondence
+==================================================
+
+Implement:
+
+CROSS_FAMILY_CONFIGURATION_CORRESPONDENCE
+
+for spans that are not in the exact same generated family
+but display a formally mappable construction relationship.
+
+Examples in abstract:
+
+A:
+finite speech-introduction construction
++ dependent complement
++ speech predicate
+
+B:
+finite response construction
++ speech predicate
+
+They are not automatically the same family.
+
+But they may share formally corresponding
+constructional organization.
+
+Do NOT infer functional equivalence from this alone.
+
+==================================================
+13. Position mapping
+==================================================
+
+For every cross-family comparison record:
+
+source_span
+target_span
+
+source_position
+target_position
+
+source_component_profile
+target_component_profile
+
+mapping_basis
+
+Allowed mapping_basis:
+
+EXACT_COMPONENT_CONFIGURATION
+CORRESPONDING_GRAMMATICAL_ROLE
+DEPENDENCY_POSITION_CORRESPONDENCE
+LEXICAL_ROLE_CORRESPONDENCE
+TEMPORAL_FRAME_CORRESPONDENCE
+LOCATIVE_FRAME_CORRESPONDENCE
+DIRECT_SPEECH_POSITION_CORRESPONDENCE
+UNRESOLVED
+
+No numeric similarity score.
+
+==================================================
+14. Conservative positive composite binding
+==================================================
+
+A composite comparison may create a positive
+COMPOSITE_SOURCE_BINDING witness only when:
+
+A.
+both spans are independently bounded
+
+AND
+
+B.
+their internal position mapping is independently observable
+
+AND
+
+C.
+they have at least one PAIR-SPECIFIC binding chain
+that goes beyond bare generic formula repetition.
+
+Allowed pair-specific binding chains:
+
+1.
+COMPOSITE_LEXICAL_ROLE_CHAIN
+
+Repeated explicit lexical anchors in corresponding
+grammatical positions across the construction.
+
+2.
+TEMPORAL_FRAME_CHAIN
+
+Independently matching temporal-frame organization.
+
+3.
+LOCATIVE_FRAME_CHAIN
+
+Independently matching locative-frame organization.
+
+4.
+PARTICIPANT_ROLE_CHAIN
+
+Explicit participant identities/roles mapped through
+multiple construction positions,
+provided identity is surface-explicit and not inferred
+from PNG alone.
+
+5.
+NATIVE_DEPENDENCY_PATTERN_CHAIN
+
+Comparable independently recorded internal dependency
+organization PLUS a non-generic lexical/frame anchor.
+
+==================================================
+15. Bare speech formula protection
+==================================================
+
+Preserve Q1.2 rule:
+
+BARE_SPEECH_FORMULA_ALONE_CANNOT_QUALIFY_BINDING.
+
+ANSWER + AMR alone is insufficient.
+
+AMR alone is insufficient.
+
+same clause type alone is insufficient.
+
+same speaker alone is insufficient.
+
+same participant name alone is insufficient.
+
+same sequence length alone is insufficient.
+
+If two spans are formally related but lack pair-specific
+binding:
+
+record:
+
+SAME_COMPOSITE_CONFIGURATION_FAMILY
+
+or:
+
+CROSS_FAMILY_CONFIGURATION_CORRESPONDENCE
+
+but do NOT qualify the relation.
+
+==================================================
+16. Explicit participant identity
+==================================================
+
+If the surface explicitly names a participant in both spans,
+record lexical identity directly.
+
+This is NOT the same as reference resolution.
+
+Example:
+
+explicit Job ↔ explicit Job
+may be an explicit lexical-role witness.
+
+But:
+
+implicit 3ms ↔ Job
+
+must not be treated as identity unless independently resolved.
+
+Reference layer remains frozen in Q1.4.
+
+==================================================
+17. Composite binding does not invent relation type
+==================================================
+
+CRITICAL:
+
+Composite correspondence may satisfy SOURCE BINDING.
+
+It must NOT invent:
+
+HYPOTACTIC
+PARATACTIC
+
+from nothing.
+
+A relation can be newly qualified in Q1.4 only if:
+
+- the source-target anchor pair already exists in the
+  raw MFR.0.2R relation candidate universe;
+
+AND
+
+- relation grammar already licenses the candidate type;
+
+AND
+
+- Q1.4 composite evidence supplies the missing
+  pair-specific source binding.
+
+Thus:
+
+RELATION GRAMMAR
+remains separate from
+SOURCE BINDING.
+
+==================================================
+18. Anchor clause of composite span
+==================================================
+
+A surface construction span may expose one or more
+ANCHOR_CLAUSE_CANDIDATES.
+
+Do not choose final textual mother.
+
+For relation qualification, identify the clause position
+that corresponds to the existing raw relation candidate.
+
+Record:
+
+span_id
+anchor_clause_id
+anchor_basis
+
+Allowed anchor basis:
+
+INITIAL_FINITE_COMPONENT
+NATIVE_HEAD_COMPONENT
+EXPLICIT_MARKER_COMPONENT
+EXISTING_RAW_PAIR_COMPONENT
+UNRESOLVED
+
+If more than one anchor remains plausible:
+retain all / unresolved.
+
+Do not select by nearest distance.
+
+==================================================
+19. Q1.4 relation statuses
+==================================================
+
+For raw relation pairs evaluated by composite evidence:
+
+COMPOSITE_QUALIFIED
+
+COMPOSITE_SUPPORT_ONLY
+
+SAME_COMPOSITE_FAMILY_ONLY
+
+CROSS_FAMILY_SUPPORT_ONLY
+
+BLOCKED_NONINDEPENDENT_SPAN
+
+BLOCKED_GENERIC_FORMULA_ONLY
+
+BLOCKED_NO_EXISTING_RELATION_GRAMMAR
+
+UNRESOLVED
+
+==================================================
+20. Relation preservation
+==================================================
+
+Do NOT remove the existing 195 Q1.3 qualified relations.
+
+Q1.4 may add newly qualified relations.
+
+If new evidence contradicts an existing relation:
+record a conflict diagnostic;
+do not silently delete it.
+
+Report:
+
+Q1.3 qualified baseline
+retained
+newly qualified by Q1.4
+conflict diagnostics
+Q1.4 total
+
+==================================================
+21. Q1.3 compatibility model applies to new relations
+==================================================
+
+Every newly qualified Q1.4 relation must pass through
+the Q1.3 dimension/compatibility architecture.
+
+Do NOT revert to:
+
+multiple outcome = pivot.
+
+New relation:
+→ relation dimension
+→ compatibility
+→ coherent assignment
+→ true pivot only if positive assignments are incompatible.
+
+==================================================
+22. Critical Job post-freeze diagnostics
+==================================================
+
+Run AFTER generic implementation is frozen.
+
+Do not encode expected results.
+
+Inspect at minimum:
+
+A. Job 27:1
+B. Job 29:1
+
+Show whether the three-clause constructions are independently
+generated as surface spans.
+
+Show:
+
+ויסף איוב
+שאת משלו
+ויאמר
+
+for each location.
+
+Compare:
+
+component structure
+internal dependencies
+lexical-role mapping
+participant-role mapping
+position mapping
+composite family
+pair-specific binding
+existing relation grammar
+final qualification status
+
+Do NOT hard-code SAME_LEVEL.
+
+The historical judgment must not enter discovery.
+
+==================================================
+23. Job 1:6 / 1:13 / 2:1
+==================================================
+
+Inspect whether repeated narrative-frame constructions
+produce composite spans.
+
+Especially compare:
+
+ויהי היום
+
+plus following locally bound construction where supported.
+
+Do NOT assume:
+
+1:6
+1:13
+2:1
+
+must have any predetermined hierarchy.
+
+The purpose is to test whether composite evidence adds
+real information beyond singleton profiles.
+
+==================================================
+24. Job 38:1 / 40:1 / 40:6
+==================================================
+
+Inspect response/speech-opening constructions.
+
+Do not impose equivalence.
+
+Report whether:
+
+- same composite family;
+- cross-family correspondence;
+- only generic speech formula;
+- additional pair-specific frame/lexical anchor exists.
+
+Storm-location material, if surface-extracted,
+must remain a first-class locative/frame witness.
+
+==================================================
+25. Job ordinary dialogue control
+==================================================
+
+Audit repeated ANSWER + AMR speech introductions
+throughout Job.
+
+Critical negative expectation:
+
+Q1.4 must NOT generate an all-to-all network merely because
+multiple speeches share:
+
+ויען ... ויאמר
+
+or equivalent bare speech formula.
+
+Report:
+
+number of bare repeated formula spans
+same-family comparisons
+positive composite bindings
+blocked generic-formula-only comparisons.
+
+==================================================
+26. Closure remains separate
+==================================================
+
+Do NOT use:
+
+31:40 תמו דברי איוב
+
+to define the extent of the 27:1 or 29:1 composite
+surface construction.
+
+Q1.4 composite construction concerns the LOCAL onset formula.
+
+Do NOT decide:
+
+31:40 closes 29:1
+or
+31:40 closes 27:1
+
+in this stage.
+
+Closure-target problem remains separate.
+
+==================================================
+27. Numbers post-freeze controls
+==================================================
+
+After Job implementation freeze,
+re-run the five existing Numbers alternatives.
+
+Do not encode expected answers.
+
+Report whether composite construction / cross-family
+evidence changes their evidential status.
+
+Possible valid results include:
+
+EVIDENCE_ONLY
+COMPOSITE_SUPPORT_ONLY
+COMPOSITE_QUALIFIED
+UNRESOLVED
+
+No requirement to recover any fixed number.
+
+No control-specific exceptions.
+
+==================================================
+28. Bosman reference controls
+==================================================
+
+Do NOT resolve the two Bosman reference cases here.
+
+Q1.4 may create independent surface spans that later help
+SB03 larger-unit reference analysis.
+
+But reference identity must remain governed by the frozen
+reference contract.
+
+Record only whether new independent surface-span membership
+is available.
+
+Do not upgrade reference identity automatically.
+
+==================================================
+29. Independent unit-membership artifact
+==================================================
+
+Create a neutral table that can later support SB03:
+
+SURFACE_SPAN_MEMBERSHIP
+
+fields:
+
+span_id
+member_clause_id
+member_clause_atom_id
+membership_basis
+independence_status
+provenance
+
+This table is observational.
+
+It must not contain:
+
+accepted_mother
+accepted_parent
+final_textual_unit
+final_hierarchy_level
+
+==================================================
+30. No hierarchy leakage
+==================================================
+
+Explicitly audit that none of the following are used
+to construct Q1.4 surface spans:
+
+historical HSA parentage
+R4.x macro hierarchy
+JIN previous hierarchy
+Q1.2 structural outcomes
+Q1.3 coherent assignments
+human accepted same-level judgments
+
+They may be compared only AFTER freeze.
+
+==================================================
+31. Special 27:1–29:1 blind requirement
+==================================================
+
+Core construction logic must NOT contain:
+
+27
+29
+499251
+499383
+MCL-specific expected outcome
+Job-specific special case
+
+The diagnostic IDs may appear only in:
+
+post-freeze diagnostics
+tests using frozen fixture lookup
+reports
+
+Never in qualification logic.
+
+==================================================
+32. Data-derived families
+==================================================
+
+Family generation must be generic.
+
+No hand-authored:
+
+TAKE_MASHAL_FAMILY
+POST_DIALOGUE_JOB_FAMILY
+ELIHU_FAMILY
+YHWH_RESPONSE_FAMILY
+
+in core qualification code.
+
+Human-readable reports may describe observed lexemes after
+the family has been generated.
+
+==================================================
+33. Cross-family must not collapse distinctions
+==================================================
+
+Do NOT merge distinct families merely because
+they share a broad function.
+
+Keep:
+
+family_A
+family_B
+cross_family_correspondence(A,B)
+
+separate.
+
+Cross-family correspondence is an edge between formal families,
+not family identity.
+
+==================================================
+34. No numerical similarity score
+==================================================
+
+Forbidden:
+
+Jaccard threshold
+cosine threshold
+weighted score
+top-N similarity ranking
+distance cutoff as linguistic criterion
+
+Correspondence must be stated through named formal evidence.
+
+==================================================
+35. Required outputs
+==================================================
+
+At minimum generate:
+
+01_q14_surface_construction_spans.csv
+02_q14_surface_span_membership.csv
+03_q14_span_boundary_witnesses.csv
+
+04_q14_composite_surface_profiles.csv
+05_q14_composite_configuration_families.csv
+
+06_q14_composite_correspondence.csv
+07_q14_cross_family_correspondence.csv
+08_q14_position_mappings.csv
+09_q14_composite_pair_binding_witnesses.csv
+
+10_q14_relation_qualification_delta.csv
+11_q14_qualified_relation_universe.csv
+12_q14_structural_outcome_groups.csv
+
+13_q14_q13_compatibility_reaudit.csv
+14_q14_true_decision_pivots.csv
+
+15_q14_job_special_diagnostics.md
+16_q14_dialogue_formula_negative_control.csv
+17_q14_numbers_postfreeze_controls.csv
+18_q14_bosman_span_diagnostics.csv
+
+19_q14_mechanism_coverage.csv
+20_q14_method_report.md
+21_q14_next_scope.md
+22_q14_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+36. Metrics
+==================================================
+
+Report:
+
+surface construction spans
+independent spans
+unresolved spans
+overlapping spans
+
+composite profiles
+composite families
+
+same-family composite correspondence pairs
+cross-family correspondence pairs
+
+positive composite source bindings
+
+blocked:
+generic formula only
+non-independent span
+no existing relation grammar
+unresolved mapping
+
+Q1.3 qualified baseline = 195
+
+retained Q1.3 relations
+new Q1.4 qualified relations
+Q1.4 total
+
+mother relations
+parallel relations
+overlay relations
+
+new compatibility conflicts
+new true pivots
+
+Do not define target counts in advance.
+
+==================================================
+37. Synthetic tests
+==================================================
+
+Q14-S1
+
+three adjacent clauses form an independently bound
+surface construction through native/local surface evidence
+
+→ composite span generated.
+
+Q14-S2
+
+same three components occur later with corresponding
+internal organization and lexical-role chain
+
+→ composite correspondence may qualify source binding.
+
+Q14-S3
+
+same bare ANSWER+AMR occurs 100 times
+without additional pair-specific binding
+
+→ same/general family evidence allowed
+→ no all-to-all positive relation qualification.
+
+Q14-S4
+
+composite span requires the tested relation edge
+to establish its boundary
+
+→ BLOCKED_NONINDEPENDENT_SPAN.
+
+Q14-S5
+
+two families differ in one formally meaningful component
+but positions correspond
+
+→ CROSS_FAMILY_CONFIGURATION_CORRESPONDENCE,
+not forced family merge.
+
+Q14-S6
+
+cross-family correspondence exists but no relation grammar
+candidate exists
+
+→ support only;
+no relation invented.
+
+Q14-S7
+
+explicit same participant at corresponding surface role
+plus matching internal construction
+
+→ lexical-role chain may contribute.
+
+Q14-S8
+
+implicit PNG-only identity
+
+→ cannot become participant identity witness.
+
+Q14-S9
+
+newly qualified relation + existing mother/parallel relation
+
+→ route through Q1.3 compatibility model.
+
+Q14-S10
+
+multiple compatible parallel relations
+
+→ no automatic pivot.
+
+Q14-S11
+
+composite span overlaps another valid surface span
+
+→ both retained.
+
+Q14-S12
+
+31:40 is not used to define 27:1/29:1 onset span.
+
+==================================================
+38. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_3_FROZEN
+
+RAW_UNIVERSE_UNCHANGED
+
+Q1_3_195_RELATIONS_PRESERVED
+
+HUMAN_JUDGMENTS_UNCHANGED
+
+NO_CANONICAL_MOTHER
+NO_CANONICAL_HIERARCHY
+
+COMPOSITE_SURFACE_SPAN_IMPLEMENTED
+
+SPAN_BOUNDARY_INDEPENDENT_OF_TESTED_RELATION
+
+OVERLAPPING_SPANS_ALLOWED
+
+NO_FIXED_LINGUISTIC_SPAN_WINDOW
+
+COMPOSITE_PROFILE_IMPLEMENTED
+
+DATA_DERIVED_COMPOSITE_FAMILIES
+
+CROSS_FAMILY_CORRESPONDENCE_IMPLEMENTED
+
+CROSS_FAMILY_NOT_FAMILY_MERGE
+
+POSITION_MAPPING_IMPLEMENTED
+
+PAIR_SPECIFIC_COMPOSITE_BINDING_REQUIRED
+
+BARE_SPEECH_FORMULA_NOT_SUFFICIENT
+
+NO_PNG_ONLY_IDENTITY
+
+COMPOSITE_BINDING_DOES_NOT_INVENT_RELATION_TYPE
+
+EXISTING_RELATION_GRAMMAR_REQUIRED
+
+NEW_RELATIONS_PASS_Q13_COMPATIBILITY
+
+UNIT_MEMBERSHIP_OBSERVATIONAL_ONLY
+
+NO_HIERARCHY_LEAKAGE
+
+JOB_BLIND_BEFORE_POSTFREEZE_DIAGNOSTICS
+
+NO_JOB_CONTROL_IDS_IN_CORE_LOGIC
+
+NO_NUMBERS_CONTROL_IDS_IN_CORE_LOGIC
+
+NO_NUMERIC_SIMILARITY_SCORE
+
+NO_NEW_HUMAN_JUDGMENT
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+39. Stop conditions
+==================================================
+
+STOP and report if:
+
+A.
+surface spans can only be built by using existing
+provisional hierarchy relations;
+
+B.
+ordinary ANSWER+AMR speeches generate large all-to-all
+parallel binding;
+
+C.
+cross-family logic degenerates into generic similarity;
+
+D.
+Q1.4 needs Job 27/29 IDs in core logic;
+
+E.
+composite correspondence invents a relation type not
+already licensed by relation grammar;
+
+F.
+new relations bypass Q1.3 compatibility semantics;
+
+G.
+Q1.3 frozen results are silently overwritten.
+
+==================================================
+40. Readiness
+==================================================
+
+If composite surface construction and cross-family
+correspondence work generically and non-circularly:
+
+READY_FOR_MFR_0_2R_Q1_5
+
+Suggested Q1.5 scope:
+
+Reference Resolution by Active Surface Domain
+— SB02/SB03/SB10 refinement
+— antecedent candidate reduction
+— larger-unit hidden antecedent handling
+— no automatic coreference.
+
+If Q1.4 remains too restrictive:
+
+NEEDS_COMPOSITE_BINDING_REVIEW
+
+If it overgenerates:
+
+Q1_4_OVERGENERALIZED
+
+Do NOT proceed automatically into Q1.5.
+
+==================================================
+41. Validation
+==================================================
+
+Run:
+
+1. syntax/static validation
+2. focused Q1.4 tests
+3. synthetic tests
+4. real Job blind run
+5. freeze Job outputs
+6. post-freeze Job diagnostics
+7. post-freeze Numbers fixtures
+8. Bosman span diagnostic
+9. full regression
+10. independent A/B execution
+11. manifest comparison
+12. ZIP byte comparison
+13. ZIP CRC validation
+
+No skip.
+
+==================================================
+42. Commit / push
+==================================================
+
+If all validation succeeds:
+
+Suggested commit:
+
+Implement composite surface construction binding
+
+Push origin/main through the normal authorization workflow.
+
+Do not commit generated run results unless repository policy
+already explicitly requires them.
+
+==================================================
+43. FINAL RESPONSE REQUIREMENT — DO NOT OMIT
+==================================================
+
+In the final Codex response print explicitly:
+
+GIT
+- start commit
+- end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree status
+
+METHOD
+- surface span count
+- independent span count
+- composite family count
+- cross-family correspondence count
+- positive composite bindings
+
+RELATIONS
+- Q1.3 baseline = 195
+- retained
+- newly qualified
+- Q1.4 total
+- mother / parallel / overlay
+- compatibility conflicts
+- true pivots
+
+JOB DIAGNOSTICS
+- 27:1 composite span status
+- 29:1 composite span status
+- 27:1 ↔ 29:1 correspondence status
+- whether any relation was qualified and by which generic evidence
+- 1:6 / 1:13 / 2:1
+- 38:1 / 40:1 / 40:6
+- dialogue formula overgeneration check
+
+CONTROLS
+- Numbers 5 alternatives
+- Bosman span availability
+- confirmation of no control-specific hardcoding
+
+VALIDATION
+- focused tests
+- synthetic tests
+- full regression
+- gates
+- skip count
+- deterministic rerun
+- manifest
+- CRC
+
+FILES
+- validation report absolute path
+- regression log absolute path
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+Also explicitly state:
+- ZIP exists on disk
+- CRC passed
+- manifest passed
+- A/B ZIP bytes are identical
+
+Do NOT merely say “ZIP validation passed.”
+The user must be able to locate the ZIP directly from the final response.
+
+READINESS
+- READY_FOR_MFR_0_2R_Q1_5
+or
+- NEEDS_COMPOSITE_BINDING_REVIEW
+or
+- Q1_4_OVERGENERALIZED
