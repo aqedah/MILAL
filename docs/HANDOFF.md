@@ -1,6 +1,56 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.2 technically validated; source review remains
+## Current task — MFR.0.2R-Q1.3 technically validated
+
+Active specification: [Q1.3](MFR_0_2R_Q13_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q13_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_Q13.md).
+[Validation report](MFR_0_2R_Q13_VALIDATION_REPORT.md).
+Baseline `f47756caf72cf1aa171568e6c1a5efa0623753fd`.
+
+The authorized task adds orthogonal mother/parallel dimensions, compatibility,
+coherent multi-relation assignments and positively incompatible pivot proofs.
+It does not regenerate Q1.2 qualification or change reference/unit boundaries.
+The prior Q1.2 source-review limitations below remain unresolved.
+
+**READY_FOR_MFR_0_2R_Q1_4. Do not start Q1.4 automatically.**
+This is technical compatibility readiness, not human structural acceptance.
+All 499 frozen source pins, 195 qualified relations/outcome groups, 1,049,504
+raw crosswalk records and 13 historical judgments remain unchanged.
+
+Observed: mother relations 173, parallel 22, overlays 0; additive parallel sets
+5, mother-plus-parallel sets 4; mother competitions and same-pair/global
+conflicts 0. All seven old Q1.2 pivots are now NON_PIVOT, with no relations
+deleted. Fifteen parallel-bearing targets retain unresolved final level
+compatibility (seven multi-relation targets). The whole qualified pool is
+feasible under current constraints, not an accepted hierarchy.
+
+Job 2:1: 497625 can combine mother 497624 with peer 497540; 497623 can combine
+peers 497538 and 497569. No shared mother, canonical level or human acceptance
+is inferred. UNSELECTED remains UNDECIDED; global differences elsewhere do not
+create a target pivot.
+
+Validation: 64 focused tests, six syntax checks, 17 synthetic checks; full
+regression **2,697 passed**, zero failures/errors/skips, 822.998s; **25/25 gates**
+with negative mutations. Independent manifests/ZIP bytes identical, 29 members /
+28 manifest entries, both CRC-valid. The interrupted initial regression is not
+a release receipt; use the corrected receipt below.
+
+- A: `D:\MILAL_runs\mfr02r_q13_20260926\release_a`
+- B: `F:\MILAL_runs\mfr02r_q13_20260926\release_b`
+- ZIPs: directory path plus `_results.zip`
+- SHA256 `08e90e1508f79448b49742888f6cda65e8717a5aa5a1202c4594b05157a4f586`
+- Verification: `D:\MILAL_runs\mfr02r_q13_20260926\release_a_verification.json`
+- Regression: `D:\MILAL_runs\mfr02r_q13_20260926\regression_corrected.json` and `.log`
+- Synthetic: `C:\MILAL\results\q13_synthetic_02\receipt.json`
+- Fingerprint `0afec420169c47af35c353e7b39e3810c24b67c95bc63414e92ae7f60b8d4401`
+
+Next pending task: separately authorize/review Q1.4 independent composite
+surface-unit, unit-boundary candidate and cross-family correspondence work.
+No Q1.2 reference gap or 27:1–29:1 limitation was silently resolved here.
+Four user PDFs remain untouched and untracked.
+
+## Previous task — MFR.0.2R-Q1.2 technically validated; source review remains
 
 Active specification: [Q1.2](MFR_0_2R_Q12_SPEC.md); authority:
 [request](MFR_0_2R_Q12_RESEARCHER_SOURCE.txt) and

@@ -1,0 +1,958 @@
+현재 MILAL 저장소에서 다음 작업을 구현·실행·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.2R-Q1.3
+— Orthogonal Relation Compatibility & Coherent Assignment Semantics
+— Separate Mother Competition from Additive Parallel Relations
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  f47756caf72cf1aa171568e6c1a5efa0623753fd
+
+현재 상태:
+- Q1.2 frozen
+- raw candidate universe = 1,049,504
+- Q1.2 qualified relations = 195
+- structural outcome groups = 195
+- targets with 2+ outcomes = 7
+- current variant decision pivots = 7
+- no canonical mother
+- no canonical hierarchy
+- historical human judgments frozen
+
+중요한 새 진단:
+
+Q1.2의 current pivot computation이
+“target에 둘 이상의 structural outcome이 있다”
+를 지나치게 강하게
+“서로 배타적인 structural alternatives가 있다”
+로 해석하고 있다.
+
+그러나:
+
+HYPOTACTIC MOTHER RELATION
+
+과
+
+PARATACTIC PEER RELATION
+
+은 서로 다른 structural dimensions이며,
+항상 배타적인 것이 아니다.
+
+또한:
+
+PARALLEL PEER A
+와
+PARALLEL PEER B
+
+도 반드시 서로 배타적인 것이 아니다.
+
+이번 단계는 relation evidence를 다시 만들지 않는다.
+
+목표는:
+
+QUALIFIED RELATIONS
+→ RELATION DIMENSIONS
+→ COMPATIBILITY
+→ COHERENT MULTI-RELATION ASSIGNMENTS
+→ TRUE DECISION PIVOTS
+
+를 구현하는 것이다.
+
+==================================================
+1. Frozen layers
+==================================================
+
+Do not rewrite:
+
+MFR.0.1
+MFR.0.1a
+MFR.0.1b
+MFR.0.2A
+MFR.0.2R
+MFR.0.2R-H0
+MFR.0.2R-Q1
+MFR.0.2R-Q1.1
+MFR.0.2R-Q1.2
+
+Q1.3 is additive.
+
+Do not change:
+- raw candidates
+- Q1.2 qualification evidence
+- configuration witnesses
+- reference witnesses
+- human judgments
+
+No canonical hierarchy.
+No canonical mother.
+
+==================================================
+2. Core correction
+==================================================
+
+Do NOT assume:
+
+ONE TARGET
+=
+ONE STRUCTURAL OUTCOME
+
+Instead distinguish structural dimensions.
+
+At minimum:
+
+A. MOTHER_RELATION_DIMENSION
+
+HYPOTACTIC:
+target has a mother candidate.
+
+Final accepted hierarchy may assign at most one mother.
+
+B. PARALLEL_RELATION_DIMENSION
+
+PARATACTIC:
+target may have zero, one, or multiple parallel peers.
+
+Parallel peers are not inherently exclusive.
+
+C. NON_HIERARCHICAL_TYPED_RELATION_DIMENSION
+
+For evidence/overlay relations that do not consume a
+mother slot.
+
+Do not collapse these dimensions.
+
+==================================================
+3. Mother exclusivity
+==================================================
+
+For a target:
+
+HYPOTACTIC under source A
+
+versus
+
+HYPOTACTIC under source B
+
+are genuine competing mother assignments
+if A != B.
+
+Classification:
+
+MOTHER_COMPETITION
+
+These can create a decision pivot.
+
+But:
+
+HYPOTACTIC under A
++
+PARATACTIC with B
+
+must NOT automatically be treated as alternatives.
+
+==================================================
+4. Parallel relations are additive by default
+==================================================
+
+For a target:
+
+PARATACTIC with A
+
+and
+
+PARATACTIC with B
+
+are not automatically competing outcomes.
+
+Default:
+
+PARALLEL_PEERS_ADDITIVE
+
+Both may coexist unless an explicit structural constraint
+shows incompatibility.
+
+Do not impose:
+ONE_PARALLEL_PEER_PER_TARGET.
+
+==================================================
+5. Same-pair relation conflict
+==================================================
+
+For the SAME ordered/unordered source-target pair:
+
+A → B HYPOTACTIC
+
+and
+
+A ↔ B PARATACTIC
+
+are mutually incompatible structural assignments
+unless a source-grounded rule explicitly distinguishes
+different relation layers.
+
+Default:
+
+SAME_PAIR_RELATION_CONFLICT
+
+This may create a true pivot.
+
+==================================================
+6. Mother + parallel compatibility
+==================================================
+
+For:
+
+target T
+HYPOTACTIC under mother M
+
+and
+
+target T
+PARATACTIC with peer P
+
+classification should initially be:
+
+POTENTIALLY_COMPATIBLE_ORTHOGONAL_RELATIONS
+
+not:
+
+COMPETING_OUTCOMES.
+
+A clause may simultaneously:
+- be daughter of M
+- be parallel to another clause at its level
+
+Final sibling compatibility may depend on
+whether T and P can occupy the same textual level
+or share a compatible mother structure.
+
+Until that is established:
+
+PARALLEL_LEVEL_COMPATIBILITY_UNRESOLVED
+
+Do NOT turn unresolved compatibility into a pivot.
+
+==================================================
+7. Parallel sibling constraint
+==================================================
+
+Represent the structural implication of parataxis:
+
+PARATACTIC(T, P)
+
+suggests:
+T and P occupy a compatible parallel textual line.
+
+However, do not prematurely assign a shared mother.
+
+Create:
+
+parallel_level_constraint
+
+Possible:
+
+COMPATIBLE_CONFIRMED
+COMPATIBLE_CANDIDATE
+INCOMPATIBLE
+UNRESOLVED
+
+Only explicit INCOMPATIBLE creates conflict.
+
+UNRESOLVED does not create decision pivot.
+
+==================================================
+8. Relation compatibility matrix
+==================================================
+
+Create pairwise compatibility table among qualified
+relations affecting the same target.
+
+Output:
+
+target_id
+relation_outcome_a
+relation_outcome_b
+dimension_a
+dimension_b
+compatibility_status
+compatibility_reason
+constraint_provenance
+
+Allowed compatibility_status:
+
+COMPATIBLE
+MUTUALLY_EXCLUSIVE
+CONDITIONALLY_COMPATIBLE
+UNRESOLVED
+
+Examples:
+
+different mother A vs mother B
+→ MUTUALLY_EXCLUSIVE
+
+parallel peer A vs parallel peer B
+→ COMPATIBLE by default
+
+mother A + parallel peer B
+→ CONDITIONALLY_COMPATIBLE
+
+same source-target pair:
+hypotactic vs paratactic
+→ MUTUALLY_EXCLUSIVE
+
+==================================================
+9. Coherent assignment object
+==================================================
+
+Replace the implicit “one selected outcome per target”
+model with a multi-relation assignment object.
+
+For each target:
+
+COHERENT_ASSIGNMENT = {
+    mother_assignment: zero_or_one,
+    parallel_peer_assignments: zero_or_many,
+    overlay_relations: zero_or_many,
+    unresolved_relations: zero_or_many
+}
+
+Do not choose a canonical assignment.
+
+Generate only logically coherent symbolic assignments.
+
+==================================================
+10. UNSELECTED remains UNDECIDED
+==================================================
+
+Preserve previous clarified rule:
+
+UNSELECTED = UNDECIDED
+
+not:
+
+NO_RELATION.
+
+Therefore:
+
+relation selected in variant A
+vs
+same relation merely unselected in variant B
+
+does NOT create pivot.
+
+==================================================
+11. True pivot definition
+==================================================
+
+A target is VARIANT_DECISION_PIVOT only if
+at least two coherent assignments contain
+positively incompatible structural commitments.
+
+Examples that ARE pivots:
+
+A.
+mother = M1
+versus
+mother = M2
+
+B.
+same source-target pair:
+HYPOTACTIC
+versus
+PARATACTIC
+
+C.
+one assignment contains an explicit
+NO_RELATION / EXCLUDED structural outcome
+while another positively assigns the same relation,
+if NO_RELATION is itself constrained and explicit.
+
+D.
+global constraints prove two positive assignments
+cannot coexist.
+
+Examples that are NOT pivots:
+
+A.
+parallel peer P1
+versus
+parallel peer P2
+when both can coexist
+
+B.
+mother M
+versus
+mother M + parallel P
+
+C.
+parallel P selected
+versus parallel P UNDECIDED
+
+D.
+same structural assignment with different rule provenance
+
+E.
+same relations with different evidence paths
+
+==================================================
+12. Corroboration versus competition
+==================================================
+
+Create explicit statuses:
+
+CORROBORATED_RELATIONS
+ADDITIVE_PARALLEL_RELATIONS
+ORTHOGONAL_RELATIONS
+TRUE_MOTHER_COMPETITION
+TRUE_PAIR_RELATION_CONFLICT
+GLOBAL_STRUCTURAL_CONFLICT
+UNRESOLVED_COMPATIBILITY
+
+Only the three TRUE/GLOBAL conflict categories
+may create human decision pivots.
+
+==================================================
+13. Recompute current seven pivots
+==================================================
+
+Re-evaluate the seven current Q1.2 pivots:
+
+497588
+497596
+497597
+497608
+497609
+497623
+497625
+
+Do NOT hard-code expected statuses.
+
+For each show:
+
+current Q1.2 outcomes
+relation dimensions
+pairwise compatibility
+coherent combined assignments
+whether a true decision pivot remains
+reason
+
+No historical human judgment may influence this calculation.
+
+==================================================
+14. Critical real diagnostic: Job 2:1 InfC
+==================================================
+
+Post-freeze diagnostic:
+
+target 497625
+
+Q1.2 currently has:
+
+PARATACTIC with 497540
+
+and
+
+HYPOTACTIC under 497624.
+
+The new model must be able to REPRESENT
+both relations in one coherent assignment
+unless an independently established constraint
+makes them incompatible.
+
+Do NOT hard-code that they are accepted.
+
+Test only architectural representability.
+
+This is a critical gate:
+
+MOTHER_AND_PARALLEL_CAN_COEXIST
+
+==================================================
+15. Critical real diagnostic: Job 2:1 Way0
+==================================================
+
+target 497623 currently has
+PARATACTIC candidates with:
+
+497569
+497538
+
+Do not force a choice merely because there are two peers.
+
+The model must allow:
+
+parallel_peers = {497569, 497538}
+
+if no incompatibility exists.
+
+Again:
+representation test only,
+not human acceptance.
+
+==================================================
+16. Multiple parallel peers
+==================================================
+
+For all Q1.2 qualified relations:
+
+audit targets with 2+ paratactic peers.
+
+Report:
+
+target
+peer set
+whether any peer-pair conflict actually exists
+whether all can coexist
+whether shared-level condition remains unresolved
+
+Do not transform peer multiplicity into
+human review automatically.
+
+==================================================
+17. Mother competition
+==================================================
+
+Separately identify:
+
+targets with 2+ qualified HYPOTACTIC mothers.
+
+These are genuine mother competitions.
+
+Create:
+
+Q13_MOTHER_COMPETITION
+
+Do not select a mother.
+
+==================================================
+18. Same-pair type conflict
+==================================================
+
+Identify cases where the same pair is qualified as both:
+
+HYPOTACTIC
+PARATACTIC
+
+Create:
+
+Q13_SAME_PAIR_RELATION_CONFLICT
+
+These are genuine alternatives unless
+different relation layers are explicitly represented.
+
+==================================================
+19. Global constraint integration
+==================================================
+
+Use existing SB12 only as constraint.
+
+SB12 may turn:
+
+CONDITIONALLY_COMPATIBLE
+
+into:
+
+INCOMPATIBLE
+
+if independent global evidence supports it.
+
+SB12 must not create positive relation.
+
+==================================================
+20. Do not require complete hierarchy
+==================================================
+
+Compatibility analysis must work before canonical hierarchy exists.
+
+Do not say:
+
+“parallel relations are valid only if final mothers are already known.”
+
+Instead preserve:
+
+PARALLEL_LEVEL_COMPATIBILITY_UNRESOLVED
+
+where necessary.
+
+This is not a review pivot by itself.
+
+==================================================
+21. Structural outcome grouping revision
+==================================================
+
+Current Q1.2 structural outcome group remains frozen.
+
+Create a new Q1.3 assignment layer.
+
+Do not delete or overwrite the 195 Q1.2 outcome groups.
+
+New abstraction:
+
+INDIVIDUAL_RELATION_OUTCOME
+→ COMPATIBLE_RELATION_SET
+→ COHERENT_ASSIGNMENT
+→ DECISION_PIVOT
+
+==================================================
+22. Variant generation
+==================================================
+
+Variants must be able to select multiple compatible
+qualified relations for the same target.
+
+Do not generate variants only as
+one-outcome singleton alternatives.
+
+For example abstractly:
+
+T:
+mother M
+parallel P1
+parallel P2
+
+may form one coherent assignment:
+
+{
+ mother: M,
+ parallels: [P1, P2]
+}
+
+provided no constraint blocks it.
+
+==================================================
+23. Avoid combinatorial explosion
+==================================================
+
+Do not enumerate the Cartesian product of every
+UNDECIDED relation.
+
+Represent compatible peer sets symbolically.
+
+Use ambiguity components / constraint representation.
+
+Generate explicit variant instances only when necessary
+to demonstrate incompatible positive assignments.
+
+==================================================
+24. Human review semantics
+==================================================
+
+After Q1.3:
+
+HUMAN_REVIEW_REQUIRED
+
+must not mean:
+
+“more than one relation exists.”
+
+It means:
+
+“at least two mutually incompatible positive structural
+assignments remain after qualification and compatibility.”
+
+==================================================
+25. Unit-boundary issue remains deferred
+==================================================
+
+Do NOT yet implement the new unit-boundary adapter.
+
+Do NOT yet solve 27:1 ↔ 29:1.
+
+Preserve Q1.2 finding that this relation is affected by
+the current unit-boundary limitation.
+
+Q1.3 must first fix relation compatibility semantics.
+
+Next stage may address:
+
+Q1.4
+Independent Composite Surface Unit Adapter
+and Cross-Family Correspondence.
+
+==================================================
+26. Reference layer remains frozen
+==================================================
+
+Do not modify SB02/SB03/SB10 in this stage.
+
+Reference resolution is not the target of Q1.3.
+
+==================================================
+27. Required outputs
+==================================================
+
+At minimum:
+
+01_q13_relation_dimensions.csv
+02_q13_relation_compatibility_matrix.csv
+03_q13_parallel_peer_sets.csv
+04_q13_mother_candidate_sets.csv
+05_q13_mother_competitions.csv
+06_q13_same_pair_relation_conflicts.csv
+07_q13_coherent_assignments.csv
+08_q13_additive_parallel_relations.csv
+09_q13_orthogonal_relation_sets.csv
+10_q13_true_decision_pivots.csv
+11_q13_q12_seven_pivot_reaudit.csv
+12_q13_job_2_1_diagnostic.md
+13_q13_assignment_statistics.json
+14_q13_method_report.md
+15_q13_next_scope.md
+16_q13_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+28. Metrics
+==================================================
+
+Report:
+
+Q1.2 qualified relations = 195
+Q1.2 outcome groups = 195
+Q1.2 pivots = 7
+
+Q1.3:
+
+targets with multiple qualified relations
+targets with 2+ hypotactic mothers
+targets with 2+ paratactic peers
+same-pair relation conflicts
+
+additive parallel sets
+orthogonal mother+parallel sets
+unresolved compatibility sets
+
+true mother competitions
+true pair-type conflicts
+global conflicts
+
+final true decision pivots
+
+Do NOT set expected pivot count.
+
+==================================================
+29. Synthetic tests
+==================================================
+
+Q13-S1
+
+T hypotactic under M
+T parallel with P
+
+→ both can exist in one coherent assignment
+unless explicit conflict.
+
+Q13-S2
+
+T parallel P1
+T parallel P2
+
+→ both may coexist.
+
+Q13-S3
+
+T hypotactic M1
+T hypotactic M2
+
+→ mother competition.
+
+Q13-S4
+
+same pair T-S:
+HYPOTACTIC and PARATACTIC
+
+→ mutually exclusive.
+
+Q13-S5
+
+parallel P selected
+vs parallel P unselected/UNDECIDED
+
+→ no pivot.
+
+Q13-S6
+
+mother M + parallel P
+vs mother M only
+
+→ no pivot unless P explicitly excluded.
+
+Q13-S7
+
+two different evidence paths
+support same edge
+
+→ corroboration, no pivot.
+
+Q13-S8
+
+SB12 proves two assignments incompatible
+
+→ global structural conflict.
+
+Q13-S9
+
+parallel-level compatibility cannot yet be established
+
+→ UNRESOLVED_COMPATIBILITY
+→ not automatically pivot.
+
+Q13-S10
+
+raw Q1.2 qualified relation count unchanged.
+
+==================================================
+30. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_2_FROZEN
+
+Q1_2_QUALIFIED_RELATIONS_UNCHANGED
+
+RELATION_DIMENSIONS_SEPARATED
+
+ONE_MOTHER_CONSTRAINT_PRESERVED
+
+MULTIPLE_PARALLEL_PEERS_ALLOWED
+
+MOTHER_AND_PARALLEL_CAN_COEXIST
+
+PARALLEL_MULTIPLICITY_NOT_AUTOMATIC_COMPETITION
+
+UNSELECTED_EQUALS_UNDECIDED
+
+SAME_PAIR_RELATION_CONFLICT_IMPLEMENTED
+
+COHERENT_MULTI_RELATION_ASSIGNMENT_IMPLEMENTED
+
+NO_CARTESIAN_VARIANT_EXPLOSION
+
+SB12_CONSTRAINT_ONLY
+
+NO_NEW_HUMAN_JUDGMENT
+
+NO_CANONICAL_MOTHER
+
+NO_CANONICAL_HIERARCHY
+
+Q12_SEVEN_PIVOTS_REAUDITED
+
+REFERENCE_LAYER_UNCHANGED
+
+UNIT_BOUNDARY_ADAPTER_NOT_YET_CHANGED
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+
+==================================================
+31. Stop conditions
+==================================================
+
+STOP if:
+
+A.
+the system still assumes one outcome per target
+
+B.
+multiple parallel peers automatically become alternatives
+
+C.
+mother + parallel relation automatically become alternatives
+
+D.
+paratactic relation consumes the one-mother slot
+
+E.
+UNDECIDED is treated as NO_RELATION
+
+F.
+Q1.2 qualified relation evidence is rewritten
+
+==================================================
+32. Readiness
+==================================================
+
+If relation compatibility semantics are correctly implemented:
+
+READY_FOR_MFR_0_2R_Q1_4
+
+Next stage:
+
+Q1.4
+— Independent Composite Surface Unit Adapter
+— Unit Boundary Candidate Generation
+— Cross-Family Configuration Correspondence
+
+Do NOT proceed automatically.
+
+==================================================
+33. Commit / push
+==================================================
+
+If all validation succeeds:
+
+Suggested commit:
+
+Model orthogonal relation compatibility
+
+Push origin/main through normal authorization workflow.
+
+==================================================
+34. Final report
+==================================================
+
+Report:
+
+GIT
+- start commit
+- end commit
+- push status
+- working tree
+
+INTEGRITY
+- Q1.2 qualified relations unchanged?
+- frozen files changed
+- human judgments changed
+
+RELATION DIMENSIONS
+- mother relations
+- parallel relations
+- overlay relations
+
+COMPATIBILITY
+- additive parallel sets
+- mother+parallel orthogonal sets
+- mother competitions
+- same-pair type conflicts
+- unresolved level compatibility
+
+PIVOTS
+- Q1.2 pivot count
+- Q1.3 true pivot count
+- disposition of each of the prior 7 pivots
+
+DIAGNOSTIC
+- 497625 mother+parallel representation
+- 497623 multiple parallel representation
+
+VALIDATION
+- stage tests
+- full regression
+- gates
+- deterministic rerun
+- manifest
+
+READINESS
+- READY_FOR_MFR_0_2R_Q1_4
+or
+- NEEDS_RELATION_COMPATIBILITY_REVIEW
