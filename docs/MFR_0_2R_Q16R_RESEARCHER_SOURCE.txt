@@ -1,0 +1,1010 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 다음 단계를 수행하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project.
+- Q1.6 and all earlier stages are frozen historical layers.
+- This stage is primarily a METHODOLOGICAL CONTRACT REVIEW.
+- Do NOT try to force SB05/SB07/SB08/SB09/SB10 to produce positive relations.
+- Do NOT add rules merely to make zero counts nonzero.
+- Reuse existing modules/schemas/provenance.
+- Preserve all existing qualified relations and evidence.
+
+작업명:
+
+MILAL MFR.0.2R-Q1.6R
+— Source-Binding Mechanism Ontology Review
+— Reclassify Pre-Relation, Binding, Evidence, Domain, Validation, and Constraint Layers
+
+repository:
+aqedah/MILAL
+
+branch:
+main
+
+required start commit:
+3efc719428a72419c260e12d918cedd84cef298b
+
+Before work:
+
+fetch
+
+verify:
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+If tracked files have unexpected changes:
+STOP.
+
+Preserve the four existing untracked PDFs.
+
+==================================================
+1. Purpose
+==================================================
+
+Q1.6 showed:
+
+- SB05/SB07/SB08/SB09 produced no distinct positive
+  source-binding relations;
+- their evidence is largely represented through earlier layers;
+- SB10 is also only partially operational;
+- forcing distinct positive implementations would risk
+  evidence duplication and methodological distortion.
+
+Therefore the current question is NOT:
+
+“How do we make all SB mechanisms produce relations?”
+
+The question is:
+
+“What methodological role does each mechanism actually have?”
+
+Review the ontology of SB01–SB12.
+
+==================================================
+2. Frozen integrity
+==================================================
+
+Preserve:
+
+raw candidates:
+1,049,504
+
+Q1.6 qualified relations:
+273
+
+mother:
+203
+
+parallel:
+70
+
+overlay:
+0
+
+surface spans:
+275
+
+reference witnesses:
+5,854
+
+historical human judgments:
+13
+
+true pivot:
+1
+
+Do not delete, alter, or silently requalify
+any frozen relation.
+
+Q1.6R may add a NEW methodological classification layer.
+
+==================================================
+3. New mechanism-role ontology
+==================================================
+
+For every mechanism/evidence process classify its PRIMARY ROLE as one of:
+
+PRE_RELATION_STRUCTURE
+
+PRIMARY_SOURCE_BINDING
+
+CORROBORATIVE_RELATION_EVIDENCE
+
+REFERENCE_VISIBILITY_CONTEXT
+
+CONFIGURATION_CONTEXT
+
+POST_RELATION_VALIDATION
+
+GLOBAL_CONSTRAINT
+
+HYBRID_WITH_EXPLICIT_SUBTYPES
+
+UNRESOLVED_ROLE
+
+A mechanism may have secondary roles,
+but one primary methodological role must be stated.
+
+==================================================
+4. Critical distinction
+==================================================
+
+Do NOT assume:
+
+conceptually distinct
+=
+independent source-binding mechanism.
+
+A linguistic parameter can be conceptually important
+without being an independent relation generator.
+
+Likewise:
+
+zero unique qualified relations
+does NOT imply implementation failure.
+
+It may mean the mechanism belongs to another layer.
+
+==================================================
+5. SB05 methodological review
+==================================================
+
+Review:
+
+SB05 VALENCY_DEPENDENCY
+
+against the actual valency use represented in the project
+and source methodology.
+
+Primary hypothesis to TEST, not assume:
+
+SB05 may belong primarily to:
+
+PRE_RELATION_STRUCTURE
+
+because valency can determine whether separated
+clause atoms belong to one clause/construction
+before clause-to-clause hierarchy is evaluated.
+
+Distinguish:
+
+A.
+INTRA_CLAUSE_VALENCY_BINDING
+
+- reconnects clause atoms/elements belonging to one
+  syntactic clause or valency frame.
+
+B.
+INTER_CLAUSAL_VALENCY_SOURCE_BINDING
+
+- genuinely supplies a relation between separate clauses.
+
+Do not treat A as a clause-relation source binder.
+
+Audit the 39 unresolved Q1.6 SB05 candidates.
+
+For each determine:
+
+- same-clause/clause-atom reconstruction issue?
+- already represented by BHSA/native structure?
+- genuine inter-clausal binding candidate?
+- unsupported?
+
+Possible final SB05 roles:
+
+PRE_RELATION_STRUCTURE
+HYBRID_WITH_EXPLICIT_SUBTYPES
+PRIMARY_SOURCE_BINDING
+
+Do not force the last option.
+
+==================================================
+6. SB05 pipeline placement
+==================================================
+
+If intra-clause valency is the principal function,
+document pipeline order as:
+
+raw words/phrases
+→ clause_atoms
+→ valency reconstruction
+→ clause/construction representation
+→ relation candidate generation
+→ source binding
+
+not:
+
+relation candidate
+→ SB05 valency relation.
+
+Do not rewrite frozen BHSA clauses.
+
+Record only methodological dependency.
+
+==================================================
+7. SB07 methodological review
+==================================================
+
+Review:
+
+SB07 TEMPORAL_DEPENDENCY
+
+Distinguish:
+
+A.
+TIME_AS_STRUCTURAL_PARAMETER
+
+Examples:
+- temporal adjunct present;
+- change of time;
+- temporal component in a repeated configuration;
+- Way + temporal/deictic frame.
+
+B.
+EXPLICIT_TEMPORAL_REFERENCE_DEPENDENCY
+
+Examples:
+- an explicitly referential temporal expression
+  whose source frame is linguistically identifiable.
+
+C.
+TEMPORAL_INTERPRETATION
+
+Examples:
+- inferred narrative succession;
+- inferred plot stage.
+
+A must not automatically become a source-binding mechanism.
+
+C is downstream interpretation.
+
+Only B is a candidate for distinct positive source binding.
+
+==================================================
+8. SB07 overlap decision
+==================================================
+
+For TIME_AS_STRUCTURAL_PARAMETER determine whether it belongs to:
+
+- SB06 formal/configuration evidence;
+- SB11 established parallel configuration;
+- surface-frame evidence dimension.
+
+If so:
+
+classify as CORROBORATIVE_RELATION_EVIDENCE
+or CONFIGURATION_CONTEXT,
+
+not an independent positive source binder.
+
+For EXPLICIT_TEMPORAL_REFERENCE_DEPENDENCY determine whether
+existing SB02/SB03/reference machinery already represents it.
+
+If yes:
+do not duplicate it as independent evidence.
+
+==================================================
+9. SB08 methodological review
+==================================================
+
+Apply the same distinction to:
+
+SB08 LOCATIVE_FRAME_DEPENDENCY.
+
+Separate:
+
+A.
+LOCATION_AS_STRUCTURAL_PARAMETER
+
+B.
+EXPLICIT_LOCATIVE_REFERENCE_DEPENDENCY
+
+C.
+GEOGRAPHICAL / PLOT INTERPRETATION
+
+A may belong to configuration/text-syntactic evidence.
+
+B may be a true reference subtype.
+
+C is downstream and cannot bind relations.
+
+Preserve native BHSA annotation exactly.
+
+Never rewrite:
+
+Adju → Loca
+
+merely to make SB08 operational.
+
+==================================================
+10. Time/place source-grounding principle
+==================================================
+
+The review must recognize that:
+
+time/place change can be an important text-syntactic
+parameter without each occurrence independently defining
+a mother/peer relation.
+
+Therefore distinguish:
+
+STRUCTURAL_SIGNAL
+
+from
+
+PAIR_SPECIFIC_SOURCE_BINDER.
+
+==================================================
+11. SB09 methodological review
+==================================================
+
+Review:
+
+SB09 DOMAIN_CONTINUATION_OR_EMBEDDING.
+
+Q1.5/Q1.6 already provide:
+
+- composite surface spans;
+- reference visibility domains;
+- native dependency domains;
+- explicit construction contexts.
+
+Primary hypothesis to TEST:
+
+SB09 may primarily be:
+
+REFERENCE_VISIBILITY_CONTEXT
+and/or
+CONFIGURATION_CONTEXT
+
+rather than a new independent positive relation mechanism.
+
+Ask:
+
+What independent raw evidence would make:
+
+“target continues source domain”
+
+true?
+
+If the answer is itself:
+
+participant/reference continuity,
+time continuity,
+location continuity,
+native syntax,
+composite configuration,
+
+then DOMAIN_CONTINUATION may be a DERIVED CONTEXT
+built from other evidence.
+
+Do not count the derived domain as another independent reason.
+
+==================================================
+12. Explicit domain markers
+==================================================
+
+Distinguish:
+
+A.
+EXPLICIT_DOMAIN_BINDING
+
+where surface grammar explicitly creates/continues an
+embedded domain;
+
+from
+
+B.
+DERIVED_DOMAIN_CONTINUITY
+
+where domain continuity is summarized from other evidence.
+
+A may provide direct binding if it is not already SB01/SB06.
+
+B must remain context/corroboration only.
+
+==================================================
+13. SB09 visibility-zero audit
+==================================================
+
+Revisit representative Q1.5 visibility=0 cases.
+
+Do NOT try to recover them.
+
+Classify each as:
+
+CORRECTLY_NO_VISIBLE_PATH
+
+DOMAIN_CONTEXT_EXISTS_BUT_NOT_REFERENCE_BINDING
+
+MISSING_EXPLICIT_DOMAIN_MECHANISM
+
+DERIVED_DOMAIN_ONLY
+
+UNRESOLVED
+
+The goal is ontology clarification,
+not candidate recovery.
+
+==================================================
+14. SB10 methodological review
+==================================================
+
+Review:
+
+SB10 LEXICAL_ANAPHORIC_DEPENDENCY.
+
+Distinguish:
+
+A.
+LEXICAL_REPETITION
+
+B.
+LEXICAL_SEMANTIC_CORRESPONDENCE
+
+C.
+GRAMMATICALLY_MARKED_ANAPHORIC_EXPRESSION
+
+D.
+EXPLICIT_DEICTIC_REFERENCE
+
+A and B cannot independently establish referential identity.
+
+C/D may provide reference binding.
+
+Determine whether C/D are already properly represented by:
+
+SB02
+SB03
+Q1.5 reference visibility
+
+If yes:
+
+SB10 should not duplicate those bindings.
+
+Possible role:
+
+CORROBORATIVE_RELATION_EVIDENCE
+
+POST_RELATION_VALIDATION
+
+or
+
+HYBRID_WITH_EXPLICIT_SUBTYPES.
+
+==================================================
+15. Lexical semantics placement
+==================================================
+
+Explicitly distinguish:
+
+lexical FORM correspondence
+
+from
+
+lexical SEMANTIC interpretation.
+
+Formal lexical repetition may participate in
+configuration correspondence.
+
+Lexical semantics may validate or challenge a
+relation after formal analysis.
+
+Do not collapse these.
+
+==================================================
+16. SB01–SB12 complete role audit
+==================================================
+
+Review ALL mechanisms, not only SB05/07/08/09/10.
+
+For each produce:
+
+mechanism_id
+original_definition
+current_implementation
+raw_evidence_source
+primary_methodological_role
+secondary_roles
+can_positive_bind_relation
+can_only_support
+can_only_constrain
+pre_relation_dependency
+post_relation_dependency
+overlap_with
+double_count_risk
+current_Job_witness_status
+remaining_gap
+
+==================================================
+17. Suggested conceptual expectations
+==================================================
+
+Do NOT hard-code these as required conclusions,
+but explicitly test them:
+
+SB01:
+PRIMARY_SOURCE_BINDING
+
+SB02:
+PRIMARY_SOURCE_BINDING
+
+SB03:
+PRIMARY_SOURCE_BINDING
+
+SB04:
+possibly PRIMARY / CORROBORATIVE depending raw dependency
+
+SB05:
+possibly PRE_RELATION_STRUCTURE
+
+SB06:
+PRIMARY_SOURCE_BINDING / CONFIGURATION
+
+SB07:
+possibly CONFIGURATION_CONTEXT,
+with explicit temporal-reference subtype elsewhere
+
+SB08:
+possibly CONFIGURATION_CONTEXT,
+with explicit locative-reference subtype elsewhere
+
+SB09:
+possibly REFERENCE_VISIBILITY_CONTEXT / CONFIGURATION_CONTEXT
+
+SB10:
+possibly CORROBORATIVE or reference subtype
+
+SB11:
+PRIMARY_SOURCE_BINDING
+
+SB12:
+GLOBAL_CONSTRAINT
+
+These are hypotheses for audit, not answers.
+
+==================================================
+18. Evidence independence revision
+==================================================
+
+Q1.6 reported zero fully separate independent-chain pairs
+under conservative transitive dependency closure.
+
+Audit whether that result reflects:
+
+A.
+real shared evidence dependency;
+
+B.
+the dependency graph being intentionally conservative;
+
+C.
+over-transitive dependency propagation that turns
+analytical dependence into raw-evidence identity.
+
+Do not loosen independence to obtain a desired count.
+
+But distinguish:
+
+SAME_RAW_EVIDENCE
+
+DERIVED_FROM_SAME_RAW_EVIDENCE
+
+SHARED_CONTEXT_ONLY
+
+ANALYTICALLY_DEPENDENT
+
+INDEPENDENT_RAW_EVIDENCE
+
+UNRESOLVED_INDEPENDENCE
+
+Do not reduce all of these to one “dependent” class.
+
+==================================================
+19. Independence is not vote counting
+==================================================
+
+Even after the distinction above:
+
+do not create scoring,
+weighting,
+evidence voting,
+or confidence totals.
+
+The purpose is provenance clarity.
+
+==================================================
+20. No new relation qualification by default
+==================================================
+
+Q1.6R is primarily methodological.
+
+Default:
+
+newly qualified relations = 0.
+
+Only if the review discovers an existing implementation bug
+that prevents a contractually explicit relation already supported
+by frozen raw evidence:
+
+STOP and report it.
+
+Do not silently fix and qualify relations in this stage.
+
+==================================================
+21. Source-grounded method notes
+==================================================
+
+Create a methodological note that clearly states:
+
+A.
+Valency can operate before clause-relation analysis
+when it reconstructs split/interrupted clause structure.
+
+B.
+Time and place are first-class text-syntactic parameters
+but are not automatically independent relation generators.
+
+C.
+Participant/reference domains may need larger surface units,
+but domain membership does not itself prove relation or identity.
+
+D.
+Lexical repetition and lexical semantics are distinct;
+semantic interpretation cannot replace formal source binding.
+
+==================================================
+22. Job diagnostics
+==================================================
+
+Post-audit inspect, without hard-coded outcomes:
+
+- 2:1 בתוכם
+- 32:1 הוא / בעיניו
+- 37:20 pivot
+- ויהי היום cases
+- storm expressions 38:1 / 40:6
+- 27:1 / 29:1 composite construction
+
+For each state which methodological layer each evidence item
+actually belongs to after ontology review.
+
+Do not re-adjudicate hierarchy.
+
+==================================================
+23. H0.1 readiness criteria
+==================================================
+
+Return READY_FOR_MFR_0_2R_H0_1 if and only if:
+
+1.
+every SB01–SB12 item has a clear methodological role;
+
+2.
+no zero-positive mechanism is being mistaken for an
+unimplemented source binder when it actually belongs to
+pre-relation/context/validation;
+
+3.
+genuine PRIMARY_SOURCE_BINDING gaps are either implemented
+already or explicitly shown to have no current Job witness;
+
+4.
+no unresolved infrastructure gap remains that could
+materially alter the relation candidate universe;
+
+5.
+evidence duplication is controlled;
+
+6.
+Q1.3 compatibility model remains intact.
+
+Return:
+
+NEEDS_PRIMARY_BINDING_IMPLEMENTATION
+
+only if a genuinely distinct primary source-binding mechanism
+is still missing.
+
+Return:
+
+NEEDS_MECHANISM_ONTOLOGY_REVIEW
+
+if classification remains ambiguous.
+
+Do NOT begin H0.1 automatically.
+
+==================================================
+24. Required outputs
+==================================================
+
+At minimum:
+
+01_q16r_mechanism_role_registry.csv
+02_q16r_pre_relation_dependencies.csv
+03_q16r_primary_binding_mechanisms.csv
+04_q16r_corroborative_evidence_dimensions.csv
+05_q16r_context_domain_mechanisms.csv
+06_q16r_post_relation_validation.csv
+07_q16r_global_constraints.csv
+
+08_q16r_sb05_valency_role_audit.csv
+09_q16r_sb07_temporal_role_audit.csv
+10_q16r_sb08_locative_role_audit.csv
+11_q16r_sb09_domain_role_audit.csv
+12_q16r_sb10_lexical_role_audit.csv
+
+13_q16r_evidence_independence_reclassification.csv
+14_q16r_shared_evidence_audit.csv
+
+15_q16r_job_special_diagnostics.md
+16_q16r_methodological_contract.md
+17_q16r_h0_1_readiness.md
+18_q16r_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+25. Critical tests
+==================================================
+
+Q16R-S1
+
+two clause atoms are parts of one valency frame
+
+→ PRE_RELATION_STRUCTURE
+not automatically SOURCE_BINDING.
+
+Q16R-S2
+
+two clauses both have time expressions
+
+→ TIME structural parameter only.
+
+Q16R-S3
+
+explicit temporal anaphoric expression refers to prior frame
+
+→ evaluate as explicit reference subtype,
+without duplicate qualification.
+
+Q16R-S4
+
+same place lexeme repeated
+
+→ no independent locative binding.
+
+Q16R-S5
+
+domain is derived entirely from existing participant/reference
+evidence
+
+→ domain is contextual/derived,
+not independent positive evidence.
+
+Q16R-S6
+
+lexical repetition only
+
+→ no referential identity.
+
+Q16R-S7
+
+lexical semantic interpretation supports an already formal
+relation
+
+→ POST_RELATION_VALIDATION / corroboration.
+
+Q16R-S8
+
+same raw node appears in SB06 and SB07 views
+
+→ SAME_RAW_EVIDENCE,
+not independent evidence.
+
+Q16R-S9
+
+two witnesses merely share a domain context but derive from
+different raw observations
+
+→ do not automatically classify as same raw evidence.
+
+Q16R-S10
+
+Q1.6R produces zero new relations
+
+→ valid outcome.
+
+==================================================
+26. Gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_6_FROZEN
+
+Q1_6_273_RELATIONS_PRESERVED
+
+RAW_UNIVERSE_UNCHANGED
+
+HUMAN_JUDGMENTS_UNCHANGED
+
+ALL_SB01_SB12_ROLES_CLASSIFIED
+
+PRE_RELATION_VS_SOURCE_BINDING_SEPARATED
+
+SB05_INTRA_CLAUSE_VALENCY_SEPARATED
+
+TIME_PARAMETER_VS_TEMPORAL_BINDING_SEPARATED
+
+LOCATION_PARAMETER_VS_LOCATIVE_BINDING_SEPARATED
+
+DERIVED_DOMAIN_NOT_DOUBLE_COUNTED
+
+LEXICAL_REPETITION_VS_ANAPHORA_SEPARATED
+
+LEXICAL_FORM_VS_SEMANTICS_SEPARATED
+
+EVIDENCE_INDEPENDENCE_CLASSES_REFINED
+
+NO_EVIDENCE_SCORING
+
+NO_FORCED_POSITIVE_MECHANISM
+
+NO_NEW_RELATION_QUALIFICATION
+
+NO_CANONICAL_MOTHER
+
+NO_CANONICAL_HIERARCHY
+
+NO_NEW_HUMAN_JUDGMENT
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+27. Stop conditions
+==================================================
+
+STOP if:
+
+A.
+the implementation tries to make every SB mechanism produce
+a positive relation;
+
+B.
+valency reconstruction is counted as clause-to-clause
+source binding without justification;
+
+C.
+time/place presence alone becomes positive binding;
+
+D.
+derived domain continuity is counted as an additional
+independent witness;
+
+E.
+lexical semantics directly creates hierarchy;
+
+F.
+frozen Q1.6 relations are modified;
+
+G.
+new relation qualification occurs without separate
+research authorization.
+
+==================================================
+28. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+
+Refine source-binding mechanism ontology
+
+Push origin/main.
+
+Do not commit generated release directories unless repository
+policy requires it.
+
+==================================================
+29. FINAL RESPONSE REQUIREMENT
+==================================================
+
+Print:
+
+GIT
+- start/end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree
+
+ROLE CLASSIFICATION
+- SB01 through SB12
+- primary role for each
+- positive binding capability
+- support/context/validation/constraint role
+
+SB05
+- intra-clause/pre-relation cases
+- genuine inter-clausal cases
+- unresolved cases
+
+SB07
+- structural time parameters
+- explicit temporal-reference cases
+- distinct source-binding gaps
+
+SB08
+- structural location parameters
+- explicit locative-reference cases
+- distinct source-binding gaps
+
+SB09
+- derived domains
+- explicit domain binding
+- remaining gaps
+
+SB10
+- lexical repetition
+- lexical anaphora
+- semantic validation
+- remaining gaps
+
+EVIDENCE INDEPENDENCE
+- same raw evidence
+- derived same evidence
+- shared context only
+- independent raw evidence
+- unresolved
+
+RELATIONS
+- Q1.6 baseline 273
+- retained 273
+- newly qualified 0
+- confirmation frozen universe unchanged
+
+READINESS
+- READY_FOR_MFR_0_2R_H0_1
+or
+- NEEDS_PRIMARY_BINDING_IMPLEMENTATION
+or
+- NEEDS_MECHANISM_ONTOLOGY_REVIEW
+
+VALIDATION
+- tests
+- regression
+- gates
+- skip
+- deterministic rerun
+- manifest
+- CRC
+
+FILES
+- validation report
+- regression log
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+State explicitly:
+- ZIP exists
+- CRC passed
+- manifest passed
+- A/B bytes identical

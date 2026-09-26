@@ -1,6 +1,48 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.6 technically validated; coverage review required
+## Current task — MFR.0.2R-Q1.6R technically validated
+
+Active specification: [Q1.6R](MFR_0_2R_Q16R_SPEC.md); authority:
+[exact researcher request](MFR_0_2R_Q16R_RESEARCHER_SOURCE.txt).
+[Method note](MFR_0_2R_Q16R_METHOD_NOTE.md),
+[execution instructions](README_MILAL_MFR_0_2R_Q16R.md),
+[validation report](MFR_0_2R_Q16R_VALIDATION_REPORT.md).
+Start local HEAD, fetched origin/main and actual remote all matched
+`3efc719428a72419c260e12d918cedd84cef298b`.
+Four existing untracked PDFs are unchanged; all 550 frozen file pins match.
+
+Q1.6R adds process-role classification and typed provenance over frozen evidence.
+Primary binders: SB01/02/03/06/11. SB04 is dependent corroboration; SB05 is
+pre-relation constitution (39 exact intra-clause candidates, not proven valency);
+SB07/08 are configuration context; SB09 visibility context; SB10 explicit form/
+reference/downstream-semantic subtypes; SB12 global constraint. No prior
+analytical core, relation qualification, BHSA annotation or human judgment changed.
+
+Relations baseline/retained/new: 273/273/0; mother/parallel/overlay: 203/70/0.
+Raw candidates 1,049,504; spans 275; reference witnesses 5,854; human judgments 13;
+true pivot 1. All frozen qualified outcomes preserved. Comparison counts:
+same-raw 109, shared-context 25,938, analytical dependency 1, unresolved 3,192;
+derived-same/fully-independent 0. Unresolved pairs contain context-only views,
+not missing raw projections. No evidence scoring or duplicate binding created.
+
+Validation: syntax 8 files; focused 57 tests; synthetic 10/10; negative gate
+mutations 25/25; full regression 2,979 with failures/errors/skips 0; final gates
+25/25. Independent A/B manifests and ZIP bytes identical; CRC and manifests PASS.
+Fingerprint: `e2bf93973281eae8307b3e5121251ebe65dbcc3965749bdd728488d3baf7afb4`.
+
+ZIP A: `D:\MILAL_runs\mfr02r_q16r_20260926\release_a_results.zip`
+ZIP B: `F:\MILAL_runs\mfr02r_q16r_20260926\release_b_results.zip`
+SHA256: `fda5303c8efca12d956b9fb677656c2a35fdf42c0ae240ec9dd560726c5b41a4`.
+Regression log: `D:\MILAL_runs\mfr02r_q16r_20260926\regression_final.log`.
+
+Readiness: **READY_FOR_MFR_0_2R_H0_1**, bounded to the reviewed formal contracts
+and frozen Job evidence. No distinct missing required primary binder is
+demonstrated. Referent identity and valency necessity remain unresolved where
+source evidence is insufficient. This is not scholarly hierarchy acceptance.
+Next: researcher review of the ontology/readiness and explicit authorization
+before H0.1. **Do not start H0.1 automatically.**
+
+## Previous task — MFR.0.2R-Q1.6 technically validated; coverage review required
 
 Active specification: [Q1.6](MFR_0_2R_Q16_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q1_6_RESEARCHER_INSTRUCTIONS.txt);
