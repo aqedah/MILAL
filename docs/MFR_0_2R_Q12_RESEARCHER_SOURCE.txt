@@ -1,0 +1,1103 @@
+현재 MILAL 저장소에서 다음 작업을 구현·실행·검증하고,
+모든 gate가 통과하면 commit/push까지 수행하세요.
+
+작업명:
+MILAL MFR.0.2R-Q1.2
+— Independent Surface-Configuration & Reference Witness Contract
+— Relax Over-Conservative Identity Requirements Without Weakening Source Binding
+
+현재 기준선:
+- repository: aqedah/MILAL
+- branch: main
+- start commit:
+  1bd0cb64390423223acdddcf130733f8f5cc880c
+
+현재 상태:
+- Q1/Q1.1 frozen
+- raw candidate universe = 1,049,504
+- Q1 qualified relations = 185
+- structural outcome groups = 185
+- variant decision pivots = 2
+- historical human judgments = 13
+- Q1.1 readiness = NEEDS_ADDITIONAL_SOURCE_REVIEW
+- H0.1 has NOT started
+
+Q1.1 established:
+- SB01/SB03/SB04/SB06 implemented
+- Job witnesses:
+  SB01 = 176
+  SB03 = 0
+  SB04 = 1
+  SB06 = 12
+- SB02/SB05/SB07/SB08/SB09/SB10/SB11/SB12 are not fully operational
+- current SB06 is intentionally conservative
+- IDENTICAL_FULL_SIGNATURE is especially restrictive
+- five Numbers alternatives remain EVIDENCE_ONLY
+- two Bosman reference cases remain UNRESOLVED
+
+Do NOT treat the Numbers controls as answers to reproduce.
+They are post-freeze validation cases.
+
+==================================================
+1. Purpose
+==================================================
+
+Q1.2 must answer:
+
+Can MILAL recognize source-target binding through
+independently observable surface-configuration correspondence
+without requiring exact full-signature identity,
+without reverting to generic similarity,
+and without using a provisional hierarchy to prove itself?
+
+The methodological sequence is:
+
+RAW SURFACE OBSERVATIONS
+→ INDEPENDENT CONFIGURATION WITNESS
+→ PAIR CORRESPONDENCE
+→ SOURCE-BINDING QUALIFICATION
+→ RELATION CANDIDATE
+
+NOT:
+
+candidate relation
+→ derive unit/configuration from that relation
+→ use same unit/configuration to prove relation
+
+Circularity is forbidden.
+
+==================================================
+2. Frozen layers
+==================================================
+
+Do not rewrite:
+
+MFR.0.1
+MFR.0.1a
+MFR.0.1b
+MFR.0.2A
+MFR.0.2R
+MFR.0.2R-H0
+MFR.0.2R-Q1
+MFR.0.2R-Q1.1
+
+Q1.2 is additive.
+
+Preserve:
+- all 1,049,504 raw candidates
+- all historical outputs
+- all 13 human judgments
+- all prior hashes/provenance
+
+No canonical mother.
+No canonical hierarchy.
+No new human judgment.
+
+==================================================
+3. Source-grounded correction to SB06
+==================================================
+
+Current SB06 must NOT require universal:
+
+IDENTICAL_FULL_SIGNATURE
+
+as a necessary condition for every configuration relation.
+
+Source methodology supports correspondence among features,
+not universal token-for-token identity.
+
+Replace the universal identity requirement with a
+SURFACE_CONFIGURATION_PROFILE.
+
+Important:
+
+Do NOT simply weaken:
+IDENTICAL_FULL_SIGNATURE = false allowed
+
+That would overgenerate.
+
+Instead represent configurations compositionally.
+
+==================================================
+4. Surface Configuration Profile
+==================================================
+
+For every clause / relevant clause group extract,
+from already available BHSA/MILAL data:
+
+CONFIGURATION_PROFILE:
+
+- clause_type
+- verbal_form / predicate morphology
+- conjunction / syndesis
+- explicit_subject_presence
+- explicit_subject_lexeme if present
+- complement structure
+- phrase-function sequence
+- phrase-type sequence
+- pre-predicate constituent pattern
+- locative adjunct structure
+- temporal adjunct structure
+- participant grammatical role
+- speaker/addressee structure if surface-supported
+- lexical anchor(s)
+- suffix / pronominal morphology
+- subordinate-marker structure
+- direct-speech marker structure
+
+Do not require every field to match.
+
+Do not collapse these into a numeric score.
+
+==================================================
+5. Observed configuration, not generalized identity
+==================================================
+
+Distinguish:
+
+OBSERVED_CONFIGURATION
+
+from
+
+GENERALIZED_CONFIGURATION_PATTERN
+
+Example:
+
+Observed A:
+DSF + LOC + LOC + TIME
+
+Observed B:
+DSF + LOC + TIME
+
+They are not identical.
+
+But both may instantiate a broader:
+
+DSF_WITH_SPATIOTEMPORAL_FRAME
+
+correspondence family.
+
+Likewise:
+
+ANSWER + AMR
+
+and
+
+ADD_SPEECH + TAKE_MASHAL + AMR
+
+must remain distinct observed configurations
+even if they share SPEECH_ONSET features.
+
+No uncontrolled generalization.
+
+==================================================
+6. Independent configuration witness
+==================================================
+
+A configuration witness may qualify only if its defining
+surface features are extracted independently of the
+relation edge being tested.
+
+Allowed sources:
+
+- clause / atom morphology
+- phrase functions
+- phrase ordering
+- lexemes
+- explicit participant morphology
+- explicit speech formula components
+- time/place adjuncts
+- explicit subordination
+- independently established valency binding
+- independently observable local clause sequence
+
+Forbidden:
+
+- provisional mother edge under test
+- variant membership generated from that edge
+- reachability requiring that edge
+- human historical hierarchy
+- expected control answer
+
+Required field:
+
+configuration_independence_status
+
+Allowed:
+
+INDEPENDENT_SURFACE
+INDEPENDENT_VALENCY
+DEPENDENT_ON_TESTED_RELATION
+UNRESOLVED
+
+Only first two can positively qualify SB06/SB11.
+
+==================================================
+7. Correspondence dimensions
+==================================================
+
+Compare source and target configuration profiles by named
+qualitative dimensions.
+
+For each dimension:
+
+EXACT
+CORRESPONDING_VARIANT
+DIFFERENT
+NOT_APPLICABLE
+UNRESOLVED
+
+Dimensions:
+
+CLAUSE_TYPE
+PREDICATE_MORPHOLOGY
+CONSTITUENT_STRUCTURE
+PHRASE_ARRANGEMENT
+SUBJECT_CONFIGURATION
+COMPLEMENT_CONFIGURATION
+LOCATION_CONFIGURATION
+TIME_CONFIGURATION
+PARTICIPANT_CONFIGURATION
+REFERENCE_MORPHOLOGY
+LEXICAL_ANCHOR
+SPEECH_FORMULA
+SUBORDINATION_PATTERN
+LOCAL_CLAUSE_SEQUENCE
+
+Do not convert to score.
+
+==================================================
+8. Corresponding variant
+==================================================
+
+CORRESPONDING_VARIANT means:
+
+same structural family/function is formally observable,
+but realization is not identical.
+
+Example types:
+
+- one vs two locative adjuncts
+- explicit vs pronominalized participant
+- shared construction with an additional time phrase
+- same speech formula frame with an additional constituent
+- same clause sequence with one embedded subordinate clause
+
+Every CORRESPONDING_VARIANT must state:
+
+source_observation
+target_observation
+shared_configuration_basis
+difference
+provenance
+
+No semantic-only correspondence.
+
+==================================================
+9. SB06 revised contract
+==================================================
+
+SB06 =
+FORMAL_CONFIGURATION_CORRESPONDENCE
+
+It may produce:
+
+QUALIFIED_CONFIGURATION
+
+only when:
+
+A.
+source and target each have independently extracted
+surface configuration profiles
+
+AND
+
+B.
+there is a named shared configuration basis
+
+AND
+
+C.
+the correspondence includes structural information
+beyond generic clause-type equality
+
+AND
+
+D.
+no known contextual blocker makes the proposed
+connection structurally incoherent
+
+Important:
+
+SAME_CLAUSE_TYPE alone = insufficient.
+
+SAME_PARTICIPANT alone = insufficient.
+
+SAME_LEXEME alone = insufficient.
+
+GENERIC_WAYX alone = insufficient.
+
+==================================================
+10. No arbitrary feature-count threshold
+==================================================
+
+Do NOT implement:
+
+“at least 3 features”
+“4 of 5 dimensions”
+“70% similarity”
+
+No threshold.
+
+Instead qualification must cite a recognized
+configuration family whose defining fields are explicit.
+
+For every generalized configuration family create:
+
+family_id
+family_definition
+required_surface_fields
+optional_surface_fields
+prohibited_confusions
+derivation_provenance
+
+==================================================
+11. Configuration families must be data-derived
+==================================================
+
+Do not hard-code:
+
+NUMBERS_DSF
+JOB_29_1
+JOB_SPEECH_CYCLE
+
+as rule names.
+
+Configuration families must be produced generically from
+surface feature combinations.
+
+Controls may receive labels after freeze for reporting,
+but control identities must not affect extraction.
+
+==================================================
+12. Repeated configuration correspondence: SB11
+==================================================
+
+Operationalize:
+
+SB11 = ESTABLISHED_PARALLEL_CONFIGURATION
+
+SB11 is not:
+“these clauses look similar.”
+
+SB11 requires:
+
+- two independently observed configurations
+- comparable internal positions
+- repeated formal organization
+- source-target correspondence at those positions
+
+Represent:
+
+configuration_A
+configuration_B
+position_mapping
+matched_surface_features
+nonmatched_surface_features
+
+Example abstractly:
+
+A1 A2 A3
+B1 B2 B3
+
+may support:
+
+A1 ↔ B1
+A2 ↔ B2
+A3 ↔ B3
+
+without requiring A1/B1 etc. to have identical tokens.
+
+==================================================
+13. Position mapping
+==================================================
+
+Configuration correspondence may use:
+
+OPENING_POSITION
+FRAME_POSITION
+MAINLINE_POSITION
+EMBEDDED_POSITION
+CLOSING_POSITION
+REPEATED_INTERNAL_POSITION
+
+but these positions must arise from surface construction,
+not an already accepted hierarchy.
+
+For Q1.2 do not assign final textual level.
+
+Use:
+
+SURFACE_CONFIGURATION_POSITION
+
+not:
+
+HIERARCHY_LEVEL
+
+==================================================
+14. Local configuration span
+==================================================
+
+Allow multi-clause configurations.
+
+Do NOT require that every configuration be a single clause.
+
+Allow:
+
+- explicit speech formula spanning multiple clause_atoms
+- DSF + adjunct construction
+- finite clause + subordinate continuation
+- repeated formula + following clause sequence
+
+But configuration span must be bounded by
+observable surface criteria.
+
+No arbitrary fixed lookback window as a structural rule.
+
+==================================================
+15. Reference evidence: SB02 / SB03 / SB10
+==================================================
+
+Implement a richer reference evidence layer.
+
+SB02:
+EXPLICIT_REFERENCE_TO_SOURCE
+
+SB03:
+REFERENCE_TO_SOURCE_CONTAINING_UNIT
+
+SB10:
+LEXICAL_ANAPHORIC_DEPENDENCY
+
+However:
+
+reference evidence extraction
+≠
+automatic referent adjudication.
+
+Create:
+
+REFERENCE_WITNESS
+
+fields:
+
+target_reference_form
+person
+gender
+number
+suffix/pronoun type
+explicit lexical form if any
+candidate_antecedent_ids
+antecedent_basis
+candidate_count
+reference_status
+
+reference_status:
+
+EXACT_NATIVE
+UNIQUE_SURFACE_CANDIDATE
+MULTIPLE_PLAUSIBLE
+UNRESOLVED
+NO_CANDIDATE
+
+==================================================
+16. Do not invent coreference
+==================================================
+
+PNG agreement alone cannot produce:
+
+REFERENT_IDENTIFIED
+
+Lexical repetition alone cannot produce:
+
+REFERENT_IDENTIFIED
+
+If several antecedents satisfy the observable constraints:
+
+MULTIPLE_PLAUSIBLE
+
+If identity cannot be independently demonstrated:
+
+UNRESOLVED
+
+These may provide evidence but must not automatically
+qualify a hierarchy relation.
+
+==================================================
+17. Bosman larger-unit reference
+==================================================
+
+Bosman-style hidden antecedent must be representable.
+
+A target may refer to an antecedent that is not the opening
+clause itself but occurs inside a source-containing unit.
+
+Represent:
+
+source_opening_candidate
+antecedent_inside_unit
+target_reference
+unit_membership_basis
+
+But unit membership must be independent of the edge
+being tested.
+
+Allowed independent unit bases include only already
+available non-circular surface evidence such as:
+
+- valency-bound clause construction
+- explicit direct-speech domain
+- explicit subordination domain
+- independently surface-bounded configuration
+
+Do not use:
+provisional relation reachability under test.
+
+==================================================
+18. Bosman Q1.1 cases
+==================================================
+
+Re-run the two Bosman diagnostic cases only after blind
+implementation freeze.
+
+Do NOT force them to resolve.
+
+Expected valid possibilities:
+
+RESOLVED
+MULTIPLE_PLAUSIBLE
+UNRESOLVED
+
+Success means the architecture can express the evidence
+without circular reasoning.
+
+==================================================
+19. SB12 global constraint
+==================================================
+
+Operationalize SB12 narrowly:
+
+SB12 = GLOBAL_CONFIGURATION_CONSTRAINT
+
+SB12 is NOT positive source-binding evidence.
+
+SB12 may:
+
+- detect incompatibility
+- detect blocking
+- preserve multiple coherent alternatives
+- identify configuration conflict
+
+SB12 must NOT:
+
+- create a relation edge from nothing
+- upgrade EVIDENCE_ONLY to QUALIFIED by itself
+- choose a mother
+- choose a hierarchy
+- use component membership as evidence
+
+==================================================
+20. Compatibility versus positive evidence
+==================================================
+
+Explicitly distinguish:
+
+POSITIVE_SOURCE_BINDING
+
+from
+
+GLOBAL_COMPATIBILITY
+
+A candidate relation requires positive source-binding from
+SB01/SB02/SB03/SB04/SB05/SB06/SB07/SB08/SB09/SB10/SB11
+as applicable.
+
+SB12 can only test the resulting candidate.
+
+==================================================
+21. Numbers controls
+==================================================
+
+After blind Job implementation and freeze,
+run the five Q1.1 Numbers alternatives.
+
+Do NOT encode expected relations.
+
+For each report:
+
+- original status
+- Q1.1 failed conditions
+- Q1.2 configuration profiles
+- correspondence dimensions
+- whether SB06 qualifies
+- whether SB11 qualifies
+- whether reference evidence contributes
+- whether SB12 only affects compatibility
+- final Q1.2 qualification
+
+Important:
+
+The goal is NOT “recover all five.”
+
+The goal is:
+determine whether the generalized implementation can
+represent the kind of formal correspondence described by
+the source without identity hard-coding.
+
+If a control still lacks evidence:
+keep EVIDENCE_ONLY.
+
+==================================================
+22. Job blind run first
+==================================================
+
+Implementation order:
+
+1. define generic configuration/reference contracts
+2. run Job blind
+3. freeze Job Q1.2 outputs
+4. only then run external controls
+
+No Numbers IDs or expected outcomes available to
+qualification logic.
+
+==================================================
+23. Job diagnostics
+==================================================
+
+Post-freeze inspect:
+
+1:6
+1:13
+2:1
+
+27:1
+29:1
+31:40
+
+32:1
+32:2
+
+37:24
+38:1
+
+40:1
+40:3
+40:6
+42:1
+42:7
+
+Do NOT encode expected hierarchy.
+
+Show:
+
+raw relation candidates
+Q1 qualification
+Q1.2 configuration witnesses
+reference witnesses
+SB06/SB11 effects
+SB12 compatibility only
+resulting qualified structural outcomes
+
+==================================================
+24. Dialogue formula protection
+==================================================
+
+Repeated ANSWER+AMR formulas in Job must not create an
+all-to-all parallel graph.
+
+Generic repetition alone is insufficient.
+
+A pair must show a configuration correspondence whose
+position and surrounding surface organization provide
+source binding.
+
+Likewise:
+ADD_SPEECH / TAKE_MASHAL / AMR configurations must be
+distinguished from ordinary ANSWER+AMR.
+
+==================================================
+25. Structural family versus textual level
+==================================================
+
+Same configuration family does not mean same textual level.
+
+Record:
+
+SAME_CONFIGURATION_FAMILY
+
+separately from:
+
+RELATION_QUALIFIED
+
+and separately from:
+
+TEXTUAL_LEVEL_EFFECT_CANDIDATE
+
+No automatic promotion from family membership.
+
+==================================================
+26. Valency stays prior
+==================================================
+
+Oosting layer remains prior to relation qualification.
+
+If clause binding is unresolved:
+
+RELATION_DEFERRED_PENDING_CLAUSE_BINDING
+
+Do not use Q1.2 configuration matching to bypass it.
+
+==================================================
+27. Time and location
+==================================================
+
+TIME and LOCATION are first-class configuration dimensions.
+
+They may distinguish variants of the same broader
+construction family.
+
+Do not treat extra time/place material as noise.
+
+Do not automatically infer hierarchy from “more elaborate.”
+
+Record the difference and let relation grammar/global
+comparison use it later.
+
+==================================================
+28. Required outputs
+==================================================
+
+At minimum:
+
+01_q12_configuration_profiles.csv
+02_q12_configuration_families.csv
+03_q12_configuration_correspondence.csv
+04_q12_sb06_qualification.csv
+05_q12_sb11_parallel_configuration.csv
+
+06_q12_reference_witnesses.csv
+07_q12_reference_candidate_antecedents.csv
+08_q12_sb02_sb03_sb10_qualification.csv
+
+09_q12_sb12_global_constraints.csv
+
+10_q12_qualified_relation_universe.csv
+11_q12_structural_outcome_groups.csv
+12_q12_variant_pivots.csv
+
+13_q12_numbers_postfreeze_controls.csv
+14_q12_bosman_postfreeze_controls.csv
+15_q12_job_special_diagnostics.md
+
+16_q12_mechanism_coverage.csv
+17_q12_method_report.md
+18_q12_next_scope.md
+19_q12_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+29. Metrics
+==================================================
+
+Report:
+
+raw candidates
+
+Q1 qualified relations = baseline
+Q1.2 qualified relations
+
+qualification source:
+SB01
+SB02
+SB03
+SB04
+SB05
+SB06
+SB07
+SB08
+SB09
+SB10
+SB11
+
+SB12 constraint applications separately
+
+configuration families
+configuration correspondence pairs
+
+reference witnesses:
+EXACT_NATIVE
+UNIQUE_SURFACE_CANDIDATE
+MULTIPLE_PLAUSIBLE
+UNRESOLVED
+NO_CANDIDATE
+
+structural outcome groups
+targets with:
+0
+1
+2+ distinct outcomes
+
+variant members
+variant decision pivots
+
+No target count goal.
+No recall target.
+No forced increase over 185.
+
+==================================================
+30. Negative tests
+==================================================
+
+Q12-N1
+same clause type only
+→ no SB06 qualification
+
+Q12-N2
+same lexeme only
+→ no SB06 qualification
+
+Q12-N3
+same PNG only
+→ no reference identity
+
+Q12-N4
+same formula repeated throughout book
+without surface-position correspondence
+→ no all-to-all relation
+
+Q12-N5
+candidate relation used to define its own
+configuration unit
+→ FAIL circularity gate
+
+Q12-N6
+SB12 compatibility alone
+→ cannot qualify relation
+
+Q12-N7
+external fixture ID used in core logic
+→ FAIL
+
+Q12-N8
+exact full signature differs but a valid
+surface configuration correspondence exists
+→ architecture must be able to represent it
+
+Q12-N9
+same configuration family but different
+textual-level possibilities
+→ family membership does not force relation
+
+Q12-N10
+ambiguous pronoun with two plausible antecedents
+→ MULTIPLE_PLAUSIBLE, not exact reference
+
+==================================================
+31. Positive synthetic tests
+==================================================
+
+Q12-S1
+two non-identical surface configurations
+share an independently defined structural family
+and corresponding positions
+→ SB06/SB11 candidate may qualify
+
+Q12-S2
+same observed configuration plus extra temporal adjunct
+→ CORRESPONDING_VARIANT, not automatic mismatch
+
+Q12-S3
+explicit pronominal reference to unique antecedent
+→ reference witness retained
+
+Q12-S4
+antecedent inside independently bounded larger unit
+→ SB03 architecture can represent it
+
+Q12-S5
+global variant conflict among already qualified relations
+→ SB12 records constraint but creates no relation
+
+Q12-S6
+100 repeated speech formulas without independent
+pair binding
+→ no 100-way qualification
+
+==================================================
+32. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_FROZEN
+Q1_1_FROZEN
+
+RAW_UNIVERSE_UNCHANGED
+HUMAN_JUDGMENTS_UNCHANGED
+
+NO_CANONICAL_MOTHER
+NO_CANONICAL_HIERARCHY
+
+SURFACE_CONFIGURATION_PROFILE_IMPLEMENTED
+CONFIGURATION_INDEPENDENT_OF_TESTED_EDGE
+
+NO_UNIVERSAL_IDENTICAL_FULL_SIGNATURE_REQUIREMENT
+
+NO_GENERIC_SIMILARITY_QUALIFICATION
+NO_NUMERIC_SIMILARITY_SCORE
+NO_FEATURE_COUNT_THRESHOLD
+
+SB06_COMPOSITIONAL
+SB11_OPERATIONAL
+
+REFERENCE_WITNESS_LAYER_CREATED
+NO_PNG_ONLY_COREFERENCE
+NO_LEXEME_ONLY_COREFERENCE
+
+BOSMAN_UNIT_REFERENCE_NONCIRCULAR
+
+SB12_CONSTRAINT_ONLY
+SB12_NOT_POSITIVE_BINDING
+
+SAME_FAMILY_NOT_EQUAL_SAME_LEVEL
+
+JOB_BLIND_BEFORE_EXTERNAL_CONTROLS
+CONTROL_FIXTURE_IDS_ABSENT_FROM_CORE_LOGIC
+FULL_PENTATEUCH_ANALYSIS_ABSENT
+
+NO_NEW_HUMAN_JUDGMENT
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+
+==================================================
+33. Stop conditions
+==================================================
+
+STOP and report if:
+
+A.
+configuration correspondence again becomes effectively
+generic similarity
+
+B.
+qualification requires arbitrary numeric thresholds
+
+C.
+SB12 is needed to manufacture positive binding
+
+D.
+Bosman reference cases can be “resolved” only by using
+the provisional edge being tested
+
+E.
+Job speech formulae explode into all-to-all relations
+
+F.
+Numbers controls require ID-specific exceptions
+
+==================================================
+34. Readiness decision
+==================================================
+
+If Q1.2 establishes a non-circular source-bound relation
+universe and controls show that relevant correspondence
+types are representable:
+
+READY_FOR_MFR_0_2R_H0_1
+
+If reference/configuration contracts remain materially
+underspecified:
+
+NEEDS_ADDITIONAL_SOURCE_REVIEW
+
+If qualification becomes overgenerating:
+
+Q1_2_OVERGENERALIZED
+
+Do NOT proceed automatically into H0.1.
+
+==================================================
+35. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+Implement independent configuration and reference witnesses
+
+Push origin/main through normal authorization workflow.
+
+==================================================
+36. Final report
+==================================================
+
+Report:
+
+GIT
+- start commit
+- end commit
+- push status
+- working tree
+
+INTEGRITY
+- raw candidate count
+- frozen-file changes
+- human-judgment changes
+
+CONFIGURATION
+- profile count
+- family count
+- correspondence count
+- SB06 qualified
+- SB11 qualified
+
+REFERENCE
+- witness count
+- exact/unique/multiple/unresolved counts
+- SB02/SB03/SB10 qualifications
+
+GLOBAL
+- SB12 constraints
+- confirmation SB12 created zero relations
+
+RELATIONS
+- Q1 qualified baseline
+- Q1.2 qualified total
+- structural outcome groups
+- 2+ outcome targets
+- pivots
+
+CONTROLS
+- Numbers five alternatives
+- Bosman two cases
+- no control-specific hardcoding
+
+VALIDATION
+- stage tests
+- full regression
+- gates
+- deterministic rerun
+- ZIP SHA256
+
+READINESS
+- READY_FOR_MFR_0_2R_H0_1
+or
+- NEEDS_ADDITIONAL_SOURCE_REVIEW
+or
+- Q1_2_OVERGENERALIZED

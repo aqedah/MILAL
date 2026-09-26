@@ -1,6 +1,60 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.1 coverage review completed
+## Current task — MFR.0.2R-Q1.2 technically validated; source review remains
+
+Active specification: [Q1.2](MFR_0_2R_Q12_SPEC.md); authority:
+[request](MFR_0_2R_Q12_RESEARCHER_SOURCE.txt) and
+[clarification](MFR_0_2R_Q12_CLARIFICATION.md).
+[Validation report](MFR_0_2R_Q12_VALIDATION_REPORT.md),
+[execution instructions](README_MILAL_MFR_0_2R_Q12.md).
+Baseline `1bd0cb64390423223acdddcf130733f8f5cc880c`.
+
+**NEEDS_ADDITIONAL_SOURCE_REVIEW. H0.1 has not started.**
+Q1/Q1.1 and all 484 frozen source pins remain unchanged. No new human judgment,
+canonical mother or hierarchy. All 13 historical judgments and 1,049,504 raw
+candidate identities/hashes are preserved.
+
+Job: 2,938 profiles/configurations, 1,594 families, 2,283 correspondences;
+195 qualified pairs/groups (173 direct, 22 configuration). SB06 14; SB11 8.
+Reference witnesses 5,854: exact 0, unique candidate 376, multiple plausible
+3,856, unresolved 806, no candidate 816. No new reference-mediated qualification.
+SB12 is constraint-only: four conditional competing-chain constraints; zero
+relations created. Seven targets have 2+ outcomes and are pivots; UNSELECTED
+continues to mean UNDECIDED.
+
+Compared with Q1's 185 pairs: 182 retained, 13 added, three not qualified in
+Q1.2 (P497545-497631, P497546-497632, P499251-499383). The new unit subset does
+not adopt native NA/Coor links as subordinate/speech-complement boundaries.
+This particularly affects Job 27:1→29:1; it is a boundary-adapter limitation,
+not an adjudicated rejection. Do not silently restore it with an ID exception.
+
+Five Numbers alternatives remain EVIDENCE_ONLY. Both Bosman references remain
+UNRESOLVED: the second independent unit [504910,504911] is available, but
+reference identity remains unestablished. Exact fixture scope stays at 181
+clauses/3,834 existing pairs, with no full external-book analysis. Existing
+Oosting deferred blockers apply both to Job and external controls.
+
+Validation: nine Python syntax checks; 71 focused tests; 2,633 full regression
+(742.464s), errors/failures/skips 0; 57 synthetic checks; 34/34 computed gates
+with negative mutations. D/F manifests and ZIP bytes identical, 52 members /
+51 manifest entries, CRC valid. Initial interrupted regression is not a release
+receipt; use only the corrected receipt below.
+
+- A: `D:\MILAL_runs\mfr02r_q12_20260926\release_a`
+- B: `F:\MILAL_runs\mfr02r_q12_20260926\release_b`
+- ZIPs: directory path plus `_results.zip`
+- SHA256 `3a3118876006a9eaf7ba5f79b435ab5521cd6d4087711def8854512815816770`
+- Verification: `D:\MILAL_runs\mfr02r_q12_20260926\release_a_verification.json`
+- Regression: `D:\MILAL_runs\mfr02r_q12_20260926\regression_corrected.json` and `.log`
+- Synthetic: `C:\MILAL\results\q12_synthetic_02\receipt.json`
+- Fingerprint `2a931d7486f96edd4f5eb39a038e55055861ba13c7e6aec739e195ea06fa3907`
+
+Next pending task: researcher review of independent unit-boundary and
+cross-family correspondence contracts, plus reference evidence gaps. Review
+all new/lost qualifications before authorizing H0.1. Do not automatically
+advance. Four user PDFs remain untouched and untracked.
+
+## Previous task — MFR.0.2R-Q1.1 coverage review completed
 
 Active specification: [Q1.1](MFR_0_2R_Q11_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q11_RESEARCHER_SOURCE.txt); execution:
