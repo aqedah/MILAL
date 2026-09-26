@@ -1,0 +1,43 @@
+{
+  "stage": "AUDIT_BEFORE_Q16_IMPLEMENTATION",
+  "baseline": "8e196eeb6649a7953b59a3217d99a658b3f2c67c",
+  "q16_implementation_files_present": [],
+  "audited_source_hashes": {
+    "src/milal_mfr02r_valency.py": "8a9fc35d883015a80f0a6f9515220359e0fd4240645d4c8efdbb6a6a19cb38f0",
+    "src/milal_mfr02r_features.py": "fbacffd4d51e43c3612098a4984bd9b7d271d3fc675d20a5ccd5f0861111a53f",
+    "src/milal_q1_binding.py": "c1e2778d3cecb76d67a047457f9225472199bb9aecb5ff637d6f00c11b4ba3c0",
+    "src/milal_q12_pipeline.py": "3dd7b25f83a4a7bf8f59915e38b52bb00e5fe8be176cb7a014f6e407a5424748",
+    "src/milal_q14_binding.py": "3721201f8321db6d8a60c367de6f213d1b3f4dfc177feffd2d0d3b5bfa0c3bf1",
+    "src/milal_q15_domains.py": "6e5351ff740659c45ab4770c05cc24a51689298e6beb8fdcd8b1c328ecaa4f30",
+    "src/milal_q15_references.py": "9059f3f789589180c7d18f620edcce3056ee905e94db0602490d59281ad438a9"
+  },
+  "findings": {
+    "SB05": {
+      "module": "milal_mfr02r_valency; milal_q1_binding",
+      "existing": "2938 observed constructions; 39 deferred clause-internal binding candidates; 84 recursive patterns. Obligatory argument governance is expressly not inferred. Native dependencies are already SB01.",
+      "gap": "No independently attested cross-clause valency-government adapter beyond native dependency. Do not promote deferred atom candidates.",
+      "decision": "Audit exact native overlap and deferred candidates; no semantic valency engine."
+    },
+    "SB07": {
+      "module": "milal_q12_configuration; milal_q14_binding; milal_mfr02r_features",
+      "existing": "64 explicit Time phrases; pair-specific frame correspondence may already support SB06/SB11. Frame reference identity remains unresolved.",
+      "gap": "Temporal frame correspondence is not temporal anaphora/continuation. No additional attested dependency adapter.",
+      "decision": "Preserve shared temporal analytical views; no newly inferred temporal binding."
+    },
+    "SB08": {
+      "module": "milal_q12_configuration; milal_q14_binding; milal_mfr02r_features",
+      "existing": "47 explicit Loca phrases. Storm Adju configuration remains Adju.",
+      "gap": "Location presence or shared nouns are not independent locative dependency.",
+      "decision": "Audit exact frame correspondence without semantic reclassification."
+    },
+    "SB09": {
+      "module": "milal_q15_domains; milal_q15_references",
+      "existing": "3453 independent surface visibility domains and 4786 recorded visibility paths. Positive reference routes already represented by SB02/SB03.",
+      "gap": "Membership alone cannot establish relation; unconsumed source-target domain routes require independent positive continuity and grammar.",
+      "decision": "Reuse domains; expose shared reference routes and zero-visibility gaps. Do not derive domains from tested relations."
+    }
+  },
+  "demonstrated_nonredundant_infrastructure_gap": "Missing cross-stage raw-fact dependency graph, mechanism overlap, non-destructive unique-evidence ablation, and complete status/gap audit.",
+  "new_analytical_binding_authorized_by_audit": false,
+  "readiness_pending": "Material distinct dependency adapters remain underspecified; audit does not claim empirical absence proves completeness."
+}

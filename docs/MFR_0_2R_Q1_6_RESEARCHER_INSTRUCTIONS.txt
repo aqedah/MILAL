@@ -1,0 +1,1351 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 다음 단계를 구현·실행·검증하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project.
+- Q1.5 and all earlier stages are frozen.
+- Integrate additively with the current architecture.
+- Reuse existing modules, schemas, witnesses, and provenance.
+- Do NOT create duplicate mechanisms under new names.
+- First AUDIT mechanism coverage and redundancy.
+- Implement new logic only where a genuine non-redundant gap is demonstrated.
+
+작업명:
+
+MILAL MFR.0.2R-Q1.6
+— Source-Binding Mechanism Completeness & Redundancy Audit
+— SB05 Valency / SB07 Temporal / SB08 Locative / SB09 Domain
+— Evidence-Dependency and Mechanism-Ablation Analysis
+
+Current baseline:
+
+repository:
+aqedah/MILAL
+
+branch:
+main
+
+required start commit:
+8e196eeb6649a7953b59a3217d99a658b3f2c67c
+
+Before work:
+
+fetch
+
+verify:
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+If tracked files have unexpected changes:
+STOP.
+
+Preserve the existing four untracked PDFs.
+
+==================================================
+0. Frozen state
+==================================================
+
+Preserve exactly:
+
+raw relation universe:
+1,049,504
+
+Q1.5 qualified relations:
+273
+
+mother:
+203
+
+parallel:
+70
+
+overlay:
+0
+
+Q1.4 surface construction spans:
+275
+
+Q1.5 reference witnesses:
+5,854
+
+global reference candidates:
+1,329,190
+
+visible candidates:
+541
+
+source-bound reference candidates:
+193
+
+historical human judgments:
+13
+
+current true pivots:
+1
+
+Do not rewrite earlier outputs.
+
+Do not delete or reclassify previously qualified relations.
+
+Q1.6 is additive and auditing-first.
+
+==================================================
+1. Main objective
+==================================================
+
+The original source-binding architecture defined:
+
+SB01 DIRECT_SYNTACTIC_DEPENDENCY
+SB02 EXPLICIT_REFERENCE_TO_SOURCE
+SB03 REFERENCE_TO_SOURCE_CONTAINING_UNIT
+SB04 PARTICIPANT_CONTINUATION_FROM_ACTIVE_UNIT
+SB05 VALENCY_DEPENDENCY
+SB06 FORMAL_CONFIGURATION_CORRESPONDENCE
+SB07 TEMPORAL_DEPENDENCY
+SB08 LOCATIVE_FRAME_DEPENDENCY
+SB09 DOMAIN_CONTINUATION_OR_EMBEDDING
+SB10 LEXICAL_ANAPHORIC_DEPENDENCY
+SB11 ESTABLISHED_PARALLEL_CONFIGURATION
+SB12 GLOBAL_CONFIGURATION_CONSTRAINT
+
+At Q1.5, several are operational.
+
+The remaining question is NOT:
+
+“Can we add four more rules?”
+
+The question is:
+
+For SB05, SB07, SB08, SB09:
+
+1. Is the mechanism conceptually distinct?
+2. Is its evidence already represented elsewhere?
+3. Is it operational but merely not labeled as such?
+4. Is there an actual implementation gap?
+5. Does it contribute unique source binding?
+6. Does it only corroborate another mechanism?
+7. Would implementing it separately double-count evidence?
+
+Audit BEFORE implementation.
+
+==================================================
+2. Mechanism status contract
+==================================================
+
+For each SB mechanism assign one of:
+
+OPERATIONAL_DISTINCT
+OPERATIONAL_CORROBORATIVE
+OPERATIONAL_VIA_EXISTING_LAYER
+PARTIALLY_OPERATIONAL
+NOT_YET_OPERATIONAL
+NO_JOB_WITNESS
+REDUNDANT_ALIAS_BLOCKED
+UNRESOLVED
+
+Also separately record:
+
+conceptual_status
+implementation_status
+empirical_job_status
+
+Do not collapse these.
+
+Example:
+
+A mechanism may be conceptually distinct
+but empirically redundant in Job.
+
+==================================================
+3. Evidence dependency graph
+==================================================
+
+Create a machine-readable:
+
+EVIDENCE_DEPENDENCY_GRAPH
+
+Every positive source-binding witness must identify:
+
+raw evidence nodes
+derived evidence nodes
+mechanism labels
+relation candidates affected
+whether another mechanism uses the same raw evidence
+whether one derived witness depends on another derived witness
+
+The purpose is to detect:
+
+- duplicate evidence counting;
+- hidden circularity;
+- alias mechanisms;
+- genuinely independent witness chains.
+
+No numeric weighting.
+
+==================================================
+4. Same evidence must not count twice
+==================================================
+
+If one raw fact is represented through two views,
+do not treat it as two independent reasons.
+
+Example abstractly:
+
+same temporal phrase
+→ included in composite configuration profile
+→ also inspected by SB07
+
+This may be:
+
+ONE RAW WITNESS
+TWO ANALYTICAL VIEWS
+
+not:
+
+TWO INDEPENDENT WITNESSES.
+
+Record:
+
+raw_evidence_identity
+mechanism_views
+
+==================================================
+5. Qualification provenance
+==================================================
+
+For every qualified relation record:
+
+qualification_basis:
+
+SINGLE_MECHANISM
+MULTI_MECHANISM_INDEPENDENT
+MULTI_MECHANISM_SHARED_RAW_EVIDENCE
+CORROBORATIVE_ONLY
+
+Also:
+
+decisive_mechanism_set
+corroborative_mechanism_set
+shared_evidence_groups
+
+No ranking.
+
+==================================================
+6. Mechanism ablation audit
+==================================================
+
+Perform a non-destructive analytical ablation.
+
+For each mechanism SB01–SB11:
+
+simulate exclusion of that mechanism's
+UNIQUE evidence contribution.
+
+Do NOT alter frozen outputs.
+
+Report:
+
+qualified relations baseline
+relations still qualified without mechanism
+relations that lose all source-binding support
+relations whose support changes from independent to corroborative
+relations unaffected
+
+This is an audit artifact only.
+
+Do not use ablation as a score/rank.
+
+==================================================
+7. SB05 — VALENCY_DEPENDENCY
+==================================================
+
+Audit existing valency infrastructure first.
+
+Do not create a new valency engine if Q1/Q1.4 already
+represents the necessary dependency.
+
+SB05 should concern a genuine grammatical valency relation
+where a predicate and required/complement-like constituent
+are structurally linked across clause/clause_atom boundaries
+or intervening material.
+
+Allowed evidence:
+
+- existing BHSA/ETCBC grammatical relation data;
+- already implemented MILAL valency binding;
+- exact constituent-function dependency;
+- independently recorded interrupted/split construction.
+
+Forbidden:
+
+- semantic intuition that “this verb probably needs an object”;
+- external lexicon guessing;
+- nearest complement;
+- lexical co-occurrence alone;
+- historical hierarchy.
+
+==================================================
+8. SB05 distinction from SB01
+==================================================
+
+SB01:
+direct syntactic/native dependency.
+
+SB05:
+valency structure that provides source binding beyond
+ordinary direct clause dependency.
+
+If every proposed SB05 witness is already exactly SB01:
+
+classify:
+
+OPERATIONAL_VIA_EXISTING_LAYER
+or
+REDUNDANT_ALIAS_BLOCKED
+
+rather than duplicating relations.
+
+SB05 should be separate only when the valency path contributes
+a structurally distinct binding relation.
+
+==================================================
+9. SB05 outputs
+==================================================
+
+For each candidate:
+
+predicate
+argument/complement
+source clause/atom
+target clause/atom
+native grammatical relation if any
+valency path
+intervening construction
+independence status
+overlap with SB01
+overlap with Q1.4 composite span
+qualification effect
+
+==================================================
+10. SB07 — TEMPORAL_DEPENDENCY
+==================================================
+
+TIME is a first-class structural dimension.
+
+But:
+
+both clauses have a time expression
+
+is NOT SB07.
+
+SB07 requires a pair-specific temporal dependency.
+
+Possible evidence classes:
+
+EXPLICIT_TEMPORAL_ANAPHORA
+TEMPORAL_FRAME_CONTINUATION
+TEMPORAL_FRAME_RESUMPTION
+TEMPORAL_FRAME_SPECIFICATION
+TEMPORAL_FRAME_EMBEDDING
+TEMPORAL_SEQUENCE_DEPENDENCY
+
+Each must be surface-grounded.
+
+==================================================
+11. SB07 restrictions
+==================================================
+
+Do NOT infer SB07 from:
+
+same lexeme JWM alone
+both contain TIME
+same tense/aspect alone
+chronological common sense
+chapter sequence
+verse adjacency
+
+A temporal relation must explain:
+
+why this target is temporally connected to
+this specific preceding source/frame.
+
+==================================================
+12. SB07 and Q1.4 overlap
+==================================================
+
+Q1.4 already stores temporal-frame information inside
+composite configuration profiles.
+
+Audit whether a proposed SB07 witness:
+
+A.
+is only the same Q1.4 evidence viewed separately;
+
+or
+
+B.
+provides a distinct temporal dependency
+not captured by generic configuration correspondence.
+
+Only B is a distinct SB07 contribution.
+
+A remains a TEMPORAL_ANALYTICAL_VIEW
+of shared raw evidence.
+
+==================================================
+13. Temporal frame object
+==================================================
+
+Create:
+
+TEMPORAL_FRAME_WITNESS
+
+fields:
+
+target_clause
+source_clause_or_span
+target_time_expression
+source_time_expression_or_frame
+dependency_type
+surface_basis
+frame_continuity_basis
+intervening_frame_status
+shared_raw_evidence_group
+independence_status
+
+No final plot-stage label.
+
+==================================================
+14. Narrative time
+==================================================
+
+Do not reduce narrative time to lexical matching.
+
+Represent where possible:
+
+frame opening
+frame continuation
+frame resumption
+relative-time dependency
+time specification
+
+These are linguistic observations.
+
+Do NOT infer:
+
+SCENE_1
+SCENE_2
+PLOT_STAGE
+
+as final literary functions.
+
+==================================================
+15. SB08 — LOCATIVE_FRAME_DEPENDENCY
+==================================================
+
+Location is also a first-class structural dimension.
+
+Again:
+
+both contain LOCATION
+
+is insufficient.
+
+SB08 requires a source-target locative frame relation.
+
+Possible classes:
+
+EXPLICIT_LOCATIVE_ANAPHORA
+LOCATIVE_FRAME_CONTINUATION
+LOCATIVE_FRAME_RESUMPTION
+LOCATIVE_FRAME_SPECIFICATION
+LOCATIVE_FRAME_EMBEDDING
+LOCATIVE_REINTRODUCTION
+
+==================================================
+16. SB08 restrictions
+==================================================
+
+Do NOT infer SB08 from:
+
+same place lexeme alone
+same preposition alone
+two PP adjuncts
+geographical common knowledge
+chapter/section assumptions
+
+Require a pair-specific formal connection.
+
+==================================================
+17. Locative classification caution
+==================================================
+
+Do not rewrite native grammatical annotation.
+
+If BHSA marks an element as Adju:
+
+preserve Adju.
+
+Q1.6 may add a semantic/formal locative-frame view
+only if surface morphology/lexical construction independently
+supports locative interpretation.
+
+Do NOT silently relabel:
+
+Adju → Loca
+
+in frozen data.
+
+==================================================
+18. SB08 and Q1.4 overlap
+==================================================
+
+As with time:
+
+a locative component used by Q1.4 composite binding
+must not automatically become a second independent SB08 reason.
+
+Track shared raw evidence.
+
+SB08 is distinct only when the locative dependency itself
+supplies pair-specific source binding.
+
+==================================================
+19. SB09 — DOMAIN_CONTINUATION_OR_EMBEDDING
+==================================================
+
+SB09 is the most important remaining ambiguity.
+
+Do not define DOMAIN as a final literary/textual unit.
+
+Use only independently observable active surface domains.
+
+Possible domain sources:
+
+- Q1.4 independent composite spans;
+- Q1.5 reference visibility domains;
+- explicit direct-speech construction;
+- explicit subordinate construction;
+- valency-bound construction;
+- independently observable participant-role frame;
+- temporal/locative surface frame.
+
+==================================================
+20. SB09 domain relation types
+==================================================
+
+Represent:
+
+DOMAIN_CONTINUATION
+DOMAIN_REENTRY
+DOMAIN_EMBEDDING
+DOMAIN_EXIT
+DOMAIN_OVERLAP
+DOMAIN_UNRESOLVED
+
+These are surface-domain statuses.
+
+Do NOT assign:
+
+chapter
+speech-unit extent
+macro section
+plot scene
+accepted textual parent
+
+from SB09 alone.
+
+==================================================
+21. Domain continuity must be positive
+==================================================
+
+Do NOT say:
+
+“no new marker, therefore same domain.”
+
+Absence of boundary evidence alone is insufficient.
+
+Require positive continuity evidence such as:
+
+- participant-role continuity;
+- reference chain;
+- explicit speech-role continuity;
+- temporal frame continuity;
+- locative frame continuity;
+- native/local construction continuity;
+- overlapping independent surface spans.
+
+==================================================
+22. SB09 and Q1.5
+==================================================
+
+Q1.5 created REFERENCE_VISIBILITY_DOMAIN.
+
+Do not duplicate it.
+
+SB09 may consume these independent domain objects
+and ask:
+
+does the target continue / reenter / embed in
+a source-associated domain?
+
+If yes, it may provide source binding.
+
+But:
+
+domain membership alone
+!=
+relation qualification.
+
+There must still be a specific source-target route.
+
+==================================================
+23. Critical visibility-gap audit
+==================================================
+
+Use Q1.5 unresolved cases diagnostically,
+after generic implementation freeze.
+
+Inspect cases where:
+
+global antecedent candidates > 0
+
+but
+
+visible candidates = 0.
+
+Classify why:
+
+NO_INDEPENDENT_DOMAIN
+DOMAIN_EXISTS_BUT_ANTECEDENT_OUTSIDE
+ROLE_CONFLICT
+REFERENCE_FORM_UNRESOLVED
+DOMAIN_CONTINUITY_NOT_ESTABLISHED
+IMPLEMENTATION_COVERAGE_GAP
+
+Do NOT assume every zero is a bug.
+
+==================================================
+24. Job 2:1 בתוכם post-freeze diagnostic
+==================================================
+
+After generic implementation freeze inspect
+target 497626.
+
+Q1.5:
+
+global candidates = 28
+visible candidates = 0
+
+Q1.4 previously established independent surface material
+around Job 2:1.
+
+Q1.6 must ask:
+
+Is the zero result methodologically correct?
+
+or
+
+Is there an independently supported SB09 domain path
+that Q1.5 did not consume?
+
+Do NOT hard-code בני האלהים as antecedent.
+
+Do NOT require recovery.
+
+Possible results:
+
+CORRECTLY_UNRESOLVED
+SB09_DOMAIN_SUPPORT
+SB09_SOURCE_BINDING
+COVERAGE_GAP
+ROLE_AMBIGUITY
+
+==================================================
+25. Job 32:1 post-freeze diagnostic
+==================================================
+
+Inspect:
+
+הוא
+בעיניו
+
+Q1.5 left these mostly unresolved.
+
+Determine whether:
+
+- no active domain exists;
+- a domain exists but reference identity remains ambiguous;
+- SB09 adds visibility/support;
+- no new evidence exists.
+
+Do NOT hard-code Job.
+
+==================================================
+26. Job 37:20 true pivot
+==================================================
+
+Q1.5 created one true mother competition
+at target 500065.
+
+Q1.6 must NOT decide it.
+
+Show for each mother alternative:
+
+source-binding mechanisms
+raw evidence identities
+independent vs shared evidence
+SB05/SB07/SB08/SB09 contributions
+ablation result
+
+If one alternative gains more evidence,
+report descriptively.
+
+Do NOT rank.
+Do NOT select.
+Do NOT delete either alternative.
+
+==================================================
+27. Job time-frame diagnostics
+==================================================
+
+Post-freeze inspect representative temporal constructions,
+including already known narrative markers such as:
+
+ויהי היום
+
+where available.
+
+Do not hard-code relations.
+
+Report whether SB07 contributes:
+
+distinct source binding
+corroboration only
+shared Q1.4 evidence only
+no dependency
+
+==================================================
+28. Job location-frame diagnostics
+==================================================
+
+Post-freeze inspect representative location-bearing
+constructions, including the storm expressions around
+YHWH speech introductions where surface evidence exists.
+
+Preserve native annotation.
+
+Determine whether SB08 is:
+
+distinct
+corroborative
+already represented by composite configuration
+unresolved
+
+==================================================
+29. Cross-mechanism conflict
+==================================================
+
+Mechanisms can disagree.
+
+Represent:
+
+MECHANISM_SUPPORT_CONFLICT
+
+when one evidence path supports a relation while another
+independent path provides counterevidence.
+
+Do not average them.
+
+Do not score them.
+
+Do not automatically resolve conflict.
+
+==================================================
+30. Positive versus negative evidence
+==================================================
+
+For every SB05/SB07/SB08/SB09 witness classify:
+
+POSITIVE_BINDING
+SUPPORT_ONLY
+COUNTEREVIDENCE
+NEUTRAL
+UNRESOLVED
+
+Do not treat absence of a witness as counterevidence.
+
+==================================================
+31. Relation qualification rule
+==================================================
+
+A new Q1.6 relation can qualify only if:
+
+A.
+it already exists in raw relation universe;
+
+B.
+relation grammar licenses the relation type;
+
+C.
+at least one non-circular source-binding mechanism supplies
+positive pair-specific evidence;
+
+D.
+the positive evidence is not merely a duplicate view of
+an already insufficient witness.
+
+Do not invent relation types.
+
+==================================================
+32. Preserve previous relations
+==================================================
+
+All 273 Q1.5 qualified relations must remain.
+
+Q1.6 may add relations.
+
+Do not silently remove any.
+
+If evidence now appears contradictory:
+
+record conflict.
+
+==================================================
+33. Compatibility model
+==================================================
+
+Every newly qualified relation must pass through
+Q1.3 compatibility semantics.
+
+Recompute:
+
+mother competition
+parallel additive sets
+orthogonal sets
+same-pair relation conflicts
+global conflicts
+true pivots
+
+Do not use:
+
+multiple relation = pivot.
+
+==================================================
+34. Mechanism coverage matrix
+==================================================
+
+Create a final matrix for SB01–SB12.
+
+For each:
+
+definition
+implementation module
+raw evidence source
+positive witness count
+support-only count
+counterevidence count
+unresolved count
+qualified relation count
+unique decisive relation count
+corroborative relation count
+shared-evidence relation count
+conceptual status
+implementation status
+empirical Job status
+remaining limitation
+
+SB12 must remain:
+
+CONSTRAINT_ONLY
+
+not positive source binding.
+
+==================================================
+35. Required outputs
+==================================================
+
+At minimum:
+
+01_q16_sb_mechanism_registry.csv
+02_q16_evidence_dependency_graph.csv
+03_q16_shared_raw_evidence_groups.csv
+
+04_q16_sb05_valency_witnesses.csv
+05_q16_sb07_temporal_witnesses.csv
+06_q16_sb08_locative_witnesses.csv
+07_q16_sb09_domain_witnesses.csv
+
+08_q16_mechanism_overlap_matrix.csv
+09_q16_mechanism_ablation.csv
+10_q16_relation_mechanism_provenance.csv
+
+11_q16_visibility_gap_audit.csv
+12_q16_mechanism_support_conflicts.csv
+
+13_q16_relation_qualification_delta.csv
+14_q16_qualified_relation_universe.csv
+15_q16_q13_compatibility_reaudit.csv
+16_q16_true_decision_pivots.csv
+
+17_q16_job_special_diagnostics.md
+18_q16_job_37_20_pivot_audit.md
+
+19_q16_numbers_postfreeze_controls.csv
+20_q16_bosman_postfreeze_controls.csv
+
+21_q16_mechanism_coverage_matrix.csv
+22_q16_method_report.md
+23_q16_h0_1_readiness.md
+24_q16_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+36. Metrics
+==================================================
+
+Report for SB05/SB07/SB08/SB09:
+
+raw eligible witnesses
+positive
+support-only
+counterevidence
+unresolved
+
+unique qualified relations
+corroborative qualified relations
+shared-evidence-only relations
+
+For all SB01–SB12:
+
+operational status
+
+Mechanism overlap:
+
+shared raw evidence groups
+independent evidence chains
+duplicate-view cases blocked
+
+Ablation:
+
+relations uniquely dependent on each mechanism
+relations retaining another source-binding path
+
+Relations:
+
+Q1.5 baseline = 273
+retained
+newly qualified
+Q1.6 total
+
+mother
+parallel
+overlay
+
+compatibility conflicts
+true pivots
+
+No required increase in relation count.
+
+==================================================
+37. Synthetic tests
+==================================================
+
+Q16-S1
+
+valency path across intervening material
+with independent grammatical evidence
+
+→ SB05 may bind.
+
+Q16-S2
+
+same evidence already represented identically as SB01
+
+→ mark overlap;
+do not double-count.
+
+Q16-S3
+
+two clauses both contain temporal phrases
+but no pair-specific temporal dependency
+
+→ no SB07 binding.
+
+Q16-S4
+
+target explicitly resumes an independently established
+temporal frame from source
+
+→ SB07 may bind.
+
+Q16-S5
+
+same location name occurs twice with no frame dependency
+
+→ no SB08 binding.
+
+Q16-S6
+
+target continues an independently observable locative frame
+
+→ SB08 may bind.
+
+Q16-S7
+
+absence of a boundary marker only
+
+→ no SB09 domain continuation.
+
+Q16-S8
+
+positive participant/reference/frame continuity across an
+independent surface domain
+
+→ SB09 may bind.
+
+Q16-S9
+
+SB07 and SB06 derive from the exact same temporal raw node
+
+→ one raw evidence group;
+two analytical views;
+not two independent witnesses.
+
+Q16-S10
+
+SB09 domain comes from relation under test
+
+→ circularity FAIL.
+
+Q16-S11
+
+mechanism ablation removes unique support for relation
+
+→ relation marked mechanism-dependent in audit,
+without modifying frozen qualification.
+
+Q16-S12
+
+two mechanisms independently disagree
+
+→ MECHANISM_SUPPORT_CONFLICT;
+no averaging.
+
+Q16-S13
+
+new relation enters Q1.3 compatibility model
+
+→ multiple relation alone does not imply pivot.
+
+Q16-S14
+
+no Job witness exists for a conceptually valid mechanism
+
+→ NO_JOB_WITNESS is valid;
+do not fabricate examples.
+
+==================================================
+38. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_5_FROZEN
+
+RAW_RELATION_UNIVERSE_UNCHANGED
+
+Q1_5_273_RELATIONS_PRESERVED
+
+REFERENCE_LAYER_PRESERVED
+
+COMPOSITE_SPANS_PRESERVED
+
+HUMAN_JUDGMENTS_UNCHANGED
+
+MECHANISM_AUDIT_BEFORE_IMPLEMENTATION
+
+SB05_AUDITED
+SB07_AUDITED
+SB08_AUDITED
+SB09_AUDITED
+
+NO_DUPLICATE_MECHANISM_ALIAS
+
+EVIDENCE_DEPENDENCY_GRAPH_IMPLEMENTED
+
+SHARED_RAW_EVIDENCE_NOT_DOUBLE_COUNTED
+
+MECHANISM_ABLATION_IMPLEMENTED
+
+SB05_NO_SEMANTIC_VALENCY_GUESS
+
+SB07_PAIR_SPECIFIC_TIME_REQUIRED
+
+SB08_PAIR_SPECIFIC_LOCATION_REQUIRED
+
+SB09_POSITIVE_DOMAIN_CONTINUITY_REQUIRED
+
+NO_BOUNDARY_ABSENCE_AS_DOMAIN_PROOF
+
+DOMAIN_INDEPENDENT_OF_TESTED_RELATION
+
+NATIVE_ANNOTATION_NOT_REWRITTEN
+
+NO_DISTANCE_RULE
+NO_SCORE
+NO_TOP_N
+
+RELATION_GRAMMAR_STILL_REQUIRED
+
+NEW_RELATIONS_PASS_Q13_COMPATIBILITY
+
+SB12_CONSTRAINT_ONLY
+
+JOB_BLIND_BEFORE_POSTFREEZE_DIAGNOSTICS
+
+NO_JOB_IDS_IN_CORE_LOGIC
+NO_NUMBERS_IDS_IN_CORE_LOGIC
+NO_BOSMAN_IDS_IN_CORE_LOGIC
+
+NO_CANONICAL_MOTHER
+NO_CANONICAL_HIERARCHY
+NO_NEW_HUMAN_JUDGMENT
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+39. Stop conditions
+==================================================
+
+STOP if:
+
+A.
+Q1.6 merely adds four labels to evidence already fully
+represented elsewhere without auditing redundancy;
+
+B.
+same raw time/location evidence is counted as multiple
+independent witnesses;
+
+C.
+SB09 defines domain continuity by absence of markers alone;
+
+D.
+valency is guessed semantically without grammatical evidence;
+
+E.
+native BHSA annotation is overwritten;
+
+F.
+new mechanisms bypass relation grammar;
+
+G.
+new relations bypass Q1.3 compatibility;
+
+H.
+Q1.5 frozen outputs are rewritten.
+
+==================================================
+40. H0.1 readiness decision
+==================================================
+
+Q1.6 is the final source-binding coverage audit
+before review-universe reduction resumes.
+
+Return:
+
+READY_FOR_MFR_0_2R_H0_1
+
+only if:
+
+1. SB01–SB12 each have a documented status;
+2. no material source-binding mechanism remains
+   accidentally unimplemented;
+3. duplicate mechanisms/evidence are identified;
+4. reference/composite/valency/time/location/domain
+   layers have non-circular provenance;
+5. remaining gaps are genuine unresolved evidence,
+   not missing infrastructure;
+6. compatibility semantics remain operational.
+
+Return:
+
+NEEDS_SOURCE_BINDING_COVERAGE_REVIEW
+
+if any material mechanism remains underspecified.
+
+Return:
+
+Q1_6_OVERGENERALIZED
+
+if new mechanisms create uncontrolled relation growth.
+
+Do NOT start H0.1 automatically.
+
+==================================================
+41. Validation
+==================================================
+
+Run:
+
+1. syntax/static validation
+2. focused Q1.6 tests
+3. synthetic tests
+4. blind Job execution
+5. freeze Job outputs
+6. Job post-freeze diagnostics
+7. mechanism ablation
+8. Numbers controls
+9. Bosman controls
+10. full regression
+11. independent A/B execution
+12. manifest comparison
+13. ZIP byte comparison
+14. ZIP CRC validation
+
+No skip.
+
+==================================================
+42. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+
+Complete source-binding mechanism coverage audit
+
+Push origin/main using the normal authorization workflow.
+
+Do not commit generated release directories unless current
+repository policy requires it.
+
+==================================================
+43. FINAL RESPONSE REQUIREMENT — DO NOT OMIT
+==================================================
+
+Print explicitly:
+
+GIT
+- start commit
+- end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree
+
+FROZEN INTEGRITY
+- raw candidate count
+- Q1.5 baseline
+- frozen-file changes
+- human-judgment changes
+
+MECHANISM STATUS
+- SB01 through SB12
+- conceptual status
+- implementation status
+- empirical Job status
+
+SB05
+- eligible
+- positive
+- support-only
+- overlap with SB01
+- unique relation contribution
+
+SB07
+- temporal witnesses
+- positive
+- support-only
+- overlap with SB06/Q1.4
+- unique relation contribution
+
+SB08
+- locative witnesses
+- positive
+- support-only
+- overlap with SB06/Q1.4
+- unique relation contribution
+
+SB09
+- domain witnesses
+- positive
+- support-only
+- overlap with Q1.5 visibility domains
+- unique relation contribution
+
+EVIDENCE DEPENDENCY
+- shared raw evidence groups
+- duplicate views blocked
+- independent evidence chains
+
+ABLATION
+- relations uniquely dependent on each mechanism
+- relations retaining alternative source-binding paths
+
+RELATIONS
+- Q1.5 baseline = 273
+- retained
+- newly qualified
+- Q1.6 total
+- mother / parallel / overlay
+- conflicts
+- true pivots
+
+JOB DIAGNOSTICS
+- Job 2:1 בתוכם
+- Job 32:1 הוא / בעיניו
+- temporal-frame diagnostics
+- locative/storm diagnostics
+- Job 37:20 pivot audit
+
+CONTROLS
+- Numbers
+- Bosman
+- no hardcoding confirmation
+
+VALIDATION
+- focused tests
+- synthetic
+- full regression
+- gates
+- skip
+- deterministic rerun
+- manifest
+- CRC
+
+FILES
+- validation report absolute path
+- regression log absolute path
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+Explicitly state:
+- ZIP exists
+- CRC passed
+- manifest passed
+- A/B ZIP bytes identical
+
+READINESS:
+READY_FOR_MFR_0_2R_H0_1
+or
+NEEDS_SOURCE_BINDING_COVERAGE_REVIEW
+or
+Q1_6_OVERGENERALIZED

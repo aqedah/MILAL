@@ -1,6 +1,44 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.5 technically validated
+## Current task — MFR.0.2R-Q1.6 technically validated; coverage review required
+
+Active specification: [Q1.6](MFR_0_2R_Q16_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q1_6_RESEARCHER_INSTRUCTIONS.txt);
+[preimplementation audit](MFR_0_2R_Q1_6_PREIMPLEMENTATION_AUDIT.json);
+[execution instructions](README_MILAL_MFR_0_2R_Q16.md);
+[validation report](MFR_0_2R_Q16_VALIDATION_REPORT.md).
+Start `8e196eeb6649a7953b59a3217d99a658b3f2c67c` matched local, fetched origin/main
+and actual remote. Four pre-existing untracked PDFs remain untouched.
+536 frozen file pins unchanged; Q1.5 and all earlier analytical cores unchanged.
+
+Q1.6 adds exact witness recovery, raw/derived evidence dependencies, shared views,
+non-destructive unique-evidence ablation, mechanism coverage and visibility-gap audit.
+No distinct new binding extractor was justified. Raw candidates 1,049,504;
+273/273 prior relations retained; new 0; mother/parallel/overlay 203/70/0;
+conflicts 1 and true pivots 1. Human judgments 13 unchanged. Reference and
+composite layers remain frozen. Recovered positive witnesses 543; shared raw
+groups 2,033; duplicate support views on qualified pairs 1,029. Conservative
+complete-context dependency closure yields 0 disjoint independent chain pairs.
+SB05/SB07/SB08/SB09 unique new relation contributions are all zero.
+
+Validation: syntax 8 files; focused 74 tests; synthetic 14/14;
+negative gate mutations 41/41; full regression 2,922, failures/errors/skips 0;
+release gates 41/41; independent A/B manifests and ZIP bytes identical;
+both ZIP CRC and manifest checks pass. Fingerprint:
+`7378387e8159971e6656c2e0f6bf6bc19f99cd860ac6905521926268e027ba20`.
+
+ZIP A: `D:\MILAL_runs\mfr02r_q16_20260926\release_a_results.zip`
+ZIP B: `F:\MILAL_runs\mfr02r_q16_20260926\release_b_results.zip`
+SHA256: `47cb7420cd8ab4d107fcaedb714b592db641b302221c6dcdab9aa74607274369`.
+Regression log: `D:\MILAL_runs\mfr02r_q16_20260926\regression_verified.log`.
+
+Readiness: **NEEDS_SOURCE_BINDING_COVERAGE_REVIEW**.
+Next task: methodological review of distinct valency, temporal/locative dependency,
+positive domain-continuity and lexical-anaphora contracts. Do not start H0.1.
+Numbers/Bosman controls are exact frozen fixture replay, not full external analysis.
+Technical validation does not constitute scholarly acceptance or source-binding completeness.
+
+## Previous task — MFR.0.2R-Q1.5 technically validated
 
 Active specification: [Q1.5](MFR_0_2R_Q15_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q15_RESEARCHER_SOURCE.txt); execution:
