@@ -1,6 +1,59 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.4 technically validated
+## Current task — MFR.0.2R-Q1.5 technically validated
+
+Active specification: [Q1.5](MFR_0_2R_Q15_SPEC.md); authority:
+[researcher request](MFR_0_2R_Q15_RESEARCHER_SOURCE.txt); execution:
+[README](README_MILAL_MFR_0_2R_Q15.md);
+[validation report](MFR_0_2R_Q15_VALIDATION_REPORT.md).
+Baseline `eaeb80d7116214628d593c8e896633c62af409c6` matched local HEAD,
+fetched origin/main and actual remote HEAD. Four untracked PDFs remain untouched.
+All 523 frozen source pins and all Q1.4 outputs remain unchanged.
+
+Q1.5 separates global search, independent surface visibility, provisional source
+binding and identity. It preserves 5,854 original witnesses and 1,329,190 global
+candidate records, plus 3,380 separately marked supplemental domain candidates.
+Observed: 3,453 domains (2,938 native clause environments, 275 preserved composite
+spans, 240 typed native endpoint environments); 541 visible and 193 source-bound
+candidate occurrences. Identity: 193 PROVISIONAL_UNIQUE_VISIBLE, 83
+MULTIPLE_PLAUSIBLE, 5,578 UNRESOLVED; no confirmed identity or canonical coreference.
+
+SB02 qualified/support/unresolved: 49/154/2,753; SB03: 4/49/2,885;
+SB10: 0/2,011/3,843. These are binding-route rows, not relation counts.
+Q1.4 baseline/retained: 243/243; new reference-qualified relations: 30; total: 273.
+Mother/parallel/overlay: 203/70/0. One true mother competition and pivot at
+Job 37:20 target 500065 (sources 500062 and 500064) remains unadjudicated.
+Raw candidate universe 1,049,504 and historical human judgments 13 are preserved.
+
+40:1/40:3 implicit AMR subjects each have one provisional visible candidate.
+2:1 בתוכם and 1:13 possessives still lack sufficient visibility paths.
+32:1 בעיניו retains the unresolved הוא as a visible competitor without binding.
+Both Bosman controls remain NO_BINDING; independent membership at 504910 does not
+make lexical recurrence an anaphoric edge. Numbers five alternatives remain
+EVIDENCE_ONLY. All external controls ran only after Job blind freeze.
+
+Validation: syntax 8 files, focused 83 tests, synthetic 13/13 checks;
+full regression 2,848 tests in 784.338 seconds, zero failures/errors/skips;
+38/38 gates with negative coverage. Independent A/B manifests and ZIP bytes match;
+both final ZIPs exist and both CRCs/member manifests passed (47 members each).
+Synthetic receipt: `C:\MILAL\results\q15_synthetic_03\receipt.json`.
+Regression log: `D:\MILAL_runs\mfr02r_q15_20260926\regression_final.log`.
+Validated fingerprint:
+`3f530287364b590ce577fc1810838e5af704a134dc84fa412e42f264adaabe1c`.
+
+RESULT ZIP A: `D:\MILAL_runs\mfr02r_q15_20260926\release_a_results.zip`
+
+RESULT ZIP B: `F:\MILAL_runs\mfr02r_q15_20260926\release_b_results.zip`
+
+SHA256: `b339c3b3b2097ba622c792c9c4805878494b92cae92cc9a409a8b854531a6325`.
+Receipt: `D:\MILAL_runs\mfr02r_q15_20260926\release_a_verification.json`.
+Generated outputs and all preliminary drafts remain local-only.
+
+**READY_FOR_MFR_0_2R_Q1_6. Do not start Q1.6 automatically.**
+Technical readiness is not human acceptance. Limited domain coverage and unresolved
+reference identity remain explicit. No prior analytical core was edited.
+
+## Previous task — MFR.0.2R-Q1.4 technically validated
 
 Active specification: [Q1.4](MFR_0_2R_Q14_SPEC.md); authority:
 [researcher request](MFR_0_2R_Q14_RESEARCHER_SOURCE.txt); execution:

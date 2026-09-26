@@ -1,0 +1,1355 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 다음 단계를 구현·실행·검증하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project.
+- Q1.4 is frozen.
+- Integrate additively with the current architecture.
+- Reuse existing schemas/modules/provenance wherever possible.
+- Do NOT replace earlier analytical layers.
+- Do NOT use historical human hierarchy to resolve references.
+
+작업명:
+
+MILAL MFR.0.2R-Q1.5
+— Reference Visibility & Active Surface Domain Qualification
+— SB02 / SB03 / SB10 Refinement
+— Non-Circular Antecedent Candidate Reduction
+
+Current required baseline:
+
+repository:
+aqedah/MILAL
+
+branch:
+main
+
+start commit:
+eaeb80d7116214628d593c8e896633c62af409c6
+
+Before work:
+fetch and verify
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+If tracked working tree has unexpected changes:
+STOP.
+
+Preserve the four existing untracked PDFs.
+
+==================================================
+1. Frozen Q1.4 facts
+==================================================
+
+Preserve exactly:
+
+raw relation candidates:
+1,049,504
+
+Q1.4 qualified relations:
+243
+
+mother:
+173
+
+parallel:
+70
+
+overlay:
+0
+
+surface construction spans:
+275
+
+independent spans:
+275
+
+composite families:
+239
+
+cross-family correspondences:
+3,415
+
+human judgments:
+13
+
+true decision pivots:
+0
+
+Do not rewrite Q1.4 outputs.
+
+Q1.5 is additive.
+
+==================================================
+2. Core problem
+==================================================
+
+The current reference layer preserves broad antecedent
+possibilities but is not selective enough for source binding.
+
+Current Q1.2 reference witness universe:
+
+5,854 reference witnesses
+
+with statuses including:
+
+UNIQUE_SURFACE_CANDIDATE
+MULTIPLE_PLAUSIBLE
+UNRESOLVED
+NO_CANDIDATE
+
+But SB02 / SB03 / SB10 currently qualify zero relations.
+
+Many pronominal and implicit-subject witnesses have very
+large preceding candidate sets because morphological
+compatibility is searched across broad preceding context.
+
+Example problem class:
+
+3ms implicit subject
+→ hundreds or >1000 morphologically compatible preceding nodes
+
+This is SEARCH EVIDENCE,
+not referential identification.
+
+Q1.5 must distinguish:
+
+GLOBAL_REFERENCE_SEARCH_CANDIDATE
+
+from
+
+VISIBLE_ANTECEDENT_CANDIDATE
+
+from
+
+SOURCE_BOUND_REFERENCE_CANDIDATE
+
+from
+
+REFERENTIAL_IDENTITY.
+
+==================================================
+3. Critical principle
+==================================================
+
+Do NOT resolve reference by:
+
+nearest noun
+nearest matching PNG
+nearest proper name
+chapter boundary
+verse distance
+fixed lookback window
+top-N ranking
+numeric similarity score
+historical hierarchy
+
+Instead use independently observable
+REFERENCE VISIBILITY.
+
+Required flow:
+
+raw reference form
+→ global search candidates preserved
+→ independent surface-domain visibility
+→ grammatical/reference compatibility
+→ visible antecedent set
+→ source-binding status
+→ optional relation qualification
+→ referential identity remains separately classified
+
+==================================================
+4. Preserve original reference witnesses
+==================================================
+
+Do NOT delete or rewrite the existing 5,854 witnesses.
+
+Create a derived Q1.5 layer.
+
+Every previous candidate antecedent must remain recoverable.
+
+Q1.5 may classify antecedents as:
+
+VISIBLE
+OUTSIDE_ACTIVE_SURFACE_DOMAIN
+LEXICAL_EVIDENCE_ONLY
+MORPHOLOGICAL_EVIDENCE_ONLY
+BLOCKED_BY_ROLE
+UNRESOLVED
+
+Candidate reduction means:
+reduction of the ACTIVE REFERENTIAL COMPETITION SET,
+
+not deletion of raw evidence.
+
+==================================================
+5. Separate mention from reference
+==================================================
+
+CRITICAL CORRECTION:
+
+Do not treat every explicit lexical NP as an anaphoric
+reference expression.
+
+Distinguish at minimum:
+
+PRONOMINAL_SUFFIX
+INDEPENDENT_PRONOUN
+DEICTIC_PRONOUN_OR_DETERMINER
+IMPLICIT_SUBJECT_OR_ARGUMENT
+EXPLICIT_PROPER_NAME_MENTION
+EXPLICIT_COMMON_NP_MENTION
+LEXICAL_REPETITION
+
+An explicit lexical NP may be:
+
+NEW_MENTION
+REINTRODUCTION_CANDIDATE
+LEXICAL_CONTINUITY_EVIDENCE
+UNRESOLVED_MENTION_STATUS
+
+but lexical recurrence alone must NOT create referential
+identity.
+
+Thus:
+
+same lexeme
+!=
+same referent automatically.
+
+==================================================
+6. Reference-bearing forms
+==================================================
+
+Positive reference analysis should focus primarily on
+grammatically reference-bearing forms:
+
+- pronominal suffixes;
+- independent personal pronouns;
+- demonstrative/deictic forms;
+- implicit verbal subjects/arguments where morphology licenses them;
+- explicit anaphoric expressions where formally identifiable.
+
+Lexical NP recurrence remains available as supporting
+evidence but is not by itself SB02/SB03/SB10 qualification.
+
+==================================================
+7. Reference Visibility Domain
+==================================================
+
+Create:
+
+REFERENCE_VISIBILITY_DOMAIN
+
+This is NOT a final textual unit.
+
+It is an observational environment in which an antecedent
+is structurally available to a reference expression.
+
+Domains may overlap and nest.
+
+Do not require one unique domain per clause.
+
+Allowed independently supported domain sources:
+
+A.
+Q1.4 independent SURFACE_CONSTRUCTION_SPAN
+
+B.
+native BHSA/ETCBC local clause dependency
+
+C.
+independently established valency construction
+
+D.
+explicit subordinate construction
+
+E.
+explicit/direct-speech surface construction,
+only where independently represented by existing surface data
+
+F.
+overlapping Q1.4 surface spans
+
+G.
+independently observable temporal/locative frame,
+where it provides a bounded surface environment
+
+Forbidden domain sources:
+
+- Q1.4 newly qualified relation being tested;
+- Q1.3 coherent assignment;
+- historical HSA parentage;
+- R4 macro hierarchy;
+- chapter membership as a linguistic boundary;
+- commentary outline;
+- expected control answer.
+
+==================================================
+8. Domain types
+==================================================
+
+Represent domains generically, for example:
+
+LOCAL_NATIVE_CONSTRUCTION
+COMPOSITE_SURFACE_SPAN
+EXPLICIT_SUBORDINATION_DOMAIN
+VALENCY_BOUND_DOMAIN
+EXPLICIT_SPEECH_CONSTRUCTION
+SURFACE_FRAME_DOMAIN
+OVERLAPPING_SURFACE_DOMAIN
+
+Do not hard-code Job-specific domain names.
+
+Each domain records:
+
+domain_id
+domain_type
+opening_clause
+member_clauses
+member_atoms
+boundary_basis
+independence_status
+provenance
+
+No:
+
+accepted_parent
+canonical_mother
+final_textual_level
+final_speech_unit
+
+==================================================
+9. Visibility paths
+==================================================
+
+For every antecedent candidate, record how it is visible
+to the target reference.
+
+Allowed visibility paths:
+
+DIRECT_NATIVE_PATH
+SAME_SURFACE_SPAN
+SOURCE_SPAN_INTERNAL_ANTECEDENT
+OVERLAPPING_SPAN_PATH
+EXPLICIT_SUBORDINATION_PATH
+VALENCY_PATH
+EXPLICIT_SPEECH_ROLE_PATH
+SURFACE_FRAME_PATH
+CROSS_DOMAIN_EXPLICIT_REINTRODUCTION
+GLOBAL_SEARCH_ONLY
+
+GLOBAL_SEARCH_ONLY can never establish positive
+source binding.
+
+==================================================
+10. No arbitrary distance rule
+==================================================
+
+Distance may be reported descriptively.
+
+It may not be used as:
+
+cutoff
+score
+ranking
+automatic preference
+
+A distant antecedent may remain visible if an independent
+surface/domain path supports it.
+
+A nearby candidate may be excluded from active competition
+if no reference visibility path supports it.
+
+==================================================
+11. Participant candidate object
+==================================================
+
+Create an antecedent/participant object preserving:
+
+antecedent_id
+word_node
+clause_id
+span/domain memberships
+lexeme
+grammatical_role
+phrase_function
+person
+gender
+number
+explicitness
+proper/common/pronominal status
+speaker/addressee role if independently surface-marked
+provenance
+
+Do not collapse multiple mentions into one global entity
+unless identity is independently established.
+
+==================================================
+12. Referential compatibility
+==================================================
+
+For a reference-bearing target and visible antecedent,
+evaluate named dimensions:
+
+PERSON
+GENDER
+NUMBER
+GRAMMATICAL_ROLE
+EXPLICITNESS
+SPEECH_ROLE
+LEXICAL_ANCHOR
+DOMAIN_VISIBILITY
+NATIVE_REFERENCE_EVIDENCE
+DEICTIC_COMPATIBILITY
+
+Statuses:
+
+MATCH
+COMPATIBLE
+CONFLICT
+NOT_APPLICABLE
+UNRESOLVED
+
+No combined numerical score.
+
+==================================================
+13. PNG rule
+==================================================
+
+PNG compatibility is necessary evidence in relevant cases,
+but never sufficient for identity.
+
+Therefore:
+
+PNG_MATCH_ONLY
+→ MORPHOLOGICAL_EVIDENCE_ONLY
+
+not:
+
+REFERENT_IDENTIFIED.
+
+This applies even if only one candidate remains after a
+poorly defined search.
+
+Uniqueness is meaningful only inside an independently
+justified visibility domain.
+
+==================================================
+14. New reference candidate statuses
+==================================================
+
+For each reference witness create:
+
+GLOBAL_CANDIDATES
+VISIBLE_CANDIDATES
+SOURCE_BOUND_CANDIDATES
+
+and final status:
+
+NATIVE_EXACT_REFERENCE
+UNIQUE_VISIBLE_CANDIDATE
+MULTIPLE_VISIBLE_CANDIDATES
+VISIBLE_BUT_ROLE_AMBIGUOUS
+OUTSIDE_DOMAIN_ONLY
+MORPHOLOGY_ONLY
+LEXICAL_RECURRENCE_ONLY
+NO_VISIBLE_CANDIDATE
+UNRESOLVED
+
+Important:
+
+UNIQUE_VISIBLE_CANDIDATE
+!=
+CONFIRMED_REFERENTIAL_IDENTITY.
+
+==================================================
+15. Identity status remains separate
+==================================================
+
+Create separate:
+
+REFERENTIAL_IDENTITY_STATUS
+
+Allowed:
+
+CONFIRMED_NATIVE
+CONFIRMED_EXPLICIT_ANAPHORIC
+SURFACE_ROLE_BOUND
+PROVISIONAL_UNIQUE_VISIBLE
+MULTIPLE_PLAUSIBLE
+UNRESOLVED
+
+Do not upgrade:
+
+PROVISIONAL_UNIQUE_VISIBLE
+
+to:
+
+CONFIRMED
+
+without independent identity evidence.
+
+==================================================
+16. SB02
+==================================================
+
+SB02 =
+EXPLICIT_REFERENCE_TO_SOURCE
+
+Operationalize when:
+
+- target contains a genuine reference-bearing form;
+- source itself is visible through an independent path;
+- grammatical/reference constraints support source;
+- competing visible antecedents are absent or explicitly
+  represented;
+- qualification does not depend on the relation edge under test.
+
+SB02 may create:
+
+REFERENCE_SOURCE_BINDING
+
+without creating:
+
+CANONICAL_COREFERENCE.
+
+Record confidence category qualitatively,
+not numerically.
+
+==================================================
+17. SB03
+==================================================
+
+SB03 =
+REFERENCE_TO_SOURCE_CONTAINING_UNIT
+
+This is now possible because Q1.4 provides independent
+surface-span membership.
+
+Pattern:
+
+source opening candidate S
+→ independently observed surface span U
+
+antecedent A is inside U
+
+target reference R points plausibly/uniquely to A
+
+Then:
+
+R may provide source binding to S
+through U
+
+provided:
+
+- U is independently established;
+- membership A ∈ U does not use the tested relation;
+- R→A evidence is independently sufficient for a
+  source-binding candidate;
+- no incompatible visible antecedent is silently discarded.
+
+Record:
+
+source_clause
+source_span
+internal_antecedent
+target_reference
+visibility_path
+identity_status
+SB03 qualification status
+
+Do NOT require the antecedent to equal the span-opening clause.
+
+==================================================
+18. Bosman principle
+==================================================
+
+The architecture must allow:
+
+mother/opening S
++
+antecedent hidden inside independent larger surface span
++
+target reference to that internal antecedent.
+
+But:
+
+larger-unit membership
+does not itself prove reference identity.
+
+Likewise:
+
+reference compatibility
+does not itself prove the source span.
+
+Both sides must be independently evidenced.
+
+==================================================
+19. SB10
+==================================================
+
+SB10 =
+LEXICAL_ANAPHORIC_DEPENDENCY
+
+Do NOT define SB10 as:
+
+same lexeme appeared earlier.
+
+Require an actual anaphoric/deictic reference configuration.
+
+Possible supporting forms include:
+
+- explicit deictic/pronominal form;
+- definite/referential construction where surface grammar
+  independently marks anaphoric dependence;
+- lexical repetition combined with an independently
+  reference-bearing construction.
+
+LEXICAL_RECURRENCE_ONLY
+must remain evidence-only.
+
+==================================================
+20. Implicit subjects
+==================================================
+
+Do not compare an implicit 3ms subject with every preceding
+3ms-capable participant in Job.
+
+First determine the independently visible participant set.
+
+Then apply person/gender/number compatibility.
+
+Possible results:
+
+one visible compatible participant
+multiple visible compatible participants
+no visible compatible participant
+
+Still preserve identity separately.
+
+==================================================
+21. Explicit speaker/addressee roles
+==================================================
+
+Where an independent surface construction explicitly marks:
+
+speaker
+addressee
+
+these roles may constrain reference visibility.
+
+For example:
+
+first-person reference may be compatible with an explicitly
+surface-marked speaker;
+
+second-person reference may be compatible with an explicitly
+surface-marked addressee.
+
+Do NOT create an extended speech domain unless its extent
+is independently represented in existing data.
+
+Do not infer a whole speech unit from semantics.
+
+==================================================
+22. Local continuation
+==================================================
+
+Immediate local continuation may be evidence only when
+combined with an observable construction:
+
+native dependency
+composite span
+explicit subordination
+valency
+reference-bearing grammatical continuation
+
+Adjacency alone is insufficient.
+
+==================================================
+23. Cross-domain reintroduction
+==================================================
+
+An explicit proper name or full NP appearing after a
+domain shift may be recorded as:
+
+EXPLICIT_REINTRODUCTION_CANDIDATE
+
+But do not infer identity merely from same lexeme if
+homonymy or participant ambiguity remains possible.
+
+Cross-domain reintroduction may reopen participant visibility
+for subsequent references.
+
+Do not turn it into hierarchy automatically.
+
+==================================================
+24. Relation qualification
+==================================================
+
+Q1.5 reference evidence may qualify a relation only when:
+
+A.
+the source-target pair already exists in the raw relation universe;
+
+AND
+
+B.
+relation grammar already licenses the relation type;
+
+AND
+
+C.
+SB02/SB03/SB10 supplies non-circular source binding.
+
+Reference evidence must NOT invent:
+
+HYPOTACTIC
+PARATACTIC
+mother
+peer
+
+from nothing.
+
+==================================================
+25. Preserve Q1.4 relations
+==================================================
+
+All 243 Q1.4 qualified relations remain preserved.
+
+Q1.5 may add new qualified relations.
+
+Do not silently delete or rewrite previous relations.
+
+Report:
+
+Q1.4 baseline
+retained
+new reference-qualified
+Q1.5 total
+
+==================================================
+26. Q1.3 compatibility still applies
+==================================================
+
+Every newly qualified relation must pass:
+
+relation dimension
+→ compatibility
+→ coherent assignment
+→ true pivot analysis
+
+Do NOT restore:
+
+multiple relation = pivot.
+
+==================================================
+27. Candidate-set reduction audit
+==================================================
+
+For every reference form record:
+
+global_candidate_count
+visible_candidate_count
+source_bound_candidate_count
+
+Report distributions separately for:
+
+PRONOMINAL_SUFFIX
+INDEPENDENT_PRONOUN
+DEICTIC
+IMPLICIT_SUBJECT
+EXPLICIT_LEXICAL_MENTION
+
+No reduction target.
+
+No required percentage.
+
+A smaller set is not automatically better.
+
+The criterion is:
+linguistically justified visibility.
+
+==================================================
+28. Critical Job post-freeze diagnostics
+==================================================
+
+Run only AFTER generic Job logic is frozen.
+
+Do NOT hard-code expected antecedents.
+
+At minimum inspect:
+
+A. Job 2:1 — בתוכם
+target clause 497626
+
+Current broad reference layer gives many 3mp-compatible
+antecedents.
+
+Report whether Q1.5 surface visibility narrows the active
+competition set.
+
+Do NOT hard-code בני האלהים as the answer.
+
+B. Job 32:1 — כי הוא צדיק בעיניו
+target around clause 499626
+
+Inspect:
+הוא
+suffix in בעיניו
+
+Report visible antecedent candidates and source-binding
+paths.
+
+Do NOT hard-code Job as antecedent.
+
+C. Job 40:1 / 40:3 speech constructions
+
+Inspect implicit subjects of AMR or following speech
+predicates.
+
+Do not accept a speaker merely from PNG across the book.
+
+D. Job 1:13 possessive references
+
+Inspect whether local/domain evidence improves the candidate
+set without forcing identity.
+
+==================================================
+29. Reference explosion diagnostic
+==================================================
+
+Specifically report reference witnesses whose Q1.2
+candidate_count is:
+
+>100
+>500
+>1000
+
+For each class report:
+
+count before Q1.5
+median visible candidates after Q1.5
+maximum visible candidates after Q1.5
+mechanisms responsible for reduction
+
+This is diagnostic only.
+
+Do NOT use these numbers as thresholds in linguistic logic.
+
+==================================================
+30. Bosman post-freeze controls
+==================================================
+
+Re-run both existing Bosman cases after Job freeze.
+
+Case involving source 504907:
+Q1.4 did not establish useful independent larger-span
+membership.
+
+Do not force recovery.
+
+Case involving source 504910:
+Q1.4 established an independent surface span containing
+504911.
+
+Q1.5 must test whether the target reference can access an
+antecedent inside that span through SB03.
+
+Possible valid outcomes:
+
+SB03_QUALIFIED
+UNIQUE_VISIBLE_BUT_IDENTITY_UNRESOLVED
+MULTIPLE_VISIBLE
+UNRESOLVED
+NO_BINDING
+
+Do NOT force SB03 qualification.
+
+Reference identity may remain UNRESOLVED.
+
+==================================================
+31. Numbers controls
+==================================================
+
+Numbers controls remain post-freeze.
+
+Reference changes must not be used to force recovery of
+the five existing relation alternatives.
+
+No control-specific exception.
+
+==================================================
+32. Lexical NP negative control
+==================================================
+
+Critical test:
+
+Repeated explicit proper names/common nouns across Job
+must NOT all become reference edges.
+
+same proper name
+or
+same noun lexeme
+
+alone:
+
+LEXICAL_CONTINUITY_EVIDENCE
+
+not:
+
+SB10_REFERENCE_BINDING.
+
+==================================================
+33. Domain circularity gate
+==================================================
+
+For every positive reference binding record:
+
+target reference
+candidate antecedent
+visibility domain
+domain derivation evidence
+whether tested relation participated in domain creation
+
+Required:
+
+tested_relation_used_for_domain = false
+
+Any positive binding with:
+
+tested_relation_used_for_domain = true
+
+→ FAIL.
+
+==================================================
+34. Required outputs
+==================================================
+
+At minimum:
+
+01_q15_reference_form_inventory.csv
+02_q15_reference_visibility_domains.csv
+03_q15_domain_membership.csv
+04_q15_antecedent_inventory.csv
+
+05_q15_global_reference_candidates.csv
+06_q15_visible_antecedent_candidates.csv
+07_q15_reference_compatibility.csv
+08_q15_reference_visibility_paths.csv
+
+09_q15_reference_witness_reclassification.csv
+10_q15_sb02_qualification.csv
+11_q15_sb03_qualification.csv
+12_q15_sb10_qualification.csv
+
+13_q15_relation_qualification_delta.csv
+14_q15_qualified_relation_universe.csv
+15_q15_q13_compatibility_reaudit.csv
+16_q15_true_decision_pivots.csv
+
+17_q15_candidate_reduction_metrics.json
+18_q15_job_special_diagnostics.md
+19_q15_reference_explosion_diagnostic.csv
+20_q15_bosman_postfreeze_controls.csv
+21_q15_numbers_postfreeze_controls.csv
+
+22_q15_mechanism_coverage.csv
+23_q15_method_report.md
+24_q15_next_scope.md
+25_q15_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+35. Metrics
+==================================================
+
+Report:
+
+reference forms by type
+
+visibility domains by type
+
+global antecedent candidates
+visible antecedent candidates
+source-bound antecedent candidates
+
+before/after candidate distribution by reference-form type
+
+NATIVE_EXACT_REFERENCE
+UNIQUE_VISIBLE_CANDIDATE
+MULTIPLE_VISIBLE_CANDIDATES
+VISIBLE_BUT_ROLE_AMBIGUOUS
+OUTSIDE_DOMAIN_ONLY
+MORPHOLOGY_ONLY
+LEXICAL_RECURRENCE_ONLY
+NO_VISIBLE_CANDIDATE
+UNRESOLVED
+
+identity statuses separately
+
+SB02:
+qualified / support-only / unresolved
+
+SB03:
+qualified / support-only / unresolved
+
+SB10:
+qualified / support-only / unresolved
+
+Q1.4 relation baseline:
+243
+
+retained
+newly reference-qualified
+Q1.5 total
+
+mother / parallel / overlay
+new compatibility conflicts
+true pivots
+
+No target metric.
+
+==================================================
+36. Synthetic tests
+==================================================
+
+Q15-S1
+
+target pronoun has 100 globally PNG-compatible antecedents
+but only one independently visible antecedent
+
+→ visible candidate set = 1
+→ identity not automatically CONFIRMED.
+
+Q15-S2
+
+two antecedents inside same active surface domain
+both match PNG
+
+→ MULTIPLE_VISIBLE_CANDIDATES.
+
+Q15-S3
+
+same lexical noun occurs once earlier
+but target is ordinary lexical NP, not anaphoric construction
+
+→ LEXICAL_RECURRENCE_ONLY
+→ no SB10 qualification.
+
+Q15-S4
+
+target suffix refers plausibly to participant inside an
+independent source surface span
+
+→ SB03 architecture can represent source→span→antecedent→target.
+
+Q15-S5
+
+source span exists only because tested relation was selected
+
+→ circularity FAIL.
+
+Q15-S6
+
+nearest antecedent conflicts grammatically but a more distant
+visible candidate fits
+
+→ do not select nearest.
+
+Q15-S7
+
+implicit subject + hundreds of global PNG matches
+
+→ global set preserved,
+active competition restricted to visible domain candidates.
+
+Q15-S8
+
+explicit speaker surface role plus compatible local first-person
+reference inside independently represented domain
+
+→ role evidence may contribute.
+
+Q15-S9
+
+explicit proper-name repetition only
+
+→ no automatic coreference.
+
+Q15-S10
+
+new SB03-qualified relation enters Q1.3 compatibility model
+
+→ no automatic pivot.
+
+Q15-S11
+
+unique visible candidate with no independent identity proof
+
+→ PROVISIONAL_UNIQUE_VISIBLE,
+not CONFIRMED_NATIVE.
+
+Q15-S12
+
+Bosman-style antecedent hidden inside source span
+
+→ architecture represents it without requiring antecedent
+to equal span opening.
+
+==================================================
+37. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_4_FROZEN
+
+RAW_RELATION_UNIVERSE_UNCHANGED
+
+Q1_4_243_RELATIONS_PRESERVED
+
+Q1_4_SURFACE_SPANS_PRESERVED
+
+HUMAN_JUDGMENTS_UNCHANGED
+
+REFERENCE_MENTION_TYPES_SEPARATED
+
+LEXICAL_NP_NOT_AUTOMATIC_REFERENCE
+
+REFERENCE_VISIBILITY_DOMAIN_IMPLEMENTED
+
+DOMAINS_INDEPENDENT_OF_TESTED_RELATION
+
+OVERLAPPING_DOMAINS_ALLOWED
+
+GLOBAL_SEARCH_CANDIDATES_PRESERVED
+
+ACTIVE_CANDIDATE_SET_SEPARATE
+
+NO_DISTANCE_CUTOFF
+NO_NEAREST_ANTECEDENT_RULE
+NO_TOP_N_REFERENCE_RULE
+NO_REFERENCE_SCORE
+
+PNG_ONLY_NOT_IDENTITY
+
+UNIQUE_VISIBLE_NOT_AUTOMATIC_CONFIRMED_IDENTITY
+
+SB02_OPERATIONAL
+SB03_OPERATIONAL
+SB10_OPERATIONAL_OR_EXPLICITLY_EVIDENCE_ONLY
+
+BOSMAN_INTERNAL_ANTECEDENT_REPRESENTABLE
+
+LEXICAL_RECURRENCE_ONLY_NOT_SB10
+
+REFERENCE_BINDING_DOES_NOT_INVENT_RELATION_TYPE
+
+NEW_RELATIONS_PASS_Q13_COMPATIBILITY
+
+NO_CANONICAL_COREFERENCE_GRAPH
+NO_CANONICAL_MOTHER
+NO_CANONICAL_HIERARCHY
+
+JOB_BLIND_BEFORE_EXTERNAL_CONTROLS
+
+NO_JOB_DIAGNOSTIC_IDS_IN_CORE_LOGIC
+NO_BOSMAN_CONTROL_IDS_IN_CORE_LOGIC
+NO_NUMBERS_CONTROL_IDS_IN_CORE_LOGIC
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+38. Stop conditions
+==================================================
+
+STOP and report if:
+
+A.
+reference visibility requires a provisional hierarchy edge;
+
+B.
+lexical recurrence alone starts resolving coreference;
+
+C.
+implicit subjects still compete against essentially every
+matching participant in the preceding book with no domain distinction;
+
+D.
+Q1.4 surface spans are silently converted into final textual units;
+
+E.
+unique candidate is automatically called confirmed identity;
+
+F.
+SB02/SB03/SB10 invent relation types;
+
+G.
+historical human judgments affect discovery;
+
+H.
+reference candidate reduction depends on arbitrary distance.
+
+==================================================
+39. Readiness
+==================================================
+
+If Q1.5 creates a non-circular and selective reference
+visibility layer:
+
+READY_FOR_MFR_0_2R_Q1_6
+
+Suggested Q1.6:
+
+Remaining Source-Binding Mechanism Coverage Audit
+
+- SB05 valency dependency
+- SB07 temporal dependency
+- SB08 locative-frame dependency
+- SB09 domain continuation/embedding
+- determine whether each requires a distinct mechanism
+  or is already non-redundantly represented by existing layers;
+- complete source-binding coverage audit before H0.1.
+
+Do NOT proceed automatically.
+
+If visibility remains too broad:
+
+NEEDS_REFERENCE_VISIBILITY_REVIEW
+
+If over-resolution occurs:
+
+Q1_5_REFERENCE_OVERRESOLUTION
+
+==================================================
+40. Validation
+==================================================
+
+Run:
+
+1. syntax/static validation
+2. focused Q1.5 tests
+3. synthetic tests
+4. blind Job execution
+5. freeze Job outputs
+6. Job post-freeze diagnostics
+7. Bosman post-freeze controls
+8. Numbers post-freeze controls
+9. full regression
+10. independent A/B execution
+11. manifest comparison
+12. ZIP byte comparison
+13. CRC validation
+
+No skip.
+
+==================================================
+41. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+
+Implement reference visibility qualification
+
+Push origin/main through normal authorization workflow.
+
+Do not commit generated result directories unless repository
+policy already explicitly requires them.
+
+==================================================
+42. FINAL RESPONSE REQUIREMENT — DO NOT OMIT
+==================================================
+
+Print explicitly:
+
+GIT
+- start commit
+- end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree
+
+REFERENCE VISIBILITY
+- reference form counts
+- visibility domain counts
+- global candidates
+- visible candidates
+- source-bound candidates
+- before/after candidate distributions
+
+SB MECHANISMS
+- SB02
+- SB03
+- SB10
+qualified/support/unresolved counts
+
+RELATIONS
+- Q1.4 baseline = 243
+- retained
+- newly qualified
+- Q1.5 total
+- mother / parallel / overlay
+- conflicts
+- true pivots
+
+JOB DIAGNOSTICS
+- Job 2:1 בתוכם
+- Job 32:1 הוא / בעיניו
+- Job 1:13 possessive references
+- Job 40:1 / 40:3 implicit speech references
+- reference explosion audit
+
+CONTROLS
+- both Bosman cases
+- Numbers controls
+- no hardcoding confirmation
+
+VALIDATION
+- focused tests
+- synthetic
+- full regression
+- gates
+- skip
+- deterministic rerun
+- manifest
+- CRC
+
+FILES
+- validation report absolute path
+- regression log absolute path
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+Explicitly state:
+- ZIP exists on disk
+- CRC passed
+- manifest passed
+- A/B ZIP bytes identical
+
+READINESS:
+READY_FOR_MFR_0_2R_Q1_6
+or
+NEEDS_REFERENCE_VISIBILITY_REVIEW
+or
+Q1_5_REFERENCE_OVERRESOLUTION
