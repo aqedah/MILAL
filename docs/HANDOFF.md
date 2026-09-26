@@ -1,6 +1,50 @@
 # MILAL Development Handoff
 
-## Current task — MFR.0.2R-Q1.6R technically validated
+## Current task — MFR.0.2R-H0.1 technically validated
+
+Active specification: [H0.1](MFR_0_2R_H01_SPEC.md);
+[researcher authority](MFR_0_2R_H01_RESEARCHER_SOURCE.txt).
+Start local HEAD, fetched origin/main and actual remote match
+`64250a992fb4fa1035a0b1687df7eef326dcb40c`. Four untracked PDFs are preserved.
+564 frozen file pins protect prior analytical cores.
+The researcher authorizes the qualified-only Job decision sieve, synthetic and
+real frozen-input execution, independent A/B validation, full regression and
+commit/push after gates pass. No relation discovery or human adjudication.
+Validation report: [H0.1 results](MFR_0_2R_H01_VALIDATION_REPORT.md).
+Raw universe 1,049,504; qualified relations 273/273 preserved; mother/parallel/
+overlay 203/70/0; spans 275; reference witnesses 5,854; historical human judgments
+13. No new relations, deletions, human judgments or frozen analytical changes.
+
+Qualified-only symbolic compatibility audit found one mother competition,
+one decision component, one true target pivot and one human review item.
+Other constraint classes are zero. Nondecision QA retains 271 relations in
+59 groups; 9,900 evidence-gap records remain separate from structural decisions.
+Underlying target structure: 198 single candidates, 30 compatible sets, one pivot,
+2,709 without qualified relations. Gap-primary classification preserves the
+underlying status; single candidates are not automatically accepted.
+UNSELECTED remains UNDECIDED. Globally affected targets require distinct local
+positive assignments to count as true target pivots. Other-pair evidence remains
+context-only in the packets. Post-freeze Job 37:20 retains both mother alternatives
+without selection. Q1.3 feasibility and Q1.6R role ontology are unchanged.
+
+Validation: syntax 8 files; focused 71 PASS; synthetic 14/14; negative mutations
+36/36; full regression 3,050 PASS in 758.631 seconds, failures/errors/skips 0;
+release gates 36/36. Independent A/B manifests and ZIP bytes identical;
+both 30-member ZIPs exist and pass CRC and manifest validation.
+Code fingerprint: `0b7da20951c3f255db27bf308cbf104265ca7037358fa73f4ac71874c2898ddb`.
+ZIP A: `D:\MILAL_runs\mfr02r_h01_20260926\release_a_results.zip`
+ZIP B: `F:\MILAL_runs\mfr02r_h01_20260926\release_b_results.zip`
+SHA256: `e07a3a6cc90674acf1e408372f7faf43b302e9d389c013e3609b4f71f9ad04c8`.
+Regression log: `D:\MILAL_runs\mfr02r_h01_20260926\regression_verified.log`.
+Human packet: `D:\MILAL_runs\mfr02r_h01_20260926\release_a\13_h01_review_packets.md`.
+
+Readiness: **READY_FOR_MFR_0_2R_H0_2**. Next: researcher review and explicit
+authorization for human adjudication using only the H0.1 packets.
+**Do not start H0.2 automatically.** Technical validation does not select or accept
+a canonical mother, hierarchy or scholarly interpretation.
+
+
+## Previous task — MFR.0.2R-Q1.6R technically validated
 
 Active specification: [Q1.6R](MFR_0_2R_Q16R_SPEC.md); authority:
 [exact researcher request](MFR_0_2R_Q16R_RESEARCHER_SOURCE.txt).

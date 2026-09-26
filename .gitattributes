@@ -78,3 +78,5 @@ docs/MFR_0_2R_Q1_6_RESEARCHER_INSTRUCTIONS.txt -text whitespace=blank-at-eol,bla
 docs/MFR_0_2R_Q1_6_PREIMPLEMENTATION_AUDIT.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 docs/MFR_0_2R_Q16R_RESEARCHER_SOURCE.txt -text whitespace=cr-at-eol
+
+docs/MFR_0_2R_H01_RESEARCHER_SOURCE.txt -text whitespace=cr-at-eol

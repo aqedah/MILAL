@@ -1,0 +1,1207 @@
+현재 진행 중인 MILAL 작업을 그대로 이어서 다음 단계를 구현·실행·검증하세요.
+
+IMPORTANT:
+- Do NOT reset, rollback, restart, or reconstruct the project.
+- Q1.6R and all earlier analytical layers are frozen.
+- Do NOT reopen source-binding ontology unless a concrete implementation defect is discovered.
+- H0.1 is NOT a new relation-discovery stage.
+- H0.1 is NOT human adjudication itself.
+- Its sole purpose is to determine WHICH qualified structural cases actually require human adjudication.
+- Reuse Q1.3 compatibility semantics and Q1.6R mechanism-role ontology.
+- Preserve every qualified relation and every unresolved evidence record.
+
+작업명:
+
+MILAL MFR.0.2R-H0.1
+— Structural Decision-Pivot Sieve
+— Qualified Relation Review-Universe Reconstruction
+— Symbolic Global Compatibility Audit
+
+repository:
+aqedah/MILAL
+
+branch:
+main
+
+required start commit:
+64250a992fb4fa1035a0b1687df7eef326dcb40c
+
+Before work:
+
+fetch
+
+verify:
+
+local HEAD
+==
+origin/main
+==
+actual remote HEAD
+
+If tracked working tree has unexpected changes:
+STOP.
+
+Preserve the existing four untracked PDFs.
+
+==================================================
+1. Frozen baseline
+==================================================
+
+Preserve exactly:
+
+raw relation universe:
+1,049,504
+
+Q1.6R qualified relation universe:
+273
+
+mother relations:
+203
+
+parallel relations:
+70
+
+overlay:
+0
+
+Q1.4 independent composite spans:
+275
+
+Q1.5 reference witnesses:
+5,854
+
+historical human judgments:
+13
+
+current Q1.6R true pivot count:
+1
+
+Do NOT assume the final H0.1 pivot count must remain 1.
+
+Recompute blindly from the frozen qualified universe
+and explicit structural constraints.
+
+No new relation qualification.
+
+No relation deletion.
+
+No canonical mother.
+
+No canonical hierarchy.
+
+No new human judgment.
+
+==================================================
+2. Historical H0 problem
+==================================================
+
+The original H0 review sieve operated too early.
+
+It preserved all raw candidates but produced:
+
+95,929 relation-eligible candidates
+
+and
+
+2,719 / 2,938 targets
+as REVIEW_REQUIRED.
+
+This happened in part because:
+
+VARIANT_MEMBER
+was confused with
+VARIANT_DECISION_PIVOT,
+
+and because multiple candidates were confused with
+multiple incompatible structural outcomes.
+
+Q1/Q1.1/Q1.2/Q1.3/Q1.4/Q1.5/Q1.6/Q1.6R
+have now corrected the upstream architecture.
+
+H0.1 must therefore rebuild the HUMAN REVIEW UNIVERSE
+from the current 273 qualified relations only.
+
+The historical H0 output is comparison/provenance only.
+
+It must not influence current review classification.
+
+==================================================
+3. Core distinction
+==================================================
+
+Separate:
+
+QUALIFIED_RELATION
+
+from
+
+STRUCTURAL_DECISION
+
+from
+
+HUMAN_ADJUDICATION_REQUIRED.
+
+A relation can be well-qualified while requiring no
+choice against another relation.
+
+Therefore:
+
+qualified relation
+!=
+human review item.
+
+Likewise:
+
+multiple qualified relations
+!=
+human review item.
+
+==================================================
+4. Review-status ontology
+==================================================
+
+For each target assign one of:
+
+TRUE_DECISION_PIVOT
+
+QUALIFIED_NONCOMPETING_CANDIDATE
+
+QUALIFIED_COMPATIBLE_SET
+
+DEFERRED_COMPATIBILITY_UNRESOLVED
+
+EVIDENCE_GAP_NOT_STRUCTURAL_DECISION
+
+NO_QUALIFIED_RELATION
+
+EXPLICIT_NEGATIVE_CONFLICT
+
+GLOBAL_CONSTRAINT_DECISION
+
+UNRESOLVED_REVIEW_STATUS
+
+Definitions:
+
+TRUE_DECISION_PIVOT:
+two or more positively qualified structural assignments
+cannot simultaneously be true.
+
+QUALIFIED_NONCOMPETING_CANDIDATE:
+one qualified structural relation exists,
+but it is NOT human-accepted or canonical.
+
+QUALIFIED_COMPATIBLE_SET:
+multiple positive relations coexist under current
+structural constraints.
+
+DEFERRED_COMPATIBILITY_UNRESOLVED:
+compatibility cannot yet be established,
+but no positive incompatibility has been demonstrated.
+
+EVIDENCE_GAP_NOT_STRUCTURAL_DECISION:
+reference/valency/domain/etc. remains unresolved,
+but no competing positive structural assignments exist.
+
+==================================================
+5. Critical rule
+==================================================
+
+HUMAN_ADJUDICATION_REQUIRED only if:
+
+at least two POSITIVE structural commitments
+are mutually incompatible
+
+OR
+
+one positive structural commitment conflicts with an
+explicit, independently constrained NO_RELATION / EXCLUDED
+commitment.
+
+Do NOT create human review merely because:
+
+- evidence is incomplete;
+- identity is unresolved;
+- one candidate lacks acceptance;
+- more than one parallel peer exists;
+- mother and parallel relations coexist;
+- a target belongs to a variant component;
+- source mechanisms disagree only in provenance;
+- a relation has several evidence paths.
+
+==================================================
+6. Unselected remains undecided
+==================================================
+
+Preserve:
+
+UNSELECTED = UNDECIDED
+
+not:
+
+UNSELECTED = NO_RELATION.
+
+Therefore:
+
+variant A selects relation R
+
+variant B simply omits R
+
+does NOT constitute a decision pivot.
+
+==================================================
+7. Structural dimensions
+==================================================
+
+Reuse Q1.3 distinctions.
+
+A.
+MOTHER DIMENSION
+
+At most one accepted mother per daughter in a final
+strict hierarchy.
+
+Two different positive mother assignments for the same
+target are mutually exclusive.
+
+B.
+PARALLEL DIMENSION
+
+Zero, one, or multiple parallel peers may coexist.
+
+Peer multiplicity is not competition by itself.
+
+C.
+ORTHOGONAL RELATIONS
+
+A target may simultaneously have:
+
+mother M
+parallel peer P
+
+unless an independent structural constraint proves
+incompatibility.
+
+D.
+OVERLAY / NON-HIERARCHICAL RELATIONS
+
+Do not consume the mother slot.
+
+==================================================
+8. Same-pair conflict
+==================================================
+
+For the same source-target pair:
+
+HYPOTACTIC
+
+versus
+
+PARATACTIC
+
+are positive incompatible commitments,
+unless explicitly modeled as relations on distinct layers.
+
+Classify such cases as:
+
+TRUE_PAIR_RELATION_CONFLICT.
+
+Do not assume any exist.
+
+==================================================
+9. Global structural coherence
+==================================================
+
+H0.1 must perform a symbolic GLOBAL compatibility audit
+over the 273 qualified relations.
+
+This is still not hierarchy selection.
+
+At minimum enforce only already established hard
+structural contracts:
+
+- at most one mother per daughter;
+- strict mother relations cannot form a directed cycle;
+- explicit same-pair HYPOTACTIC/PARATACTIC incompatibility;
+- explicit SB12 hard conflicts, if any;
+- explicit NO_RELATION/EXCLUDED constraints, if any.
+
+Do NOT introduce:
+
+nearest mother
+shortest span
+longest span
+chapter hierarchy
+semantic outline
+human historical parentage.
+
+==================================================
+10. Parallel constraints
+==================================================
+
+Do not force all parallel peers to have an already known
+shared mother.
+
+Do not require canonical level assignment.
+
+However, if a PARATACTIC relation and strict mother paths
+would make one peer a strict ancestor/descendant of the other,
+record:
+
+PARALLEL_HIERARCHY_INCOMPATIBILITY_CANDIDATE.
+
+Only classify as a true conflict when the incompatibility
+follows from already-qualified positive relations and the
+formal parataxis contract.
+
+Otherwise retain:
+
+DEFERRED_COMPATIBILITY_UNRESOLVED.
+
+==================================================
+11. Symbolic coherent assignments
+==================================================
+
+Represent:
+
+COHERENT_ASSIGNMENT = {
+    mother_assignment: zero_or_one,
+    parallel_peers: zero_or_many,
+    overlay_relations: zero_or_many,
+    explicit_exclusions: zero_or_many,
+    undecided_relations: zero_or_many
+}
+
+Do not enumerate the Cartesian product of all undecided edges.
+
+Use symbolic constraint components.
+
+Explicit assignments are required only where distinct
+positive commitments must be compared.
+
+==================================================
+12. Conflict component
+==================================================
+
+Build:
+
+STRUCTURAL_DECISION_COMPONENT
+
+only from relations connected by an actual incompatibility
+or hard conditional constraint.
+
+Do NOT build components merely because relations share:
+
+target
+mechanism
+configuration family
+reference domain
+variant component.
+
+For each component record:
+
+component_id
+targets
+relation_ids
+constraint_types
+coherent positive assignments
+decision_required
+reason
+
+==================================================
+13. True pivot
+==================================================
+
+A target/component becomes a TRUE_DECISION_PIVOT only if
+there exist at least two coherent assignments containing
+different mutually incompatible POSITIVE commitments.
+
+Examples:
+
+mother M1
+vs
+mother M2
+
+same pair hypotactic
+vs
+same pair paratactic
+
+positive relation
+vs
+explicit constrained NO_RELATION.
+
+Non-example:
+
+mother M + parallel P
+vs
+mother M only
+
+because omission of P is UNDECIDED.
+
+==================================================
+14. Single qualified relation
+==================================================
+
+A single relation is NOT automatically accepted.
+
+Record:
+
+QUALIFIED_NONCOMPETING_CANDIDATE.
+
+This means:
+
+“no local structural choice is currently required”
+
+not:
+
+“relation is canonical.”
+
+This distinction must appear in every report.
+
+==================================================
+15. Multiple compatible relations
+==================================================
+
+If a target has:
+
+one mother + one/more compatible peers
+
+or
+
+multiple additive parallel peers
+
+record:
+
+QUALIFIED_COMPATIBLE_SET.
+
+Do not ask human reviewer to choose among them merely
+because count > 1.
+
+==================================================
+16. Evidence gaps
+==================================================
+
+Preserve all unresolved:
+
+reference identity
+valency ownership
+time/location interpretation
+domain visibility
+lexical anaphora
+
+but do not turn these into structural review items
+unless they create competing positive relation assignments.
+
+Create separate:
+
+EVIDENCE_GAP_REGISTER
+
+with:
+
+target
+gap_type
+relevant mechanism
+could_materially_change_current_decision
+status
+
+Allowed:
+
+NO_CURRENT_STRUCTURAL_DECISION_EFFECT
+
+POTENTIAL_FUTURE_EFFECT
+
+UNRESOLVED
+
+Do not speculate a missing relation into existence.
+
+==================================================
+17. Human review universe
+==================================================
+
+Create:
+
+HUMAN_REVIEW_UNIVERSE
+
+containing ONLY:
+
+TRUE_DECISION_PIVOT
+
+GLOBAL_CONSTRAINT_DECISION
+
+EXPLICIT_NEGATIVE_CONFLICT
+
+and any case where current formal contracts prove that
+a human must choose between incompatible positive
+assignments.
+
+Do NOT include:
+
+calibration-only cases
+single candidates
+compatible peer sets
+evidence gaps
+unresolved identity alone.
+
+==================================================
+18. Review packet contract
+==================================================
+
+For every human review item create a compact but complete
+packet containing:
+
+TARGET
+- clause / atom IDs
+- Hebrew surface
+- reference
+
+ALTERNATIVE A
+- source
+- relation
+- structural implication
+
+ALTERNATIVE B
+- source
+- relation
+- structural implication
+
+and more if necessary.
+
+EVIDENCE PER ALTERNATIVE:
+- relation grammar rule(s)
+- primary source-binding mechanism(s)
+- corroborative evidence
+- configuration evidence
+- participant/reference evidence
+- time
+- location
+- lexical FORM evidence
+- valency/pre-relation evidence
+- global constraints
+- evidence provenance IDs
+- shared-raw-evidence warnings
+
+COMPATIBILITY:
+- exact reason alternatives cannot coexist
+
+UNRESOLVED:
+- evidence still missing
+
+Do NOT:
+- score;
+- rank;
+- recommend;
+- select;
+- label one “better.”
+
+==================================================
+19. Evidence role display
+==================================================
+
+Use the Q1.6R ontology in review packets.
+
+Separate:
+
+PRE_RELATION_STRUCTURE
+
+PRIMARY_SOURCE_BINDING
+
+CORROBORATIVE_RELATION_EVIDENCE
+
+REFERENCE_VISIBILITY_CONTEXT
+
+CONFIGURATION_CONTEXT
+
+POST_RELATION_VALIDATION
+
+GLOBAL_CONSTRAINT
+
+Do not present all observations as equal “votes.”
+
+==================================================
+20. Job blind execution
+==================================================
+
+Run the sieve across all Job qualified relations first.
+
+Do NOT place any known diagnostic target ID in core
+classification logic.
+
+Only after outputs freeze,
+inspect special cases.
+
+==================================================
+21. Job 37:20 post-freeze diagnostic
+==================================================
+
+After generic H0.1 output is frozen,
+inspect the currently known Q1.6R pivot locus.
+
+Do not hard-code:
+
+500065
+
+into sieve logic.
+
+Post-freeze report:
+
+- whether the target remains a TRUE_DECISION_PIVOT;
+- all qualified mother alternatives;
+- exact incompatibility;
+- primary source-binding evidence;
+- shared evidence;
+- Q1.6 ablation information;
+- unresolved evidence.
+
+Do NOT select a mother.
+
+If generic H0.1 no longer finds it as a pivot,
+report why.
+
+==================================================
+22. Historical H0 comparison
+==================================================
+
+After current results freeze, compare descriptively:
+
+RAW:
+1,049,504
+
+historical H0 relation eligible:
+95,929
+
+historical H0 review-required targets:
+2,719
+
+current Q1.6R qualified:
+273
+
+current H0.1 human review items:
+<computed>
+
+Explain reductions by stage:
+
+SEARCH CANDIDATE
+→ SOURCE-BOUND QUALIFIED RELATION
+→ COMPATIBILITY
+→ TRUE STRUCTURAL DECISION
+
+Do not call this accuracy improvement unless independently
+validated.
+
+==================================================
+23. Nondecision audit
+==================================================
+
+To ensure the sieve is not hiding systematic cases,
+create a NONDECISION AUDIT.
+
+Group all non-review qualified relations by:
+
+relation type
+binding mode
+primary mechanism
+configuration family/signature where applicable
+review status
+
+For every observed group output:
+
+group count
+all structural-status types
+one deterministic representative
+representative selection provenance
+
+Representative selection must be deterministic,
+for example stable lexical/key ordering.
+
+This is QA only.
+
+Do not submit these representatives as human structural
+judgments.
+
+No random sampling.
+
+No top-N scoring.
+
+==================================================
+24. Qualified-relation disposition
+==================================================
+
+Every one of the 273 qualified relations must appear in
+exactly one disposition record.
+
+Possible relation disposition:
+
+PART_OF_TRUE_DECISION
+
+NONCOMPETING_MOTHER_CANDIDATE
+
+ADDITIVE_PARALLEL
+
+ORTHOGONAL_COMPATIBLE
+
+COMPATIBILITY_DEFERRED
+
+CORROBORATED_DUPLICATE_PATH
+
+EXPLICIT_CONFLICT
+
+OTHER_EXPLAINED_STATUS
+
+No qualified relation may disappear.
+
+==================================================
+25. Target disposition
+==================================================
+
+Every Job target must have an H0.1 target status.
+
+But:
+
+NO_QUALIFIED_RELATION targets do not enter review.
+
+Report counts for:
+
+NO_QUALIFIED_RELATION
+
+QUALIFIED_NONCOMPETING_CANDIDATE
+
+QUALIFIED_COMPATIBLE_SET
+
+DEFERRED_COMPATIBILITY_UNRESOLVED
+
+TRUE_DECISION_PIVOT
+
+GLOBAL_CONSTRAINT_DECISION
+
+EXPLICIT_NEGATIVE_CONFLICT
+
+EVIDENCE_GAP_NOT_STRUCTURAL_DECISION
+
+==================================================
+26. No automatic acceptance
+==================================================
+
+Critical:
+
+H0.1 does NOT convert:
+
+qualified
+→ accepted.
+
+Do not add:
+
+human_accepted=true
+
+canonical=true
+
+selected_mother
+
+accepted_hierarchy.
+
+All current relations remain hypothetical candidates.
+
+==================================================
+27. No review count target
+==================================================
+
+Do NOT optimize toward:
+
+1 pivot
+10 cases
+30 cases
+5% review rate
+etc.
+
+The human review universe must follow the structural
+decision contract.
+
+Zero, one, or many review items are all valid outcomes.
+
+==================================================
+28. Required outputs
+==================================================
+
+At minimum:
+
+01_h01_relation_disposition.csv
+02_h01_target_status.csv
+
+03_h01_structural_constraints.csv
+04_h01_relation_compatibility.csv
+05_h01_decision_components.csv
+06_h01_coherent_assignments.csv
+
+07_h01_true_decision_pivots.csv
+08_h01_human_review_universe.csv
+
+09_h01_evidence_gap_register.csv
+10_h01_nondecision_groups.csv
+11_h01_nondecision_representatives.csv
+
+12_h01_review_packets.csv
+13_h01_review_packets.md
+
+14_h01_job_postfreeze_diagnostics.md
+15_h01_historical_h0_comparison.md
+
+16_h01_metrics.json
+17_h01_method_report.md
+18_h01_next_scope.md
+19_h01_gates.csv
+
+90_run_metadata.json
+99_manifest_sha256.csv
+
+==================================================
+29. Metrics
+==================================================
+
+Report:
+
+INPUT
+raw relation universe
+qualified relations = 273
+mother = 203
+parallel = 70
+
+RELATION DISPOSITION
+count by disposition
+
+TARGET STATUS
+count by status
+
+CONSTRAINTS
+mother competitions
+same-pair conflicts
+cycle conflicts
+parallel/hierarchy conflicts
+SB12 hard conflicts
+explicit-negative conflicts
+
+DECISION
+decision components
+true pivots
+human review items
+
+NONDECISION
+single noncompeting
+compatible multi-relation
+deferred compatibility
+evidence gaps
+
+No desired numbers.
+
+==================================================
+30. Synthetic tests
+==================================================
+
+H01-S1
+
+one qualified mother relation
+
+→ QUALIFIED_NONCOMPETING_CANDIDATE
+→ not human review
+→ not accepted.
+
+H01-S2
+
+mother M1 and mother M2 for same target
+
+→ mutually exclusive
+→ TRUE_DECISION_PIVOT.
+
+H01-S3
+
+mother M + parallel P
+
+→ compatible unless independent constraint blocks
+→ no review merely for multiplicity.
+
+H01-S4
+
+parallel P1 + parallel P2
+
+→ additive
+→ no review.
+
+H01-S5
+
+same pair HYPOTACTIC vs PARATACTIC
+
+→ true conflict.
+
+H01-S6
+
+positive relation R in assignment A
+and R UNSELECTED in assignment B
+
+→ no pivot.
+
+H01-S7
+
+explicit NO_RELATION constraint
+vs positive same relation
+
+→ review decision.
+
+H01-S8
+
+reference identity unresolved but only one qualified relation
+
+→ EVIDENCE_GAP_NOT_STRUCTURAL_DECISION
+→ no review.
+
+H01-S9
+
+two mother edges create a directed strict cycle
+
+→ global incompatibility component.
+
+H01-S10
+
+parallel relation plus strict ancestor relation between
+the same two nodes
+
+→ flag structural incompatibility according to formal contract.
+
+H01-S11
+
+two rule paths support same relation
+
+→ corroboration/provenance,
+not separate structural alternative.
+
+H01-S12
+
+every one of 273 qualified relations receives disposition.
+
+H01-S13
+
+historical H0 review label differs from current H0.1
+
+→ historical status has zero effect on current classification.
+
+H01-S14
+
+human review count = 0
+
+→ technically valid.
+
+==================================================
+31. Critical gates
+==================================================
+
+BASELINE_COMMIT_VERIFIED
+
+Q1_6R_FROZEN
+
+RAW_UNIVERSE_UNCHANGED
+
+QUALIFIED_273_PRESERVED
+
+MOTHER_203_PRESERVED
+PARALLEL_70_PRESERVED
+
+HUMAN_JUDGMENTS_13_UNCHANGED
+
+ALL_QUALIFIED_RELATIONS_DISPOSED
+
+ALL_TARGETS_CLASSIFIED
+
+QUALIFIED_NOT_EQUAL_ACCEPTED
+
+MULTIPLE_NOT_EQUAL_REVIEW
+
+UNSELECTED_EQUALS_UNDECIDED
+
+ONE_MOTHER_CONSTRAINT_APPLIED
+
+ADDITIVE_PARALLEL_PRESERVED
+
+ORTHOGONAL_RELATIONS_PRESERVED
+
+SAME_PAIR_CONFLICT_DETECTED
+
+GLOBAL_CYCLE_CONSTRAINT_IMPLEMENTED
+
+EVIDENCE_GAP_NOT_AUTOMATIC_REVIEW
+
+TRUE_PIVOT_REQUIRES_INCOMPATIBLE_POSITIVE_COMMITMENTS
+
+HUMAN_REVIEW_UNIVERSE_DECISION_ONLY
+
+Q16R_EVIDENCE_ROLES_USED
+
+NO_SCORE
+NO_RANKING
+NO_TOP_N
+NO_DISTANCE_HEURISTIC
+
+NO_CANONICAL_MOTHER
+NO_CANONICAL_HIERARCHY
+NO_NEW_HUMAN_JUDGMENT
+
+HISTORICAL_H0_NOT_DISCOVERY_INPUT
+
+JOB_BLIND_BEFORE_POSTFREEZE_DIAGNOSTICS
+
+NO_JOB_DIAGNOSTIC_IDS_IN_CORE_LOGIC
+
+FULL_REGRESSION_PASS
+SKIP_ZERO
+DETERMINISTIC_RERUN
+MANIFEST_VALID
+ZIP_CRC_VALID
+
+==================================================
+32. Stop conditions
+==================================================
+
+STOP if:
+
+A.
+the sieve treats every qualified relation as requiring
+human review;
+
+B.
+a single unopposed candidate becomes automatically accepted;
+
+C.
+multiple compatible parallels become review alternatives;
+
+D.
+unresolved evidence becomes an invented NO_RELATION;
+
+E.
+historical human judgments influence current review eligibility;
+
+F.
+historical H0 labels influence current classification;
+
+G.
+the algorithm ranks alternatives;
+
+H.
+the algorithm selects a canonical mother/hierarchy.
+
+==================================================
+33. Readiness
+==================================================
+
+If the human review universe is reconstructed successfully:
+
+READY_FOR_MFR_0_2R_H0_2
+
+H0.2 purpose:
+
+Human Adjudication of True Structural Decision Pivots
+
+H0.2 must operate ONLY on the H0.1 review packets.
+
+Do NOT proceed automatically.
+
+If H0.1 reveals a compatibility-model defect:
+
+NEEDS_COMPATIBILITY_MODEL_REVIEW
+
+If relation disposition is incomplete:
+
+NEEDS_REVIEW_SIEVE_REPAIR
+
+==================================================
+34. Commit / push
+==================================================
+
+If validation succeeds:
+
+Suggested commit:
+
+Rebuild structural human-review universe
+
+Push origin/main.
+
+Generated releases remain local unless repository policy
+explicitly requires otherwise.
+
+==================================================
+35. FINAL RESPONSE REQUIREMENT — DO NOT OMIT
+==================================================
+
+Print explicitly:
+
+GIT
+- start commit
+- end commit
+- local HEAD
+- origin/main
+- actual remote HEAD
+- working tree
+
+FROZEN INTEGRITY
+- raw universe
+- qualified relations
+- mother/parallel
+- human judgments
+- frozen changes
+
+TARGET STATUS
+- all H0.1 status counts
+
+RELATION DISPOSITION
+- all disposition counts
+- confirmation 273/273 accounted for
+
+STRUCTURAL CONSTRAINTS
+- mother competitions
+- same-pair conflicts
+- cycles
+- parallel/hierarchy conflicts
+- global constraints
+- explicit-negative conflicts
+
+HUMAN REVIEW
+- decision components
+- true pivots
+- human review item count
+- exact target IDs ONLY in final post-freeze report
+- no decisions made
+
+POST-FREEZE
+- Job 37:20 diagnostic disposition
+- historical H0 comparison
+
+VALIDATION
+- focused tests
+- synthetic
+- regression
+- gates
+- skip
+- deterministic A/B
+- manifest
+- CRC
+
+FILES
+- validation report absolute path
+- review packet paths
+- regression log
+
+RESULT ZIP A:
+<absolute path>
+
+RESULT ZIP B:
+<absolute path>
+
+ZIP SHA256:
+<sha256>
+
+State explicitly:
+- ZIP exists
+- CRC passed
+- manifest passed
+- A/B bytes identical
+
+READINESS:
+READY_FOR_MFR_0_2R_H0_2
+or
+NEEDS_COMPATIBILITY_MODEL_REVIEW
+or
+NEEDS_REVIEW_SIEVE_REPAIR
